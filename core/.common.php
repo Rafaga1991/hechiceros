@@ -18,4 +18,12 @@ trait Common{
         }
         return $files;
     }
+
+    public static function generateToken(&$ref=''){
+        $ref = substr(md5(time() . rand(0, 10)), 0, 10);
+        Session::setTemp('__token', $ref);
+        return <<<HTML
+            <input type="hidden" value="$ref" name="__token" id="__token" />
+        HTML;
+    }
 }

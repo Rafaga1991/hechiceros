@@ -1,9 +1,7 @@
 <?php
 
-session_start();
-
 trait Session{
-    public static function set($value, $name){
+    public static function set($name, $value){
         $_SESSION[$name] = $value;
     }
 
@@ -11,8 +9,8 @@ trait Session{
         return $_SESSION[$name] ?? '';
     }
 
-    public static function setTemp($value, $name){
-        $_SESSION['temp'][$name] = $value;
+    public static function setTemp($name, $value){
+        if(!isset($_SESSION['temp'][$name])) $_SESSION['temp'][$name] = $value;
     }
 
     public static function getTemp($name){

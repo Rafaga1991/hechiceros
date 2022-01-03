@@ -7,7 +7,7 @@ class Model extends Database{
 
     public function __construct()
     {
-        $this->tablename = get_class(debug_backtrace()[0]['object']);
+        $this->tablename = strtolower(get_class(debug_backtrace()[0]['object']));
 
         $data = parent::query("DESCRIBE $this->tablename");
         $this->describe = $data;
