@@ -21,7 +21,7 @@ class Request{
             if($this->validate){
                 if($this->validate = array_key_exists('__token', $_REQUEST)){
                     $this->validate = $_REQUEST['__token'] == Session::getTemp('__token');
-                    $this->message[] = 'Token incorrecto.';
+                    $this->message[] = 'Token incorrecto, refresca la página.';
                 }
             }
 

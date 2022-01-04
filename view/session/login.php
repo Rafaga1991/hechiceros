@@ -1,6 +1,6 @@
 <div container='center'>
     <div login="content" position="relative">
-        <div login="title" text-align="center">Inicio de Sesion</div>
+        <div login="title" text-align="center">Inicio de Sesion <br><?=$description?></div>
         <div login="description">
             <div class="form-group">
                 <label class="form-label"><i class="fas fa-user"></i> Usuario</label>

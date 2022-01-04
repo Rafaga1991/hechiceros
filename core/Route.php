@@ -8,7 +8,7 @@ trait Route{
     }
 
     public static function get($name){
-        return self::$routes[$name]['path'] ?? '';
+        return '/' . (self::$routes[$name]['path'] ?? '');
     }
 
     public static function exist($path){
@@ -26,8 +26,12 @@ trait Route{
         $location = '.';
         if(isset($_SERVER['REDIRECT_URL'])){
             $url_data = explode('/', $_SERVER['REDIRECT_URL']);
-            for($i=0; $i<count($url_data)-1; $i++) $location .= '/..';
+            $location = str_repeat('/..', (count($url_data)-1));
         }
         return "$location/assets/$path";
+    }
+
+    public static function isView($name){
+        return strtolower(Session::getPage()) == strtolower($name);
     }
 }

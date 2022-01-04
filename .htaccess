@@ -8,3 +8,9 @@ RewriteRule (.+)$ ?url=$1 [L]
 php_flag log_errors on
 php_value error_reporting 32767
 php_value error_log "error_log.txt"
+
+# forzar redireccionamiento con https
+RewriteEngine On
+RewriteCond %{HTTP:X-Forwarded-Proto} !https [OR]
+RewriteCond %{HTTPS} off
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]

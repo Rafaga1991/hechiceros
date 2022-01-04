@@ -13,7 +13,7 @@
 }
 
 [login~=content]:hover{
-    --transform-scale: scale(.99);
+    --transform-scale: scale(.999);
     -webkit-transform: var(--transform-scale);
     -o-transform: var(--transform-scale);
     -ms-transform: var(--transform-scale);
@@ -23,19 +23,14 @@
 }
 
 [login~=title], [login~=description], [login~=footer]{
-    padding: 1rem .5rem 0 .5rem;
+    padding: 1rem;
     box-sizing: border-box;
 }
 
 [login~=title]{
     width: 100%;
     height: auto;
-    padding: 1rem;
     background-color: var(--color-primary);
     color: var(--color-white);
     font-weight: 700;
-}
-
-[login~=footer]{
-    padding-bottom: 1rem;
 }

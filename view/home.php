@@ -1,6 +1,6 @@
-<div menu="content">
-    <div row>
-        <div col>1</div>
-        <div col>2</div>
-    </div>
+{!menu!}
+<br>
+<div class="pt-5" container="fluid">
+    <?php foreach ($memberList as $index => $members):?>
+    <?php endforeach;?>
 </div>

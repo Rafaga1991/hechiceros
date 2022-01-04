@@ -2,7 +2,7 @@
 
 class LoginController extends Controller{
     public function index(){
-        return $this->view('session/login');
+        return $this->view('session/login', Session::get('clan-info'));
     }
 
     public function isUser(Request $request){
@@ -16,11 +16,10 @@ class LoginController extends Controller{
              if(!empty($user_data)){
                  $data['state'] = $user_data[0]['status'] ? 'allow' : 'block';
                  if($user_data[0]['status']){
-                     Session::set(
-                         '_LOGIN_',
+                     Session::login(
                          array_merge(
                              ['auth'=>true],
-                             ['data' => $user_data]
+                             ['data' => $user_data[0]]
                          )
                      );
                  }
@@ -29,6 +28,11 @@ class LoginController extends Controller{
             $data['message'] = $request->getMessage();
         }
         echo json_encode($data);
+        exit();
+    }
+
+    public function close(){
+        Session::destroy('_LOGIN_');
         exit();
     }
 }

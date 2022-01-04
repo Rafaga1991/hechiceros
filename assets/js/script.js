@@ -226,3 +226,8 @@
     });
 })()
 
+function exit(){
+    $.post('login/close', ()=>{
+        location.reload();
+    });
+}

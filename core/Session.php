@@ -1,12 +1,12 @@
 <?php
 
-trait Session{
+class Session{
     public static function set($name, $value){
         $_SESSION[$name] = $value;
     }
 
-    public static function get($name){
-        return $_SESSION[$name] ?? '';
+    public static function get($name=null){
+        return $_SESSION[$name] ?? $_SESSION;
     }
 
     public static function setTemp($name, $value){
@@ -30,7 +30,7 @@ trait Session{
     }
 
     public static function setPage($value, $name='__PAGE__'){
-        $_SESSION['page'][$name][] = $value;
+        $_SESSION['page'][$name] = $value;
     }
 
     public static function getPage($name='__PAGE__'){
@@ -62,5 +62,9 @@ trait Session{
 
     public static function login($credential){
         $_SESSION['_LOGIN_'] = $credential;
+    }
+
+    public static function user($name='username'){
+        return $_SESSION['_LOGIN_']['data'][$name] ?? '';
     }
 }

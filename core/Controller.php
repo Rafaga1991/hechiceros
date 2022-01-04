@@ -3,6 +3,7 @@
 class Controller{
     private function loadPage($path, $value=''){
         ob_start();
+        extract($value, EXTR_PREFIX_SAME, 'dta');
         include $path;
         $ob = ob_get_contents();
         ob_clean();
