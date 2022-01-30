@@ -4,9 +4,8 @@ class Route{
     private $routes = [];
     private $path = '';
     private $controller = [];
-    private $name = 'url';
+    private $name = null;
     private $auth = false;
-    private $view = '';
 
     private static $redirects = null;
 
@@ -33,100 +32,166 @@ class Route{
     }
 
     public function save(){
+        $this->name = $this->name ?? 0;
         $this->routes[$this->name] = [
             'path' => $this->path,
             'auth' => $this->auth,
             'action' => implode('/', $this->controller),
             'controller' => $this->controller[0],
-            'function' => $this->controller[1]
+            'function' => $this->controller[1],
+            'name' => $this->name
         ];
+        $this->name = count($this->routes);
+        $this->auth = false;
         return $this;
     }
 
-    public function get(string $name):string{
-        if($value = ($this->routes[$name] ?? false)){
-            if($value['auth'] == Session::auth()){
-                return HOST . "/{$value['path']}";
+    public static function get(string $name):string{
+        $routes = Session::get('_ROUTES_');
+        foreach($routes as $name_route => $route){
+            if($name_route == $name){
+                if($route['auth'] == Session::auth()){
+                    if($route['path'] != '/'){
+                        return HOST . "{$route['path']}";
+                    }else{
+                        return HOST;
+                    }
+                }
             }
         }
         return '#';
     }
 
+    private function objectExist(string $class, string $function):bool{
+        $exist = false;
+        if(class_exists($class)){
+            if(method_exists($class, $function)) $exist = true;
+            else Message::add("La función <b>$function</b> no existe");
+        }else{
+            Message::add("La clase <b>$class</b> no existe");
+        }
+        return $exist;
+    }
+
     public function init(&$view){
+        $error = [// mensajes de posibles errores peligrosos
+            '403' => 'ERROR [{ERROR}] No tienes permiso para acceder a esta ruta.',
+            '404' => 'ERROR [{ERROR}] La p&aacute;gina no existe.',
+            '500' => 'ERROR [{ERROR}] La p&aacute;gina no existe.'
+        ];
+
         $url = parse_url($_SERVER['REQUEST_URI']);
         $query = parse_ini_string(implode("\n", explode('&', $url['query'] ?? '')));
         $request = new Request($query);
         $url = $url['path'];
+        $tpm_url = [];
         $action = array_values(array_filter(explode('/', $url)));
-        $data = ['controller' => '/', 'function' => '', 'params' => '', 'existparam' => false, 'cantparam' => 0];
-        $id = '';
-
+        $data = [
+            'url' => '',
+            'params' => '', 
+            'existparam' => false, 
+            'cantparam' => 0, 
+            'route' => null, 
+            'api' => Api::exist($request->__token), 
+            'error' => null
+        ];
+        
         foreach($action as $index => $item){
-            if($index == 0){
-                $data['controller'] = $item;
-            }elseif($index == 1){
-                $data['function'] = "/$item";
-            }else{
-                if($index == 2) $id = $item;
+            if($index <= 1){
+                $tpm_url[] = $item;
+            }elseif($index > 1){
                 $data['params'] .= "'$item',";
                 $data['existparam'] = true;
                 $data['cantparam']++;
+            }elseif($index == 0 && array_key_exists($item, $error)){
+                $data['error'] = ['type' => $item, 'message' => str_replace('{ERROR}', $item, $error[$item])];
+            }
+
+            if($route = $this->isRoute($item)){
+                $data['route'] = unserialize($route);
             }
         }
-
+        
         $data['params'] = substr($data['params'], 0, strlen($data['params'])-1);
-        $url = "{$data['controller']}{$data['function']}";
-
-        if($route = $this->getRoute($url)){
-            if($route['auth'] == Session::auth()){
+        
+        if($data['route']){
+            $route = $data['route']['route'];
+            if($this->objectExist($route['controller'], $route['function'])){
+                Session::set('_view_', $route['name']);
                 ${$route['controller']} = new $route['controller']();
-                $val = new ReflectionMethod($route['controller'], $route['function']);
-                $cantParam = count($val->getParameters());
-
-                if($value = $this->isRoute($id)){
-                    $value = unserialize($value);
-                    $view = ${$route['controller']}->{$route['function']}($value['data']);
+                if($request->isData() && $data['existparam']){
+                    eval('$view = $' . $route['controller'] . '->' . $route['function'] . '($request,' . $data['route']['data'] . ',' . $data['params'] . ');');
+                }elseif($request->isData()){
+                    eval('$view = $' . $route['controller'] . '->' . $route['function'] . '($request,"' . $data['route']['data'] . '");');
+                }elseif($data['existparam']){
+                    eval('$view = $' . $route['controller'] . '->' . $route['function'] . '(' . $data['route']['data'] . ',' . $data['params'] . ');');
                 }else{
-                    if($request->isData()){
-                        if(++$data['cantparam'] == $cantParam){
-                            if($data['existparam']){
-                                eval('$view = $' . "{$route['controller']}->{$route['function']}($" . "request,{$data['params']});");
-                            }else{
-                                $view = ${$route['controller']}->{$route['function']}($request);
-                            }
-                        }else{
-                            Errors::add("El metodo \"<b>{$route['function']}</b>\" recive $cantParam parametro.");
-                        }
-                    }elseif($data['existparam']){// parametros en la url
-                        if($data['cantparam'] == $cantParam){
-                            eval('$' . 'view = $' . "{$route['controller']}->{$route['function']}({$data['params']});");
-                        }else{
-                            Errors::add("El metodo \"<b>{$route['controller']}::{$route['function']}</b>\" recive $cantParam parametro.");
-                        }
+                    $view = ${$route['controller']}->{$route['function']}($data['route']['data']);
+                }
+            }
+        }elseif($route = ($this->getRoute($url) ?? $this->getRoute('/' . join('/', $tpm_url)))){
+            if($route['auth'] == Session::auth()){
+                if($this->objectExist($route['controller'], $route['function'])){
+                    Session::set('_view_', $route['name']);
+
+                    ${$route['controller']} = new $route['controller']();
+        
+                    $reflection = new ReflectionMethod($route['controller'], $route['function']);
+    
+                    if($request->isData() && $data['existparam']){
+                        eval('$view = $' . $route['controller'] . '->' . $route['function'] . '($request,' . $data['params'] . ');');
+                    }elseif($request->isData()){
+                        $view = ${$route['controller']}->{$route['function']}($request);
+                    }elseif($data['existparam']){
+                        eval('$view = $' . $route['controller'] . '->' . $route['function'] . '(' . $data['params'] . ');');
+                    }elseif($reflection->getNumberOfParameters() == 0){
+                        $view = ${$route['controller']}->{$route['function']}();
                     }else{
-                        if($data['cantparam'] == $cantParam){
-                            $view = ${$route['controller']}->{$route['function']}();
-                        }else{
-                            Errors::add("El metodo \"<b>{$route['controller']}::{$route['function']}</b>\" recive $cantParam parametro.");
-                        }
+                        Message::add('Se requieren parametros para esta url.');
                     }
                 }
-                
             }else{
                 if(Session::auth()){
-                    Errors::add("Debes cerrar sesión para acceder a <b>\"$url\"</b>.");
+                    Message::add('Debes cerrar sessión para acceder a esta ruta.');
                 }else{
-                    Errors::add("Debes estar logueado para acceder a la ruta <b>\"$url\"</b>.");
+                    Message::add('Debes estar autenticado para acceder a esta ruta.');
                 }
             }
         }else{
-            Errors::add("La ruta \"<b>$url</b>\" no existe.");
+            Message::add("La url \"<b>$url</b>\" no existe!");
+        }
+
+        if(is_array($view)){
+            $view = json_encode($view);
+        }elseif(is_object($view)){
+            $view = serialize($view);
+        }else{
+            $token = md5(microtime());
+            $view = str_ireplace(['</form>', '{!!TOKEN!!}'], ["<input type='hidden' name='__token' value='$token' /></form>", $token], $view, $cant);
+            if($cant) Session::set('__token', $token);
+        }
+
+        if($data['api']){
+            if(!Message::exist()){// verificando si existen errores
+                echo $view;// mostrando resultados de la consulta
+            }else{
+                echo json_encode([
+                    'message' => 'Se requieren parametros.', 
+                    'type' => 'error'
+                ]);
+            }
+            exit;// finalizando programa
+        }
+
+        if($data['error']){// verificando si existen errores en la redireccion
+            Message::clear();// borrando errores anteriores
+            Message::add($data['error']['message'], 'danger');// agregando nuevo error
         }
     }
 
-    private function getRoute($action){
+    private function getRoute($path){
         foreach($this->routes as $route){
-            if(strtolower($action) == strtolower($route['path'])){
+            if(strtolower($path) == strtolower($route['path'])){
                 return $route;
             }
         }
@@ -138,7 +203,17 @@ class Route{
     }
 
     private function isRoute($id){
-        return Session::get('route')[$id] ?? false;
+        return Session::get('route')[$id] ?? null;
+    }
+
+    public static function actionAccess(array $action){
+        $routes = Session::get('_ROUTES_');
+        foreach($routes as $value){
+            if(implode('/', $action) == $value['action']){
+                return $value['auth'] == Session::auth();
+            }
+        }
+        return false;
     }
 
     public static function redirect(string $name, $data = null){
@@ -148,5 +223,9 @@ class Route{
             return "{$route['path']}/$id";
         }
         return '#';
+    }
+
+    public static function isView(string $viewname){
+        return Session::get('_view_') == $viewname;
     }
 }

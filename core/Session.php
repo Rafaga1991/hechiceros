@@ -9,6 +9,32 @@
  * @copyright R.M.B
  */
 class Session{
+    private static $limit_expire = 3600;// 1 hora en segundos
+
+    /**
+     * Inicializa la sesión
+     * 
+     * @access public
+     * @return void sin retorno.
+     * @author Rafael Minaya
+     * @copyright R.M.B.
+     * @version 1.0
+     */
+    public static function init(){
+        date_default_timezone_set('America/Santo_Domingo');
+        session_start();
+
+        foreach($_SESSION as $name => $value){
+            if(is_array($value)){
+                if(time() > $value['expire']){
+                    unset($_SESSION[$name]);
+                }else{
+                    $_SESSION[$name]['expire'] = time()+self::$limit_expire;
+                }
+            }
+        }
+    }
+
     /**
      * Agrega un nuevo indice con valor en sesion.
      * 

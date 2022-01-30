@@ -1,7 +1,11 @@
 <?php
 
-class HomeController{
+class HomeController extends Controller{
     public function index(){
-        return view('home');
+        return $this->redirect('show');
+    }
+
+    public function show(){
+        return 'si';
     }
 }

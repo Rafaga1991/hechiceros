@@ -1,13 +1,19 @@
 <?php
 
-class LoginController{
-    public function index(){
-        $people = new People();
-        $peoples = $people->get();
-        return view('login', $peoples);
-    }
+class LoginController extends Controller{
+	public function index():string{
+		return view('view/login/index');
+	}
 
-    public function showData(People $people){
-        vdump($people->last_name);
-    }
+	public function show($id):string{
+		return view('');
+	}
+
+	public function update(Request $request):string{
+		return view('');
+	}
+
+	public function destroy(Request $request):string{
+		return view('view/login/index');
+	}
 }
