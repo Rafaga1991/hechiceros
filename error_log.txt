@@ -1,0 +1,902 @@
+[12-Jan-2022 12:41:02 Europe/Berlin] PHP Warning:  parse_ini_file(/config.cfg): failed to open stream: No such file or directory in C:\xampp\htdocs\hechiceros\core\functions.php on line 129
+[12-Jan-2022 12:41:02 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\hechiceros\core\functions.php on line 130
+[12-Jan-2022 12:41:02 Europe/Berlin] PHP Warning:  require_once(/route.php): failed to open stream: No such file or directory in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 9
+[12-Jan-2022 12:41:02 Europe/Berlin] PHP Fatal error:  require_once(): Failed opening required '/route.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 9
+[12-Jan-2022 12:41:02 Europe/Berlin] PHP Warning:  parse_ini_file(/config.cfg): failed to open stream: No such file or directory in C:\xampp\htdocs\hechiceros\core\functions.php on line 129
+[12-Jan-2022 12:41:02 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\hechiceros\core\functions.php on line 130
+[12-Jan-2022 12:41:02 Europe/Berlin] PHP Warning:  require_once(/route.php): failed to open stream: No such file or directory in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 9
+[12-Jan-2022 12:41:02 Europe/Berlin] PHP Fatal error:  require_once(): Failed opening required '/route.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 9
+[12-Jan-2022 12:44:03 Europe/Berlin] PHP Warning:  parse_ini_file(/config.cfg): failed to open stream: No such file or directory in C:\xampp\htdocs\hechiceros\core\functions.php on line 130
+[12-Jan-2022 12:44:03 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\hechiceros\core\functions.php on line 131
+[12-Jan-2022 12:44:03 Europe/Berlin] PHP Warning:  require_once(/route.php): failed to open stream: No such file or directory in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 9
+[12-Jan-2022 12:44:03 Europe/Berlin] PHP Fatal error:  require_once(): Failed opening required '/route.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 9
+[12-Jan-2022 12:44:03 Europe/Berlin] PHP Warning:  parse_ini_file(/config.cfg): failed to open stream: No such file or directory in C:\xampp\htdocs\hechiceros\core\functions.php on line 130
+[12-Jan-2022 12:44:03 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\hechiceros\core\functions.php on line 131
+[12-Jan-2022 12:44:03 Europe/Berlin] PHP Warning:  require_once(/route.php): failed to open stream: No such file or directory in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 9
+[12-Jan-2022 12:44:03 Europe/Berlin] PHP Fatal error:  require_once(): Failed opening required '/route.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 9
+[12-Jan-2022 12:44:14 Europe/Berlin] PHP Warning:  parse_ini_file(/config.cfg): failed to open stream: No such file or directory in C:\xampp\htdocs\hechiceros\core\functions.php on line 130
+[12-Jan-2022 12:44:14 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\hechiceros\core\functions.php on line 131
+[12-Jan-2022 12:44:14 Europe/Berlin] PHP Warning:  require_once(/route.php): failed to open stream: No such file or directory in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 9
+[12-Jan-2022 12:44:14 Europe/Berlin] PHP Fatal error:  require_once(): Failed opening required '/route.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 9
+[12-Jan-2022 12:44:14 Europe/Berlin] PHP Warning:  parse_ini_file(/config.cfg): failed to open stream: No such file or directory in C:\xampp\htdocs\hechiceros\core\functions.php on line 130
+[12-Jan-2022 12:44:14 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\hechiceros\core\functions.php on line 131
+[12-Jan-2022 12:44:14 Europe/Berlin] PHP Warning:  require_once(/route.php): failed to open stream: No such file or directory in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 9
+[12-Jan-2022 12:44:14 Europe/Berlin] PHP Fatal error:  require_once(): Failed opening required '/route.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 9
+[12-Jan-2022 12:45:06 Europe/Berlin] PHP Warning:  parse_ini_file(/config.cfg): failed to open stream: No such file or directory in C:\xampp\htdocs\hechiceros\core\functions.php on line 131
+[12-Jan-2022 12:45:06 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\hechiceros\core\functions.php on line 132
+[12-Jan-2022 12:45:06 Europe/Berlin] PHP Warning:  require_once(/route.php): failed to open stream: No such file or directory in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 9
+[12-Jan-2022 12:45:06 Europe/Berlin] PHP Fatal error:  require_once(): Failed opening required '/route.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 9
+[12-Jan-2022 12:45:06 Europe/Berlin] PHP Warning:  parse_ini_file(/config.cfg): failed to open stream: No such file or directory in C:\xampp\htdocs\hechiceros\core\functions.php on line 131
+[12-Jan-2022 12:45:06 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\hechiceros\core\functions.php on line 132
+[12-Jan-2022 12:45:06 Europe/Berlin] PHP Warning:  require_once(/route.php): failed to open stream: No such file or directory in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 9
+[12-Jan-2022 12:45:06 Europe/Berlin] PHP Fatal error:  require_once(): Failed opening required '/route.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 9
+[12-Jan-2022 12:45:08 Europe/Berlin] PHP Warning:  parse_ini_file(/config.cfg): failed to open stream: No such file or directory in C:\xampp\htdocs\hechiceros\core\functions.php on line 131
+[12-Jan-2022 12:45:08 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\hechiceros\core\functions.php on line 132
+[12-Jan-2022 12:45:08 Europe/Berlin] PHP Warning:  require_once(/route.php): failed to open stream: No such file or directory in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 9
+[12-Jan-2022 12:45:08 Europe/Berlin] PHP Fatal error:  require_once(): Failed opening required '/route.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 9
+[12-Jan-2022 12:45:08 Europe/Berlin] PHP Warning:  parse_ini_file(/config.cfg): failed to open stream: No such file or directory in C:\xampp\htdocs\hechiceros\core\functions.php on line 131
+[12-Jan-2022 12:45:08 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\hechiceros\core\functions.php on line 132
+[12-Jan-2022 12:45:08 Europe/Berlin] PHP Warning:  require_once(/route.php): failed to open stream: No such file or directory in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 9
+[12-Jan-2022 12:45:08 Europe/Berlin] PHP Fatal error:  require_once(): Failed opening required '/route.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 9
+[12-Jan-2022 12:45:19 Europe/Berlin] PHP Warning:  parse_ini_file(/config.cfg): failed to open stream: No such file or directory in C:\xampp\htdocs\hechiceros\core\functions.php on line 131
+[12-Jan-2022 12:45:19 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\hechiceros\core\functions.php on line 132
+[12-Jan-2022 12:45:19 Europe/Berlin] PHP Warning:  require_once(/route.php): failed to open stream: No such file or directory in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 9
+[12-Jan-2022 12:45:19 Europe/Berlin] PHP Fatal error:  require_once(): Failed opening required '/route.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 9
+[12-Jan-2022 12:45:19 Europe/Berlin] PHP Warning:  parse_ini_file(/config.cfg): failed to open stream: No such file or directory in C:\xampp\htdocs\hechiceros\core\functions.php on line 131
+[12-Jan-2022 12:45:19 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\hechiceros\core\functions.php on line 132
+[12-Jan-2022 12:45:19 Europe/Berlin] PHP Warning:  require_once(/route.php): failed to open stream: No such file or directory in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 9
+[12-Jan-2022 12:45:19 Europe/Berlin] PHP Fatal error:  require_once(): Failed opening required '/route.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 9
+[12-Jan-2022 12:45:30 Europe/Berlin] PHP Warning:  parse_ini_file(/config.cfg): failed to open stream: No such file or directory in C:\xampp\htdocs\hechiceros\core\functions.php on line 131
+[12-Jan-2022 12:45:30 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\hechiceros\core\functions.php on line 132
+[12-Jan-2022 12:45:30 Europe/Berlin] PHP Warning:  require_once(/route.php): failed to open stream: No such file or directory in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 9
+[12-Jan-2022 12:45:30 Europe/Berlin] PHP Fatal error:  require_once(): Failed opening required '/route.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 9
+[12-Jan-2022 12:45:31 Europe/Berlin] PHP Warning:  parse_ini_file(/config.cfg): failed to open stream: No such file or directory in C:\xampp\htdocs\hechiceros\core\functions.php on line 131
+[12-Jan-2022 12:45:31 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\hechiceros\core\functions.php on line 132
+[12-Jan-2022 12:45:31 Europe/Berlin] PHP Warning:  require_once(/route.php): failed to open stream: No such file or directory in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 9
+[12-Jan-2022 12:45:31 Europe/Berlin] PHP Fatal error:  require_once(): Failed opening required '/route.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 9
+[12-Jan-2022 12:46:11 Europe/Berlin] PHP Warning:  parse_ini_file(/config.cfg): failed to open stream: No such file or directory in C:\xampp\htdocs\hechiceros\core\functions.php on line 131
+[12-Jan-2022 12:46:11 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\hechiceros\core\functions.php on line 132
+[12-Jan-2022 12:46:11 Europe/Berlin] PHP Warning:  require_once(/route.php): failed to open stream: No such file or directory in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 9
+[12-Jan-2022 12:46:11 Europe/Berlin] PHP Fatal error:  require_once(): Failed opening required '/route.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 9
+[12-Jan-2022 12:46:12 Europe/Berlin] PHP Warning:  parse_ini_file(/config.cfg): failed to open stream: No such file or directory in C:\xampp\htdocs\hechiceros\core\functions.php on line 131
+[12-Jan-2022 12:46:12 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\hechiceros\core\functions.php on line 132
+[12-Jan-2022 12:46:12 Europe/Berlin] PHP Warning:  require_once(/route.php): failed to open stream: No such file or directory in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 9
+[12-Jan-2022 12:46:12 Europe/Berlin] PHP Fatal error:  require_once(): Failed opening required '/route.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 9
+[12-Jan-2022 12:46:28 Europe/Berlin] PHP Warning:  parse_ini_file(/config.cfg): failed to open stream: No such file or directory in C:\xampp\htdocs\hechiceros\core\functions.php on line 131
+[12-Jan-2022 12:46:28 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\hechiceros\core\functions.php on line 132
+[12-Jan-2022 12:46:28 Europe/Berlin] PHP Warning:  require_once(/route.php): failed to open stream: No such file or directory in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 9
+[12-Jan-2022 12:46:28 Europe/Berlin] PHP Fatal error:  require_once(): Failed opening required '/route.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 9
+[12-Jan-2022 12:46:28 Europe/Berlin] PHP Warning:  parse_ini_file(/config.cfg): failed to open stream: No such file or directory in C:\xampp\htdocs\hechiceros\core\functions.php on line 131
+[12-Jan-2022 12:46:28 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\hechiceros\core\functions.php on line 132
+[12-Jan-2022 12:46:28 Europe/Berlin] PHP Warning:  require_once(/route.php): failed to open stream: No such file or directory in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 9
+[12-Jan-2022 12:46:28 Europe/Berlin] PHP Fatal error:  require_once(): Failed opening required '/route.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 9
+[12-Jan-2022 12:46:35 Europe/Berlin] PHP Warning:  parse_ini_file(/config.cfg): failed to open stream: No such file or directory in C:\xampp\htdocs\hechiceros\core\functions.php on line 131
+[12-Jan-2022 12:46:35 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\hechiceros\core\functions.php on line 132
+[12-Jan-2022 12:46:35 Europe/Berlin] PHP Warning:  require_once(/route.php): failed to open stream: No such file or directory in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 9
+[12-Jan-2022 12:46:35 Europe/Berlin] PHP Fatal error:  require_once(): Failed opening required '/route.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 9
+[12-Jan-2022 12:46:35 Europe/Berlin] PHP Warning:  parse_ini_file(/config.cfg): failed to open stream: No such file or directory in C:\xampp\htdocs\hechiceros\core\functions.php on line 131
+[12-Jan-2022 12:46:35 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\hechiceros\core\functions.php on line 132
+[12-Jan-2022 12:46:35 Europe/Berlin] PHP Warning:  require_once(/route.php): failed to open stream: No such file or directory in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 9
+[12-Jan-2022 12:46:35 Europe/Berlin] PHP Fatal error:  require_once(): Failed opening required '/route.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 9
+[12-Jan-2022 12:47:08 Europe/Berlin] PHP Notice:  Array to string conversion in C:\xampp\htdocs\hechiceros\core\functions.php on line 76
+[12-Jan-2022 12:47:08 Europe/Berlin] PHP Warning:  parse_ini_file(/config.cfg): failed to open stream: No such file or directory in C:\xampp\htdocs\hechiceros\core\functions.php on line 131
+[12-Jan-2022 12:47:08 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\hechiceros\core\functions.php on line 132
+[12-Jan-2022 12:47:08 Europe/Berlin] PHP Notice:  Array to string conversion in C:\xampp\htdocs\hechiceros\core\functions.php on line 76
+[12-Jan-2022 12:47:08 Europe/Berlin] PHP Warning:  require_once(/route.php): failed to open stream: No such file or directory in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 9
+[12-Jan-2022 12:47:08 Europe/Berlin] PHP Fatal error:  require_once(): Failed opening required '/route.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 9
+[12-Jan-2022 12:47:08 Europe/Berlin] PHP Notice:  Array to string conversion in C:\xampp\htdocs\hechiceros\core\functions.php on line 76
+[12-Jan-2022 12:47:08 Europe/Berlin] PHP Warning:  parse_ini_file(/config.cfg): failed to open stream: No such file or directory in C:\xampp\htdocs\hechiceros\core\functions.php on line 131
+[12-Jan-2022 12:47:08 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\hechiceros\core\functions.php on line 132
+[12-Jan-2022 12:47:08 Europe/Berlin] PHP Notice:  Array to string conversion in C:\xampp\htdocs\hechiceros\core\functions.php on line 76
+[12-Jan-2022 12:47:08 Europe/Berlin] PHP Warning:  require_once(/route.php): failed to open stream: No such file or directory in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 9
+[12-Jan-2022 12:47:08 Europe/Berlin] PHP Fatal error:  require_once(): Failed opening required '/route.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 9
+[12-Jan-2022 12:47:25 Europe/Berlin] PHP Warning:  parse_ini_file(/config.cfg): failed to open stream: No such file or directory in C:\xampp\htdocs\hechiceros\core\functions.php on line 131
+[12-Jan-2022 12:47:25 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\hechiceros\core\functions.php on line 132
+[12-Jan-2022 12:47:25 Europe/Berlin] PHP Warning:  require_once(/route.php): failed to open stream: No such file or directory in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 9
+[12-Jan-2022 12:47:25 Europe/Berlin] PHP Fatal error:  require_once(): Failed opening required '/route.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 9
+[12-Jan-2022 12:47:25 Europe/Berlin] PHP Warning:  parse_ini_file(/config.cfg): failed to open stream: No such file or directory in C:\xampp\htdocs\hechiceros\core\functions.php on line 131
+[12-Jan-2022 12:47:25 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\hechiceros\core\functions.php on line 132
+[12-Jan-2022 12:47:25 Europe/Berlin] PHP Warning:  require_once(/route.php): failed to open stream: No such file or directory in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 9
+[12-Jan-2022 12:47:25 Europe/Berlin] PHP Fatal error:  require_once(): Failed opening required '/route.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 9
+[12-Jan-2022 12:47:58 Europe/Berlin] PHP Warning:  parse_ini_file(/config.cfg): failed to open stream: No such file or directory in C:\xampp\htdocs\hechiceros\core\functions.php on line 131
+[12-Jan-2022 12:47:58 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\hechiceros\core\functions.php on line 132
+[12-Jan-2022 12:47:58 Europe/Berlin] PHP Warning:  require_once(/route.php): failed to open stream: No such file or directory in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 9
+[12-Jan-2022 12:47:58 Europe/Berlin] PHP Fatal error:  require_once(): Failed opening required '/route.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 9
+[12-Jan-2022 12:47:59 Europe/Berlin] PHP Warning:  parse_ini_file(/config.cfg): failed to open stream: No such file or directory in C:\xampp\htdocs\hechiceros\core\functions.php on line 131
+[12-Jan-2022 12:47:59 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\hechiceros\core\functions.php on line 132
+[12-Jan-2022 12:47:59 Europe/Berlin] PHP Warning:  require_once(/route.php): failed to open stream: No such file or directory in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 9
+[12-Jan-2022 12:47:59 Europe/Berlin] PHP Fatal error:  require_once(): Failed opening required '/route.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 9
+[12-Jan-2022 13:39:55 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Return value of Session::get() must be an instance of mixed, string returned in C:\xampp\htdocs\hechiceros\core\Session.php:38
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\functions.php(124): Session::get('routes')
+#1 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): route(Array)
+#2 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\hechiceros\core\Session.php on line 38
+[12-Jan-2022 13:39:55 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Return value of Session::get() must be an instance of mixed, string returned in C:\xampp\htdocs\hechiceros\core\Session.php:38
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\functions.php(124): Session::get('routes')
+#1 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): route(Array)
+#2 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\hechiceros\core\Session.php on line 38
+[12-Jan-2022 13:49:50 Europe/Berlin] PHP Warning:  Illegal string offset 'I5V6J8K4M7' in C:\xampp\htdocs\hechiceros\core\functions.php on line 127
+[12-Jan-2022 13:49:50 Europe/Berlin] PHP Notice:  Array to string conversion in C:\xampp\htdocs\hechiceros\core\functions.php on line 127
+[12-Jan-2022 13:49:51 Europe/Berlin] PHP Warning:  Illegal string offset 'L0I6Q9V2E5' in C:\xampp\htdocs\hechiceros\core\functions.php on line 127
+[12-Jan-2022 13:49:51 Europe/Berlin] PHP Notice:  Array to string conversion in C:\xampp\htdocs\hechiceros\core\functions.php on line 127
+[12-Jan-2022 13:50:30 Europe/Berlin] PHP Warning:  Illegal string offset 'S5T1C9C9I8' in C:\xampp\htdocs\hechiceros\core\functions.php on line 127
+[12-Jan-2022 13:50:30 Europe/Berlin] PHP Notice:  Array to string conversion in C:\xampp\htdocs\hechiceros\core\functions.php on line 127
+[12-Jan-2022 13:50:30 Europe/Berlin] PHP Warning:  Illegal string offset 'Y8A2A8E1R4' in C:\xampp\htdocs\hechiceros\core\functions.php on line 127
+[12-Jan-2022 13:50:30 Europe/Berlin] PHP Notice:  Array to string conversion in C:\xampp\htdocs\hechiceros\core\functions.php on line 127
+[12-Jan-2022 14:19:42 Europe/Berlin] PHP Notice:  Array to string conversion in C:\xampp\htdocs\hechiceros\core\Errors.php on line 16
+[12-Jan-2022 14:19:42 Europe/Berlin] PHP Notice:  Array to string conversion in C:\xampp\htdocs\hechiceros\core\Errors.php on line 16
+[12-Jan-2022 14:25:59 Europe/Berlin] PHP Warning:  require_once(C:\xampp\php\pear): failed to open stream: Permission denied in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 6
+[12-Jan-2022 14:25:59 Europe/Berlin] PHP Fatal error:  require_once(): Failed opening required '' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 6
+[12-Jan-2022 14:25:59 Europe/Berlin] PHP Warning:  require_once(C:\xampp\php\pear): failed to open stream: Permission denied in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 6
+[12-Jan-2022 14:25:59 Europe/Berlin] PHP Fatal error:  require_once(): Failed opening required '' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 6
+[12-Jan-2022 16:38:22 Europe/Berlin] PHP Warning:  Use of undefined constant REQUEST_SCHEME - assumed 'REQUEST_SCHEME' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\hechiceros\core\functions.php on line 153
+[12-Jan-2022 16:38:22 Europe/Berlin] PHP Warning:  Use of undefined constant REQUEST_SCHEME - assumed 'REQUEST_SCHEME' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\hechiceros\core\functions.php on line 153
+[12-Jan-2022 16:39:54 Europe/Berlin] PHP Warning:  Use of undefined constant HOST - assumed 'HOST' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\hechiceros\index.php on line 19
+[12-Jan-2022 16:39:54 Europe/Berlin] PHP Warning:  Use of undefined constant HOST - assumed 'HOST' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\hechiceros\index.php on line 19
+[12-Jan-2022 16:39:54 Europe/Berlin] PHP Warning:  Use of undefined constant HOST - assumed 'HOST' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\hechiceros\index.php on line 19
+[12-Jan-2022 16:40:00 Europe/Berlin] PHP Warning:  Use of undefined constant HOST - assumed 'HOST' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\hechiceros\index.php on line 19
+[12-Jan-2022 20:13:26 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class name must be a valid object or a string in C:\xampp\htdocs\hechiceros\route.php:3
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\.autoload.php(9): require_once()
+#1 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\hechiceros\route.php on line 3
+[12-Jan-2022 20:13:26 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class name must be a valid object or a string in C:\xampp\htdocs\hechiceros\route.php:3
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\.autoload.php(9): require_once()
+#1 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\hechiceros\route.php on line 3
+[12-Jan-2022 20:16:40 Europe/Berlin] PHP Fatal error:  Uncaught Error: Access to undeclared static property: Route::$path in C:\xampp\htdocs\hechiceros\core\Route.php:13
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\route.php(5): Route->set('/', Array)
+#1 C:\xampp\htdocs\hechiceros\core\.autoload.php(9): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\hechiceros\core\Route.php on line 13
+[12-Jan-2022 20:16:40 Europe/Berlin] PHP Fatal error:  Uncaught Error: Access to undeclared static property: Route::$path in C:\xampp\htdocs\hechiceros\core\Route.php:13
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\route.php(5): Route->set('/', Array)
+#1 C:\xampp\htdocs\hechiceros\core\.autoload.php(9): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\hechiceros\core\Route.php on line 13
+[12-Jan-2022 20:17:14 Europe/Berlin] PHP Deprecated:  Non-static method Route::init() should not be called statically in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 14
+[12-Jan-2022 20:17:14 Europe/Berlin] PHP Deprecated:  Non-static method Route::get() should not be called statically in C:\xampp\htdocs\hechiceros\index.php on line 15
+[12-Jan-2022 20:17:14 Europe/Berlin] PHP Fatal error:  Uncaught Error: Using $this when not in object context in C:\xampp\htdocs\hechiceros\core\Route.php:38
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\index.php(15): Route::get('home')
+#1 {main}
+  thrown in C:\xampp\htdocs\hechiceros\core\Route.php on line 38
+[12-Jan-2022 20:17:14 Europe/Berlin] PHP Deprecated:  Non-static method Route::init() should not be called statically in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 14
+[12-Jan-2022 20:17:14 Europe/Berlin] PHP Deprecated:  Non-static method Route::get() should not be called statically in C:\xampp\htdocs\hechiceros\index.php on line 15
+[12-Jan-2022 20:17:14 Europe/Berlin] PHP Fatal error:  Uncaught Error: Using $this when not in object context in C:\xampp\htdocs\hechiceros\core\Route.php:38
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\index.php(15): Route::get('home')
+#1 {main}
+  thrown in C:\xampp\htdocs\hechiceros\core\Route.php on line 38
+[12-Jan-2022 20:17:14 Europe/Berlin] PHP Deprecated:  Non-static method Route::init() should not be called statically in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 14
+[12-Jan-2022 20:17:14 Europe/Berlin] PHP Deprecated:  Non-static method Route::get() should not be called statically in C:\xampp\htdocs\hechiceros\index.php on line 15
+[12-Jan-2022 20:17:14 Europe/Berlin] PHP Fatal error:  Uncaught Error: Using $this when not in object context in C:\xampp\htdocs\hechiceros\core\Route.php:38
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\index.php(15): Route::get('home')
+#1 {main}
+  thrown in C:\xampp\htdocs\hechiceros\core\Route.php on line 38
+[12-Jan-2022 20:25:32 Europe/Berlin] PHP Notice:  Undefined index: home in C:\xampp\htdocs\hechiceros\core\Route.php on line 38
+[12-Jan-2022 20:25:33 Europe/Berlin] PHP Notice:  Undefined index: home in C:\xampp\htdocs\hechiceros\core\Route.php on line 38
+[12-Jan-2022 20:25:33 Europe/Berlin] PHP Notice:  Undefined index: home in C:\xampp\htdocs\hechiceros\core\Route.php on line 38
+[12-Jan-2022 20:25:35 Europe/Berlin] PHP Notice:  Undefined index: home in C:\xampp\htdocs\hechiceros\core\Route.php on line 38
+[12-Jan-2022 20:25:35 Europe/Berlin] PHP Notice:  Undefined index: home in C:\xampp\htdocs\hechiceros\core\Route.php on line 38
+[12-Jan-2022 20:25:35 Europe/Berlin] PHP Notice:  Undefined index: home in C:\xampp\htdocs\hechiceros\core\Route.php on line 38
+[12-Jan-2022 20:47:30 Europe/Berlin] PHP Notice:  Array to string conversion in C:\xampp\htdocs\hechiceros\core\Route.php on line 51
+[12-Jan-2022 20:47:30 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to Route::isValid() must be of the type string, array given, called in C:\xampp\htdocs\hechiceros\core\Route.php on line 53 and defined in C:\xampp\htdocs\hechiceros\core\Route.php:58
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\Route.php(53): Route->isValid(Array)
+#1 C:\xampp\htdocs\hechiceros\core\.autoload.php(14): Route->init()
+#2 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\hechiceros\core\Route.php on line 58
+[12-Jan-2022 20:47:30 Europe/Berlin] PHP Notice:  Array to string conversion in C:\xampp\htdocs\hechiceros\core\Route.php on line 51
+[12-Jan-2022 20:47:30 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to Route::isValid() must be of the type string, array given, called in C:\xampp\htdocs\hechiceros\core\Route.php on line 53 and defined in C:\xampp\htdocs\hechiceros\core\Route.php:58
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\Route.php(53): Route->isValid(Array)
+#1 C:\xampp\htdocs\hechiceros\core\.autoload.php(14): Route->init()
+#2 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\hechiceros\core\Route.php on line 58
+[12-Jan-2022 20:48:00 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to Route::isValid() must be of the type string, array given, called in C:\xampp\htdocs\hechiceros\core\Route.php on line 55 and defined in C:\xampp\htdocs\hechiceros\core\Route.php:60
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\Route.php(55): Route->isValid(Array)
+#1 C:\xampp\htdocs\hechiceros\core\.autoload.php(14): Route->init()
+#2 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\hechiceros\core\Route.php on line 60
+[12-Jan-2022 20:48:00 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to Route::isValid() must be of the type string, array given, called in C:\xampp\htdocs\hechiceros\core\Route.php on line 55 and defined in C:\xampp\htdocs\hechiceros\core\Route.php:60
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\Route.php(55): Route->isValid(Array)
+#1 C:\xampp\htdocs\hechiceros\core\.autoload.php(14): Route->init()
+#2 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\hechiceros\core\Route.php on line 60
+[12-Jan-2022 21:12:09 Europe/Berlin] PHP Notice:  Undefined index: action in C:\xampp\htdocs\hechiceros\core\Route.php on line 53
+[12-Jan-2022 21:12:19 Europe/Berlin] PHP Notice:  Undefined index: action in C:\xampp\htdocs\hechiceros\core\Route.php on line 53
+[12-Jan-2022 21:14:05 Europe/Berlin] PHP Notice:  Undefined index: action in C:\xampp\htdocs\hechiceros\core\Route.php on line 55
+[12-Jan-2022 21:14:25 Europe/Berlin] PHP Notice:  Undefined index: action in C:\xampp\htdocs\hechiceros\core\Route.php on line 55
+[12-Jan-2022 21:15:59 Europe/Berlin] PHP Notice:  Array to string conversion in C:\xampp\htdocs\hechiceros\core\Route.php on line 52
+[12-Jan-2022 21:15:59 Europe/Berlin] PHP Notice:  Undefined index: action in C:\xampp\htdocs\hechiceros\core\Route.php on line 56
+[12-Jan-2022 21:16:19 Europe/Berlin] PHP Notice:  Undefined index: action in C:\xampp\htdocs\hechiceros\core\Route.php on line 56
+[12-Jan-2022 21:16:42 Europe/Berlin] PHP Notice:  Undefined index: action in C:\xampp\htdocs\hechiceros\core\Route.php on line 56
+[12-Jan-2022 21:16:47 Europe/Berlin] PHP Notice:  Undefined index: action in C:\xampp\htdocs\hechiceros\core\Route.php on line 56
+[12-Jan-2022 21:16:48 Europe/Berlin] PHP Notice:  Undefined index: action in C:\xampp\htdocs\hechiceros\core\Route.php on line 56
+[12-Jan-2022 21:19:01 Europe/Berlin] PHP Notice:  Undefined index: action in C:\xampp\htdocs\hechiceros\core\Route.php on line 56
+[12-Jan-2022 21:19:01 Europe/Berlin] PHP Notice:  Undefined index: action in C:\xampp\htdocs\hechiceros\core\Route.php on line 56
+[12-Jan-2022 21:19:24 Europe/Berlin] PHP Notice:  Undefined index: action in C:\xampp\htdocs\hechiceros\core\Route.php on line 57
+[12-Jan-2022 21:19:24 Europe/Berlin] PHP Notice:  Undefined index: action in C:\xampp\htdocs\hechiceros\core\Route.php on line 57
+[12-Jan-2022 21:19:28 Europe/Berlin] PHP Notice:  Undefined index: action in C:\xampp\htdocs\hechiceros\core\Route.php on line 57
+[12-Jan-2022 21:19:29 Europe/Berlin] PHP Notice:  Undefined index: action in C:\xampp\htdocs\hechiceros\core\Route.php on line 57
+[12-Jan-2022 21:30:37 Europe/Berlin] PHP Warning:  array_merge(): Expected parameter 1 to be an array, string given in C:\xampp\htdocs\hechiceros\core\Request.php on line 8
+[12-Jan-2022 21:30:37 Europe/Berlin] PHP Warning:  array_merge(): Expected parameter 1 to be an array, string given in C:\xampp\htdocs\hechiceros\core\Request.php on line 8
+[12-Jan-2022 21:32:41 Europe/Berlin] PHP Notice:  Undefined variable: viewData in C:\xampp\htdocs\hechiceros\core\Route.php on line 53
+[12-Jan-2022 21:32:41 Europe/Berlin] PHP Notice:  Undefined variable: viewData in C:\xampp\htdocs\hechiceros\core\Route.php on line 53
+[12-Jan-2022 21:32:41 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class name must be a valid object or a string in C:\xampp\htdocs\hechiceros\core\Route.php:53
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\.autoload.php(14): Route->init()
+#1 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\hechiceros\core\Route.php on line 53
+[12-Jan-2022 21:32:53 Europe/Berlin] PHP Notice:  Undefined variable: viewData in C:\xampp\htdocs\hechiceros\core\Route.php on line 53
+[12-Jan-2022 21:32:53 Europe/Berlin] PHP Notice:  Undefined variable:  in C:\xampp\htdocs\hechiceros\core\Route.php on line 53
+[12-Jan-2022 21:32:53 Europe/Berlin] PHP Notice:  Undefined variable: viewData in C:\xampp\htdocs\hechiceros\core\Route.php on line 53
+[12-Jan-2022 21:32:53 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class name must be a valid object or a string in C:\xampp\htdocs\hechiceros\core\Route.php:53
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\.autoload.php(14): Route->init()
+#1 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\hechiceros\core\Route.php on line 53
+[12-Jan-2022 21:34:05 Europe/Berlin] PHP Notice:  Undefined variable: index in C:\xampp\htdocs\hechiceros\core\Route.php on line 54
+[12-Jan-2022 21:34:05 Europe/Berlin] PHP Fatal error:  Uncaught Error: Method name must be a string in C:\xampp\htdocs\hechiceros\core\Route.php:54
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\.autoload.php(14): Route->init()
+#1 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\hechiceros\core\Route.php on line 54
+[12-Jan-2022 21:36:56 Europe/Berlin] PHP Notice:  Undefined variable: index in C:\xampp\htdocs\hechiceros\core\Route.php on line 56
+[12-Jan-2022 21:36:56 Europe/Berlin] PHP Fatal error:  Uncaught Error: Method name must be a string in C:\xampp\htdocs\hechiceros\core\Route.php:56
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\.autoload.php(14): Route->init()
+#1 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\hechiceros\core\Route.php on line 56
+[12-Jan-2022 21:43:45 Europe/Berlin] PHP Recoverable fatal error:  Object of class Request could not be converted to string in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php on line 5
+[12-Jan-2022 21:52:49 Europe/Berlin] PHP Notice:  Only variables should be passed by reference in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 15
+[12-Jan-2022 21:52:49 Europe/Berlin] PHP Notice:  Only variables should be passed by reference in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 15
+[12-Jan-2022 21:53:06 Europe/Berlin] PHP Notice:  Only variables should be passed by reference in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 15
+[12-Jan-2022 21:53:06 Europe/Berlin] PHP Notice:  Only variables should be passed by reference in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 15
+[12-Jan-2022 21:53:07 Europe/Berlin] PHP Notice:  Only variables should be passed by reference in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 15
+[12-Jan-2022 21:53:07 Europe/Berlin] PHP Notice:  Only variables should be passed by reference in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 15
+[12-Jan-2022 21:53:08 Europe/Berlin] PHP Notice:  Only variables should be passed by reference in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 15
+[12-Jan-2022 21:53:08 Europe/Berlin] PHP Notice:  Only variables should be passed by reference in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 15
+[12-Jan-2022 21:53:08 Europe/Berlin] PHP Notice:  Only variables should be passed by reference in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 15
+[12-Jan-2022 21:53:08 Europe/Berlin] PHP Notice:  Only variables should be passed by reference in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 15
+[12-Jan-2022 21:53:28 Europe/Berlin] PHP Notice:  Only variables should be passed by reference in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 15
+[12-Jan-2022 21:53:28 Europe/Berlin] PHP Notice:  Only variables should be passed by reference in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 15
+[12-Jan-2022 21:53:29 Europe/Berlin] PHP Notice:  Only variables should be passed by reference in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 15
+[12-Jan-2022 21:53:29 Europe/Berlin] PHP Notice:  Only variables should be passed by reference in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 15
+[12-Jan-2022 21:53:29 Europe/Berlin] PHP Notice:  Only variables should be passed by reference in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 15
+[12-Jan-2022 21:53:29 Europe/Berlin] PHP Notice:  Only variables should be passed by reference in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 15
+[12-Jan-2022 21:53:30 Europe/Berlin] PHP Notice:  Only variables should be passed by reference in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 15
+[12-Jan-2022 21:53:30 Europe/Berlin] PHP Notice:  Only variables should be passed by reference in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 15
+[12-Jan-2022 21:53:30 Europe/Berlin] PHP Notice:  Only variables should be passed by reference in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 15
+[12-Jan-2022 21:53:30 Europe/Berlin] PHP Notice:  Only variables should be passed by reference in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 15
+[12-Jan-2022 21:53:30 Europe/Berlin] PHP Notice:  Only variables should be passed by reference in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 15
+[12-Jan-2022 21:53:30 Europe/Berlin] PHP Notice:  Only variables should be passed by reference in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 15
+[12-Jan-2022 21:53:38 Europe/Berlin] PHP Notice:  Only variables should be passed by reference in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 15
+[12-Jan-2022 21:53:38 Europe/Berlin] PHP Notice:  Only variables should be passed by reference in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 15
+[14-Jan-2022 13:58:32 Europe/Berlin] PHP Notice:  Undefined index: param in C:\xampp\htdocs\hechiceros\core\Route.php on line 64
+[14-Jan-2022 14:03:22 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'favicon.ico' not found in C:\xampp\htdocs\hechiceros\core\Route.php:71
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#1 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\hechiceros\core\Route.php on line 71
+[14-Jan-2022 14:03:35 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'favicon.ico' not found in C:\xampp\htdocs\hechiceros\core\Route.php:71
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#1 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\hechiceros\core\Route.php on line 71
+[14-Jan-2022 14:04:24 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function LoginController::test(), 1 passed in C:\xampp\htdocs\hechiceros\core\Route.php on line 72 and exactly 2 expected in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php:8
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\Route.php(72): LoginController->test('jkh,58,')
+#1 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#2 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php on line 8
+[14-Jan-2022 14:04:24 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'favicon.ico' not found in C:\xampp\htdocs\hechiceros\core\Route.php:71
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#1 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\hechiceros\core\Route.php on line 71
+[14-Jan-2022 14:04:29 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function LoginController::test(), 1 passed in C:\xampp\htdocs\hechiceros\core\Route.php on line 72 and exactly 2 expected in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php:8
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\Route.php(72): LoginController->test('jkh,')
+#1 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#2 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php on line 8
+[14-Jan-2022 14:04:29 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'favicon.ico' not found in C:\xampp\htdocs\hechiceros\core\Route.php:71
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#1 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\hechiceros\core\Route.php on line 71
+[14-Jan-2022 14:04:56 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function LoginController::test(), 1 passed in C:\xampp\htdocs\hechiceros\core\Route.php on line 72 and exactly 2 expected in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php:8
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\Route.php(72): LoginController->test('"jkh",')
+#1 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#2 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php on line 8
+[14-Jan-2022 14:04:57 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'favicon.ico' not found in C:\xampp\htdocs\hechiceros\core\Route.php:71
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#1 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\hechiceros\core\Route.php on line 71
+[14-Jan-2022 14:05:49 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function LoginController::test(), 1 passed in C:\xampp\htdocs\hechiceros\core\Route.php on line 74 and exactly 2 expected in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php:8
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\Route.php(74): LoginController->test('"jkh"')
+#1 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#2 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php on line 8
+[14-Jan-2022 14:05:49 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'favicon.ico' not found in C:\xampp\htdocs\hechiceros\core\Route.php:73
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#1 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\hechiceros\core\Route.php on line 73
+[14-Jan-2022 14:05:58 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function LoginController::test(), 1 passed in C:\xampp\htdocs\hechiceros\core\Route.php on line 75 and exactly 2 expected in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php:8
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\Route.php(75): LoginController->test('"jkh"')
+#1 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#2 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php on line 8
+[14-Jan-2022 14:05:58 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'favicon.ico' not found in C:\xampp\htdocs\hechiceros\core\Route.php:74
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#1 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\hechiceros\core\Route.php on line 74
+[14-Jan-2022 14:06:03 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function LoginController::test(), 1 passed in C:\xampp\htdocs\hechiceros\core\Route.php on line 75 and exactly 2 expected in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php:8
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\Route.php(75): LoginController->test('"jkh","asd"')
+#1 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#2 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php on line 8
+[14-Jan-2022 14:06:03 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'favicon.ico' not found in C:\xampp\htdocs\hechiceros\core\Route.php:74
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#1 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\hechiceros\core\Route.php on line 74
+[14-Jan-2022 14:06:24 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function LoginController::test(), 1 passed in C:\xampp\htdocs\hechiceros\core\Route.php on line 75 and exactly 2 expected in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php:8
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\Route.php(75): LoginController->test(''jkh','asd'')
+#1 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#2 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php on line 8
+[14-Jan-2022 14:06:24 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'favicon.ico' not found in C:\xampp\htdocs\hechiceros\core\Route.php:74
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#1 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\hechiceros\core\Route.php on line 74
+[14-Jan-2022 14:07:32 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'favicon.ico' not found in C:\xampp\htdocs\hechiceros\core\Route.php:74
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#1 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\hechiceros\core\Route.php on line 74
+[14-Jan-2022 14:07:53 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'favicon.ico' not found in C:\xampp\htdocs\hechiceros\core\Route.php:74
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#1 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\hechiceros\core\Route.php on line 74
+[14-Jan-2022 14:13:44 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'favicon.ico' not found in C:\xampp\htdocs\hechiceros\core\Route.php:84
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#1 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\hechiceros\core\Route.php on line 84
+[14-Jan-2022 14:14:01 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'favicon.ico' not found in C:\xampp\htdocs\hechiceros\core\Route.php:84
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#1 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\hechiceros\core\Route.php on line 84
+[14-Jan-2022 14:14:03 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'favicon.ico' not found in C:\xampp\htdocs\hechiceros\core\Route.php:84
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#1 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\hechiceros\core\Route.php on line 84
+[14-Jan-2022 14:14:03 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'favicon.ico' not found in C:\xampp\htdocs\hechiceros\core\Route.php:84
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#1 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\hechiceros\core\Route.php on line 84
+[14-Jan-2022 14:14:03 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'favicon.ico' not found in C:\xampp\htdocs\hechiceros\core\Route.php:84
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#1 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\hechiceros\core\Route.php on line 84
+[14-Jan-2022 14:14:04 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'favicon.ico' not found in C:\xampp\htdocs\hechiceros\core\Route.php:84
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#1 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\hechiceros\core\Route.php on line 84
+[14-Jan-2022 14:18:57 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'favicon.ico' not found in C:\xampp\htdocs\hechiceros\core\Route.php:91
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#1 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\hechiceros\core\Route.php on line 91
+[14-Jan-2022 14:26:49 Europe/Berlin] PHP Recoverable fatal error:  Object of class Request could not be converted to string in C:\xampp\htdocs\hechiceros\core\Route.php on line 75
+[14-Jan-2022 14:27:35 Europe/Berlin] PHP Recoverable fatal error:  Object of class Request could not be converted to string in C:\xampp\htdocs\hechiceros\core\Route.php on line 75
+[14-Jan-2022 14:27:59 Europe/Berlin] PHP Parse error:  syntax error, unexpected '/', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in C:\xampp\htdocs\hechiceros\core\Route.php(75) : eval()'d code on line 1
+[14-Jan-2022 14:30:55 Europe/Berlin] PHP Parse error:  syntax error, unexpected '/', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in C:\xampp\htdocs\hechiceros\core\Route.php(75) : eval()'d code on line 1
+[14-Jan-2022 14:30:58 Europe/Berlin] PHP Parse error:  syntax error, unexpected '/', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in C:\xampp\htdocs\hechiceros\core\Route.php(75) : eval()'d code on line 1
+[14-Jan-2022 14:32:43 Europe/Berlin] PHP Parse error:  syntax error, unexpected '/', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in C:\xampp\htdocs\hechiceros\core\Route.php(83) : eval()'d code on line 1
+[14-Jan-2022 14:33:21 Europe/Berlin] PHP Parse error:  syntax error, unexpected '/', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in C:\xampp\htdocs\hechiceros\core\Route.php(83) : eval()'d code on line 1
+[14-Jan-2022 14:33:23 Europe/Berlin] PHP Parse error:  syntax error, unexpected '/', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in C:\xampp\htdocs\hechiceros\core\Route.php(83) : eval()'d code on line 1
+[14-Jan-2022 14:33:23 Europe/Berlin] PHP Parse error:  syntax error, unexpected '/', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in C:\xampp\htdocs\hechiceros\core\Route.php(83) : eval()'d code on line 1
+[14-Jan-2022 14:33:48 Europe/Berlin] PHP Parse error:  syntax error, unexpected '/', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in C:\xampp\htdocs\hechiceros\core\Route.php(83) : eval()'d code on line 1
+[14-Jan-2022 14:33:49 Europe/Berlin] PHP Parse error:  syntax error, unexpected '/', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in C:\xampp\htdocs\hechiceros\core\Route.php(83) : eval()'d code on line 1
+[14-Jan-2022 14:36:13 Europe/Berlin] PHP Parse error:  syntax error, unexpected '/', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in C:\xampp\htdocs\hechiceros\core\Route.php(83) : eval()'d code on line 1
+[14-Jan-2022 14:37:02 Europe/Berlin] PHP Parse error:  syntax error, unexpected '/', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in C:\xampp\htdocs\hechiceros\core\Route.php(83) : eval()'d code on line 1
+[14-Jan-2022 14:37:03 Europe/Berlin] PHP Parse error:  syntax error, unexpected '/', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in C:\xampp\htdocs\hechiceros\core\Route.php(83) : eval()'d code on line 1
+[14-Jan-2022 14:37:17 Europe/Berlin] PHP Parse error:  syntax error, unexpected '/', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in C:\xampp\htdocs\hechiceros\core\Route.php(84) : eval()'d code on line 1
+[14-Jan-2022 14:37:47 Europe/Berlin] PHP Parse error:  syntax error, unexpected '/', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in C:\xampp\htdocs\hechiceros\core\Route.php(84) : eval()'d code on line 1
+[14-Jan-2022 14:37:49 Europe/Berlin] PHP Parse error:  syntax error, unexpected '/', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in C:\xampp\htdocs\hechiceros\core\Route.php(84) : eval()'d code on line 1
+[14-Jan-2022 14:37:57 Europe/Berlin] PHP Parse error:  syntax error, unexpected '/', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in C:\xampp\htdocs\hechiceros\core\Route.php(84) : eval()'d code on line 1
+[14-Jan-2022 14:37:58 Europe/Berlin] PHP Parse error:  syntax error, unexpected '/', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in C:\xampp\htdocs\hechiceros\core\Route.php(84) : eval()'d code on line 1
+[14-Jan-2022 14:38:31 Europe/Berlin] PHP Notice:  Undefined index: params in C:\xampp\htdocs\hechiceros\core\Route.php on line 83
+[14-Jan-2022 14:38:31 Europe/Berlin] PHP Parse error:  syntax error, unexpected '/', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in C:\xampp\htdocs\hechiceros\core\Route.php(84) : eval()'d code on line 1
+[14-Jan-2022 14:38:42 Europe/Berlin] PHP Parse error:  syntax error, unexpected '/', expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in C:\xampp\htdocs\hechiceros\core\Route.php(84) : eval()'d code on line 1
+[14-Jan-2022 18:11:10 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function LoginController::test(), 0 passed in C:\xampp\htdocs\hechiceros\core\Route.php on line 89 and exactly 2 expected in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php:8
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\Route.php(89): LoginController->test()
+#1 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#2 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php on line 8
+[14-Jan-2022 18:15:25 Europe/Berlin] PHP Warning:  Use of undefined constant PROYECT_NAME - assumed 'PROYECT_NAME' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\hechiceros\index.php on line 8
+[14-Jan-2022 18:15:25 Europe/Berlin] PHP Warning:  Use of undefined constant HOST - assumed 'HOST' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\hechiceros\index.php on line 10
+[14-Jan-2022 18:15:25 Europe/Berlin] PHP Notice:  Undefined variable: view in C:\xampp\htdocs\hechiceros\index.php on line 14
+[14-Jan-2022 18:15:25 Europe/Berlin] PHP Warning:  Use of undefined constant HOST - assumed 'HOST' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\hechiceros\index.php on line 17
+[14-Jan-2022 18:15:47 Europe/Berlin] PHP Warning:  Use of undefined constant PROYECT_NAME - assumed 'PROYECT_NAME' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\hechiceros\index.php on line 8
+[14-Jan-2022 18:15:47 Europe/Berlin] PHP Warning:  Use of undefined constant HOST - assumed 'HOST' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\hechiceros\index.php on line 10
+[14-Jan-2022 18:15:47 Europe/Berlin] PHP Notice:  Undefined variable: view in C:\xampp\htdocs\hechiceros\index.php on line 14
+[14-Jan-2022 18:15:47 Europe/Berlin] PHP Warning:  Use of undefined constant HOST - assumed 'HOST' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\hechiceros\index.php on line 17
+[14-Jan-2022 18:15:57 Europe/Berlin] PHP Warning:  Use of undefined constant PROYECT_NAME - assumed 'PROYECT_NAME' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\hechiceros\index.php on line 8
+[14-Jan-2022 18:15:57 Europe/Berlin] PHP Warning:  Use of undefined constant HOST - assumed 'HOST' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\hechiceros\index.php on line 10
+[14-Jan-2022 18:15:57 Europe/Berlin] PHP Notice:  Undefined variable: view in C:\xampp\htdocs\hechiceros\index.php on line 14
+[14-Jan-2022 18:15:57 Europe/Berlin] PHP Warning:  Use of undefined constant HOST - assumed 'HOST' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\hechiceros\index.php on line 17
+[14-Jan-2022 18:16:38 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function LoginController::test(), 0 passed in C:\xampp\htdocs\hechiceros\core\Route.php on line 89 and exactly 2 expected in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php:8
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\Route.php(89): LoginController->test()
+#1 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#2 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php on line 8
+[14-Jan-2022 18:28:17 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method ReflectionMethod::getAttributes() in C:\xampp\htdocs\hechiceros\core\Route.php:74
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#1 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\hechiceros\core\Route.php on line 74
+[14-Jan-2022 14:21:35 America/Santo_Domingo] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function LoginController::test(), 0 passed in C:\xampp\htdocs\hechiceros\core\Route.php on line 108 and exactly 1 expected in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php:8
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\Route.php(108): LoginController->test()
+#1 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#2 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php on line 8
+[14-Jan-2022 14:21:50 America/Santo_Domingo] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function LoginController::test(), 0 passed in C:\xampp\htdocs\hechiceros\core\Route.php on line 108 and exactly 1 expected in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php:8
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\Route.php(108): LoginController->test()
+#1 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#2 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php on line 8
+[14-Jan-2022 14:22:11 America/Santo_Domingo] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function LoginController::test(), 0 passed in C:\xampp\htdocs\hechiceros\core\Route.php on line 108 and exactly 1 expected in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php:8
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\Route.php(108): LoginController->test()
+#1 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#2 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php on line 8
+[14-Jan-2022 14:22:13 America/Santo_Domingo] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function LoginController::test(), 0 passed in C:\xampp\htdocs\hechiceros\core\Route.php on line 108 and exactly 1 expected in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php:8
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\Route.php(108): LoginController->test()
+#1 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#2 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php on line 8
+[14-Jan-2022 14:22:51 America/Santo_Domingo] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function LoginController::test(), 0 passed in C:\xampp\htdocs\hechiceros\core\Route.php on line 108 and exactly 1 expected in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php:8
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\Route.php(108): LoginController->test()
+#1 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#2 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php on line 8
+[14-Jan-2022 14:23:02 America/Santo_Domingo] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function LoginController::test(), 0 passed in C:\xampp\htdocs\hechiceros\core\Route.php on line 109 and exactly 1 expected in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php:8
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\Route.php(109): LoginController->test()
+#1 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#2 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php on line 8
+[14-Jan-2022 14:23:23 America/Santo_Domingo] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function LoginController::test(), 0 passed in C:\xampp\htdocs\hechiceros\core\Route.php on line 110 and exactly 1 expected in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php:8
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\Route.php(110): LoginController->test()
+#1 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#2 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php on line 8
+[14-Jan-2022 14:23:28 America/Santo_Domingo] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function LoginController::test(), 0 passed in C:\xampp\htdocs\hechiceros\core\Route.php on line 110 and exactly 1 expected in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php:8
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\Route.php(110): LoginController->test()
+#1 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#2 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php on line 8
+[14-Jan-2022 14:23:30 America/Santo_Domingo] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function LoginController::test(), 0 passed in C:\xampp\htdocs\hechiceros\core\Route.php on line 110 and exactly 1 expected in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php:8
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\Route.php(110): LoginController->test()
+#1 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#2 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php on line 8
+[14-Jan-2022 14:23:31 America/Santo_Domingo] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function LoginController::test(), 0 passed in C:\xampp\htdocs\hechiceros\core\Route.php on line 110 and exactly 1 expected in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php:8
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\Route.php(110): LoginController->test()
+#1 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#2 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php on line 8
+[14-Jan-2022 14:23:31 America/Santo_Domingo] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function LoginController::test(), 0 passed in C:\xampp\htdocs\hechiceros\core\Route.php on line 110 and exactly 1 expected in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php:8
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\Route.php(110): LoginController->test()
+#1 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#2 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php on line 8
+[14-Jan-2022 14:23:33 America/Santo_Domingo] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function LoginController::test(), 0 passed in C:\xampp\htdocs\hechiceros\core\Route.php on line 110 and exactly 1 expected in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php:8
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\Route.php(110): LoginController->test()
+#1 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#2 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php on line 8
+[14-Jan-2022 14:23:33 America/Santo_Domingo] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function LoginController::test(), 0 passed in C:\xampp\htdocs\hechiceros\core\Route.php on line 110 and exactly 1 expected in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php:8
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\Route.php(110): LoginController->test()
+#1 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#2 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php on line 8
+[14-Jan-2022 14:23:39 America/Santo_Domingo] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function LoginController::test(), 0 passed in C:\xampp\htdocs\hechiceros\core\Route.php on line 110 and exactly 1 expected in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php:8
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\Route.php(110): LoginController->test()
+#1 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#2 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php on line 8
+[14-Jan-2022 14:23:50 America/Santo_Domingo] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function LoginController::test(), 0 passed in C:\xampp\htdocs\hechiceros\core\Route.php on line 110 and exactly 1 expected in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php:8
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\Route.php(110): LoginController->test()
+#1 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#2 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php on line 8
+[14-Jan-2022 14:41:47 America/Santo_Domingo] PHP Warning:  syntax error, unexpected '=' in Unknown on line 1
+ in C:\xampp\htdocs\hechiceros\core\Route.php on line 51
+[14-Jan-2022 14:41:54 America/Santo_Domingo] PHP Warning:  syntax error, unexpected '=' in Unknown on line 1
+ in C:\xampp\htdocs\hechiceros\core\Route.php on line 51
+[14-Jan-2022 14:42:21 America/Santo_Domingo] PHP Warning:  syntax error, unexpected '=' in Unknown on line 1
+ in C:\xampp\htdocs\hechiceros\core\Route.php on line 51
+[14-Jan-2022 14:43:48 America/Santo_Domingo] PHP Warning:  implode(): Invalid arguments passed in C:\xampp\htdocs\hechiceros\core\Route.php on line 48
+[14-Jan-2022 14:44:34 America/Santo_Domingo] PHP Warning:  implode(): Invalid arguments passed in C:\xampp\htdocs\hechiceros\core\Route.php on line 48
+[14-Jan-2022 14:44:49 America/Santo_Domingo] PHP Warning:  implode(): Invalid arguments passed in C:\xampp\htdocs\hechiceros\core\Route.php on line 48
+[14-Jan-2022 14:46:16 America/Santo_Domingo] PHP Warning:  explode() expects parameter 2 to be string, array given in C:\xampp\htdocs\hechiceros\core\Route.php on line 48
+[14-Jan-2022 14:46:16 America/Santo_Domingo] PHP Warning:  implode(): Invalid arguments passed in C:\xampp\htdocs\hechiceros\core\Route.php on line 48
+[14-Jan-2022 14:48:07 America/Santo_Domingo] PHP Notice:  Undefined index: params in C:\xampp\htdocs\hechiceros\core\Route.php on line 80
+[14-Jan-2022 14:48:07 America/Santo_Domingo] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function LoginController::test(), 1 passed in C:\xampp\htdocs\hechiceros\core\Route.php(80) : eval()'d code on line 1 and exactly 2 expected in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php:8
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\Route.php(80) : eval()'d code(1): LoginController->test(Object(Request))
+#1 C:\xampp\htdocs\hechiceros\core\Route.php(80): eval()
+#2 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#3 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php on line 8
+[14-Jan-2022 14:57:37 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to LoginController::test() must be of the type int, object given, called in C:\xampp\htdocs\hechiceros\core\Route.php on line 84 and defined in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php:8
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\Route.php(84): LoginController->test(Object(Request))
+#1 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#2 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php on line 8
+[14-Jan-2022 14:57:54 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to LoginController::test() must be of the type int, object given, called in C:\xampp\htdocs\hechiceros\core\Route.php on line 84 and defined in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php:8
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\Route.php(84): LoginController->test(Object(Request))
+#1 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#2 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php on line 8
+[14-Jan-2022 14:58:49 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to LoginController::test() must be of the type int, object given, called in C:\xampp\htdocs\hechiceros\core\Route.php on line 85 and defined in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php:8
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\Route.php(85): LoginController->test(Object(Request))
+#1 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#2 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php on line 8
+[14-Jan-2022 14:59:21 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to LoginController::test() must be of the type int, object given, called in C:\xampp\htdocs\hechiceros\core\Route.php on line 85 and defined in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php:8
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\Route.php(85): LoginController->test(Object(Request))
+#1 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#2 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php on line 8
+[14-Jan-2022 14:59:50 America/Santo_Domingo] PHP Notice:  Undefined variable: id in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php on line 9
+[14-Jan-2022 15:17:21 America/Santo_Domingo] PHP Warning:  method_exists() expects parameter 2 to be string, array given in C:\xampp\htdocs\hechiceros\core\functions.php on line 122
+[14-Jan-2022 15:17:21 America/Santo_Domingo] PHP Notice:  Array to string conversion in C:\xampp\htdocs\hechiceros\core\functions.php on line 141
+[14-Jan-2022 15:18:05 America/Santo_Domingo] PHP Warning:  method_exists() expects parameter 2 to be string, array given in C:\xampp\htdocs\hechiceros\core\functions.php on line 122
+[14-Jan-2022 15:18:05 America/Santo_Domingo] PHP Notice:  Array to string conversion in C:\xampp\htdocs\hechiceros\core\functions.php on line 142
+[14-Jan-2022 15:18:11 America/Santo_Domingo] PHP Warning:  method_exists() expects parameter 2 to be string, array given in C:\xampp\htdocs\hechiceros\core\functions.php on line 122
+[14-Jan-2022 15:18:11 America/Santo_Domingo] PHP Notice:  Array to string conversion in C:\xampp\htdocs\hechiceros\core\functions.php on line 142
+[14-Jan-2022 15:21:10 America/Santo_Domingo] PHP Warning:  method_exists() expects parameter 2 to be string, array given in C:\xampp\htdocs\hechiceros\core\functions.php on line 122
+[14-Jan-2022 15:21:10 America/Santo_Domingo] PHP Notice:  Array to string conversion in C:\xampp\htdocs\hechiceros\core\functions.php on line 142
+[14-Jan-2022 15:21:58 America/Santo_Domingo] PHP Warning:  strtolower() expects parameter 1 to be string, array given in C:\xampp\htdocs\hechiceros\core\functions.php on line 135
+[14-Jan-2022 15:26:43 America/Santo_Domingo] PHP Notice:  Undefined variable: route in C:\xampp\htdocs\hechiceros\view\login.php on line 1
+[14-Jan-2022 15:26:43 America/Santo_Domingo] PHP Fatal error:  Uncaught Error: Call to a member function getRoutes() on null in C:\xampp\htdocs\hechiceros\view\login.php:1
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\functions.php(95): require_once()
+#1 C:\xampp\htdocs\hechiceros\controller\login\LoginController.php(5): view('login')
+#2 C:\xampp\htdocs\hechiceros\core\Route.php(93): LoginController->index()
+#3 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#4 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+  thrown in C:\xampp\htdocs\hechiceros\view\login.php on line 1
+[14-Jan-2022 15:28:04 America/Santo_Domingo] PHP Notice:  Constant _ROUTE_ already defined in C:\xampp\htdocs\hechiceros\core\Route.php on line 35
+[14-Jan-2022 15:28:04 America/Santo_Domingo] PHP Notice:  Undefined variable: route in C:\xampp\htdocs\hechiceros\view\login.php on line 1
+[14-Jan-2022 15:28:04 America/Santo_Domingo] PHP Fatal error:  Uncaught Error: Call to a member function getRoutes() on null in C:\xampp\htdocs\hechiceros\view\login.php:1
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\functions.php(95): require_once()
+#1 C:\xampp\htdocs\hechiceros\controller\login\LoginController.php(5): view('login')
+#2 C:\xampp\htdocs\hechiceros\core\Route.php(94): LoginController->index()
+#3 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#4 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+  thrown in C:\xampp\htdocs\hechiceros\view\login.php on line 1
+[14-Jan-2022 15:28:20 America/Santo_Domingo] PHP Notice:  Constant _ROUTES_ already defined in C:\xampp\htdocs\hechiceros\core\Route.php on line 35
+[14-Jan-2022 15:28:20 America/Santo_Domingo] PHP Notice:  Undefined variable: route in C:\xampp\htdocs\hechiceros\view\login.php on line 1
+[14-Jan-2022 15:28:20 America/Santo_Domingo] PHP Fatal error:  Uncaught Error: Call to a member function getRoutes() on null in C:\xampp\htdocs\hechiceros\view\login.php:1
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\functions.php(95): require_once()
+#1 C:\xampp\htdocs\hechiceros\controller\login\LoginController.php(5): view('login')
+#2 C:\xampp\htdocs\hechiceros\core\Route.php(94): LoginController->index()
+#3 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#4 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+  thrown in C:\xampp\htdocs\hechiceros\view\login.php on line 1
+[14-Jan-2022 15:29:12 America/Santo_Domingo] PHP Notice:  Undefined variable: route in C:\xampp\htdocs\hechiceros\view\login.php on line 1
+[14-Jan-2022 15:29:12 America/Santo_Domingo] PHP Fatal error:  Uncaught Error: Call to a member function getRoutes() on null in C:\xampp\htdocs\hechiceros\view\login.php:1
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\functions.php(95): require_once()
+#1 C:\xampp\htdocs\hechiceros\controller\login\LoginController.php(5): view('login')
+#2 C:\xampp\htdocs\hechiceros\core\Route.php(97): LoginController->index()
+#3 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#4 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+  thrown in C:\xampp\htdocs\hechiceros\view\login.php on line 1
+[14-Jan-2022 15:30:30 America/Santo_Domingo] PHP Warning:  Use of undefined constant _ROUTES_ - assumed '_ROUTES_' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\hechiceros\view\login.php on line 1
+[14-Jan-2022 15:30:30 America/Santo_Domingo] PHP Warning:  implode(): Invalid arguments passed in C:\xampp\htdocs\hechiceros\view\login.php on line 1
+[14-Jan-2022 15:31:06 America/Santo_Domingo] PHP Warning:  Use of undefined constant _ROUTES_ - assumed '_ROUTES_' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 17
+[14-Jan-2022 15:34:29 America/Santo_Domingo] PHP Warning:  implode(): Invalid arguments passed in C:\xampp\htdocs\hechiceros\view\login.php on line 1
+[14-Jan-2022 15:35:17 America/Santo_Domingo] PHP Notice:  Array to string conversion in C:\xampp\htdocs\hechiceros\view\login.php on line 1
+[14-Jan-2022 15:35:41 America/Santo_Domingo] PHP Notice:  Undefined offset: 0 in C:\xampp\htdocs\hechiceros\view\login.php on line 1
+[14-Jan-2022 15:35:41 America/Santo_Domingo] PHP Warning:  implode(): Invalid arguments passed in C:\xampp\htdocs\hechiceros\view\login.php on line 1
+[14-Jan-2022 15:49:31 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to route() must be of the type array, string given, called in C:\xampp\htdocs\hechiceros\view\login.php on line 3 and defined in C:\xampp\htdocs\hechiceros\core\functions.php:119
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\view\login.php(3): route('login.showData', 'Hola Mundo')
+#1 C:\xampp\htdocs\hechiceros\core\functions.php(95): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\hechiceros\controller\login\LoginController.php(5): view('login')
+#3 C:\xampp\htdocs\hechiceros\core\Route.php(97): LoginController->index()
+#4 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#5 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+  thrown in C:\xampp\htdocs\hechiceros\core\functions.php on line 119
+[14-Jan-2022 16:01:42 America/Santo_Domingo] PHP Notice:  Array to string conversion in C:\xampp\htdocs\hechiceros\core\functions.php on line 122
+[14-Jan-2022 16:03:23 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to route() must be of the type string, array given, called in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 15 and defined in C:\xampp\htdocs\hechiceros\core\functions.php:119
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\.autoload.php(15): route(Array, Array)
+#1 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#2 {main}
+  thrown in C:\xampp\htdocs\hechiceros\core\functions.php on line 119
+[14-Jan-2022 16:03:46 America/Santo_Domingo] PHP Fatal error:  Uncaught Error: Call to undefined function route() in C:\xampp\htdocs\hechiceros\core\.autoload.php:15
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\index.php(1): require_once()
+#1 {main}
+  thrown in C:\xampp\htdocs\hechiceros\core\.autoload.php on line 15
+[14-Jan-2022 16:05:48 America/Santo_Domingo] PHP Notice:  Undefined index: login.showDatas in C:\xampp\htdocs\hechiceros\core\functions.php on line 121
+[14-Jan-2022 17:21:22 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to LoginController::showData() must be an instance of User, string given, called in C:\xampp\htdocs\hechiceros\core\Route.php(91) : eval()'d code on line 1 and defined in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php:8
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\Route.php(91) : eval()'d code(1): LoginController->showData('v6x9i4n3t2')
+#1 C:\xampp\htdocs\hechiceros\core\Route.php(91): eval()
+#2 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#3 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#4 {main}
+  thrown in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php on line 8
+[14-Jan-2022 17:33:12 America/Santo_Domingo] PHP Fatal error:  Uncaught Error: Class 'Session' not found in C:\xampp\htdocs\hechiceros\core\functions.php:164
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\functions.php(165): {closure}()
+#1 C:\xampp\htdocs\hechiceros\core\.autoload.php(3): require('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\hechiceros\core\functions.php on line 164
+[15-Jan-2022 10:18:30 America/Santo_Domingo] PHP Warning:  mysqli_connect(): (HY000/2002): Se produjo un error durante el intento de conexi�n ya que la parte conectada no respondi� adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexi�n establecida ya que el host conectado no ha podido responder.
+ in C:\xampp\htdocs\hechiceros\core\Database.php on line 7
+[15-Jan-2022 10:18:51 America/Santo_Domingo] PHP Warning:  mysqli_connect(): (HY000/2002): Se produjo un error durante el intento de conexi�n ya que la parte conectada no respondi� adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexi�n establecida ya que el host conectado no ha podido responder.
+ in C:\xampp\htdocs\hechiceros\core\Database.php on line 7
+[15-Jan-2022 10:18:51 America/Santo_Domingo] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in C:\xampp\htdocs\hechiceros\core\Database.php on line 13
+[15-Jan-2022 10:18:51 America/Santo_Domingo] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in C:\xampp\htdocs\hechiceros\core\Database.php:14
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\Database.php(28): Database->query('DESCRIBE user')
+#1 C:\xampp\htdocs\hechiceros\core\Model.php(32): Database->tableInfo('user')
+#2 C:\xampp\htdocs\hechiceros\controller\login\LoginController.php(5): Model->__construct()
+#3 C:\xampp\htdocs\hechiceros\core\Route.php(102): LoginController->index()
+#4 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#5 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+  thrown in C:\xampp\htdocs\hechiceros\core\Database.php on line 14
+[15-Jan-2022 10:19:12 America/Santo_Domingo] PHP Warning:  mysqli_connect(): (HY000/2002): Se produjo un error durante el intento de conexi�n ya que la parte conectada no respondi� adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexi�n establecida ya que el host conectado no ha podido responder.
+ in C:\xampp\htdocs\hechiceros\core\Database.php on line 7
+[15-Jan-2022 10:19:33 America/Santo_Domingo] PHP Warning:  mysqli_connect(): (HY000/2002): Se produjo un error durante el intento de conexi�n ya que la parte conectada no respondi� adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexi�n establecida ya que el host conectado no ha podido responder.
+ in C:\xampp\htdocs\hechiceros\core\Database.php on line 7
+[15-Jan-2022 10:19:33 America/Santo_Domingo] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in C:\xampp\htdocs\hechiceros\core\Database.php on line 13
+[15-Jan-2022 10:19:33 America/Santo_Domingo] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in C:\xampp\htdocs\hechiceros\core\Database.php:14
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\Database.php(28): Database->query('DESCRIBE user')
+#1 C:\xampp\htdocs\hechiceros\core\Model.php(32): Database->tableInfo('user')
+#2 C:\xampp\htdocs\hechiceros\controller\login\LoginController.php(5): Model->__construct()
+#3 C:\xampp\htdocs\hechiceros\core\Route.php(102): LoginController->index()
+#4 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#5 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+  thrown in C:\xampp\htdocs\hechiceros\core\Database.php on line 14
+[15-Jan-2022 10:21:54 America/Santo_Domingo] PHP Warning:  mysqli_connect(): (HY000/2002): Se produjo un error durante el intento de conexi�n ya que la parte conectada no respondi� adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexi�n establecida ya que el host conectado no ha podido responder.
+ in C:\xampp\htdocs\hechiceros\core\Database.php on line 7
+[15-Jan-2022 10:22:15 America/Santo_Domingo] PHP Warning:  mysqli_connect(): (HY000/2002): Se produjo un error durante el intento de conexi�n ya que la parte conectada no respondi� adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexi�n establecida ya que el host conectado no ha podido responder.
+ in C:\xampp\htdocs\hechiceros\core\Database.php on line 7
+[15-Jan-2022 10:22:15 America/Santo_Domingo] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in C:\xampp\htdocs\hechiceros\core\Database.php on line 13
+[15-Jan-2022 10:22:15 America/Santo_Domingo] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in C:\xampp\htdocs\hechiceros\core\Database.php:14
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\Database.php(28): Database->query('DESCRIBE user')
+#1 C:\xampp\htdocs\hechiceros\core\Model.php(32): Database->tableInfo('user')
+#2 C:\xampp\htdocs\hechiceros\controller\login\LoginController.php(5): Model->__construct()
+#3 C:\xampp\htdocs\hechiceros\core\Route.php(102): LoginController->index()
+#4 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#5 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+  thrown in C:\xampp\htdocs\hechiceros\core\Database.php on line 14
+[15-Jan-2022 10:30:30 America/Santo_Domingo] PHP Notice:  Undefined variable: value in C:\xampp\htdocs\hechiceros\view\login.php on line 3
+[15-Jan-2022 10:57:04 America/Santo_Domingo] PHP Fatal error:  Uncaught Error: Call to undefined method Route::route() in C:\xampp\htdocs\hechiceros\view\login.php:4
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\functions.php(95): require_once()
+#1 C:\xampp\htdocs\hechiceros\controller\login\LoginController.php(6): view('login', Array)
+#2 C:\xampp\htdocs\hechiceros\core\Route.php(108): LoginController->index()
+#3 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#4 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+  thrown in C:\xampp\htdocs\hechiceros\view\login.php on line 4
+[15-Jan-2022 11:56:09 America/Santo_Domingo] PHP Notice:  Undefined index: age in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php on line 12
+[15-Jan-2022 11:56:09 America/Santo_Domingo] PHP Notice:  Undefined index: age in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php on line 12
+[15-Jan-2022 11:56:09 America/Santo_Domingo] PHP Notice:  Undefined index: age in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php on line 12
+[15-Jan-2022 11:56:09 America/Santo_Domingo] PHP Notice:  Undefined index: age in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php on line 12
+[15-Jan-2022 11:56:09 America/Santo_Domingo] PHP Notice:  Undefined index: age in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php on line 12
+[15-Jan-2022 11:56:09 America/Santo_Domingo] PHP Notice:  Undefined index: age in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php on line 12
+[15-Jan-2022 11:56:09 America/Santo_Domingo] PHP Notice:  Undefined index: age in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php on line 12
+[15-Jan-2022 11:56:09 America/Santo_Domingo] PHP Notice:  Undefined index: age in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php on line 12
+[15-Jan-2022 11:56:09 America/Santo_Domingo] PHP Notice:  Undefined index: age in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php on line 12
+[15-Jan-2022 11:56:09 America/Santo_Domingo] PHP Notice:  Undefined index: age in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php on line 12
+[15-Jan-2022 11:56:09 America/Santo_Domingo] PHP Fatal error:  Uncaught Error: Cannot use object of type MPeople as array in C:\xampp\htdocs\hechiceros\view\login.php:4
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\functions.php(95): require_once()
+#1 C:\xampp\htdocs\hechiceros\controller\login\LoginController.php(16): view('login', Array)
+#2 C:\xampp\htdocs\hechiceros\core\Route.php(107): LoginController->index()
+#3 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#4 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+  thrown in C:\xampp\htdocs\hechiceros\view\login.php on line 4
+[15-Jan-2022 11:56:46 America/Santo_Domingo] PHP Fatal error:  Uncaught Error: Cannot use object of type MPeople as array in C:\xampp\htdocs\hechiceros\view\login.php:4
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\functions.php(95): require_once()
+#1 C:\xampp\htdocs\hechiceros\controller\login\LoginController.php(16): view('login', Array)
+#2 C:\xampp\htdocs\hechiceros\core\Route.php(107): LoginController->index()
+#3 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#4 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+  thrown in C:\xampp\htdocs\hechiceros\view\login.php on line 4
+[15-Jan-2022 11:58:28 America/Santo_Domingo] PHP Notice:  LoginController::showData(): The script tried to execute a method or access a property of an incomplete object. Please ensure that the class definition &quot;MPeople&quot; of the object you are trying to operate on was loaded _before_ unserialize() gets called or provide an autoloader to load the class definition in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php on line 20
+[15-Jan-2022 11:58:51 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to LoginController::showData() must be an instance of MPeople, array given, called in C:\xampp\htdocs\hechiceros\core\Route.php on line 87 and defined in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php:19
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\Route.php(87): LoginController->showData(Array)
+#1 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#2 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php on line 19
+[15-Jan-2022 11:59:04 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to LoginController::showData() must be an instance of MPeople, instance of __PHP_Incomplete_Class given, called in C:\xampp\htdocs\hechiceros\core\Route.php on line 87 and defined in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php:19
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\Route.php(87): LoginController->showData(Object(__PHP_Incomplete_Class))
+#1 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#2 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php on line 19
+[15-Jan-2022 11:59:57 America/Santo_Domingo] PHP Fatal error:  Uncaught Error: Cannot use object of type __PHP_Incomplete_Class as array in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php:20
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\Route.php(87): LoginController->showData(Object(__PHP_Incomplete_Class))
+#1 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#2 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php on line 20
+[15-Jan-2022 12:00:32 America/Santo_Domingo] PHP Fatal error:  Uncaught Error: Cannot use object of type __PHP_Incomplete_Class as array in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php:20
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\Route.php(87): LoginController->showData(Object(__PHP_Incomplete_Class))
+#1 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#2 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php on line 20
+[15-Jan-2022 12:00:33 America/Santo_Domingo] PHP Fatal error:  Uncaught Error: Cannot use object of type __PHP_Incomplete_Class as array in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php:20
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\Route.php(87): LoginController->showData(Object(__PHP_Incomplete_Class))
+#1 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#2 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php on line 20
+[15-Jan-2022 12:00:34 America/Santo_Domingo] PHP Fatal error:  Uncaught Error: Cannot use object of type __PHP_Incomplete_Class as array in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php:20
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\Route.php(87): LoginController->showData(Object(__PHP_Incomplete_Class))
+#1 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#2 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php on line 20
+[15-Jan-2022 12:03:04 America/Santo_Domingo] PHP Fatal error:  Uncaught Error: Cannot use object of type __PHP_Incomplete_Class as array in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php:20
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\Route.php(87): LoginController->showData(Object(__PHP_Incomplete_Class))
+#1 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#2 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php on line 20
+[15-Jan-2022 12:06:04 America/Santo_Domingo] PHP Fatal error:  Uncaught Error: Cannot use object of type MPeople as array in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php:20
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\Route.php(88): LoginController->showData(Object(MPeople))
+#1 C:\xampp\htdocs\hechiceros\core\.autoload.php(11): Route->init(NULL)
+#2 C:\xampp\htdocs\hechiceros\index.php(1): require_once('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php on line 20
+[15-Jan-2022 12:24:27 America/Santo_Domingo] PHP Fatal error:  Maximum execution time of 120 seconds exceeded in C:\xampp\htdocs\hechiceros\core\Model.php on line 30
