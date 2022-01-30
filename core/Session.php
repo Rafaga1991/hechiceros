@@ -54,7 +54,7 @@ class Session{
      * Retorna el valor de un indice en especifico.
      * 
      * @access public
-     * @param string $name recive el nombre del inice.
+     * @param string $name recive el nombre del indice.
      * @return any retorna un objeto.
      * @version 1.0
      * @author Rafael Minaya

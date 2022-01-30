@@ -37,7 +37,7 @@ class Model extends Database{
 
         foreach($columns as $column){
             eval('$this->' . $column[0] . ' = "' . ($value[$column[0]] ?? '') . '";');
-            $this->variable[$column[0]] = $value[$column[0]];
+            @$this->variable[$column[0]] = $value[$column[0]];
             if($column[3] == 'PRI' && empty($this->primaryKey)) $this->primaryKey = $column[0];
             elseif($column[3] == 'MUL') $this->fk[] = $column[0];
         }

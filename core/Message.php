@@ -33,8 +33,9 @@ class Message{
             }
             
             if($show_btn){
+                $url = Session::auth()?PAGE_ACCESS_AUTH:PAGE_INIT;
                 echo <<<HTML
-                    <a href='/' class='btn btn-outline-primary my-3 ms-3'><i class="fas fa-arrow-left"></i> Volver</a>
+                    <a href='/$url' class='btn btn-outline-primary my-3 ms-3'><i class="fas fa-arrow-left"></i> Volver</a>
                 HTML;
             }
         }

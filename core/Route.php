@@ -228,4 +228,11 @@ class Route{
     public static function isView(string $viewname){
         return Session::get('_view_') == $viewname;
     }
+
+    public static function reload($name){
+        if($route = (Session::get('_ROUTES_')[$name] ?? null)){
+            header("location: {$route['path']}");
+        }
+        Message::add("El nombre <b>$name</b> no existe!");
+    }
 }

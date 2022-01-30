@@ -2,10 +2,7 @@
 
 class HomeController extends Controller{
     public function index(){
-        return $this->redirect('show');
-    }
-
-    public function show(){
-        return 'si';
+        Html::addVariable('body', view('home/home'));
+        return view('home/index');
     }
 }

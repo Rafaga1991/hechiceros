@@ -13,10 +13,7 @@ return [
     ],
     'view' => [// carpeta vista
         'login' => [// carpeta login
-            'index.php',
-            'register.php',
-            'change-password.php',
-            'recovery.php'
+            'index.php'
         ]
     ],
     'model',

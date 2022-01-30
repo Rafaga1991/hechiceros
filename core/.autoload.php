@@ -15,6 +15,8 @@ require_once getRoute('route.php');
 
 $route->init($view);
 
+Message::add('Hola Mundo');
+
 Message::showMessage();
 
-Html::setBody($view);
+Html::setBody($view, ['class' => 'sb-nav-fixed']);

@@ -233,3 +233,110 @@ Stack trace:
 [29-Jan-2022 16:25:57 America/Santo_Domingo] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\test\core\Route.php on line 51
 [29-Jan-2022 16:26:05 America/Santo_Domingo] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\test\core\Route.php on line 51
 [29-Jan-2022 19:25:54 America/Santo_Domingo] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\test\core\Route.php on line 51
+[30-Jan-2022 09:43:54 America/Santo_Domingo] PHP Notice:  Undefined variable: description in C:\xampp\htdocs\hechiceros\view\login\index.php on line 3
+[30-Jan-2022 09:57:35 America/Santo_Domingo] PHP Notice:  Undefined variable: description in C:\xampp\htdocs\hechiceros\view\login\header.php on line 3
+[30-Jan-2022 09:58:48 America/Santo_Domingo] PHP Notice:  Undefined index:  in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php on line 9
+[30-Jan-2022 10:08:02 America/Santo_Domingo] PHP Notice:  Undefined index: badgeUrl in C:\xampp\htdocs\hechiceros\controller\login\LoginController.php on line 8
+[30-Jan-2022 11:34:26 America/Santo_Domingo] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\hechiceros\core\Route.php on line 51
+[30-Jan-2022 12:18:17 America/Santo_Domingo] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on bool in C:\xampp\htdocs\hechiceros\core\Database.php:33
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\Database.php(67): Database->query('DESCRIBE user')
+#1 C:\xampp\htdocs\hechiceros\core\Model.php(35): Database->tableInfo('user')
+#2 C:\xampp\htdocs\hechiceros\controller\login\LoginController.php(20): Model->__construct()
+#3 C:\xampp\htdocs\hechiceros\core\Route.php(144): LoginController->access(Object(Request))
+#4 C:\xampp\htdocs\hechiceros\core\.autoload.php(16): Route->init(NULL)
+#5 C:\xampp\htdocs\hechiceros\index.php(3): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+  thrown in C:\xampp\htdocs\hechiceros\core\Database.php on line 33
+[30-Jan-2022 12:18:54 America/Santo_Domingo] PHP Notice:  Undefined index: id in C:\xampp\htdocs\hechiceros\core\Model.php on line 40
+[30-Jan-2022 12:18:54 America/Santo_Domingo] PHP Notice:  Undefined index: email in C:\xampp\htdocs\hechiceros\core\Model.php on line 40
+[30-Jan-2022 12:18:54 America/Santo_Domingo] PHP Notice:  Undefined index: username in C:\xampp\htdocs\hechiceros\core\Model.php on line 40
+[30-Jan-2022 12:18:54 America/Santo_Domingo] PHP Notice:  Undefined index: password in C:\xampp\htdocs\hechiceros\core\Model.php on line 40
+[30-Jan-2022 12:18:54 America/Santo_Domingo] PHP Notice:  Undefined index: admin in C:\xampp\htdocs\hechiceros\core\Model.php on line 40
+[30-Jan-2022 12:18:54 America/Santo_Domingo] PHP Notice:  Undefined index: delete in C:\xampp\htdocs\hechiceros\core\Model.php on line 40
+[30-Jan-2022 12:18:54 America/Santo_Domingo] PHP Notice:  Undefined index: delete_at in C:\xampp\htdocs\hechiceros\core\Model.php on line 40
+[30-Jan-2022 12:18:54 America/Santo_Domingo] PHP Notice:  Undefined index: update_at in C:\xampp\htdocs\hechiceros\core\Model.php on line 40
+[30-Jan-2022 12:18:54 America/Santo_Domingo] PHP Notice:  Undefined index: insert_at in C:\xampp\htdocs\hechiceros\core\Model.php on line 40
+[30-Jan-2022 12:21:41 America/Santo_Domingo] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\hechiceros\core\Route.php on line 51
+[30-Jan-2022 12:22:48 America/Santo_Domingo] PHP Notice:  Undefined index: id in C:\xampp\htdocs\hechiceros\core\Model.php on line 40
+[30-Jan-2022 12:22:48 America/Santo_Domingo] PHP Notice:  Undefined index: email in C:\xampp\htdocs\hechiceros\core\Model.php on line 40
+[30-Jan-2022 12:22:48 America/Santo_Domingo] PHP Notice:  Undefined index: username in C:\xampp\htdocs\hechiceros\core\Model.php on line 40
+[30-Jan-2022 12:22:48 America/Santo_Domingo] PHP Notice:  Undefined index: password in C:\xampp\htdocs\hechiceros\core\Model.php on line 40
+[30-Jan-2022 12:22:48 America/Santo_Domingo] PHP Notice:  Undefined index: admin in C:\xampp\htdocs\hechiceros\core\Model.php on line 40
+[30-Jan-2022 12:22:48 America/Santo_Domingo] PHP Notice:  Undefined index: delete in C:\xampp\htdocs\hechiceros\core\Model.php on line 40
+[30-Jan-2022 12:22:48 America/Santo_Domingo] PHP Notice:  Undefined index: delete_at in C:\xampp\htdocs\hechiceros\core\Model.php on line 40
+[30-Jan-2022 12:22:48 America/Santo_Domingo] PHP Notice:  Undefined index: update_at in C:\xampp\htdocs\hechiceros\core\Model.php on line 40
+[30-Jan-2022 12:22:48 America/Santo_Domingo] PHP Notice:  Undefined index: insert_at in C:\xampp\htdocs\hechiceros\core\Model.php on line 40
+[30-Jan-2022 12:46:47 America/Santo_Domingo] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on bool in C:\xampp\htdocs\hechiceros\core\Database.php:33
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\Model.php(158): Database->query('SELECT id,usern...')
+#1 C:\xampp\htdocs\hechiceros\controller\login\LoginController.php(23): Model->get('id,username,ema...')
+#2 C:\xampp\htdocs\hechiceros\core\Route.php(144): LoginController->access(Object(Request))
+#3 C:\xampp\htdocs\hechiceros\core\.autoload.php(16): Route->init(NULL)
+#4 C:\xampp\htdocs\hechiceros\index.php(3): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+  thrown in C:\xampp\htdocs\hechiceros\core\Database.php on line 33
+[30-Jan-2022 12:49:53 America/Santo_Domingo] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on bool in C:\xampp\htdocs\hechiceros\core\Database.php:33
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\Model.php(158): Database->query('SELECT id FROM ...')
+#1 C:\xampp\htdocs\hechiceros\controller\login\LoginController.php(23): Model->get('id')
+#2 C:\xampp\htdocs\hechiceros\core\Route.php(144): LoginController->access(Object(Request))
+#3 C:\xampp\htdocs\hechiceros\core\.autoload.php(16): Route->init(NULL)
+#4 C:\xampp\htdocs\hechiceros\index.php(3): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+  thrown in C:\xampp\htdocs\hechiceros\core\Database.php on line 33
+[30-Jan-2022 12:50:50 America/Santo_Domingo] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on bool in C:\xampp\htdocs\hechiceros\core\Database.php:33
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\Model.php(158): Database->query('SELECT id FROM ...')
+#1 C:\xampp\htdocs\hechiceros\controller\login\LoginController.php(23): Model->get('id')
+#2 C:\xampp\htdocs\hechiceros\core\Route.php(144): LoginController->access(Object(Request))
+#3 C:\xampp\htdocs\hechiceros\core\.autoload.php(16): Route->init(NULL)
+#4 C:\xampp\htdocs\hechiceros\index.php(3): require_once('C:\\xampp\\htdocs...')
+#5 {main}
+  thrown in C:\xampp\htdocs\hechiceros\core\Database.php on line 33
+[30-Jan-2022 16:19:41 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to Html::setIcon() must be of the type string, null given, called in C:\xampp\htdocs\hechiceros\index.php on line 10 and defined in C:\xampp\htdocs\hechiceros\core\Html.php:58
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\index.php(10): Html::setIcon(NULL)
+#1 {main}
+  thrown in C:\xampp\htdocs\hechiceros\core\Html.php on line 58
+[30-Jan-2022 16:19:42 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to Html::setIcon() must be of the type string, null given, called in C:\xampp\htdocs\hechiceros\index.php on line 10 and defined in C:\xampp\htdocs\hechiceros\core\Html.php:58
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\index.php(10): Html::setIcon(NULL)
+#1 {main}
+  thrown in C:\xampp\htdocs\hechiceros\core\Html.php on line 58
+[30-Jan-2022 16:19:51 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to Html::setIcon() must be of the type string, null given, called in C:\xampp\htdocs\hechiceros\index.php on line 10 and defined in C:\xampp\htdocs\hechiceros\core\Html.php:58
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\index.php(10): Html::setIcon(NULL)
+#1 {main}
+  thrown in C:\xampp\htdocs\hechiceros\core\Html.php on line 58
+[30-Jan-2022 16:19:52 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to Html::setIcon() must be of the type string, null given, called in C:\xampp\htdocs\hechiceros\index.php on line 10 and defined in C:\xampp\htdocs\hechiceros\core\Html.php:58
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\index.php(10): Html::setIcon(NULL)
+#1 {main}
+  thrown in C:\xampp\htdocs\hechiceros\core\Html.php on line 58
+[30-Jan-2022 16:19:55 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to Html::setIcon() must be of the type string, null given, called in C:\xampp\htdocs\hechiceros\index.php on line 10 and defined in C:\xampp\htdocs\hechiceros\core\Html.php:58
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\index.php(10): Html::setIcon(NULL)
+#1 {main}
+  thrown in C:\xampp\htdocs\hechiceros\core\Html.php on line 58
+[30-Jan-2022 16:19:56 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: Argument 1 passed to Html::setIcon() must be of the type string, null given, called in C:\xampp\htdocs\hechiceros\index.php on line 10 and defined in C:\xampp\htdocs\hechiceros\core\Html.php:58
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\index.php(10): Html::setIcon(NULL)
+#1 {main}
+  thrown in C:\xampp\htdocs\hechiceros\core\Html.php on line 58
+[30-Jan-2022 17:12:51 America/Santo_Domingo] PHP Notice:  Undefined index: home.index1 in C:\xampp\htdocs\hechiceros\core\Route.php on line 233
+[30-Jan-2022 17:13:32 America/Santo_Domingo] PHP Notice:  Undefined index: home.index1 in C:\xampp\htdocs\hechiceros\core\Route.php on line 233
+[30-Jan-2022 17:13:47 America/Santo_Domingo] PHP Notice:  Undefined index: home.index1 in C:\xampp\htdocs\hechiceros\core\Route.php on line 233
+[30-Jan-2022 17:14:16 America/Santo_Domingo] PHP Notice:  Undefined index: home.index1 in C:\xampp\htdocs\hechiceros\core\Route.php on line 233
+[30-Jan-2022 17:14:28 America/Santo_Domingo] PHP Notice:  Undefined index: home.index1 in C:\xampp\htdocs\hechiceros\core\Route.php on line 233
+[30-Jan-2022 17:14:36 America/Santo_Domingo] PHP Notice:  Undefined index: home.index1 in C:\xampp\htdocs\hechiceros\core\Route.php on line 233
+[30-Jan-2022 17:15:01 America/Santo_Domingo] PHP Notice:  Undefined index: home.index1 in C:\xampp\htdocs\hechiceros\core\Route.php on line 233
+[30-Jan-2022 17:15:06 America/Santo_Domingo] PHP Notice:  Undefined index: home.index1 in C:\xampp\htdocs\hechiceros\core\Route.php on line 233
+[30-Jan-2022 17:15:11 America/Santo_Domingo] PHP Notice:  Undefined index: home.index1 in C:\xampp\htdocs\hechiceros\core\Route.php on line 233
+[30-Jan-2022 17:15:15 America/Santo_Domingo] PHP Notice:  Undefined index: home.index1 in C:\xampp\htdocs\hechiceros\core\Route.php on line 233
+[30-Jan-2022 17:15:30 America/Santo_Domingo] PHP Notice:  Undefined index: home.index1 in C:\xampp\htdocs\hechiceros\core\Route.php on line 233
+[30-Jan-2022 17:15:49 America/Santo_Domingo] PHP Notice:  Undefined index: home.index1 in C:\xampp\htdocs\hechiceros\core\Route.php on line 233
+[30-Jan-2022 17:15:52 America/Santo_Domingo] PHP Notice:  Undefined index: home.index1 in C:\xampp\htdocs\hechiceros\core\Route.php on line 233
+[30-Jan-2022 17:15:55 America/Santo_Domingo] PHP Notice:  Undefined index: home.index1 in C:\xampp\htdocs\hechiceros\core\Route.php on line 233
+[30-Jan-2022 19:37:23 America/Santo_Domingo] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\hechiceros\core\Route.php on line 51
+[30-Jan-2022 19:37:24 America/Santo_Domingo] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\hechiceros\core\Route.php on line 51

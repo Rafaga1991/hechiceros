@@ -79,4 +79,8 @@ class Controller{
         }
         return '';
     }
+
+    protected function setObject(object $object){
+        $this->object = $object;
+    }
 }
