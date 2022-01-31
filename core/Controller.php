@@ -1,21 +1,6 @@
 <?php
 
 class Controller{
-    private $object = null;
-
-    /**
-     * Constructor de la clase, toma el objeto hijo y lo asigna a la variable objeto.
-     * 
-     * @access public
-     * @return void sin retorno.
-     * @author Rafael Minaya
-     * @copyright R.M.B.
-     * @version 1.0
-     */
-    public function __construct()
-    {
-        $this->object = debug_backtrace()[0]['object'];
-    }
 
     /**
      * Verifica si un objeto y una función existen.
@@ -71,16 +56,11 @@ class Controller{
      * @version 1.0
      */
     protected function redirect(string $function, $data = null):string{
-        if($this->object){
-            if($this->objectExists(get_class($this->object), $function)){
-                if($data) return $this->object->{$function}($data);
-                return $this->object->{$function}();
-            }
+        $object = debug_backtrace()[0]['object'];
+        if($this->objectExists(get_class($object), $function)){
+            if($data) return $object->{$function}($data);
+            return $object->{$function}();
         }
         return '';
-    }
-
-    protected function setObject(object $object){
-        $this->object = $object;
     }
 }

@@ -25,3 +25,11 @@ INSERT INTO `user` (`id`, `email`, `username`, `password`, `admin`) VALUES
 (12, 'benja16echeverria@gmail.com', 'Benja10692', 'cfd909a7e48a63555e2da485665282d1', 0),
 (13, 'jacruzbihan2006@gmail.com', 'Coto 2024 ', 'd795d4e5192dc695f1f31bb306fb3af1', 0),
 (14, 'll3202118@gmail.com', 'Angel GT', '310b51dbf89733607e6dc6f7ec196b61', 0);
+
+CREATE TABLE IF NOT EXISTS activity(
+    id              INTEGER(10) PRIMARY KEY AUTO_INCREMENT,
+    title           VARCHAR(100) NOT NULL,
+    `description`   VARCHAR(250) NOT NULL,
+    `date`          TIMESTAMP DEFAULT NOW(),
+    `delete`        BOOLEAN DEFAULT FALSE
+);

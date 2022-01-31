@@ -340,3 +340,352 @@ Stack trace:
 [30-Jan-2022 17:15:55 America/Santo_Domingo] PHP Notice:  Undefined index: home.index1 in C:\xampp\htdocs\hechiceros\core\Route.php on line 233
 [30-Jan-2022 19:37:23 America/Santo_Domingo] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\hechiceros\core\Route.php on line 51
 [30-Jan-2022 19:37:24 America/Santo_Domingo] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\hechiceros\core\Route.php on line 51
+[31-Jan-2022 08:55:04 America/Santo_Domingo] PHP Warning:  Undefined array key "badgeUrls" in /opt/lampp/htdocs/hechiceros/controller/login/LoginController.php on line 10
+[31-Jan-2022 08:55:04 America/Santo_Domingo] PHP Warning:  Trying to access array offset on value of type null in /opt/lampp/htdocs/hechiceros/controller/login/LoginController.php on line 10
+[31-Jan-2022 08:55:04 America/Santo_Domingo] PHP Warning:  Undefined array key "description" in /opt/lampp/htdocs/hechiceros/controller/login/LoginController.php on line 12
+[31-Jan-2022 08:55:04 America/Santo_Domingo] PHP Warning:  foreach() argument must be of type array|object, null given in /opt/lampp/htdocs/hechiceros/core/Route.php on line 51
+[31-Jan-2022 08:55:06 America/Santo_Domingo] PHP Warning:  Undefined array key "description" in /opt/lampp/htdocs/hechiceros/controller/login/LoginController.php on line 12
+[31-Jan-2022 08:55:34 America/Santo_Domingo] PHP Warning:  Undefined array key "description" in /opt/lampp/htdocs/hechiceros/controller/login/LoginController.php on line 12
+[31-Jan-2022 08:55:35 America/Santo_Domingo] PHP Warning:  Undefined array key "description" in /opt/lampp/htdocs/hechiceros/controller/login/LoginController.php on line 12
+[31-Jan-2022 08:55:46 America/Santo_Domingo] PHP Warning:  Undefined array key "description" in /opt/lampp/htdocs/hechiceros/controller/login/LoginController.php on line 12
+[31-Jan-2022 08:58:14 America/Santo_Domingo] PHP Warning:  Undefined array key "description" in /opt/lampp/htdocs/hechiceros/controller/login/LoginController.php on line 12
+[31-Jan-2022 08:58:16 America/Santo_Domingo] PHP Warning:  Undefined array key "description" in /opt/lampp/htdocs/hechiceros/controller/login/LoginController.php on line 12
+[31-Jan-2022 08:58:16 America/Santo_Domingo] PHP Warning:  Undefined array key "description" in /opt/lampp/htdocs/hechiceros/controller/login/LoginController.php on line 12
+[31-Jan-2022 08:58:17 America/Santo_Domingo] PHP Warning:  Undefined array key "description" in /opt/lampp/htdocs/hechiceros/controller/login/LoginController.php on line 12
+[31-Jan-2022 08:58:17 America/Santo_Domingo] PHP Warning:  Undefined array key "description" in /opt/lampp/htdocs/hechiceros/controller/login/LoginController.php on line 12
+[31-Jan-2022 08:58:17 America/Santo_Domingo] PHP Warning:  Undefined array key "description" in /opt/lampp/htdocs/hechiceros/controller/login/LoginController.php on line 12
+[31-Jan-2022 08:58:17 America/Santo_Domingo] PHP Warning:  Undefined array key "description" in /opt/lampp/htdocs/hechiceros/controller/login/LoginController.php on line 12
+[31-Jan-2022 08:58:18 America/Santo_Domingo] PHP Warning:  Undefined array key "description" in /opt/lampp/htdocs/hechiceros/controller/login/LoginController.php on line 12
+[31-Jan-2022 08:58:18 America/Santo_Domingo] PHP Warning:  Undefined array key "description" in /opt/lampp/htdocs/hechiceros/controller/login/LoginController.php on line 12
+[31-Jan-2022 08:58:18 America/Santo_Domingo] PHP Warning:  Undefined array key "description" in /opt/lampp/htdocs/hechiceros/controller/login/LoginController.php on line 12
+[31-Jan-2022 08:58:24 America/Santo_Domingo] PHP Warning:  foreach() argument must be of type array|object, null given in /opt/lampp/htdocs/hechiceros/core/Route.php on line 51
+[31-Jan-2022 09:12:35 America/Santo_Domingo] PHP Warning:  Undefined array key "auth" in /opt/lampp/htdocs/hechiceros/core/Route.php on line 52
+[31-Jan-2022 09:12:35 America/Santo_Domingo] PHP Warning:  Undefined array key "auth" in /opt/lampp/htdocs/hechiceros/core/Route.php on line 52
+[31-Jan-2022 09:13:10 America/Santo_Domingo] PHP Warning:  Undefined array key "auth" in /opt/lampp/htdocs/hechiceros/core/Route.php on line 52
+[31-Jan-2022 09:13:10 America/Santo_Domingo] PHP Warning:  Undefined array key "auth" in /opt/lampp/htdocs/hechiceros/core/Route.php on line 52
+[31-Jan-2022 10:48:27 America/Santo_Domingo] PHP Fatal error:  Uncaught Error: Call to a member function save() on null in /opt/lampp/htdocs/hechiceros/route.php:8
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/core/.autoload.php(14): require_once()
+#1 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#2 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/route.php on line 8
+[31-Jan-2022 10:48:31 America/Santo_Domingo] PHP Fatal error:  Uncaught Error: Call to a member function save() on null in /opt/lampp/htdocs/hechiceros/route.php:8
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/core/.autoload.php(14): require_once()
+#1 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#2 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/route.php on line 8
+[31-Jan-2022 10:48:31 America/Santo_Domingo] PHP Fatal error:  Uncaught Error: Call to a member function save() on null in /opt/lampp/htdocs/hechiceros/route.php:8
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/core/.autoload.php(14): require_once()
+#1 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#2 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/route.php on line 8
+[31-Jan-2022 10:48:31 America/Santo_Domingo] PHP Fatal error:  Uncaught Error: Call to a member function save() on null in /opt/lampp/htdocs/hechiceros/route.php:8
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/core/.autoload.php(14): require_once()
+#1 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#2 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/route.php on line 8
+[31-Jan-2022 10:48:32 America/Santo_Domingo] PHP Fatal error:  Uncaught Error: Call to a member function save() on null in /opt/lampp/htdocs/hechiceros/route.php:8
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/core/.autoload.php(14): require_once()
+#1 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#2 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/route.php on line 8
+[31-Jan-2022 10:48:32 America/Santo_Domingo] PHP Fatal error:  Uncaught Error: Call to a member function save() on null in /opt/lampp/htdocs/hechiceros/route.php:8
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/core/.autoload.php(14): require_once()
+#1 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#2 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/route.php on line 8
+[31-Jan-2022 10:48:43 America/Santo_Domingo] PHP Fatal error:  Uncaught Error: Call to a member function save() on null in /opt/lampp/htdocs/hechiceros/route.php:8
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/core/.autoload.php(14): require_once()
+#1 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#2 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/route.php on line 8
+[31-Jan-2022 10:48:43 America/Santo_Domingo] PHP Fatal error:  Uncaught Error: Call to a member function save() on null in /opt/lampp/htdocs/hechiceros/route.php:8
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/core/.autoload.php(14): require_once()
+#1 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#2 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/route.php on line 8
+[31-Jan-2022 10:49:06 America/Santo_Domingo] PHP Fatal error:  Uncaught Error: Call to a member function save() on null in /opt/lampp/htdocs/hechiceros/route.php:8
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/core/.autoload.php(14): require_once()
+#1 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#2 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/route.php on line 8
+[31-Jan-2022 10:49:07 America/Santo_Domingo] PHP Fatal error:  Uncaught Error: Call to a member function save() on null in /opt/lampp/htdocs/hechiceros/route.php:8
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/core/.autoload.php(14): require_once()
+#1 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#2 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/route.php on line 8
+[31-Jan-2022 10:49:09 America/Santo_Domingo] PHP Fatal error:  Uncaught Error: Call to a member function save() on null in /opt/lampp/htdocs/hechiceros/route.php:8
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/core/.autoload.php(14): require_once()
+#1 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#2 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/route.php on line 8
+[31-Jan-2022 10:49:09 America/Santo_Domingo] PHP Fatal error:  Uncaught Error: Call to a member function save() on null in /opt/lampp/htdocs/hechiceros/route.php:8
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/core/.autoload.php(14): require_once()
+#1 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#2 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/route.php on line 8
+[31-Jan-2022 10:49:09 America/Santo_Domingo] PHP Fatal error:  Uncaught Error: Call to a member function save() on null in /opt/lampp/htdocs/hechiceros/route.php:8
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/core/.autoload.php(14): require_once()
+#1 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#2 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/route.php on line 8
+[31-Jan-2022 10:49:10 America/Santo_Domingo] PHP Fatal error:  Uncaught Error: Call to a member function save() on null in /opt/lampp/htdocs/hechiceros/route.php:8
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/core/.autoload.php(14): require_once()
+#1 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#2 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/route.php on line 8
+[31-Jan-2022 10:49:43 America/Santo_Domingo] PHP Fatal error:  Uncaught Error: Call to a member function save() on null in /opt/lampp/htdocs/hechiceros/route.php:8
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/core/.autoload.php(14): require_once()
+#1 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#2 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/route.php on line 8
+[31-Jan-2022 11:37:27 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /opt/lampp/htdocs/hechiceros/view/home/activity.php:17
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/core/functions.php(111): require_once()
+#1 /opt/lampp/htdocs/hechiceros/controller/home/HomeController.php(19): view('home/activity', Array)
+#2 /opt/lampp/htdocs/hechiceros/core/Route.php(166): HomeController->activity()
+#3 /opt/lampp/htdocs/hechiceros/core/.autoload.php(16): Route->init(NULL)
+#4 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#5 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/view/home/activity.php on line 17
+[31-Jan-2022 11:38:38 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /opt/lampp/htdocs/hechiceros/view/home/activity.php:18
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/core/functions.php(111): require_once()
+#1 /opt/lampp/htdocs/hechiceros/controller/home/HomeController.php(19): view('home/activity', Array)
+#2 /opt/lampp/htdocs/hechiceros/core/Route.php(166): HomeController->activity()
+#3 /opt/lampp/htdocs/hechiceros/core/.autoload.php(16): Route->init(NULL)
+#4 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#5 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/view/home/activity.php on line 18
+[31-Jan-2022 11:40:16 America/Santo_Domingo] PHP Fatal error:  Uncaught Error: Cannot use object of type activity as array in /opt/lampp/htdocs/hechiceros/view/home/activity.php:18
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/core/functions.php(111): require_once()
+#1 /opt/lampp/htdocs/hechiceros/controller/home/HomeController.php(19): view('home/activity', Array)
+#2 /opt/lampp/htdocs/hechiceros/core/Route.php(166): HomeController->activity()
+#3 /opt/lampp/htdocs/hechiceros/core/.autoload.php(16): Route->init(NULL)
+#4 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#5 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/view/home/activity.php on line 18
+[31-Jan-2022 11:42:19 America/Santo_Domingo] PHP Fatal error:  Uncaught Error: Cannot use object of type activity as array in /opt/lampp/htdocs/hechiceros/view/home/activity.php:17
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/core/functions.php(111): require_once()
+#1 /opt/lampp/htdocs/hechiceros/controller/home/HomeController.php(19): view('home/activity', Array)
+#2 /opt/lampp/htdocs/hechiceros/core/Route.php(166): HomeController->activity()
+#3 /opt/lampp/htdocs/hechiceros/core/.autoload.php(16): Route->init(NULL)
+#4 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#5 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/view/home/activity.php on line 17
+[31-Jan-2022 11:42:33 America/Santo_Domingo] PHP Fatal error:  Uncaught Error: Cannot use object of type activity as array in /opt/lampp/htdocs/hechiceros/view/home/activity.php:18
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/core/functions.php(111): require_once()
+#1 /opt/lampp/htdocs/hechiceros/controller/home/HomeController.php(19): view('home/activity', Array)
+#2 /opt/lampp/htdocs/hechiceros/core/Route.php(166): HomeController->activity()
+#3 /opt/lampp/htdocs/hechiceros/core/.autoload.php(16): Route->init(NULL)
+#4 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#5 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/view/home/activity.php on line 18
+[31-Jan-2022 11:43:49 America/Santo_Domingo] PHP Fatal error:  Uncaught Error: Cannot use object of type activity as array in /opt/lampp/htdocs/hechiceros/view/home/activity.php:20
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/core/functions.php(111): require_once()
+#1 /opt/lampp/htdocs/hechiceros/controller/home/HomeController.php(19): view('home/activity', Array)
+#2 /opt/lampp/htdocs/hechiceros/core/Route.php(166): HomeController->activity()
+#3 /opt/lampp/htdocs/hechiceros/core/.autoload.php(16): Route->init(NULL)
+#4 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#5 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/view/home/activity.php on line 20
+[31-Jan-2022 14:35:13 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: Session::setUser(): Argument #1 ($credentials) must be of type array, user given, called in /opt/lampp/htdocs/hechiceros/controller/login/LoginController.php on line 26 and defined in /opt/lampp/htdocs/hechiceros/core/Session.php:119
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/controller/login/LoginController.php(26): Session::setUser(Object(user))
+#1 /opt/lampp/htdocs/hechiceros/core/Route.php(162): LoginController->access(Object(Request))
+#2 /opt/lampp/htdocs/hechiceros/core/.autoload.php(16): Route->init(NULL)
+#3 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#4 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/core/Session.php on line 119
+[31-Jan-2022 14:36:00 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: Session::setUser(): Argument #1 ($credentials) must be of type array, user given, called in /opt/lampp/htdocs/hechiceros/controller/login/LoginController.php on line 26 and defined in /opt/lampp/htdocs/hechiceros/core/Session.php:119
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/controller/login/LoginController.php(26): Session::setUser(Object(user))
+#1 /opt/lampp/htdocs/hechiceros/core/Route.php(162): LoginController->access(Object(Request))
+#2 /opt/lampp/htdocs/hechiceros/core/.autoload.php(16): Route->init(NULL)
+#3 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#4 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/core/Session.php on line 119
+[31-Jan-2022 14:36:28 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: Session::setUser(): Argument #1 ($credentials) must be of type array, user given, called in /opt/lampp/htdocs/hechiceros/controller/login/LoginController.php on line 26 and defined in /opt/lampp/htdocs/hechiceros/core/Session.php:119
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/controller/login/LoginController.php(26): Session::setUser(Object(user))
+#1 /opt/lampp/htdocs/hechiceros/core/Route.php(162): LoginController->access(Object(Request))
+#2 /opt/lampp/htdocs/hechiceros/core/.autoload.php(16): Route->init(NULL)
+#3 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#4 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/core/Session.php on line 119
+[31-Jan-2022 14:36:32 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: Session::setUser(): Argument #1 ($credentials) must be of type array, user given, called in /opt/lampp/htdocs/hechiceros/controller/login/LoginController.php on line 26 and defined in /opt/lampp/htdocs/hechiceros/core/Session.php:119
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/controller/login/LoginController.php(26): Session::setUser(Object(user))
+#1 /opt/lampp/htdocs/hechiceros/core/Route.php(162): LoginController->access(Object(Request))
+#2 /opt/lampp/htdocs/hechiceros/core/.autoload.php(16): Route->init(NULL)
+#3 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#4 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/core/Session.php on line 119
+[31-Jan-2022 14:39:07 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: Session::setUser(): Argument #1 ($credentials) must be of type array, string given, called in /opt/lampp/htdocs/hechiceros/controller/login/LoginController.php on line 26 and defined in /opt/lampp/htdocs/hechiceros/core/Session.php:119
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/controller/login/LoginController.php(26): Session::setUser('O:4:"user":12:{...')
+#1 /opt/lampp/htdocs/hechiceros/core/Route.php(162): LoginController->access(Object(Request))
+#2 /opt/lampp/htdocs/hechiceros/core/.autoload.php(16): Route->init(NULL)
+#3 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#4 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/core/Session.php on line 119
+[31-Jan-2022 14:41:57 America/Santo_Domingo] PHP Warning:  Undefined array key "rol" in /opt/lampp/htdocs/hechiceros/core/Model.php on line 73
+[31-Jan-2022 14:41:57 America/Santo_Domingo] PHP Fatal error:  Uncaught Error: Cannot use object of type user as array in /opt/lampp/htdocs/hechiceros/controller/login/LoginController.php:30
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/core/Route.php(162): LoginController->access(Object(Request))
+#1 /opt/lampp/htdocs/hechiceros/core/.autoload.php(16): Route->init(NULL)
+#2 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#3 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/controller/login/LoginController.php on line 30
+[31-Jan-2022 14:42:03 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: Session::getUser(): Return value must be of type array, string returned in /opt/lampp/htdocs/hechiceros/core/Session.php:150
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/view/home/index.php(95): Session::getUser()
+#1 /opt/lampp/htdocs/hechiceros/core/functions.php(111): require_once('/opt/lampp/htdo...')
+#2 /opt/lampp/htdocs/hechiceros/controller/home/HomeController.php(9): view('home/index')
+#3 /opt/lampp/htdocs/hechiceros/core/Route.php(155): HomeController->__construct()
+#4 /opt/lampp/htdocs/hechiceros/core/.autoload.php(16): Route->init(NULL)
+#5 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#6 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/core/Session.php on line 150
+[31-Jan-2022 14:42:18 America/Santo_Domingo] PHP Warning:  Undefined array key "rol" in /opt/lampp/htdocs/hechiceros/core/Model.php on line 73
+[31-Jan-2022 14:42:18 America/Santo_Domingo] PHP Fatal error:  Uncaught Error: Cannot use object of type user as array in /opt/lampp/htdocs/hechiceros/controller/login/LoginController.php:30
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/core/Route.php(162): LoginController->access(Object(Request))
+#1 /opt/lampp/htdocs/hechiceros/core/.autoload.php(16): Route->init(NULL)
+#2 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#3 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/controller/login/LoginController.php on line 30
+[31-Jan-2022 14:42:25 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: Session::getUser(): Return value must be of type array, string returned in /opt/lampp/htdocs/hechiceros/core/Session.php:150
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/view/home/index.php(95): Session::getUser()
+#1 /opt/lampp/htdocs/hechiceros/core/functions.php(111): require_once('/opt/lampp/htdo...')
+#2 /opt/lampp/htdocs/hechiceros/controller/home/HomeController.php(9): view('home/index')
+#3 /opt/lampp/htdocs/hechiceros/core/Route.php(155): HomeController->__construct()
+#4 /opt/lampp/htdocs/hechiceros/core/.autoload.php(16): Route->init(NULL)
+#5 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#6 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/core/Session.php on line 150
+[31-Jan-2022 14:42:53 America/Santo_Domingo] PHP Warning:  Undefined array key "rol" in /opt/lampp/htdocs/hechiceros/core/Model.php on line 73
+[31-Jan-2022 14:42:53 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: Session::getUser(): Return value must be of type array, string returned in /opt/lampp/htdocs/hechiceros/core/Session.php:150
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/view/home/index.php(95): Session::getUser()
+#1 /opt/lampp/htdocs/hechiceros/core/functions.php(111): require_once('/opt/lampp/htdo...')
+#2 /opt/lampp/htdocs/hechiceros/controller/home/HomeController.php(9): view('home/index')
+#3 /opt/lampp/htdocs/hechiceros/core/Route.php(155): HomeController->__construct()
+#4 /opt/lampp/htdocs/hechiceros/core/.autoload.php(16): Route->init(NULL)
+#5 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#6 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/core/Session.php on line 150
+[31-Jan-2022 14:43:08 America/Santo_Domingo] PHP Warning:  Undefined array key "rol" in /opt/lampp/htdocs/hechiceros/core/Model.php on line 73
+[31-Jan-2022 14:43:08 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: Session::getUser(): Return value must be of type array, string returned in /opt/lampp/htdocs/hechiceros/core/Session.php:150
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/view/home/index.php(95): Session::getUser()
+#1 /opt/lampp/htdocs/hechiceros/core/functions.php(111): require_once('/opt/lampp/htdo...')
+#2 /opt/lampp/htdocs/hechiceros/controller/home/HomeController.php(9): view('home/index')
+#3 /opt/lampp/htdocs/hechiceros/core/Route.php(155): HomeController->__construct()
+#4 /opt/lampp/htdocs/hechiceros/core/.autoload.php(16): Route->init(NULL)
+#5 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#6 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/core/Session.php on line 150
+[31-Jan-2022 14:43:12 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: Session::getUser(): Return value must be of type array, string returned in /opt/lampp/htdocs/hechiceros/core/Session.php:150
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/view/home/index.php(95): Session::getUser()
+#1 /opt/lampp/htdocs/hechiceros/core/functions.php(111): require_once('/opt/lampp/htdo...')
+#2 /opt/lampp/htdocs/hechiceros/controller/home/HomeController.php(9): view('home/index')
+#3 /opt/lampp/htdocs/hechiceros/core/Route.php(155): HomeController->__construct()
+#4 /opt/lampp/htdocs/hechiceros/core/.autoload.php(16): Route->init(NULL)
+#5 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#6 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/core/Session.php on line 150
+[31-Jan-2022 14:43:18 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: Session::getUser(): Return value must be of type array, string returned in /opt/lampp/htdocs/hechiceros/core/Session.php:150
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/view/home/index.php(95): Session::getUser()
+#1 /opt/lampp/htdocs/hechiceros/core/functions.php(111): require_once('/opt/lampp/htdo...')
+#2 /opt/lampp/htdocs/hechiceros/controller/home/HomeController.php(9): view('home/index')
+#3 /opt/lampp/htdocs/hechiceros/core/Route.php(155): HomeController->__construct()
+#4 /opt/lampp/htdocs/hechiceros/core/.autoload.php(16): Route->init(NULL)
+#5 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#6 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/core/Session.php on line 150
+[31-Jan-2022 14:44:57 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: Session::getUser(): Return value must be of type array, string returned in /opt/lampp/htdocs/hechiceros/core/Session.php:150
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/view/home/index.php(95): Session::getUser()
+#1 /opt/lampp/htdocs/hechiceros/core/functions.php(111): require_once('/opt/lampp/htdo...')
+#2 /opt/lampp/htdocs/hechiceros/controller/home/HomeController.php(9): view('home/index')
+#3 /opt/lampp/htdocs/hechiceros/core/Route.php(155): HomeController->__construct()
+#4 /opt/lampp/htdocs/hechiceros/core/.autoload.php(16): Route->init(NULL)
+#5 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#6 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/core/Session.php on line 150
+[31-Jan-2022 14:47:02 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: Session::getUser(): Return value must be of type array, user returned in /opt/lampp/htdocs/hechiceros/core/Session.php:150
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/view/home/index.php(95): Session::getUser()
+#1 /opt/lampp/htdocs/hechiceros/core/functions.php(111): require_once('/opt/lampp/htdo...')
+#2 /opt/lampp/htdocs/hechiceros/controller/home/HomeController.php(9): view('home/index')
+#3 /opt/lampp/htdocs/hechiceros/core/Route.php(155): HomeController->__construct()
+#4 /opt/lampp/htdocs/hechiceros/core/.autoload.php(16): Route->init(NULL)
+#5 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#6 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/core/Session.php on line 150
+[31-Jan-2022 14:48:28 America/Santo_Domingo] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Session::getUser(), 0 passed in /opt/lampp/htdocs/hechiceros/view/home/index.php on line 95 and exactly 1 expected in /opt/lampp/htdocs/hechiceros/core/Session.php:149
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/view/home/index.php(95): Session::getUser()
+#1 /opt/lampp/htdocs/hechiceros/core/functions.php(111): require_once('/opt/lampp/htdo...')
+#2 /opt/lampp/htdocs/hechiceros/controller/home/HomeController.php(9): view('home/index')
+#3 /opt/lampp/htdocs/hechiceros/core/Route.php(155): HomeController->__construct()
+#4 /opt/lampp/htdocs/hechiceros/core/.autoload.php(16): Route->init(NULL)
+#5 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#6 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/core/Session.php on line 149
+[31-Jan-2022 15:01:51 America/Santo_Domingo] PHP Warning:  Undefined variable $_ROL in /opt/lampp/htdocs/hechiceros/controller/home/HomeController.php on line 19
+[31-Jan-2022 15:05:02 America/Santo_Domingo] PHP Warning:  Undefined variable $_ROL in /opt/lampp/htdocs/hechiceros/controller/home/HomeController.php on line 19
+[31-Jan-2022 15:07:11 America/Santo_Domingo] PHP Warning:  Undefined variable $_ROL in /opt/lampp/htdocs/hechiceros/controller/home/HomeController.php on line 19
+[31-Jan-2022 15:10:01 America/Santo_Domingo] PHP Warning:  Undefined variable $name in /opt/lampp/htdocs/hechiceros/controller/home/HomeController.php on line 19
+[31-Jan-2022 16:16:09 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: Html::setBody(): Argument #1 ($view) must be of type string, null given, called in /opt/lampp/htdocs/hechiceros/core/.autoload.php on line 18 and defined in /opt/lampp/htdocs/hechiceros/core/Html.php:41
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/core/.autoload.php(18): Html::setBody(NULL, Array)
+#1 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#2 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/core/Html.php on line 41
+[31-Jan-2022 16:16:58 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: Html::setBody(): Argument #1 ($view) must be of type string, null given, called in /opt/lampp/htdocs/hechiceros/core/.autoload.php on line 18 and defined in /opt/lampp/htdocs/hechiceros/core/Html.php:41
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/core/.autoload.php(18): Html::setBody(NULL, Array)
+#1 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#2 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/core/Html.php on line 41
+[31-Jan-2022 16:17:09 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: Html::setBody(): Argument #1 ($view) must be of type string, null given, called in /opt/lampp/htdocs/hechiceros/core/.autoload.php on line 18 and defined in /opt/lampp/htdocs/hechiceros/core/Html.php:41
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/core/.autoload.php(18): Html::setBody(NULL, Array)
+#1 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#2 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/core/Html.php on line 41
+[31-Jan-2022 16:24:11 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: Html::setBody(): Argument #1 ($view) must be of type string, null given, called in /opt/lampp/htdocs/hechiceros/core/.autoload.php on line 18 and defined in /opt/lampp/htdocs/hechiceros/core/Html.php:41
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/core/.autoload.php(18): Html::setBody(NULL, Array)
+#1 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#2 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/core/Html.php on line 41
+[31-Jan-2022 16:24:12 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: Html::setBody(): Argument #1 ($view) must be of type string, null given, called in /opt/lampp/htdocs/hechiceros/core/.autoload.php on line 18 and defined in /opt/lampp/htdocs/hechiceros/core/Html.php:41
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/core/.autoload.php(18): Html::setBody(NULL, Array)
+#1 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#2 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/core/Html.php on line 41

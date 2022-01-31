@@ -1,6 +1,7 @@
 <?php
 class LoginController extends Controller{
 	private $claninfo = [];
+	private $activity = null;
 
 	public function __construct()
 	{
@@ -10,7 +11,7 @@ class LoginController extends Controller{
 			Session::set('icon', $this->claninfo['badgeUrls']['small']);
 		}
 		Html::addVariable('description', $this->claninfo['description']);
-		parent::setObject($this);
+		$this->activity = new activity();
 	}
 
 	public function index():string{
@@ -21,12 +22,22 @@ class LoginController extends Controller{
 		if($request->tokenIsValid()){
 			$user = new user();
 			if($user = $user->where(['username' => strtolower($request->username), 'password' => md5($request->password), '`delete`' => 0])->get(['id', 'username', 'email', 'admin'])){
-				Session::setUser($user);
-				return view('home/index');
+				$user = $user[0];
+				Session::setUser($user, 'admin');
+				$this->activity->insert([
+					'title' => 'Nuevo inicio se sesión',
+					'description' => "El usuario {$user->username} inicio sesión."
+				]);
+				Route::reload('home.index');
 			}
 			return view('login/index', ['message' => 'Usuario y/o clave incorrectos.']);
 		}else{
 			return view('login/index', ['message' => 'Token no valido, no se permite el reenvio de formulario.']);
 		}
+	}
+
+	public function logout(){
+		Session::destroyUser();
+		Route::reload('login.index');
 	}
 }

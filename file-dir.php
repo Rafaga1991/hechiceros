@@ -16,11 +16,14 @@ return [
             'index.php'
         ]
     ],
-    'model',
+    'model' => [
+        'activity.php'
+    ],
     'controller' => [// carpeta controlador
         'login' => [// carpeta login
             'LoginController.php'
         ]
     ],
-    'route.php'
+    'route.php',
+    'rol.php'
 ];

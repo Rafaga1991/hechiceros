@@ -64,7 +64,7 @@ class Html{
     public static function getTitle():string{ return self::$title; }
 
     public static function OutPut(){
-        echo implode('', [
+        $html = implode('', [
             '<!DOCTYPE html>',
             '<html lang="es">',
             '<head>',
@@ -82,5 +82,10 @@ class Html{
             '</body>',
             '</html>'
         ]);
+
+        $token = md5(microtime());
+        $html = str_ireplace(['</form>', '{!!TOKEN!!}'], ["<input type='hidden' name='__token' value='$token' /></form>", $token], $html, $cant);
+        if ($cant) Session::set('__token', $token);
+        echo replace($html, '{!!', '!!}');
     }
 }

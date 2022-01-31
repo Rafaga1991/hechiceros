@@ -108,6 +108,7 @@ function view(string $view, array $data=[]):string{
     if(file_exists($file)){
         ob_start();
         extract($data, EXTR_PREFIX_SAME, 'dta');
+        $_ROL = include 'rol.php';
         require_once $file;
         $ob = ob_get_contents();
         ob_clean();
@@ -276,6 +277,49 @@ function createFileOrDir(array $paths, string $route = ''){
             if(strtolower(php_uname('s')) == 'linux' && (!is_file($path)) || file_exists($path)) system("chmod 777 $path");
         }
     }
+}
+
+/**
+ * Verifica si el usuario actual es administrador.
+ * 
+ * @access public
+ * @return bool retorna un buleano indicando si es administrador o no.
+ * @author Rafael Minaya
+ * @copyright R.M.B.
+ * @version 1.0
+ */
+function admin():bool{
+    return Session::getRol() == Route::ROL_ADMIN;
+}
+
+/**
+ * elimina una palabra u oracion en un cadena de texto.
+ * 
+ * @access public
+ * @param string $text recive el texto donde se realizará la busqueda.
+ * @param string $char_start recive el texto inicial a buscar.
+ * @param string $char_end recive el texto final a buscar.
+ * @return string retorna una cadena de texto ya recorrida. 
+ * @author Rafael Minaya
+ * @copyright R.M.B.
+ * @version 1.0
+ */
+function replace(string $text, string $char_start, string $char_end):string{
+    $text = str_split($text);
+    foreach($text as $position => &$value){
+        if(strtolower($value) == strtolower($char_start)){
+            foreach($text as $pos => &$val){
+                if($pos >= $position){
+                    if(strtolower($val) == strtolower($char_end)){
+                        $val = '';
+                        break;
+                    }
+                    $val = '';
+                }
+            }
+        }
+    }
+    return join('', $text);
 }
 
 /**

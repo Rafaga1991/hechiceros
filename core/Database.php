@@ -31,7 +31,7 @@ class Database{
         $link = $this->getConnect();
         $query = mysqli_query($this->getConnect(), $sql);
         while($row = $query->fetch_array()) $data[] = $row;
-        if(count($data) == 1) $data = $data[0];
+        // if(count($data) == 1) $data = $data[0];
         mysqli_close($link);
         return $data;
     }

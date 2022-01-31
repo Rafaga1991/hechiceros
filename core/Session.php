@@ -110,30 +110,44 @@ class Session{
      * Agrega las credenciales de un usuario en sesion.
      * 
      * @access public
-     * @param array $credentials recive un arreglo con los datos del usuario logueado.
+     * @param mixed $credentials recive un arreglo con los datos del usuario logueado.
      * @return void sin retorno.
      * @version 1.0
      * @author Rafael Minaya
      * @copyright R.M.B
      */
-    public static function setUser(array $credentials = []):void{
+    public static function setUser($credentials = [], string $rolcolumn='rol'):void{
         if(!self::auth()){
             self::set('id', substr(md5( time().chr(rand(0, 100)).rand(0, 100).chr(rand(0, 100)) ), 0, 10));
-            self::set('user_' . self::get('id'), ['credential' => $credentials, 'auth' => true]);
+            self::set(
+                'user_' . self::get('id'), 
+                [
+                    'credential' => serialize($credentials), 
+                    'auth' => true, 
+                    'rol' => $credentials->{$rolcolumn} ?? 0
+                ]
+            );
         }
+    }
+
+    public static function getRol(){
+        if(self::auth()){
+            return self::get('user_' . self::get('id'))['rol'] ?? 0;
+        }
+        return 0;
     }
 
     /**
      * Retorna las credenciales del usuario logueado.
      * 
      * @access public
-     * @return array retorna un arreglo de las credenciales del usuario.
+     * @return tsring retorna un valor de la columna.
      * @version 1.0
      * @author Rafael Minaya
      * @copyright R.M.B
      */
-    public static function getUser():array{
-        return self::get('user_' . self::get('id'))['credential'] ?? [];
+    public static function getUser(string $columnname):string{
+        return unserialize(self::get('user_' . self::get('id'))['credential'] ?? [])->{$columnname};
     }
 
     /**
