@@ -1,6 +1,6 @@
 <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
     <!-- Navbar Brand-->
-    <a class="navbar-brand ps-3" href="<?=Session::get('home.index')?>"><img src="<?=Session::get('icon')?>" width="35"><?=PROYECT_NAME?></a>
+    <a class="navbar-brand ps-3" href="<?=Route::get('home.index')?>"><img src="<?=Session::get('icon')?>" width="35"><?=PROYECT_NAME?></a>
     <!-- Sidebar Toggle-->
     <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
     <!-- Navbar Search-->
@@ -35,7 +35,11 @@
                     <div class="sb-sidenav-menu-heading">Core</div>
                     <a class="nav-link" href="<?=Route::get('home.index')?>">
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                        Dashboard
+                        Inicio
+                    </a>
+                    <a class="nav-link" href="<?=Route::get('currentwar.index')?>">
+                        <div class="sb-nav-link-icon"><i class="fas fa-dragon"></i></div>
+                        Guerra Actual
                     </a>
                     <div class="sb-sidenav-menu-heading">Interface</div>
                     <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">

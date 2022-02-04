@@ -4,6 +4,8 @@
         <li class="breadcrumb-item active">Actualizaci&oacute;n de informaci&oacute;n</li>
     </ol>
 
+    {!!error!!}
+
     <form action="<?=Route::get('home.setting.form')?>" method="post">
         <div class="form-group">
             <label for="" class="form-label">Nombre de usuario:</label>

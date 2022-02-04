@@ -8,10 +8,15 @@ class LoginController extends Controller{
 		if(!$this->claninfo = Session::get('clan_info')){
 			$this->claninfo = (new Client())->getClan()->getClanInfo();
 			Session::set('clan_info', $this->claninfo);
+			Session::set('clan_war_log', (new Client())->getClan()->getWarLog());
+			Session::set('clan_current_war', (new Client())->getClan()->getCurrentWar());
+			Session::set('clan_current_war_league', (new Client())->getClan()->getCurrentWarLeagueGroup());
+			if(Session::get('clan_current_war')['state'] == 'notInWar') Session::destroy('clan_current_war');
+			if(Session::get('clan_current_war_league')['state'] == 'notInWar') Session::destroy('clan_current_war_league');
 			Session::set('icon', $this->claninfo['badgeUrls']['small']);
 		}
 		Html::addVariable('description', $this->claninfo['description']);
-		$this->activity = new activity();
+		$this->activity = new Activity();
 	}
 
 	public function index():string{
@@ -20,7 +25,7 @@ class LoginController extends Controller{
 	
 	public function access(Request $request){
 		if($request->tokenIsValid()){
-			$user = new user();
+			$user = new User();
 			if($user = $user->where(['username' => strtolower($request->username), 'password' => md5($request->password), '`delete`' => 0])->get(['id', 'username', 'email', 'admin'])){
 				$user = $user[0];
 				Session::setUser($user, 'admin');
@@ -38,6 +43,7 @@ class LoginController extends Controller{
 
 	public function logout(){
 		Session::destroyUser();
+		Session::destroy();
 		Route::reload('login.index');
 	}
 }

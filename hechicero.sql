@@ -1,14 +1,43 @@
 CREATE TABLE IF NOT EXISTS `user`(
-    id          INTEGER(10) PRIMARY KEY AUTO_INCREMENT,
-    email       VARCHAR(150) NOT NULL,
-    username    VARCHAR(50) NOT NULL,
-    `password`  VARCHAR(50) NOT NULL,
-    `admin`     BOOLEAN DEFAULT FALSE,
-    `delete`    BOOLEAN DEFAULT FALSE,
-    delete_at   INTEGER(10) DEFAULT 0,
-    update_at   INTEGER(10) DEFAULT 0,
-    insert_at   INTEGER(15) DEFAULT 0
+    id                  INTEGER(10) PRIMARY KEY AUTO_INCREMENT,
+    email               VARCHAR(150) NOT NULL,
+    username            VARCHAR(50) NOT NULL,
+    `password`          VARCHAR(50) NOT NULL,
+    `admin`             BOOLEAN DEFAULT FALSE,
+    `delete`            BOOLEAN DEFAULT FALSE,
+    delete_at           INTEGER(10) DEFAULT 0,
+    update_at           INTEGER(10) DEFAULT 0,
+    insert_at           INTEGER(15) DEFAULT 0
 );
+
+CREATE TABLE IF NOT EXISTS activity(
+    id                  INTEGER(10) PRIMARY KEY AUTO_INCREMENT,
+    title               VARCHAR(100) NOT NULL,
+    `description`       VARCHAR(250) NOT NULL,
+    `date`              TIMESTAMP DEFAULT NOW(),
+    `delete`            BOOLEAN DEFAULT FALSE
+);
+
+CREATE TABLE IF NOT EXISTS player(
+    id                  VARCHAR(10) NOT NULL PRIMARY KEY,
+    `name`              VARCHAR(50) NOT NULL,
+    `role`              VARCHAR(10) NOT NULL,
+    `image`             VARCHAR(200) NOT NULL,
+    cant                INTEGER(10) NOT NULL DEFAULT 1,
+    donations           INTEGER(10) NOT NULL,
+    donationsReceived   INTEGER(10) NOT NULL,
+    inClan              BOOLEAN DEFAULT TRUE,
+    `date`              TIMESTAMP DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS donations(
+    id                  VARCHAR(10) NOT NULL PRIMARY KEY,
+    donations           INTEGER(10) NOT NULL,
+    date_at             INTEGER(15) DEFAULT 0,
+    update_at           INTEGER(15) DEFAULT 0,
+    `delete`            BOOLEAN DEFAULT FALSE              
+);
+
 
 INSERT INTO `user` (`id`, `email`, `username`, `password`, `admin`) VALUES
 (1, 'lomasduro17@hotmail.com', 'Rafaga21', '4e46088ec803ef3a0ee9bf53f518cd42', 1),
@@ -25,11 +54,3 @@ INSERT INTO `user` (`id`, `email`, `username`, `password`, `admin`) VALUES
 (12, 'benja16echeverria@gmail.com', 'Benja10692', 'cfd909a7e48a63555e2da485665282d1', 0),
 (13, 'jacruzbihan2006@gmail.com', 'Coto 2024 ', 'd795d4e5192dc695f1f31bb306fb3af1', 0),
 (14, 'll3202118@gmail.com', 'Angel GT', '310b51dbf89733607e6dc6f7ec196b61', 0);
-
-CREATE TABLE IF NOT EXISTS activity(
-    id              INTEGER(10) PRIMARY KEY AUTO_INCREMENT,
-    title           VARCHAR(100) NOT NULL,
-    `description`   VARCHAR(250) NOT NULL,
-    `date`          TIMESTAMP DEFAULT NOW(),
-    `delete`        BOOLEAN DEFAULT FALSE
-);

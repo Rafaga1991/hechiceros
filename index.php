@@ -21,7 +21,6 @@ Html::addScript(['src' => 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0
 Html::addScript(['src' => asset('js/datatables-simple-demo.js')]);
 Html::addScript(['src' => 'https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js']);
 Html::addScript(['src' => asset('js/script.js')]);
-Html::addScript(['src' => asset('js/demo/chart-bar-demo.js')]);
 Html::addScript(['src' => asset('js/demo/chart-area-demo.js')]);
 Html::addScript(['src' => 'https://cdn.jsdelivr.net/npm/simple-datatables@latest', 'crossorigin' => 'anonymous']);
 

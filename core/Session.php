@@ -9,7 +9,8 @@
  * @copyright R.M.B
  */
 class Session{
-    private static $limit_expire = 3600;// 1 hora en segundos
+    // limite en que expiran las sesiones: 1 hora en segundos
+    private static $limit_expire = 3600;
 
     /**
      * Inicializa la sesión
@@ -26,11 +27,8 @@ class Session{
 
         foreach($_SESSION as $name => $value){
             if(is_array($value)){
-                if(time() > $value['expire']){
-                    unset($_SESSION[$name]);
-                }else{
-                    $_SESSION[$name]['expire'] = time()+self::$limit_expire;
-                }
+                if(time() > $value['expire']) unset($_SESSION[$name]);
+                else $_SESSION[$name]['expire'] = time()+self::$limit_expire;
             }
         }
     }
@@ -46,9 +44,7 @@ class Session{
      * @author Rafael Minaya
      * @copyright R.M.B
      */
-    public static function set(string $name, $value):void{
-        $_SESSION[$name] = ['value' => $value, 'expire' => (time()+3600)];
-    }
+    public static function set(string $name, $value):void{ $_SESSION[$name] = ['value' => $value, 'expire' => (time()+3600)]; }
 
     /**
      * Retorna el valor de un indice en especifico.
@@ -60,9 +56,7 @@ class Session{
      * @author Rafael Minaya
      * @copyright R.M.B
      */
-    public static function get(string $name = null){
-        return is_array($_SESSION[$name] ?? '') ? $_SESSION[$name]['value'] : null;
-    }
+    public static function get(string $name = null){ return is_array($_SESSION[$name] ?? '') ? $_SESSION[$name]['value'] : null; }
 
     /**
      * Verifica si el indice existe.
@@ -74,9 +68,7 @@ class Session{
      * @author Rafael Minaya
      * @copyright R.M.B
      */
-    public static function check(string $name):mixed{
-        return isset($_SESSION[$name]);
-    }
+    public static function check(string $name):mixed{ return isset($_SESSION[$name]); }
 
     /**
      * Elimina uno o todos los indices en sesion.
@@ -102,9 +94,7 @@ class Session{
      * @author Rafael Mimaya
      * @copyright R.M.B
      */
-    public static function destroyUser(){
-        self::destroy('user_' . self::get('id'));
-    }
+    public static function destroyUser(){ self::destroy('user_' . self::get('id')); }
 
     /**
      * Agrega las credenciales de un usuario en sesion.
@@ -130,10 +120,17 @@ class Session{
         }
     }
 
-    public static function getRol(){
+    public static function updateUser($credentials=[]){
         if(self::auth()){
-            return self::get('user_' . self::get('id'))['rol'] ?? 0;
+            $id = 'user_' . self::get('id');
+            $credential = self::get($id);
+            $credential['credential'] = serialize($credentials);
+            self::set($id, $credential);
         }
+    }
+
+    public static function getRol(){
+        if(self::auth()) return self::get('user_' . self::get('id'))['rol'] ?? 0;
         return 0;
     }
 
@@ -146,9 +143,7 @@ class Session{
      * @author Rafael Minaya
      * @copyright R.M.B
      */
-    public static function getUser(string $columnname):string{
-        return unserialize(self::get('user_' . self::get('id'))['credential'] ?? [])->{$columnname};
-    }
+    public static function getUser(string $columnname):string{ return unserialize(self::get('user_' . self::get('id'))['credential'] ?? [])->{$columnname}; }
 
     /**
      * Verifica si el usuario esta logueado.
@@ -159,7 +154,5 @@ class Session{
      * @author Rafael Minaya
      * @copyright R.M.B
      */
-    public static function auth():bool{
-        return self::get('user_' . self::get('id'))['auth'] ?? false;
-    }
+    public static function auth():bool{ return self::get('user_' . self::get('id'))['auth'] ?? false; }
 }

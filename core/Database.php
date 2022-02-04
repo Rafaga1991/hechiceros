@@ -24,14 +24,18 @@ class Database{
      * @return array retorna un arreglo de registros encontrados.
      * @author Rafael Minaya
      * @copyright R.M.B.
-     * @version 1.0
+     * @version 1.1
      */
     protected function query(string $sql):array{
         $data = [];
         $link = $this->getConnect();
         $query = mysqli_query($this->getConnect(), $sql);
-        while($row = $query->fetch_array()) $data[] = $row;
-        // if(count($data) == 1) $data = $data[0];
+        while($row = $query->fetch_array()){
+            foreach($row as $key => $col){
+                if(is_numeric($key)) unset($row[$key]);
+            }
+            $data[] = $row;
+        }
         mysqli_close($link);
         return $data;
     }

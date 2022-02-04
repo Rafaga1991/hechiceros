@@ -1,19 +1,18 @@
 <?php
 
 class Model extends Database{
-    public $table = '';
-    public $primaryKey = '';
     public $fk = [];
-    public $variable = [];
-    public $innerVariable = '';
+    public $table = '';
     public $models = [];
-
-    private $cant = 0;
-    private $where = '';
-    private $from = '';
-    private $isInner = false;
-
+    public $primaryKey = '';
+    public $innerVariable = '';
+    
     private $object;
+    private $cant = 0;
+    private $from = '';
+    private $where = '';
+    private $variable = [];
+    private $isInner = false;
 
     /**
      * Obtiene y carga toda la informacion del objeto hijo.
@@ -32,55 +31,141 @@ class Model extends Database{
         $this->table = ($this->object->table != $this->table) ? $this->object->table : $this->table;
         $this->primaryKey = ($this->object->primaryKey != $this->primaryKey) ? $this->object->primaryKey : $this->primaryKey;
 
-        $columns = parent::tableInfo($this->table);
-        $value = parent::query("SELECT * FROM $this->table LIMIT 1");
+        $description = parent::tableInfo($this->table);
 
-        foreach($columns as $column){
-            eval('$this->' . $column[0] . ' = "' . ($value[$column[0]] ?? '') . '";');
-            @$this->variable[$column[0]] = $value[$column[0]];
-            if($column[3] == 'PRI' && empty($this->primaryKey)) $this->primaryKey = $column[0];
-            elseif($column[3] == 'MUL') $this->fk[] = $column[0];
+        foreach($description as $columns){
+            if($columns['Key'] == 'PRI') $this->primaryKey = $columns['Field'];
+            $this->variable[$columns['Field']] = null;
         }
-
     }
 
     /**
      * Funcion magica, verifica y agrega una variable que fue creada dinamicamente.
      * 
-     * @access public
+     * @access private
      * @param string $name recive el nombre de la variable creada.
      * @param mixed $value recive el valor asignado a dicha varible.
      * @return void sin retorno.
-     * @version 1.0
+     * @version 1.1
      * @author Rafael Minaya
      * @copyright R.M.B
      */
-    public function __set($name, $value) {
+    private function __set($name, $value) {
         $this->variable[$name] = $value;
+        if(isset($this->variable[$this->primaryKey])){
+            if(!empty($this->variable[$this->primaryKey])){
+                parent::exec("UPDATE $this->table SET $name='$value' WHERE $this->primaryKey='{$this->variable[$this->primaryKey]}'");
+            }
+        }
+    }
+
+    /**
+     * Agrega los datos extraidos de la base de datos al modelo.
+     * 
+     * @access public
+     * @param array $data recive un arreglo de datos.
+     * @return void sin retorno.
+     * @author Rafael Minaya
+     * @copyright R.M.B.
+     * @version 1.0
+     */
+    public function setData(array $data):void{
+        foreach($data as $name => $value){
+            $this->variable[$name] = $value;
+        }
+    }
+
+    /**
+     * Retorna el valor máximo de los registros en db.
+     * 
+     * @access public
+     * @param string $column recive el nombre de la columna.
+     * @return int retorna el valor maximo encontrado.
+     * @author Rafael Minaya
+     * @copyright R.M.B.
+     * @version 1.0
+     */
+    public function max(string $column):int{
+        if($data = parent::query("SELECT MAX($column) 'max_$column' FROM $this->table")) return $data[0]["max_$column"];
+        return 0;
+    }
+
+    /**
+     * Retorna el valor minimo de los registros en db.
+     * 
+     * @access public
+     * @param string $column recive el nombre de la columna.
+     * @return int retorna el valor minimo encontrado.
+     * @author Rafael Minaya
+     * @copyright R.M.B.
+     * @version 1.0
+     */
+    public function min(string $column){
+        if($data = parent::query("SELECT MIN($column) 'min_$column' FROM $this->table")) return $data[0]["min_$column"];
+        return 0;
+    }
+
+    /**
+     * Retorna la sumatoria total de una columna.
+     * 
+     * @access public
+     * @param string $column recive el nombre de la columna.
+     * @return int retorna la sumatoria.
+     * @author Rafael Minaya
+     * @copyright R.M.B.
+     * @version 1.0
+     */
+    public function sum(string $column):int{
+        if($data = parent::query("SELECT sum($column) 'sum_$column' FROM $this->table")) return $data[0]["sum_$column"];
+        return 0;
+    }
+
+    /**
+     * Realiza una consulta a la base de datos.
+     * 
+     * @access public
+     * @param string sql recive un código sql.
+     * @return array retorna los datos extraidos de la base de datos.
+     * @author Rafael Minaya
+     * @copyright R.M.B.
+     * @version 1.0
+     */
+    public function getQuery(string $sql):array{ return parent::query($sql); }
+
+    /**
+     * Retorna la cantidad total de registros.
+     * 
+     * @access public
+     * @return int retorna la cantidad total de registros.
+     * @author Rafael Minaya
+     * @copyright R.M.B.
+     * @version 1.0
+     */
+    public function count():int{
+        if($data = parent::query("SELECT count(*) 'count' FROM $this->table")) return $data[0]["count"];
+        return 0;
     }
 
     /**
      * Funcion Magica, retorna el valor de una variable dinamica.
      * 
-     * @access public
+     * @access private
      * @param string $name recive el nombre de la variable a buscar.
      * @return mixed retorna el valor de la variable buscada.
      * @version 1.0
      * @author Rafael Minaya
      * @copyright R.M.B
      */
-    public function __get($name) {
-        return $this->variable[$name];
-    }
+    private function __get($name) { return $this->variable[$name]; }
 
     /**
      * Busca registro por registro de un modelo en especifico.
      * 
      * @access public
      * @return array retorna 1 registro de un modelo especifico.
-     * @version 1.0
      * @author Rafael Minaya
      * @copyright R.M.B
+     * @version 1.0
      */
     public function next(){
         if($row = parent::query("SELECT * FROM $this->table LIMIT $this->cant, 1")){
@@ -96,9 +181,9 @@ class Model extends Database{
      * 
      * @access public
      * @return array retorna la ultima fila de un modelo especifico en la base de datos.
-     * @version 1.0
      * @author Rafael Minaya
      * @copyright R.M.B
+     * @version 1.0
      */
     public function lastRow() { return parent::query("SELECT * FROM $this->table ORDER BY $this->primaryKey DESC LIMIT 1"); }
 
@@ -118,15 +203,12 @@ class Model extends Database{
         return trim(substr(trim($parameters), 0, strlen(trim($parameters))-(strtolower($separator)=='and'? 3 : 1)));
     }
 
-    public function find($id) : Model{
+    public function find($id){
         $this->where = "WHERE $this->primaryKey='$id'";
-        $row = parent::query("SELECT * FROM $this->table $this->where");
-        if(count($row) > 0 && !is_array($row[0])){
-            foreach($row as $index => $val){
-                if(!is_numeric($index)){
-                    $this->variable[$index] = $val;
-                }
-            }
+        if($row = parent::query("SELECT * FROM $this->table $this->where")){
+            foreach($row[0] as $index => $val) $this->variable[$index] = $val;
+        }else{
+            return;
         }
         $this->from = $this->table;
         return $this;
@@ -157,18 +239,14 @@ class Model extends Database{
 
         $query = parent::query("SELECT $columns FROM $this->from $this->where");
 
-        foreach($query as $key => $value){
-            if(is_array($value)) {
-                $object = clone $this->object;
-                foreach($value as $index => $val){
-                    if(!is_numeric($index)) $object->{$index} = $val;
-                }
-                $query[$key] = $object;
-            }elseif(is_numeric($key)){
-                unset($query[$key]);
-            }
+        foreach($query as &$value){
+            $object = clone $this->object;
+            $object->setData($value);
+            // foreach($value as $index => $val) $object->{$index} = $val;
+            $value = $object;
         }
         $this->from = '';
+
         return $query;
     }
 
@@ -194,9 +272,13 @@ class Model extends Database{
         return $this;
     }
 
-    public function delete($id){
-        $this->from = $this->table;
-        parent::exec("DELETE FROM $this->table WHERE $this->primaryKey='$id'");
+    public function delete(){
+        if(isset($this->variable[$this->primaryKey])){
+            if(!empty($this->variable[$this->primaryKey])){
+                $this->from = $this->table;
+                parent::exec("DELETE FROM $this->table WHERE $this->primaryKey='{$this->variable[$this->primaryKey]}'");
+            }
+        }
     }
 
     private function newVariable($table) : string{

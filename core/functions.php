@@ -305,21 +305,46 @@ function admin():bool{
  * @version 1.0
  */
 function replace(string $text, string $char_start, string $char_end):string{
-    $text = str_split($text);
-    foreach($text as $position => &$value){
-        if(strtolower($value) == strtolower($char_start)){
-            foreach($text as $pos => &$val){
-                if($pos >= $position){
-                    if(strtolower($val) == strtolower($char_end)){
-                        $val = '';
-                        break;
-                    }
-                    $val = '';
-                }
-            }
-        }
-    }
-    return join('', $text);
+    $char_end = '\\' . join('\\', str_split($char_end));
+    $char_start = '\\' . join('\\', str_split($char_start));
+    $text = preg_replace("/$char_start\w+$char_end/", '', $text);
+    return $text;
+}
+
+/**
+ * Muestra una alerta.
+ * 
+ * @access public
+ * @param string $message recive el mensaje que será mostrado.
+ * @param string $type recive el tipo del mensaje que será mostrado.
+ * @return string retorna una alerta.
+ * @author Rafael Minaya
+ * @copyright R.M.B.
+ * @version 1.0
+ */
+function alert(string $title, string $message, string $type){
+    return <<<HTML
+        <div class="alert alert-$type" role="alert">
+            <h2>$title</h2>
+            $message
+        </div>
+    HTML;
+}
+
+/**
+ * Traduce una palabra a español o ingles.
+ * 
+ * @access public
+ * @param string $value recive el valor a traducir.
+ * @param string $lang recive el idioma al que será traducido.
+ * @return string retorna la palabra traducida.
+ * @author Rafael Minaya
+ * @copyright R.M.B.
+ * @version 1.0
+ */
+function traslate(string $value, string $lang = 'es'):string{
+    $word = include 'languaje.php';
+    return ucfirst($word[$lang][strtolower($value)] ?? $value);
 }
 
 /**

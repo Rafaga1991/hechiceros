@@ -30,6 +30,7 @@ class Html{
     public static function addStyle(array $param){ self::$styles[] = '<link ' . self::__convertParam($param) . ' rel="stylesheet">'; }
 
     public static function addVariable(string $name, $value){ self::$variable[$name] = $value; }
+    
     public static function addVariables(array $variables){ self::$variable = array_merge(self::$variable, $variables); }
 
     public static function addScript(array $param){  self::$script[] = '<script ' . self::__convertParam($param) . '></script>'; }
@@ -50,15 +51,11 @@ class Html{
     public static function setFooter(string $view) { self::$footer = $view; }
 
     public static function setTitle(string $title){ 
-        if(empty(self::$title)){
-            self::$title = "<title>$title</title>"; 
-        }
+        if(empty(self::$title)) self::$title = "<title>$title</title>";
     }
 
     public static function setIcon(string $path){ 
-        if(empty(self::$icon)){
-            self::$icon = "<link rel=\"shortcut icon\" href=\"$path\" type=\"image/x-icon\">"; 
-        }
+        if(empty(self::$icon)) self::$icon = "<link rel=\"shortcut icon\" href=\"$path\" type=\"image/x-icon\">";
     }
 
     public static function getTitle():string{ return self::$title; }

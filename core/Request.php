@@ -29,6 +29,52 @@ class Request{
         $this->createVariable();
     }
 
+    public function validate(array $validation):array{
+        $isValid = true;
+        $inf = ['validation' => true];
+        foreach($validation as $name => $validations){
+            if($isValid = isset($this->variable[$name])){
+                if(isset($validations['empty'])){// verificando si existe el indice
+                    if(empty($this->variable[$name]) != $validation['empty']){// verificando si el campo no esta vacio
+                        if(!$validation['empty']) $inf['error'][] = "El campo <b>$name</b> no puede estar vacio.";
+                        else $inf['error'][] = "El campo <b>$name</b> debe estar vacio.";
+                        $inf['validation'] = $isValid;
+                    }
+                }
+
+                if(isset($validations['length:max'])){// verificando si existe el indice
+                    if(strlen($this->variable[$name]) > $validations['length:max']){// verificando la longitud maxima
+                        $inf['error'][] = "El campo <b>$name</b> no puede tener una longitud mayor a <b>{$validations['length:max']}</b>.";
+                        $inf['validation'] = false;
+                    }
+                }
+
+                if(isset($validations['length:min'])){// verificando si existe el indice
+                    if(strlen($this->variable[$name]) < $validations['length:min']){// verificando la longitud minima
+                        $inf['error'][] = "El campo <b>$name</b> no puede tener una longitud menor a <b>{$validations['length:min']}</b>.";
+                        $inf['validation'] = false;
+                    }
+                }
+
+                if(isset($validations['equal'])){
+                    if(isset($this->variable[$validations['equal']])){
+                        if($this->variable[$validations['equal']] != $this->variable[$name]){
+                            $inf['error'][] = "El valor del los campos <b>{$validations['equal']}</b> y <b>$name</b> no coinciden.";
+                            $inf['validation'] = false;
+                        }
+                    }else{
+                        $inf['error'][] = "El campo <b>{$validations['equal']}</b> no existe.";
+                        $inf['validation'] = false;
+                    }
+                }
+            }else{
+                $inf['error'][] = "El campo $name no existe.";
+                $inf['validation'] = false;
+            }
+        }
+        return $inf;
+    }
+
     private function createVariable(){
         foreach($this->data as $name => $value){
             if(!isset($this->variable[$name])){
