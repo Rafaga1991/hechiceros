@@ -1,3 +1,4 @@
+{!!MESSAGE!!}
 <div class="d-flex flex-column min-vh-100 justify-content-center align-items-center">
     <div class="card mb-5 p-5 bg-dark bg-gradient text-white col-md-4">
         <div class="card-header text-center">

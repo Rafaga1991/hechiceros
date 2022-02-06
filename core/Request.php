@@ -31,11 +31,11 @@ class Request{
 
     public function validate(array $validation):array{
         $isValid = true;
-        $inf = ['validation' => true];
+        $inf = ['validation' => true, 'error' => []];
         foreach($validation as $name => $validations){
             if($isValid = isset($this->variable[$name])){
                 if(isset($validations['empty'])){// verificando si existe el indice
-                    if(empty($this->variable[$name]) != $validation['empty']){// verificando si el campo no esta vacio
+                    if(empty($this->variable[$name]) != $validations['empty']){// verificando si el campo no esta vacio
                         if(!$validation['empty']) $inf['error'][] = "El campo <b>$name</b> no puede estar vacio.";
                         else $inf['error'][] = "El campo <b>$name</b> debe estar vacio.";
                         $inf['validation'] = $isValid;

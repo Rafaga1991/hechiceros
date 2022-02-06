@@ -16,7 +16,7 @@
             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <li><a class="dropdown-item" href="<?=Route::get('home.setting')?>">Opciones</a></li>
-                <?php if(admin()):?>
+                <?php if(isAdmin()):?>
                     <li><a class="dropdown-item" href="<?=Route::get('home.activity')?>">Actividades</a></li>
                 <?php endif;?>
                 <li>
@@ -44,13 +44,14 @@
                     <div class="sb-sidenav-menu-heading">Interface</div>
                     <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                         <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                        Layouts
+                        Listas
                         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                     </a>
                     <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="layout-static.html">Static Navigation</a>
-                            <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
+                            <a class="nav-link" href="<?=Route::get('list.war')?>">Lista de Guerra</a>
+                            <a class="nav-link" href="<?=Route::get('list.break')?>">Lista de Descanso</a>
+                            <a class="nav-link" href="<?=Route::get('list.wait')?>">Lista de Espera</a>
                         </nav>
                     </div>
                     <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">

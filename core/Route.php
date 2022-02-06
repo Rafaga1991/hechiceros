@@ -61,14 +61,21 @@ class Route
         return $this;
     }
 
-    public static function get(string $name): string
+    public static function get(string $name)
     {
-        if ($route = (Session::get('_ROUTES_')[$name] ?? null)) {
+        $routes = Session::get('_ROUTES_');
+        if ($route = ($routes[$name] ?? null)) {
             if ($route['auth'] == Session::auth()) {
                 if ($route['path'] != '/') {
                     return HOST . "{$route['path']}";
                 } else {
                     return HOST;
+                }
+            }
+        }else{
+            foreach($routes as $route){
+                if($route['path'] == $name){
+                    return $route;
                 }
             }
         }
@@ -123,6 +130,7 @@ class Route
 
             if ($route = $this->isRoute($item)) {
                 $data['route'] = unserialize($route);
+                break;
             }
         }
 
@@ -133,11 +141,24 @@ class Route
             if ($this->objectExist($route['controller'], $route['function'])) {
                 Session::set('_view_', $route['name']);
                 ${$route['controller']} = new $route['controller']();
-                if ($request->isData() && $data['existparam']) eval('$view = $' . $route['controller'] . '->' . $route['function'] . '($request,' . $data['route']['data'] . ',' . $data['params'] . ');');
-                elseif ($request->isData()) eval('$view = $' . $route['controller'] . '->' . $route['function'] . '($request,"' . $data['route']['data'] . '");');
-                elseif ($data['existparam']) eval('$view = $' . $route['controller'] . '->' . $route['function'] . '(' . $data['route']['data'] . ',' . $data['params'] . ');');
-                else $view = ${$route['controller']}->{$route['function']}($data['route']['data']);
-                if(!$view) exit;// se detiene si la vista es null.
+
+                if ($request->isData() && $data['existparam']) {
+                    eval('$view = $' . $route['controller'] . '->' . $route['function'] . '($request,' . $data['route']['data'] . ',' . $data['params'] . ');');
+                }elseif ($request->isData()){
+                    eval('$view = $' . $route['controller'] . '->' . $route['function'] . '($request,"' . $data['route']['data'] . '");');
+                }else{
+                    $view = ${$route['controller']}->{$route['function']}($data['route']['data']);
+                }
+                // }else{
+                //     eval('$view = $' . $route['controller'] . '->' . $route['function'] . '(' . $data['route']['data'] . ',' . $data['params'] . ');');
+                // }
+
+                if($view){
+                    Session::set('__LAST_ROUTE__', (Session::get('__CURRENT_ROUTE__') != $route['path']?Session::get('__CURRENT_ROUTE__'):Session::get('__LAST_ROUTE__')));
+                    Session::set('__CURRENT_ROUTE__', $route['path']);
+                }else{
+                    exit;// se detiene si la vista es null.
+                }
             }
         } elseif ($route = ($this->getRoute($url) ?? $this->getRoute('/' . join('/', $tpm_url)))) {
             if ($route['auth'] == Session::auth()) {
@@ -150,7 +171,12 @@ class Route
                     elseif ($data['existparam']) eval('$view = $' . $route['controller'] . '->' . $route['function'] . '(' . $data['params'] . ');');
                     elseif ($reflection->getNumberOfParameters() == 0) $view = ${$route['controller']}->{$route['function']}();
                     else Message::add('Se requieren parámetros para esta url.');
-                    if(!$view) exit;// se detiene si la vista es null.
+                    if($view){
+                        Session::set('__LAST_ROUTE__', (Session::get('__CURRENT_ROUTE__') != $route['path']?Session::get('__CURRENT_ROUTE__'):Session::get('__LAST_ROUTE__')));
+                        Session::set('__CURRENT_ROUTE__', $route['path']);
+                    }else{
+                        exit;// se detiene si la vista es null.
+                    }
                 }
             } else {
                 if (Session::auth()) Message::add('Debes cerrar sessión para acceder a esta ruta.');
@@ -213,7 +239,8 @@ class Route
     public static function reload($name)
     {
         if ($route = (Session::get('_ROUTES_')[$name] ?? null)) {
-            header("location: {$route['path']}");
+            header("location: " . HOST . $route['path']);
+            exit;
         }
         Message::add("El nombre <b>$name</b> no existe!");
     }

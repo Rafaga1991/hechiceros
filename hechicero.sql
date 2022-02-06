@@ -27,17 +27,31 @@ CREATE TABLE IF NOT EXISTS player(
     donations           INTEGER(10) NOT NULL,
     donationsReceived   INTEGER(10) NOT NULL,
     inClan              BOOLEAN DEFAULT TRUE,
-    `date`              TIMESTAMP DEFAULT NOW()
+    `date`              TIMESTAMP DEFAULT NOW(),
+    `status`            VARCHAR(10) DEFAULT 'active' CHECK(`status` IN ('wait', 'active', 'break'))
 );
 
 CREATE TABLE IF NOT EXISTS donations(
     id                  VARCHAR(10) NOT NULL PRIMARY KEY,
     donations           INTEGER(10) NOT NULL,
+    donationsReceived   INTEGER(10) NOT NULL,
     date_at             INTEGER(15) DEFAULT 0,
     update_at           INTEGER(15) DEFAULT 0,
     `delete`            BOOLEAN DEFAULT FALSE              
 );
 
+CREATE TABLE IF NOT EXISTS listwar(
+    id                  INTEGER(10) PRIMARY KEY AUTO_INCREMENT,
+    list                VARCHAR(1000) NOT NULL,
+    members             INTEGER(10) NOT NULL,
+    `description`       VARCHAR(250),
+    `delete`            BOOLEAN DEFAULT FALSE,
+    `date`              TIMESTAMP DEFAULT NOW(),
+    update_at           INTEGER(15) DEFAULT 0,
+    delete_at           INTEGER(15) DEFAULT 0
+);
+
+drop table listwar;
 
 INSERT INTO `user` (`id`, `email`, `username`, `password`, `admin`) VALUES
 (1, 'lomasduro17@hotmail.com', 'Rafaga21', '4e46088ec803ef3a0ee9bf53f518cd42', 1),

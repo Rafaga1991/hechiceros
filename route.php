@@ -14,3 +14,21 @@ $route->set('/reload', [HomeController::class, 'reload'])->name('home.reload')->
 
 $route->set('/currentwar', [CurrentWarController::class, 'index'])->name('currentwar.index')->auth()->save();
 $route->set('/cw-reload', [CurrentWarController::class, 'reload'])->name('currentwar.reload')->auth()->save();
+
+$route->set('/list-war', [ListController::class, 'listWar'])->name('list.war')->auth()->save();
+$route->set('/list-war/new', [ListController::class, 'newListWar'])->name('list.war.new')->auth()->save();
+$route->set('/list-war/create', [ListController::class, 'listWarCreate'])->name('list.war.create')->auth()->save();
+$route->set('/list-war/show', [ListController::class, 'listWarShow'])->name('list.war.show')->auth()->save();
+$route->set('/list-war/destroy', [ListController::class, 'listWarDestroy'])->name('list.war.destroy')->auth()->save();
+$route->set('/list-war/update', [ListController::class, 'listWarUpdate'])->name('list.war.update')->auth()->save();
+$route->set('/list-war/change', [ListController::class, 'listWarChange'])->name('list.war.change')->auth()->save();
+
+$route->set('/list-break', [ListController::class, 'listBreak'])->name('list.break')->auth()->save();
+$route->set('/list-break/new', [ListController::class, 'listBreakNew'])->name('list.break.new')->auth()->save();
+$route->set('/list-break/change', [ListController::class, 'listBreakChange'])->name('list.break.change')->auth()->save();
+$route->set('/list-break/destroy', [ListController::class, 'listBreakDestroy'])->name('list.break.destroy')->auth()->save();
+
+$route->set('/list-wait', [ListController::class, 'listWait'])->name('list.wait')->auth()->save();
+$route->set('/list-wait/new', [ListController::class, 'listWaitNew'])->name('list.wait.new')->auth()->save();
+$route->set('/list-wait/change', [ListController::class, 'listWaitChange'])->name('list.wait.change')->auth()->save();
+$route->set('/list-wait/destroy', [ListController::class, 'listWaitDestroy'])->name('list.wait.destroy')->auth()->save();

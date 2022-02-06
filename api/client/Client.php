@@ -8,9 +8,9 @@ class Client{
 
     }
 
-    public static function getPlayer(string $tag):Player{
+    public static function getPlayer(string $tag):Players{
 
-        return new Player($tag);
+        return new Players($tag);
 
     }
 

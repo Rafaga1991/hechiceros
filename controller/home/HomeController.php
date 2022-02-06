@@ -8,7 +8,7 @@ class HomeController extends Controller
     private $donations = null;
     private $redirect;
 
-    public function __construct(string $redirect='home.index')
+    public function __construct(string $redirect = 'home.index')
     {
         $this->view = view('home/index');
         $this->activity = new Activity();
@@ -19,21 +19,20 @@ class HomeController extends Controller
 
     public function index()
     {
-
         $claninfo = Session::get('clan_info');
 
         usort($claninfo['memberList'], function (array $arr1, array $arr2) {
             return ($arr1['donations'] - $arr1['donationsReceived']) < ($arr2['donations'] - $arr2['donationsReceived']);
         });
 
+        $players = $this->player->get();
+
         Html::addVariables([
-            'body' => view('home/home', ['members' => $claninfo['memberList']]),
+            'body' => view('home/home', ['members' => $claninfo['memberList'], 'players' => $players, 'max' => 1000*((int)date('d', time()))]),
             'members' => count($claninfo['memberList']),
             'url_get_donations' => HOST . '/chart-area-donations',
             'url_get_perfomance' => HOST . '/chart-bar-perfomance'
         ]);
-
-        $players = $this->player->get();
         foreach ($players as $player) {
             $inClan = false;
             foreach ($claninfo['memberList'] as $member) {
@@ -50,34 +49,38 @@ class HomeController extends Controller
         }
 
         $donations = 0;
+        $donationsReceived = 0;
         $idDonations = date('Y-m', time());
         // cargando jugadores
         foreach ($claninfo['memberList'] as $member) {
+            $image = $member['league']['iconUrls']['medium'] ?? $member['league']['iconUrls']['tiny'] ?? $member['league']['iconUrls']['small'] ?? '';
             if (!$player = $this->player->find($member['tag'])) {
                 $this->player->insert([
                     'id' => $member['tag'],
                     'name' => $member['name'],
                     'role' => $member['role'],
-                    'image' => $member['league']['iconUrls']['medium'],
+                    'image' => $image,
                     'donations' => $member['donations'],
                     'donationsReceived' => $member['donationsReceived']
                 ]);
-            } else { // actualizando informacion de jugador
+            } else { // actualizando informacion de jugador 
                 if ($player->name != $member['name']) $player->name = $member['name'];
                 if ($player->role != $member['role']) $player->role = $member['role'];
                 if ($player->donations != $member['donations']) $player->donations = $member['donations'];
                 if ($player->donationsReceived != $member['donationsReceived']) $player->donationsReceived = $member['donationsReceived'];
-                if ($player->image != $member['league']['iconUrls']['medium']) $player->image = $member['league']['iconUrls']['medium'];
+                if ($player->image != $image) $player->image = $image;
             }
             $donations += $member['donations'];
+            $donationsReceived += $member['donationsReceived'];
         }
 
-        if($donation = $this->donations->find($idDonations)){
-            if($donation->donations != $donations) {
-                $donation->donations = $donations;
+        if ($donation = $this->donations->find($idDonations)) {
+            if ($donation->donations != $donations || $donationsReceived != $donation->donationsReceived) {
+                if ($donation->donations != $donations) $donation->donations = $donations;
+                if ($donation->donationsReceived != $donationsReceived) $donation->donationsReceived = $donationsReceived;
                 $donation->update_at = time();
             }
-        }else{
+        } else {
             $this->donations->insert([
                 'id' => $idDonations,
                 'donations' => $donations,
@@ -90,7 +93,7 @@ class HomeController extends Controller
 
     public function activity()
     {
-        if (Session::getRol() != Route::ROL_ADMIN) Route::reload('home.index');
+        if (isAdmin()) Route::reload('home.index');
         Html::addVariable('body', view('home/option/activity', ['activity' => $this->activity->get()]));
         return $this->view;
     }
@@ -150,36 +153,70 @@ class HomeController extends Controller
         return $this->setting();
     }
 
-    public function reload() {
+    public function reload()
+    {
         Session::set('clan_info', (new Client())->getClan()->getClanInfo());
         Session::set('clan_war_log', (new Client())->getClan()->getWarLog());
         Session::set('clan_current_war', (new Client())->getClan()->getCurrentWar());
         Session::set('clan_current_war_league', (new Client())->getClan()->getCurrentWarLeagueGroup());
-        if(Session::get('clan_current_war')['state'] == 'notInWar') Session::destroy('clan_current_war');
-        if(Session::get('clan_current_war_league')['state'] == 'notInWar') Session::destroy('clan_current_war_league');
+        if (Session::get('clan_current_war')['state'] == 'notInWar') Session::destroy('clan_current_war');
+        if (Session::get('clan_current_war_league')['state'] == 'notInWar') Session::destroy('clan_current_war_league');
         Route::reload($this->redirect);
         return;
     }
 
     public function chartAreaDonations()
     {
+        $datasets = [
+            [
+                'label' => 'Donadas',
+                'lineTension' => 0.3,
+                'backgroundColor' => "rgba(2,117,216,0.2)",
+                'borderColor' => "rgba(2,117,216,1)",
+                'pointRadius' => 5,
+                'pointBackgroundColor' => "rgba(2,117,216,1)",
+                'pointBorderColor' => "rgba(255,255,255,0.8)",
+                'pointHoverRadius' => 5,
+                'pointHoverBackgroundColor' => "rgba(2,117,216,1)",
+                'pointHitRadius' => 50,
+                'pointBorderWidth' => 2,
+                'data' => []
+            ],
+            [
+                'label' => 'Recividas',
+                'lineTension' => 0.3,
+                'backgroundColor' => "rgba(214,34,26,0.2)",
+                'borderColor' => "rgba(214,34,26,1)",
+                'pointRadius' => 5,
+                'pointBackgroundColor' => "rgba(214,34,26,1)",
+                'pointBorderColor' => "rgba(255,255,255,0.8)",
+                'pointHoverRadius' => 5,
+                'pointHoverBackgroundColor' => "rgba(214,34,26,1)",
+                'pointHitRadius' => 50,
+                'pointBorderWidth' => 2,
+                'data' => []
+            ]
+        ];
+
         $data = [
             'label' => [],
-            'values' => [],
-            'max' => 0,
-            'labelName' => 'Donaciones'
+            'datasets' => $datasets,
+            'max' => 0
         ];
 
         $year = date('Y', time());
         for ($i = 1; $i <= 12; $i++) {
             $date = strtotime("$year-$i-1");
             $data['label'][] = date('M', $date);
-            if($donations = $this->donations->find(date('Y-m', $date))) $data['values'][] = (int)$donations->donations;
-            else $data['values'][] = 0;
-        }
-
-        foreach($data['values'] as $value){
-            if($value > $data['max']) $data['max'] = $value;
+            if ($donations = $this->donations->find(date('Y-m', $date))){
+                $data['datasets'][0]['data'][] = (int)$donations->donations;
+                $data['datasets'][1]['data'][] = (int)$donations->donationsReceived;
+                if($donations->donations > $data['max']) $data['max'] = $donations->donations;
+                if($donations->donationsReceived > $data['max']) $data['max'] = $donations->donationsReceived;
+            }else{
+                $data['datasets'][0]['data'][] = 0;
+                $data['datasets'][1]['data'][] = 0;
+            }
         }
 
         $data['max'] += 1000;
@@ -188,7 +225,8 @@ class HomeController extends Controller
         return;
     }
 
-    public function chartBarPerfomance(){
+    public function chartBarPerfomance()
+    {
         $currentWar = Session::get('clan_current_war_league');
         $data = [
             'label' => [generateID(), generateID(), generateID()],

@@ -7,7 +7,10 @@ return [
         'coleader' => 'colíder',
         'leader' => 'líder',
         'user' => 'usuario',
-        'administrator' => 'administrador'
+        'administrator' => 'administrador',
+        'active' => 'activo',
+        'wait' => 'espera',
+        'break' => 'descanso'
     ],
     'en' => [
         'miembro' => 'member',
@@ -15,6 +18,9 @@ return [
         'colíder' => 'coleader',
         'líder' => 'leader',
         'usuario' => 'user',
-        'administrador' => 'administrator'
+        'administrador' => 'administrator',
+        'activo' => 'active',
+        'espera' => 'wait',
+        'descanso' => 'break'
     ]
 ];

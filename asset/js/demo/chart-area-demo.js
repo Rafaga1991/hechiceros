@@ -1,5 +1,4 @@
 function initCharArea(id, data, type = 'line') {
-
     // Set new default font family and font color to mimic Bootstrap's default styling
     Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
     Chart.defaults.global.defaultFontColor = '#292b2c';
@@ -10,20 +9,7 @@ function initCharArea(id, data, type = 'line') {
         type: type,
         data: {
             labels: data.label,
-            datasets: [{
-                label: data.labelName,
-                lineTension: 0.3,
-                backgroundColor: "rgba(2,117,216,0.2)",
-                borderColor: "rgba(2,117,216,1)",
-                pointRadius: 5,
-                pointBackgroundColor: "rgba(2,117,216,1)",
-                pointBorderColor: "rgba(255,255,255,0.8)",
-                pointHoverRadius: 5,
-                pointHoverBackgroundColor: "rgba(2,117,216,1)",
-                pointHitRadius: 50,
-                pointBorderWidth: 2,
-                data: data.values,
-            }],
+            datasets: data.datasets,
         },
         options: {
             scales: {
@@ -32,7 +18,7 @@ function initCharArea(id, data, type = 'line') {
                         unit: 'date'
                     },
                     gridLines: {
-                        display: false
+                        display: true
                     },
                     ticks: {
                         maxTicksLimit: data.label.length
@@ -50,7 +36,7 @@ function initCharArea(id, data, type = 'line') {
                 }],
             },
             legend: {
-                display: false
+                display: true
             }
         }
     });

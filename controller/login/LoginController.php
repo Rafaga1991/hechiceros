@@ -26,7 +26,7 @@ class LoginController extends Controller{
 	public function access(Request $request){
 		if($request->tokenIsValid()){
 			$user = new User();
-			if($user = $user->where(['username' => strtolower($request->username), 'password' => md5($request->password), '`delete`' => 0])->get(['id', 'username', 'email', 'admin'])){
+			if($user = $user->where(['username' => strtolower($request->username), 'password' => md5($request->password), 'delete' => 0])->get(['id', 'username', 'email', 'admin'])){
 				$user = $user[0];
 				Session::setUser($user, 'admin');
 				$this->activity->insert([
@@ -45,5 +45,6 @@ class LoginController extends Controller{
 		Session::destroyUser();
 		Session::destroy();
 		Route::reload('login.index');
+		return;
 	}
 }

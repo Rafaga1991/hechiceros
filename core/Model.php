@@ -42,7 +42,7 @@ class Model extends Database{
     /**
      * Funcion magica, verifica y agrega una variable que fue creada dinamicamente.
      * 
-     * @access private
+     * @access public
      * @param string $name recive el nombre de la variable creada.
      * @param mixed $value recive el valor asignado a dicha varible.
      * @return void sin retorno.
@@ -50,7 +50,7 @@ class Model extends Database{
      * @author Rafael Minaya
      * @copyright R.M.B
      */
-    private function __set($name, $value) {
+    public function __set($name, $value) {
         $this->variable[$name] = $value;
         if(isset($this->variable[$this->primaryKey])){
             if(!empty($this->variable[$this->primaryKey])){
@@ -149,14 +149,14 @@ class Model extends Database{
     /**
      * Funcion Magica, retorna el valor de una variable dinamica.
      * 
-     * @access private
+     * @access public
      * @param string $name recive el nombre de la variable a buscar.
      * @return mixed retorna el valor de la variable buscada.
      * @version 1.0
      * @author Rafael Minaya
      * @copyright R.M.B
      */
-    private function __get($name) { return $this->variable[$name]; }
+    public function __get($name) { return $this->variable[$name]; }
 
     /**
      * Busca registro por registro de un modelo en especifico.
@@ -196,32 +196,44 @@ class Model extends Database{
      */
     private function _where(array $arr, string $separator = ',') : string{
         $parameters = '';
+        $isArray = false;
         foreach($arr as $key => $value){
-            $parameters .= "$key='$value' $separator ";
+            if(is_array($value)){
+                $isArray = true;
+                $parameters .= "`$key` IN ('" . join("','", $value) . "')";
+            }else{
+                $parameters .= "`$key`='$value' $separator ";
+            }
         }
         $this->from = $this->table;
+        if($isArray) return $parameters;
         return trim(substr(trim($parameters), 0, strlen(trim($parameters))-(strtolower($separator)=='and'? 3 : 1)));
     }
 
     public function find($id){
-        $this->where = "WHERE $this->primaryKey='$id'";
+        if(empty($this->where)) $this->where = "WHERE `$this->primaryKey`='$id'";
+        else $this->where .= " AND `$this->primaryKey`='$id'";
         if($row = parent::query("SELECT * FROM $this->table $this->where")){
             foreach($row[0] as $index => $val) $this->variable[$index] = $val;
         }else{
+            $this->where = '';
             return;
         }
         $this->from = $this->table;
+        $this->where = '';
         return $this;
     }
 
     public function where(array $condition = []) : Model{
-        if(!empty($condition)) $this->where = 'WHERE ' . $this->_where($condition, 'AND');
+        if(!empty($condition)) {
+            $this->where = 'WHERE ' . $this->_where($condition, 'AND');
+        }
         return $this;
     }
 
     public function get(array $columns = []) : array{
         if(!$this->isInner){
-            if(!empty($columns)) $columns = join(',', array_values($columns));
+            if(!empty($columns)) $columns = '`' . join('`,`', array_values($columns)) . '`';
             else $columns = '*';
         }else{
             $col = [];
@@ -237,6 +249,7 @@ class Model extends Database{
             else $columns = join(',', $col);
         }
 
+        // vdump("SELECT $columns FROM $this->from $this->where");
         $query = parent::query("SELECT $columns FROM $this->from $this->where");
 
         foreach($query as &$value){

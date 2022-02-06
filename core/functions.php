@@ -1,5 +1,7 @@
 <?php
 
+use Mpdf\Mpdf;
+
 /**
  * Busca todos los archivos en una ruta especificada
  * 
@@ -7,9 +9,9 @@
  * @param string $path recive la ruta a buscar.
  * @param array $exception recive los nombres de los archivos o carpetas a obviar.
  * @return array retorna un arreglo de rutas.
- * @version 1.0
  * @author Rafael Minaya
  * @copyright R.M.B
+ * @version 1.0
  */
 function getFiles(string $path, bool $lineal = false, array $exception = []):array{
     $files = [];
@@ -53,9 +55,9 @@ function getFiles(string $path, bool $lineal = false, array $exception = []):arr
  * @param array $files recive una matriz de archivos.
  * @param string $search recive el nombre del indice a buscar en la matriz.
  * @return string retorna el valor del indice encontrado.
- * @version 1.0
  * @author Rafael Minaya
  * @copyright R.M.B
+ * @version 1.0
  */
 function getPath(array $files, string $search):string{
     $data = '';
@@ -82,9 +84,9 @@ function getPath(array $files, string $search):string{
  * @access public
  * @param string $path recive una ruta opcional la cual sera concatenada.
  * @return string retorna la ruta raiz.
- * @version 1.0
  * @author Rafael Minaya
  * @copyright R.M.B
+ * @version 1.0
  */
 function getRoute(string $path=''):string{
     $root = explode(((php_uname('s') == 'Windows NT') ? '\\' : '/'), __DIR__);
@@ -99,9 +101,9 @@ function getRoute(string $path=''):string{
  * @param string $view recive la ruta de la vista sin extencion.
  * @param array $data recive un arreglo de valores a utilizar en la vista.
  * @return string retorna una vista.
- * @version 1.0
  * @author Rafael Minaya
  * @copyright R.M.B
+ * @version 1.0
  */
 function view(string $view, array $data=[]):string{
     $file = getRoute("view/$view.php");
@@ -128,7 +130,7 @@ function view(string $view, array $data=[]):string{
  * @copyright R.M.B.
  * @version 1.0
  */
-function vdump($value, $die=true){
+function vdump($value, $die=true):void{
     echo '<pre>';
     var_dump($value);
     echo '</pre>';
@@ -144,7 +146,7 @@ function vdump($value, $die=true){
  * @copyright R.M.B.
  * @version 1.0
  */
-function generateID(){
+function generateID():string{
     $id = '';
     for($i=0; $i<10; $i++){
         $id .= (($i%2) == 0) ? chr(rand(65, 89)) : rand(0,9);
@@ -197,7 +199,7 @@ function redirect(array $action, $data = null):string{
  * @copyright R.M.B.
  * @version 1.0
  */
-function path_back(string $path){
+function path_back(string $path):string{
     $data = explode('/', $path);
     if(count($data) > 1) array_pop($data);
     return join('/', $data);
@@ -213,7 +215,7 @@ function path_back(string $path){
  * @copyright R.M.B.
  * @version 1.0
  */
-function asset(string $path){ return HOST . '/' . ASSET_DIR_NAME . '/' . $path; }
+function asset(string $path):string{ return HOST . '/' . ASSET_DIR_NAME . '/' . $path; }
 
 /**
  * Crea archivos o directorios.
@@ -226,7 +228,7 @@ function asset(string $path){ return HOST . '/' . ASSET_DIR_NAME . '/' . $path; 
  * @copyright R.M.B.
  * @version 1.0
  */
-function createFileOrDir(array $paths, string $route = ''){
+function createFileOrDir(array $paths, string $route = ''):void{
     foreach($paths as $name => $path){
         if(!empty($path)){
             if(!is_array($path)){
@@ -288,9 +290,7 @@ function createFileOrDir(array $paths, string $route = ''){
  * @copyright R.M.B.
  * @version 1.0
  */
-function admin():bool{
-    return Session::getRol() == Route::ROL_ADMIN;
-}
+function isAdmin():bool{ return Session::getRol() == Route::ROL_ADMIN; }
 
 /**
  * elimina una palabra u oracion en un cadena de texto.
@@ -322,7 +322,7 @@ function replace(string $text, string $char_start, string $char_end):string{
  * @copyright R.M.B.
  * @version 1.0
  */
-function alert(string $title, string $message, string $type){
+function alert(string $title, string $message, string $type):string{
     return <<<HTML
         <div class="alert alert-$type" role="alert">
             <h2>$title</h2>
@@ -348,12 +348,55 @@ function traslate(string $value, string $lang = 'es'):string{
 }
 
 /**
+ * Redirecciona a una url especifica.
+ * 
+ * @access public
+ * @param string $path recive la ruta a redireccionar.
+ * @return void sin retorno.
+ * @author Rafael Minaya
+ * @copyright R.M.B.
+ * @version 1.2
+ */
+function reload(string $path):void{
+    $path = HOST . (($path == '/')?'':$path);
+    header("location: $path");
+}
+
+/**
+ * Crea un nuevo pdf a partir de una vista.
+ * 
+ * @access public
+ * @param string $view recive la vista a imprimir.
+ * @param string $headerView recive la vista del header.
+ * @param string $footerView recive la vista del pie de página.
+ * @param string $filename recive el nombre del archivo.
+ * @return void sin retorno.
+ * @author Rafael Minaya
+ * @copyright R.M.B.
+ * @version 1.0
+ */
+function newPDF(string $view, string $headerView = null, string $footerView = null, string $filename=null):void{
+    $mpdf = new Mpdf();
+    // agregando cabecera de página.
+    if($headerView) $mpdf->SetHeader($headerView);
+    else $mpdf->SetHeader(PROYECT_NAME);
+    // agregando pie de página.
+    if($footerView) $mpdf->SetFooter($footerView);
+    else $mpdf->SetFooter(HOST);
+    // cuerpo de documento.
+    $mpdf->WriteHTML($view);
+    // agregando o no nombre de archivo.
+    if($filename) $mpdf->Output("$filename.pdf", 'D');
+    else $mpdf->Output();
+}
+
+/**
  * Se encarga de inicializar la página
  * 
  * @return void sin retorno.
- * @version 1.0
  * @author Rafael Minaya
  * @copyright R.M.B.
+ * @version 1.5
  */
 (function(){
     date_default_timezone_set('America/Santo_Domingo');
