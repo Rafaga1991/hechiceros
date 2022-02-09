@@ -5,7 +5,40 @@
         <li class="breadcrumb-item active">Nueva Lista</li>
     </ol>
     {!!MESSAGE!!}
-
+    <h5 class="text-muted">Jugadores En Espera ({!!cant_members_wait!!})</h5>
+    <table class="table table-striped" id="dataTableMembersWait">
+        <thead>
+            <tr>
+                <th>Jugador</th>
+                <th>Estado</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($players as $player) : ?>
+                <?php if ($player->status == 'wait') : ?>
+                    <tr>
+                        <td>
+                            <div class="row">
+                                <div class="col-1">
+                                    <img src="<?= $player->image ?>" width="25">
+                                </div>
+                                <div class="col">
+                                    <?= $player->name ?> (<span class="text-success"><?= traslate($player->role) ?></span>)<br>
+                                    <?= $player->id ?>
+                                </div>
+                            </div>
+                        </td>
+                        <td><?= traslate($player->status) ?></td>
+                        <td class="text-center">
+                            <input type="checkbox" value="<?= $player->id ?>" onclick="onClickSelect(this)">
+                        </td>
+                    </tr>
+                <?php endif; ?>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+    <hr class="dropdown-divider">
     <h5 class="text-muted">Jugadores disponibles (<?= count($players) ?>)</h5>
     <table class="table table-striped" id="datatablesSimple">
         <caption>
@@ -20,23 +53,25 @@
         </thead>
         <tbody>
             <?php foreach ($players as $player) : ?>
-                <tr>
-                    <td>
-                        <div class="row">
-                            <div class="col-1">
-                                <img src="<?= $player->image ?>" width="25">
+                <?php if ($player->status == 'active' || $player->status == 'war') : ?>
+                    <tr>
+                        <td>
+                            <div class="row">
+                                <div class="col-1">
+                                    <img src="<?= $player->image ?>" width="25">
+                                </div>
+                                <div class="col">
+                                    <?= $player->name ?> (<span class="text-success"><?= traslate($player->role) ?></span>)<br>
+                                    <?= $player->id ?>
+                                </div>
                             </div>
-                            <div class="col">
-                                <?= $player->name ?> (<span class="text-success"><?= traslate($player->role) ?></span>)<br>
-                                <?= $player->id ?>
-                            </div>
-                        </div>
-                    </td>
-                    <td><?= traslate($player->status) ?></td>
-                    <td class="text-center">
-                        <input type="checkbox" value="<?= $player->id ?>" onclick="onClickSelect(this)">
-                    </td>
-                </tr>
+                        </td>
+                        <td><?= traslate($player->status) ?></td>
+                        <td class="text-center">
+                            <input type="checkbox" value="<?= $player->id ?>" onclick="onClickSelect(this)">
+                        </td>
+                    </tr>
+                <?php endif; ?>
             <?php endforeach; ?>
         </tbody>
     </table>
@@ -48,3 +83,7 @@
         <button type="submit" class="btn btn-outline-primary">Crear Lista</button>
     </form>
 </div>
+
+<script>
+    new simpleDatatables.DataTable(dataTableMembersWait);
+</script>

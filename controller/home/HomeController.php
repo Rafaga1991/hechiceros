@@ -93,7 +93,7 @@ class HomeController extends Controller
 
     public function activity()
     {
-        if (isAdmin()) Route::reload('home.index');
+        if (!isAdmin()) Route::reload('home.index');
         Html::addVariable('body', view('home/option/activity', ['activity' => $this->activity->get()]));
         return $this->view;
     }

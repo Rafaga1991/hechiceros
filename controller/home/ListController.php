@@ -40,25 +40,47 @@ class ListController extends Controller
             $players = json_decode($listwar->list, false);
             foreach($players as &$player){
                 $player = (new Player())->find($player);
+                // if($player->status == 'active') $player->status = 'war';
             }
-            newPDF(view('home/list/war-pdf', ['players' => $players, 'description' => $listwar->description]), date('d M Y', strtotime($listwar->date)));
+
+            Html::addVariables([
+                'members_war' => view('home/list/list-table', [
+                    'players' => $players,
+                    'typeList' => 'Guerra'
+                ]),
+                'members_wait' => view('home/list/list-table', [
+                    'players' => (new Player())->where(['status' => 'wait'])->get(),
+                    'typeList' => 'Espera'
+                ]),
+                'members_break' => view('home/list/list-table', [
+                    'players' => (new Player())->where(['status' => 'break'])->get(),
+                    'typeList' => 'Descanso'
+                ]),
+                '_HOST_' => HOST,
+                '_DATE_' => date('d M Y', strtotime($listwar->date)),
+                '__PROYECT_NAME__' => PROYECT_NAME,
+                '_ICON_URL' => Session::get('clan_info')['badgeUrls']['small']
+            ]);
+
+            return view('home/list/war-pdf', [
+                'description' => $listwar->description,
+            ]);
         }else{
             Message::add("La lista de guerra con id #$id no existe.");
             Route::reload('list.war');
         }
-        // foreach ($data['player'] as &$player) {
-        //     $player = (new Player())->find($player);
-        // }
-        // ;
-        vdump($id);
     }
 
     public function newListWar()
     {
-        $players = (new Player())->where(['inClan' => 1, 'status' => ['active', 'wait']])->get();
+        $players = (new Player())->where(['inClan' => 1, 'status' => ['active', 'wait', 'war']])->get();
         Html::addScript(['src' => asset('js/listwar.js')]);
-        Html::addVariable('body', view('home/list/war-new', ['players' => $players]));
-        Html::addVariable('url_form', Route::get('list.war.create'));
+        Html::addVariables([
+            'body' => view('home/list/war-new', ['players' => $players]),
+            'url_form' => Route::get('list.war.create'),
+            'cant_members_wait' => (new Player())->where(['status' => 'wait'])->count()
+        ]);
+        
         return $this->view;
     }
 
@@ -67,12 +89,17 @@ class ListController extends Controller
         if ($request->tokenIsValid()) {
             $validation = $request->validate(['player' => ['empty' => false]]);
             if ($validation['validation']) {
+                (new Player())->where(['status' => 'war'])->update(['status' => 'active']);
+                foreach($request->player as $tag) (new Player())->find($tag)->status = 'war';
+
                 (new ListWar())->insert([
                     'list' => json_encode($request->player),
                     'description' => $request->description,
                     'members' => count($request->player)
                 ]);
+
                 Message::add('Lista de Guerra Creada con Exito!', 'success');
+
                 (new Activity())->insert([
                     'title' => 'Lista de guerra creada.',
                     'description' => Session::getUser('username') . ' creo una lista de guerra.'
@@ -119,7 +146,9 @@ class ListController extends Controller
                     'update_at' => time(),
                     'members' => count($request->player)
                 ]);
+
                 Message::add('Lista de Guerra Actualizada con Exito!', 'success');
+
                 (new Activity())->insert([
                     'title' => 'Lista de guerra actualizada.',
                     'description' => Session::getUser('username') . ' actualizó la lista de guerra #' . $request->listId
@@ -153,7 +182,7 @@ class ListController extends Controller
         Html::addScript(['src' => asset('js/listwar.js')]);
         Html::addVariables([
             'body' => view('home/list/list-new', [
-                'players' => (new Player())->where(['status' => ['active', 'wait']])->get(),
+                'players' => (new Player())->where(['status' => ['active', 'wait', 'war']])->get(),
                 'namePath' => 'list.break',
                 'namePathChange' => 'list.break.change'
             ]),
@@ -223,7 +252,7 @@ class ListController extends Controller
         Html::addScript(['src' => asset('js/listwar.js')]);
         Html::addVariables([
             'body' => view('home/list/list-new', [
-                'players' => (new Player())->where(['status' => ['active', 'break']])->get(),
+                'players' => (new Player())->where(['status' => ['active', 'break', 'war']])->get(),
                 'namePath' => 'list.wait',
                 'namePathChange' => 'list.wait.change'
             ]),

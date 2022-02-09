@@ -142,7 +142,7 @@ class Model extends Database{
      * @version 1.0
      */
     public function count():int{
-        if($data = parent::query("SELECT count(*) 'count' FROM $this->table")) return $data[0]["count"];
+        if($data = parent::query("SELECT count(*) 'count' FROM $this->table $this->where")) return $data[0]["count"];
         return 0;
     }
 

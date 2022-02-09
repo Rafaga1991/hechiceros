@@ -111,7 +111,7 @@ function view(string $view, array $data=[]):string{
         ob_start();
         extract($data, EXTR_PREFIX_SAME, 'dta');
         $_ROL = include 'rol.php';
-        require_once $file;
+        include $file;
         $ob = ob_get_contents();
         ob_clean();
         return $ob;

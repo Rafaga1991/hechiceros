@@ -16559,3 +16559,337 @@ Stack trace:
 #1 C:\xampp\htdocs\hechiceros\index.php(3): require_once('C:\\xampp\\htdocs...')
 #2 {main}
   thrown in C:\xampp\htdocs\hechiceros\core\Html.php on line 42
+[08-Feb-2022 08:44:46 America/Santo_Domingo] PHP Warning:  Undefined variable $view in /opt/lampp/htdocs/hechiceros/core/.autoload.php on line 24
+[08-Feb-2022 08:44:46 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: Html::setBody(): Argument #1 ($view) must be of type string, null given, called in /opt/lampp/htdocs/hechiceros/core/.autoload.php on line 24 and defined in /opt/lampp/htdocs/hechiceros/core/Html.php:42
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/core/.autoload.php(24): Html::setBody(NULL, Array)
+#1 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#2 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/core/Html.php on line 42
+[08-Feb-2022 08:46:06 America/Santo_Domingo] PHP Deprecated:  usort(): Returning bool from comparison function is deprecated, return an integer less than, equal to, or greater than zero in /opt/lampp/htdocs/hechiceros/controller/home/HomeController.php on line 26
+[08-Feb-2022 08:46:06 America/Santo_Domingo] PHP Deprecated:  usort(): Returning bool from comparison function is deprecated, return an integer less than, equal to, or greater than zero in /opt/lampp/htdocs/hechiceros/controller/home/HomeController.php on line 26
+[08-Feb-2022 08:47:34 America/Santo_Domingo] PHP Deprecated:  usort(): Returning bool from comparison function is deprecated, return an integer less than, equal to, or greater than zero in /opt/lampp/htdocs/hechiceros/controller/home/HomeController.php on line 26
+[08-Feb-2022 08:47:34 America/Santo_Domingo] PHP Deprecated:  usort(): Returning bool from comparison function is deprecated, return an integer less than, equal to, or greater than zero in /opt/lampp/htdocs/hechiceros/controller/home/HomeController.php on line 26
+[08-Feb-2022 08:48:52 America/Santo_Domingo] PHP Deprecated:  usort(): Returning bool from comparison function is deprecated, return an integer less than, equal to, or greater than zero in /opt/lampp/htdocs/hechiceros/controller/home/HomeController.php on line 26
+[08-Feb-2022 08:48:52 America/Santo_Domingo] PHP Deprecated:  usort(): Returning bool from comparison function is deprecated, return an integer less than, equal to, or greater than zero in /opt/lampp/htdocs/hechiceros/controller/home/HomeController.php on line 26
+[08-Feb-2022 08:48:59 America/Santo_Domingo] PHP Deprecated:  usort(): Returning bool from comparison function is deprecated, return an integer less than, equal to, or greater than zero in /opt/lampp/htdocs/hechiceros/controller/home/HomeController.php on line 26
+[08-Feb-2022 08:48:59 America/Santo_Domingo] PHP Deprecated:  usort(): Returning bool from comparison function is deprecated, return an integer less than, equal to, or greater than zero in /opt/lampp/htdocs/hechiceros/controller/home/HomeController.php on line 26
+[08-Feb-2022 08:49:10 America/Santo_Domingo] PHP Deprecated:  usort(): Returning bool from comparison function is deprecated, return an integer less than, equal to, or greater than zero in /opt/lampp/htdocs/hechiceros/controller/home/HomeController.php on line 26
+[08-Feb-2022 08:49:10 America/Santo_Domingo] PHP Deprecated:  usort(): Returning bool from comparison function is deprecated, return an integer less than, equal to, or greater than zero in /opt/lampp/htdocs/hechiceros/controller/home/HomeController.php on line 26
+[08-Feb-2022 08:49:52 America/Santo_Domingo] PHP Deprecated:  usort(): Returning bool from comparison function is deprecated, return an integer less than, equal to, or greater than zero in /opt/lampp/htdocs/hechiceros/controller/home/HomeController.php on line 26
+[08-Feb-2022 08:49:52 America/Santo_Domingo] PHP Deprecated:  usort(): Returning bool from comparison function is deprecated, return an integer less than, equal to, or greater than zero in /opt/lampp/htdocs/hechiceros/controller/home/HomeController.php on line 26
+[08-Feb-2022 08:49:54 America/Santo_Domingo] PHP Deprecated:  usort(): Returning bool from comparison function is deprecated, return an integer less than, equal to, or greater than zero in /opt/lampp/htdocs/hechiceros/controller/home/HomeController.php on line 26
+[08-Feb-2022 08:49:54 America/Santo_Domingo] PHP Deprecated:  usort(): Returning bool from comparison function is deprecated, return an integer less than, equal to, or greater than zero in /opt/lampp/htdocs/hechiceros/controller/home/HomeController.php on line 26
+[08-Feb-2022 08:50:22 America/Santo_Domingo] PHP Deprecated:  usort(): Returning bool from comparison function is deprecated, return an integer less than, equal to, or greater than zero in /opt/lampp/htdocs/hechiceros/controller/home/HomeController.php on line 26
+[08-Feb-2022 08:50:22 America/Santo_Domingo] PHP Deprecated:  usort(): Returning bool from comparison function is deprecated, return an integer less than, equal to, or greater than zero in /opt/lampp/htdocs/hechiceros/controller/home/HomeController.php on line 26
+[08-Feb-2022 08:51:09 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: Html::setBody(): Argument #1 ($view) must be of type string, null given, called in /opt/lampp/htdocs/hechiceros/core/.autoload.php on line 24 and defined in /opt/lampp/htdocs/hechiceros/core/Html.php:42
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/core/.autoload.php(24): Html::setBody(NULL, Array)
+#1 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#2 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/core/Html.php on line 42
+[08-Feb-2022 08:51:10 America/Santo_Domingo] PHP Deprecated:  usort(): Returning bool from comparison function is deprecated, return an integer less than, equal to, or greater than zero in /opt/lampp/htdocs/hechiceros/controller/home/HomeController.php on line 26
+[08-Feb-2022 08:52:53 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: Html::setBody(): Argument #1 ($view) must be of type string, null given, called in /opt/lampp/htdocs/hechiceros/core/.autoload.php on line 24 and defined in /opt/lampp/htdocs/hechiceros/core/Html.php:42
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/core/.autoload.php(24): Html::setBody(NULL, Array)
+#1 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#2 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/core/Html.php on line 42
+[08-Feb-2022 08:52:53 America/Santo_Domingo] PHP Deprecated:  usort(): Returning bool from comparison function is deprecated, return an integer less than, equal to, or greater than zero in /opt/lampp/htdocs/hechiceros/controller/home/HomeController.php on line 26
+[08-Feb-2022 08:53:04 America/Santo_Domingo] PHP Deprecated:  usort(): Returning bool from comparison function is deprecated, return an integer less than, equal to, or greater than zero in /opt/lampp/htdocs/hechiceros/controller/home/HomeController.php on line 26
+[08-Feb-2022 08:53:05 America/Santo_Domingo] PHP Deprecated:  usort(): Returning bool from comparison function is deprecated, return an integer less than, equal to, or greater than zero in /opt/lampp/htdocs/hechiceros/controller/home/HomeController.php on line 26
+[08-Feb-2022 08:53:27 America/Santo_Domingo] PHP Deprecated:  usort(): Returning bool from comparison function is deprecated, return an integer less than, equal to, or greater than zero in /opt/lampp/htdocs/hechiceros/controller/home/HomeController.php on line 26
+[08-Feb-2022 08:53:28 America/Santo_Domingo] PHP Deprecated:  usort(): Returning bool from comparison function is deprecated, return an integer less than, equal to, or greater than zero in /opt/lampp/htdocs/hechiceros/controller/home/HomeController.php on line 26
+[08-Feb-2022 08:53:30 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: Html::setBody(): Argument #1 ($view) must be of type string, null given, called in /opt/lampp/htdocs/hechiceros/core/.autoload.php on line 24 and defined in /opt/lampp/htdocs/hechiceros/core/Html.php:42
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/core/.autoload.php(24): Html::setBody(NULL, Array)
+#1 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#2 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/core/Html.php on line 42
+[08-Feb-2022 08:53:30 America/Santo_Domingo] PHP Deprecated:  usort(): Returning bool from comparison function is deprecated, return an integer less than, equal to, or greater than zero in /opt/lampp/htdocs/hechiceros/controller/home/HomeController.php on line 26
+[08-Feb-2022 08:53:57 America/Santo_Domingo] PHP Deprecated:  usort(): Returning bool from comparison function is deprecated, return an integer less than, equal to, or greater than zero in /opt/lampp/htdocs/hechiceros/controller/home/HomeController.php on line 26
+[08-Feb-2022 08:53:58 America/Santo_Domingo] PHP Deprecated:  usort(): Returning bool from comparison function is deprecated, return an integer less than, equal to, or greater than zero in /opt/lampp/htdocs/hechiceros/controller/home/HomeController.php on line 26
+[08-Feb-2022 08:54:00 America/Santo_Domingo] PHP Deprecated:  usort(): Returning bool from comparison function is deprecated, return an integer less than, equal to, or greater than zero in /opt/lampp/htdocs/hechiceros/controller/home/HomeController.php on line 26
+[08-Feb-2022 08:54:00 America/Santo_Domingo] PHP Deprecated:  usort(): Returning bool from comparison function is deprecated, return an integer less than, equal to, or greater than zero in /opt/lampp/htdocs/hechiceros/controller/home/HomeController.php on line 26
+[08-Feb-2022 08:54:15 America/Santo_Domingo] PHP Deprecated:  usort(): Returning bool from comparison function is deprecated, return an integer less than, equal to, or greater than zero in /opt/lampp/htdocs/hechiceros/controller/home/HomeController.php on line 26
+[08-Feb-2022 08:54:15 America/Santo_Domingo] PHP Deprecated:  usort(): Returning bool from comparison function is deprecated, return an integer less than, equal to, or greater than zero in /opt/lampp/htdocs/hechiceros/controller/home/HomeController.php on line 26
+[08-Feb-2022 08:54:17 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: Html::setBody(): Argument #1 ($view) must be of type string, null given, called in /opt/lampp/htdocs/hechiceros/core/.autoload.php on line 24 and defined in /opt/lampp/htdocs/hechiceros/core/Html.php:42
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/core/.autoload.php(24): Html::setBody(NULL, Array)
+#1 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#2 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/core/Html.php on line 42
+[08-Feb-2022 08:54:17 America/Santo_Domingo] PHP Deprecated:  usort(): Returning bool from comparison function is deprecated, return an integer less than, equal to, or greater than zero in /opt/lampp/htdocs/hechiceros/controller/home/HomeController.php on line 26
+[08-Feb-2022 09:08:38 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: Html::setBody(): Argument #1 ($view) must be of type string, null given, called in /opt/lampp/htdocs/hechiceros/core/.autoload.php on line 24 and defined in /opt/lampp/htdocs/hechiceros/core/Html.php:42
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/core/.autoload.php(24): Html::setBody(NULL, Array)
+#1 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#2 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/core/Html.php on line 42
+[08-Feb-2022 09:09:03 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: Html::setBody(): Argument #1 ($view) must be of type string, null given, called in /opt/lampp/htdocs/hechiceros/core/.autoload.php on line 24 and defined in /opt/lampp/htdocs/hechiceros/core/Html.php:42
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/core/.autoload.php(24): Html::setBody(NULL, Array)
+#1 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#2 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/core/Html.php on line 42
+[08-Feb-2022 09:09:27 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: Html::setBody(): Argument #1 ($view) must be of type string, null given, called in /opt/lampp/htdocs/hechiceros/core/.autoload.php on line 24 and defined in /opt/lampp/htdocs/hechiceros/core/Html.php:42
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/core/.autoload.php(24): Html::setBody(NULL, Array)
+#1 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#2 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/core/Html.php on line 42
+[08-Feb-2022 09:09:58 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: Html::setBody(): Argument #1 ($view) must be of type string, null given, called in /opt/lampp/htdocs/hechiceros/core/.autoload.php on line 24 and defined in /opt/lampp/htdocs/hechiceros/core/Html.php:42
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/core/.autoload.php(24): Html::setBody(NULL, Array)
+#1 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#2 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/core/Html.php on line 42
+[08-Feb-2022 09:10:05 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: Html::setBody(): Argument #1 ($view) must be of type string, null given, called in /opt/lampp/htdocs/hechiceros/core/.autoload.php on line 24 and defined in /opt/lampp/htdocs/hechiceros/core/Html.php:42
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/core/.autoload.php(24): Html::setBody(NULL, Array)
+#1 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#2 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/core/Html.php on line 42
+[08-Feb-2022 09:17:35 America/Santo_Domingo] PHP Warning:  Undefined array key 1 in /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Color/ColorConverter.php on line 244
+[08-Feb-2022 09:17:35 America/Santo_Domingo] PHP Warning:  Undefined array key 2 in /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Color/ColorConverter.php on line 244
+[08-Feb-2022 09:17:35 America/Santo_Domingo] PHP Warning:  Undefined array key 3 in /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Color/ColorConverter.php on line 244
+[08-Feb-2022 09:17:35 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: round(): Argument #1 ($num) must be of type int|float, string given in /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Color/ColorConverter.php:59
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Color/ColorConverter.php(59): round('var(--bs-danger...')
+#1 /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Mpdf.php(18490): Mpdf\Color\ColorConverter->convert('rgba(var(--bs-d...', Array)
+#2 /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Tag/BlockTag.php(387): Mpdf\Mpdf->setCSS(Array, 'BLOCK', 'H2')
+#3 /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Tag.php(240): Mpdf\Tag\BlockTag->open(Array, Array, 145)
+#4 /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Mpdf.php(13812): Mpdf\Tag->OpenTag('H2', Array, Array, 145)
+#5 /opt/lampp/htdocs/hechiceros/core/functions.php(387): Mpdf\Mpdf->WriteHTML(' <div class="al...')
+#6 /opt/lampp/htdocs/hechiceros/controller/home/ListController.php(44): newPDF('<!DOCTYPE html>...', '08 Feb 2022')
+#7 /opt/lampp/htdocs/hechiceros/core/Route.php(171) : eval()'d code(1): ListController->listWarShow('1')
+#8 /opt/lampp/htdocs/hechiceros/core/Route.php(171): eval()
+#9 /opt/lampp/htdocs/hechiceros/core/.autoload.php(20): Route->init(NULL)
+#10 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#11 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Color/ColorConverter.php on line 59
+[08-Feb-2022 09:19:23 America/Santo_Domingo] PHP Warning:  Undefined array key 1 in /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Color/ColorConverter.php on line 244
+[08-Feb-2022 09:19:23 America/Santo_Domingo] PHP Warning:  Undefined array key 2 in /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Color/ColorConverter.php on line 244
+[08-Feb-2022 09:19:23 America/Santo_Domingo] PHP Warning:  Undefined array key 3 in /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Color/ColorConverter.php on line 244
+[08-Feb-2022 09:19:23 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: round(): Argument #1 ($num) must be of type int|float, string given in /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Color/ColorConverter.php:59
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Color/ColorConverter.php(59): round('var(--bs-danger...')
+#1 /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Mpdf.php(18490): Mpdf\Color\ColorConverter->convert('rgba(var(--bs-d...', Array)
+#2 /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Tag/BlockTag.php(387): Mpdf\Mpdf->setCSS(Array, 'BLOCK', 'H2')
+#3 /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Tag.php(240): Mpdf\Tag\BlockTag->open(Array, Array, 145)
+#4 /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Mpdf.php(13812): Mpdf\Tag->OpenTag('H2', Array, Array, 145)
+#5 /opt/lampp/htdocs/hechiceros/core/functions.php(387): Mpdf\Mpdf->WriteHTML(' <div class="al...')
+#6 /opt/lampp/htdocs/hechiceros/controller/home/ListController.php(44): newPDF('<!DOCTYPE html>...', '08 Feb 2022')
+#7 /opt/lampp/htdocs/hechiceros/core/Route.php(171) : eval()'d code(1): ListController->listWarShow('1')
+#8 /opt/lampp/htdocs/hechiceros/core/Route.php(171): eval()
+#9 /opt/lampp/htdocs/hechiceros/core/.autoload.php(20): Route->init(NULL)
+#10 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#11 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Color/ColorConverter.php on line 59
+[08-Feb-2022 09:19:24 America/Santo_Domingo] PHP Warning:  Undefined array key 1 in /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Color/ColorConverter.php on line 244
+[08-Feb-2022 09:19:24 America/Santo_Domingo] PHP Warning:  Undefined array key 2 in /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Color/ColorConverter.php on line 244
+[08-Feb-2022 09:19:24 America/Santo_Domingo] PHP Warning:  Undefined array key 3 in /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Color/ColorConverter.php on line 244
+[08-Feb-2022 09:19:24 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: round(): Argument #1 ($num) must be of type int|float, string given in /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Color/ColorConverter.php:59
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Color/ColorConverter.php(59): round('var(--bs-danger...')
+#1 /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Mpdf.php(18490): Mpdf\Color\ColorConverter->convert('rgba(var(--bs-d...', Array)
+#2 /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Tag/BlockTag.php(387): Mpdf\Mpdf->setCSS(Array, 'BLOCK', 'H2')
+#3 /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Tag.php(240): Mpdf\Tag\BlockTag->open(Array, Array, 145)
+#4 /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Mpdf.php(13812): Mpdf\Tag->OpenTag('H2', Array, Array, 145)
+#5 /opt/lampp/htdocs/hechiceros/core/functions.php(387): Mpdf\Mpdf->WriteHTML(' <div class="al...')
+#6 /opt/lampp/htdocs/hechiceros/controller/home/ListController.php(44): newPDF('<!DOCTYPE html>...', '08 Feb 2022')
+#7 /opt/lampp/htdocs/hechiceros/core/Route.php(171) : eval()'d code(1): ListController->listWarShow('1')
+#8 /opt/lampp/htdocs/hechiceros/core/Route.php(171): eval()
+#9 /opt/lampp/htdocs/hechiceros/core/.autoload.php(20): Route->init(NULL)
+#10 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#11 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Color/ColorConverter.php on line 59
+[08-Feb-2022 09:24:43 America/Santo_Domingo] PHP Warning:  Undefined array key 1 in /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Color/ColorConverter.php on line 244
+[08-Feb-2022 09:24:43 America/Santo_Domingo] PHP Warning:  Undefined array key 2 in /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Color/ColorConverter.php on line 244
+[08-Feb-2022 09:24:43 America/Santo_Domingo] PHP Warning:  Undefined array key 3 in /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Color/ColorConverter.php on line 244
+[08-Feb-2022 09:24:43 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: round(): Argument #1 ($num) must be of type int|float, string given in /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Color/ColorConverter.php:59
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Color/ColorConverter.php(59): round('var(--bs-danger...')
+#1 /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Mpdf.php(18490): Mpdf\Color\ColorConverter->convert('rgba(var(--bs-d...', Array)
+#2 /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Tag/BlockTag.php(387): Mpdf\Mpdf->setCSS(Array, 'BLOCK', 'H2')
+#3 /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Tag.php(240): Mpdf\Tag\BlockTag->open(Array, Array, 145)
+#4 /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Mpdf.php(13812): Mpdf\Tag->OpenTag('H2', Array, Array, 145)
+#5 /opt/lampp/htdocs/hechiceros/core/functions.php(387): Mpdf\Mpdf->WriteHTML(' <div class="al...')
+#6 /opt/lampp/htdocs/hechiceros/controller/home/ListController.php(44): newPDF('<!DOCTYPE html>...', '08 Feb 2022')
+#7 /opt/lampp/htdocs/hechiceros/core/Route.php(171) : eval()'d code(1): ListController->listWarShow('1')
+#8 /opt/lampp/htdocs/hechiceros/core/Route.php(171): eval()
+#9 /opt/lampp/htdocs/hechiceros/core/.autoload.php(20): Route->init(NULL)
+#10 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#11 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Color/ColorConverter.php on line 59
+[08-Feb-2022 09:25:41 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: Html::setBody(): Argument #1 ($view) must be of type string, null given, called in /opt/lampp/htdocs/hechiceros/core/.autoload.php on line 24 and defined in /opt/lampp/htdocs/hechiceros/core/Html.php:42
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/core/.autoload.php(24): Html::setBody(NULL, Array)
+#1 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#2 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/core/Html.php on line 42
+[08-Feb-2022 09:25:51 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: Html::setBody(): Argument #1 ($view) must be of type string, null given, called in /opt/lampp/htdocs/hechiceros/core/.autoload.php on line 24 and defined in /opt/lampp/htdocs/hechiceros/core/Html.php:42
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/core/.autoload.php(24): Html::setBody(NULL, Array)
+#1 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#2 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/core/Html.php on line 42
+[08-Feb-2022 09:26:11 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: Html::setBody(): Argument #1 ($view) must be of type string, null given, called in /opt/lampp/htdocs/hechiceros/core/.autoload.php on line 24 and defined in /opt/lampp/htdocs/hechiceros/core/Html.php:42
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/core/.autoload.php(24): Html::setBody(NULL, Array)
+#1 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#2 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/core/Html.php on line 42
+[08-Feb-2022 09:26:33 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: Html::setBody(): Argument #1 ($view) must be of type string, null given, called in /opt/lampp/htdocs/hechiceros/core/.autoload.php on line 24 and defined in /opt/lampp/htdocs/hechiceros/core/Html.php:42
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/core/.autoload.php(24): Html::setBody(NULL, Array)
+#1 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#2 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/core/Html.php on line 42
+[08-Feb-2022 09:26:45 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: Html::setBody(): Argument #1 ($view) must be of type string, null given, called in /opt/lampp/htdocs/hechiceros/core/.autoload.php on line 24 and defined in /opt/lampp/htdocs/hechiceros/core/Html.php:42
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/core/.autoload.php(24): Html::setBody(NULL, Array)
+#1 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#2 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/core/Html.php on line 42
+[08-Feb-2022 09:26:54 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: Html::setBody(): Argument #1 ($view) must be of type string, null given, called in /opt/lampp/htdocs/hechiceros/core/.autoload.php on line 24 and defined in /opt/lampp/htdocs/hechiceros/core/Html.php:42
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/core/.autoload.php(24): Html::setBody(NULL, Array)
+#1 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#2 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/core/Html.php on line 42
+[08-Feb-2022 09:27:31 America/Santo_Domingo] PHP Warning:  Undefined array key 1 in /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Color/ColorConverter.php on line 244
+[08-Feb-2022 09:27:31 America/Santo_Domingo] PHP Warning:  Undefined array key 2 in /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Color/ColorConverter.php on line 244
+[08-Feb-2022 09:27:31 America/Santo_Domingo] PHP Warning:  Undefined array key 3 in /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Color/ColorConverter.php on line 244
+[08-Feb-2022 09:27:31 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: round(): Argument #1 ($num) must be of type int|float, string given in /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Color/ColorConverter.php:59
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Color/ColorConverter.php(59): round('var(--bs-danger...')
+#1 /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Mpdf.php(18490): Mpdf\Color\ColorConverter->convert('rgba(var(--bs-d...', Array)
+#2 /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Tag/BlockTag.php(387): Mpdf\Mpdf->setCSS(Array, 'BLOCK', 'H2')
+#3 /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Tag.php(240): Mpdf\Tag\BlockTag->open(Array, Array, 145)
+#4 /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Mpdf.php(13812): Mpdf\Tag->OpenTag('H2', Array, Array, 145)
+#5 /opt/lampp/htdocs/hechiceros/core/functions.php(387): Mpdf\Mpdf->WriteHTML(' <div class="al...')
+#6 /opt/lampp/htdocs/hechiceros/controller/home/ListController.php(44): newPDF('<!DOCTYPE html>...', '08 Feb 2022')
+#7 /opt/lampp/htdocs/hechiceros/core/Route.php(171) : eval()'d code(1): ListController->listWarShow('1')
+#8 /opt/lampp/htdocs/hechiceros/core/Route.php(171): eval()
+#9 /opt/lampp/htdocs/hechiceros/core/.autoload.php(20): Route->init(NULL)
+#10 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#11 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Color/ColorConverter.php on line 59
+[08-Feb-2022 09:27:59 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: Html::setBody(): Argument #1 ($view) must be of type string, null given, called in /opt/lampp/htdocs/hechiceros/core/.autoload.php on line 24 and defined in /opt/lampp/htdocs/hechiceros/core/Html.php:42
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/core/.autoload.php(24): Html::setBody(NULL, Array)
+#1 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#2 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/core/Html.php on line 42
+[08-Feb-2022 09:28:22 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: Html::setBody(): Argument #1 ($view) must be of type string, null given, called in /opt/lampp/htdocs/hechiceros/core/.autoload.php on line 24 and defined in /opt/lampp/htdocs/hechiceros/core/Html.php:42
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/core/.autoload.php(24): Html::setBody(NULL, Array)
+#1 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#2 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/core/Html.php on line 42
+[08-Feb-2022 09:30:53 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: Html::setBody(): Argument #1 ($view) must be of type string, null given, called in /opt/lampp/htdocs/hechiceros/core/.autoload.php on line 24 and defined in /opt/lampp/htdocs/hechiceros/core/Html.php:42
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/core/.autoload.php(24): Html::setBody(NULL, Array)
+#1 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#2 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/core/Html.php on line 42
+[08-Feb-2022 09:31:32 America/Santo_Domingo] PHP Warning:  Undefined array key 1 in /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Color/ColorConverter.php on line 244
+[08-Feb-2022 09:31:32 America/Santo_Domingo] PHP Warning:  Undefined array key 2 in /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Color/ColorConverter.php on line 244
+[08-Feb-2022 09:31:32 America/Santo_Domingo] PHP Warning:  Undefined array key 3 in /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Color/ColorConverter.php on line 244
+[08-Feb-2022 09:31:32 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: round(): Argument #1 ($num) must be of type int|float, string given in /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Color/ColorConverter.php:59
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Color/ColorConverter.php(59): round('var(--bs-danger...')
+#1 /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Mpdf.php(18490): Mpdf\Color\ColorConverter->convert('rgba(var(--bs-d...', Array)
+#2 /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Tag/BlockTag.php(387): Mpdf\Mpdf->setCSS(Array, 'BLOCK', 'H2')
+#3 /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Tag.php(240): Mpdf\Tag\BlockTag->open(Array, Array, 145)
+#4 /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Mpdf.php(13812): Mpdf\Tag->OpenTag('H2', Array, Array, 145)
+#5 /opt/lampp/htdocs/hechiceros/core/functions.php(387): Mpdf\Mpdf->WriteHTML(' <div class="al...')
+#6 /opt/lampp/htdocs/hechiceros/controller/home/ListController.php(44): newPDF('<!DOCTYPE html>...', '08 Feb 2022')
+#7 /opt/lampp/htdocs/hechiceros/core/Route.php(171) : eval()'d code(1): ListController->listWarShow('1')
+#8 /opt/lampp/htdocs/hechiceros/core/Route.php(171): eval()
+#9 /opt/lampp/htdocs/hechiceros/core/.autoload.php(20): Route->init(NULL)
+#10 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#11 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Color/ColorConverter.php on line 59
+[08-Feb-2022 09:40:49 America/Santo_Domingo] PHP Warning:  Undefined array key 1 in /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Color/ColorConverter.php on line 244
+[08-Feb-2022 09:40:49 America/Santo_Domingo] PHP Warning:  Undefined array key 2 in /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Color/ColorConverter.php on line 244
+[08-Feb-2022 09:40:49 America/Santo_Domingo] PHP Warning:  Undefined array key 3 in /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Color/ColorConverter.php on line 244
+[08-Feb-2022 09:40:49 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: round(): Argument #1 ($num) must be of type int|float, string given in /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Color/ColorConverter.php:59
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Color/ColorConverter.php(59): round('var(--bs-danger...')
+#1 /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Mpdf.php(18490): Mpdf\Color\ColorConverter->convert('rgba(var(--bs-d...', Array)
+#2 /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Tag/BlockTag.php(387): Mpdf\Mpdf->setCSS(Array, 'BLOCK', 'H2')
+#3 /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Tag.php(240): Mpdf\Tag\BlockTag->open(Array, Array, 145)
+#4 /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Mpdf.php(13812): Mpdf\Tag->OpenTag('H2', Array, Array, 145)
+#5 /opt/lampp/htdocs/hechiceros/core/functions.php(387): Mpdf\Mpdf->WriteHTML(' <div class="al...')
+#6 /opt/lampp/htdocs/hechiceros/controller/home/ListController.php(44): newPDF('<!DOCTYPE html>...', '08 Feb 2022')
+#7 /opt/lampp/htdocs/hechiceros/core/Route.php(171) : eval()'d code(1): ListController->listWarShow('1')
+#8 /opt/lampp/htdocs/hechiceros/core/Route.php(171): eval()
+#9 /opt/lampp/htdocs/hechiceros/core/.autoload.php(20): Route->init(NULL)
+#10 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#11 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/vendor/mpdf/mpdf/src/Color/ColorConverter.php on line 59
+[08-Feb-2022 10:26:59 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: Html::setBody(): Argument #1 ($view) must be of type string, null given, called in /opt/lampp/htdocs/hechiceros/core/.autoload.php on line 24 and defined in /opt/lampp/htdocs/hechiceros/core/Html.php:42
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/core/.autoload.php(24): Html::setBody(NULL, Array)
+#1 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#2 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/core/Html.php on line 42
+[08-Feb-2022 10:27:55 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: Html::setBody(): Argument #1 ($view) must be of type string, null given, called in /opt/lampp/htdocs/hechiceros/core/.autoload.php on line 24 and defined in /opt/lampp/htdocs/hechiceros/core/Html.php:42
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/core/.autoload.php(24): Html::setBody(NULL, Array)
+#1 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#2 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/core/Html.php on line 42
+[08-Feb-2022 10:28:03 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: Html::setBody(): Argument #1 ($view) must be of type string, null given, called in /opt/lampp/htdocs/hechiceros/core/.autoload.php on line 24 and defined in /opt/lampp/htdocs/hechiceros/core/Html.php:42
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/core/.autoload.php(24): Html::setBody(NULL, Array)
+#1 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#2 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/core/Html.php on line 42
+[08-Feb-2022 11:11:13 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: Html::setBody(): Argument #1 ($view) must be of type string, null given, called in /opt/lampp/htdocs/hechiceros/core/.autoload.php on line 24 and defined in /opt/lampp/htdocs/hechiceros/core/Html.php:42
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/core/.autoload.php(24): Html::setBody(NULL, Array)
+#1 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#2 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/core/Html.php on line 42
+[08-Feb-2022 13:33:17 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: Html::setBody(): Argument #1 ($view) must be of type string, null given, called in /opt/lampp/htdocs/hechiceros/core/.autoload.php on line 24 and defined in /opt/lampp/htdocs/hechiceros/core/Html.php:42
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/core/.autoload.php(24): Html::setBody(NULL, Array)
+#1 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#2 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/core/Html.php on line 42
+[08-Feb-2022 13:33:22 America/Santo_Domingo] PHP Deprecated:  usort(): Returning bool from comparison function is deprecated, return an integer less than, equal to, or greater than zero in /opt/lampp/htdocs/hechiceros/controller/home/HomeController.php on line 26
+[08-Feb-2022 13:33:22 America/Santo_Domingo] PHP Deprecated:  usort(): Returning bool from comparison function is deprecated, return an integer less than, equal to, or greater than zero in /opt/lampp/htdocs/hechiceros/controller/home/HomeController.php on line 26
+[08-Feb-2022 16:18:12 America/Santo_Domingo] PHP Deprecated:  usort(): Returning bool from comparison function is deprecated, return an integer less than, equal to, or greater than zero in /opt/lampp/htdocs/hechiceros/controller/home/HomeController.php on line 26
+[08-Feb-2022 16:18:12 America/Santo_Domingo] PHP Deprecated:  usort(): Returning bool from comparison function is deprecated, return an integer less than, equal to, or greater than zero in /opt/lampp/htdocs/hechiceros/controller/home/HomeController.php on line 26
+[08-Feb-2022 16:57:06 America/Santo_Domingo] PHP Warning:  Undefined variable $membersBreak in /opt/lampp/htdocs/hechiceros/view/home/list/list-table.php on line 1
+[09-Feb-2022 09:11:25 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: Html::setBody(): Argument #1 ($view) must be of type string, null given, called in /opt/lampp/htdocs/hechiceros/core/.autoload.php on line 24 and defined in /opt/lampp/htdocs/hechiceros/core/Html.php:42
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/core/.autoload.php(24): Html::setBody(NULL, Array)
+#1 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#2 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/core/Html.php on line 42
+[09-Feb-2022 09:11:30 America/Santo_Domingo] PHP Deprecated:  usort(): Returning bool from comparison function is deprecated, return an integer less than, equal to, or greater than zero in /opt/lampp/htdocs/hechiceros/controller/home/HomeController.php on line 26
+[09-Feb-2022 09:11:31 America/Santo_Domingo] PHP Deprecated:  usort(): Returning bool from comparison function is deprecated, return an integer less than, equal to, or greater than zero in /opt/lampp/htdocs/hechiceros/controller/home/HomeController.php on line 26
+[09-Feb-2022 09:14:44 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, Player given in /opt/lampp/htdocs/hechiceros/view/home/list/list-table.php:1
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/core/functions.php(114): require_once()
+#1 /opt/lampp/htdocs/hechiceros/controller/home/ListController.php(50): view('home/list/list-...', Array)
+#2 /opt/lampp/htdocs/hechiceros/core/Route.php(171) : eval()'d code(1): ListController->listWarShow('1')
+#3 /opt/lampp/htdocs/hechiceros/core/Route.php(171): eval()
+#4 /opt/lampp/htdocs/hechiceros/core/.autoload.php(20): Route->init(NULL)
+#5 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#6 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/view/home/list/list-table.php on line 1
+[09-Feb-2022 09:17:37 America/Santo_Domingo] PHP Fatal error:  Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, Player given in /opt/lampp/htdocs/hechiceros/view/home/list/list-table.php:1
+Stack trace:
+#0 /opt/lampp/htdocs/hechiceros/core/functions.php(114): require_once()
+#1 /opt/lampp/htdocs/hechiceros/controller/home/ListController.php(49): view('home/list/list-...', Array)
+#2 /opt/lampp/htdocs/hechiceros/core/Route.php(171) : eval()'d code(1): ListController->listWarShow('1')
+#3 /opt/lampp/htdocs/hechiceros/core/Route.php(171): eval()
+#4 /opt/lampp/htdocs/hechiceros/core/.autoload.php(20): Route->init(NULL)
+#5 /opt/lampp/htdocs/hechiceros/index.php(3): require_once('/opt/lampp/htdo...')
+#6 {main}
+  thrown in /opt/lampp/htdocs/hechiceros/view/home/list/list-table.php on line 1

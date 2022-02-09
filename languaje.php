@@ -10,7 +10,8 @@ return [
         'administrator' => 'administrador',
         'active' => 'activo',
         'wait' => 'espera',
-        'break' => 'descanso'
+        'break' => 'descanso',
+        'war' => 'guerra'
     ],
     'en' => [
         'miembro' => 'member',
@@ -21,6 +22,7 @@ return [
         'administrador' => 'administrator',
         'activo' => 'active',
         'espera' => 'wait',
-        'descanso' => 'break'
+        'descanso' => 'break',
+        'guerra' => 'war'
     ]
 ];

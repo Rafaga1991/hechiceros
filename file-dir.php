@@ -17,7 +17,7 @@ return [
         ]
     ],
     'model' => [
-        'activity.php'
+        'Activity.php'
     ],
     'controller' => [// carpeta controlador
         'login' => [// carpeta login
