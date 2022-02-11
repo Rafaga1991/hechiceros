@@ -32,3 +32,6 @@ $route->set('/list-wait', [ListController::class, 'listWait'])->name('list.wait'
 $route->set('/list-wait/new', [ListController::class, 'listWaitNew'])->name('list.wait.new')->auth()->save();
 $route->set('/list-wait/change', [ListController::class, 'listWaitChange'])->name('list.wait.change')->auth()->save();
 $route->set('/list-wait/destroy', [ListController::class, 'listWaitDestroy'])->name('list.wait.destroy')->auth()->save();
+
+$route->set('/warlog', [WarLogController::class, 'index'])->name('warlog.index')->auth()->save();
+$route->set('/warlog/reload', [WarLogController::class, 'reload'])->name('warlog.reload')->auth()->save();

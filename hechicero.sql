@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS listwar(
     delete_at           INTEGER(15) DEFAULT 0
 );
 
-drop table listwar;
+
 
 INSERT INTO `user` (`id`, `email`, `username`, `password`, `admin`) VALUES
 (1, 'lomasduro17@hotmail.com', 'Rafaga21', '4e46088ec803ef3a0ee9bf53f518cd42', 1),

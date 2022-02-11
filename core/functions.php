@@ -1,7 +1,5 @@
 <?php
 
-use Mpdf\Mpdf;
-
 /**
  * Busca todos los archivos en una ruta especificada
  * 
@@ -363,31 +361,21 @@ function reload(string $path):void{
 }
 
 /**
- * Crea un nuevo pdf a partir de una vista.
+ * Verifica si existe un valor en el arreglo y retorna el valor enviado por parametros.
  * 
  * @access public
- * @param string $view recive la vista a imprimir.
- * @param string $headerView recive la vista del header.
- * @param string $footerView recive la vista del pie de página.
- * @param string $filename recive el nombre del archivo.
- * @return void sin retorno.
- * @author Rafael Minaya
+ * @param mixed $data recive el valor a buscar.
+ * @param array $value recive un arreglo de posibles coincidencias.
+ * @param array $return recive un arreglo de posibles valores a retornar.
+ * @return string retorna un string del valor encontrado.
+ * @author Rafael Minaya.
  * @copyright R.M.B.
  * @version 1.0
  */
-function newPDF(string $view, string $headerView = null, string $footerView = null, string $filename=null):void{
-    $mpdf = new Mpdf();
-    // agregando cabecera de página.
-    if($headerView) $mpdf->SetHeader($headerView);
-    else $mpdf->SetHeader(PROYECT_NAME);
-    // agregando pie de página.
-    if($footerView) $mpdf->SetFooter($footerView);
-    else $mpdf->SetFooter(HOST);
-    // cuerpo de documento.
-    $mpdf->WriteHTML($view);
-    // agregando o no nombre de archivo.
-    if($filename) $mpdf->Output("$filename.pdf", 'D');
-    else $mpdf->Output();
+function inArray($data, array $value, array $return){
+    foreach($value as $key => $val){
+        if($data == $val) return $return[$key]??null;
+    }
 }
 
 /**

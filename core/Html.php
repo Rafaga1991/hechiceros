@@ -72,16 +72,16 @@ class Html{
             implode('', self::$styles),
             '</head>',
             '<body' . (!empty(self::$body_param)?' ' . self::$body_param : '') . '>',
-            self::__variable(self::$header),
-            self::__variable(self::$body),
-            self::__variable(self::$footer),
+            self::$header,
+            self::$body,
+            self::$footer,
             implode('', self::$script),
             '</body>',
             '</html>'
         ]);
 
         $token = md5(microtime());
-        $html = str_ireplace(['</form>', '{!!TOKEN!!}'], ["<input type='hidden' name='__token' value='$token' /></form>", $token], $html, $cant);
+        $html = self::__variable(str_ireplace(['</form>', '{!!TOKEN!!}'], ["<input type='hidden' name='__token' value='$token' /></form>", $token], $html, $cant));
         if ($cant) Session::set('__token', $token);
         echo replace($html, '{!!', '!!}');
     }

@@ -2,7 +2,6 @@
 
 header('Access-Control-Allow-Origin: *');// permitiendo acceso de origen remoto.
 
-require './vendor/autoload.php';
 require __DIR__.'/functions.php';// Cargando las funciones globales.
 
 spl_autoload_register(function($class){ 

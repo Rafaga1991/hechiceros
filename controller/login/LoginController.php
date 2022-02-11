@@ -42,9 +42,14 @@ class LoginController extends Controller{
 	}
 
 	public function logout(){
+		$this->activity->insert([
+			'title' => 'Cierre de sesión',
+			'description' => "El usuario " . Session::getUser('username') . " inicio sesión."
+		]);
 		Session::destroyUser();
 		Session::destroy();
 		Route::reload('login.index');
+
 		return;
 	}
 }

@@ -11,7 +11,10 @@ return [
         'active' => 'activo',
         'wait' => 'espera',
         'break' => 'descanso',
-        'war' => 'guerra'
+        'war' => 'guerra',
+        'win' => 'victoria',
+        'lose' => 'derrota',
+        'tie' => 'empate'
     ],
     'en' => [
         'miembro' => 'member',
@@ -23,6 +26,9 @@ return [
         'activo' => 'active',
         'espera' => 'wait',
         'descanso' => 'break',
-        'guerra' => 'war'
+        'guerra' => 'war',
+        'victoria' => 'win',
+        'derrota' => 'lose',
+        'empate' => 'tie'
     ]
 ];
