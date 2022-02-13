@@ -14,7 +14,9 @@ return [
         'war' => 'guerra',
         'win' => 'victoria',
         'lose' => 'derrota',
-        'tie' => 'empate'
+        'tie' => 'empate',
+        'inwar' => 'en Guerra',
+        'preparation' => 'preparación'
     ],
     'en' => [
         'miembro' => 'member',

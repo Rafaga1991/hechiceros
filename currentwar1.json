@@ -1,0 +1,318 @@
+{
+    "state": "preparation",
+    "teamSize": 20,
+    "attacksPerMember": 2,
+    "preparationStartTime": "20220212T230425.000Z",
+    "startTime": "20220213T220425.000Z",
+    "endTime": "20220214T220425.000Z",
+    "clan": {
+        "tag": "#2LYLQY2VQ",
+        "name": "Hechiceros",
+        "badgeUrls": {
+            "small": "https:\/\/api-assets.clashofclans.com\/badges\/70\/kgbxWcubCGgjw8SeAlvyyzsZS0CwwNuW1C6zVvHDtHM.png",
+            "large": "https:\/\/api-assets.clashofclans.com\/badges\/512\/kgbxWcubCGgjw8SeAlvyyzsZS0CwwNuW1C6zVvHDtHM.png",
+            "medium": "https:\/\/api-assets.clashofclans.com\/badges\/200\/kgbxWcubCGgjw8SeAlvyyzsZS0CwwNuW1C6zVvHDtHM.png"
+        },
+        "clanLevel": 10,
+        "attacks": 0,
+        "stars": 0,
+        "destructionPercentage": 0,
+        "members": [
+            {
+                "tag": "#8J99LUJ02",
+                "name": "Ivan :)",
+                "townhallLevel": 12,
+                "mapPosition": 3,
+                "opponentAttacks": 0
+            },
+            {
+                "tag": "#Q2UQLUGYP",
+                "name": "fer",
+                "townhallLevel": 10,
+                "mapPosition": 10,
+                "opponentAttacks": 0
+            },
+            {
+                "tag": "#Q0U2080VR",
+                "name": "\u2764carlos YT \u2764",
+                "townhallLevel": 10,
+                "mapPosition": 9,
+                "opponentAttacks": 0
+            },
+            {
+                "tag": "#QQVC2QGGQ",
+                "name": "Fernandopino",
+                "townhallLevel": 8,
+                "mapPosition": 17,
+                "opponentAttacks": 0
+            },
+            {
+                "tag": "#LGV8JLV9V",
+                "name": "Angel",
+                "townhallLevel": 12,
+                "mapPosition": 1,
+                "opponentAttacks": 0
+            },
+            {
+                "tag": "#QLPJPPRLP",
+                "name": "\u00ae\u00a9Jes\u00fas YT",
+                "townhallLevel": 9,
+                "mapPosition": 13,
+                "opponentAttacks": 0
+            },
+            {
+                "tag": "#QQJR8G0Q0",
+                "name": "jesica",
+                "townhallLevel": 8,
+                "mapPosition": 20,
+                "opponentAttacks": 0
+            },
+            {
+                "tag": "#LQCLVPCRJ",
+                "name": "Jos\u00e9 \u2076\u2076\u2076",
+                "townhallLevel": 10,
+                "mapPosition": 7,
+                "opponentAttacks": 0
+            },
+            {
+                "tag": "#YPJCGYR0U",
+                "name": "\u00a4\u03b8Angel\u03b8\u00a4",
+                "townhallLevel": 9,
+                "mapPosition": 11,
+                "opponentAttacks": 0
+            },
+            {
+                "tag": "#92RPVLQQC",
+                "name": "p\u00f1",
+                "townhallLevel": 9,
+                "mapPosition": 14,
+                "opponentAttacks": 0
+            },
+            {
+                "tag": "#Q0P9PQLUQ",
+                "name": "ayala13",
+                "townhallLevel": 8,
+                "mapPosition": 16,
+                "opponentAttacks": 0
+            },
+            {
+                "tag": "#YQPQVLUPJ",
+                "name": "faquito",
+                "townhallLevel": 11,
+                "mapPosition": 5,
+                "opponentAttacks": 0
+            },
+            {
+                "tag": "#QG9QQUU80",
+                "name": "\u2764\ufe0eY\u1d07\u0274\u0274\u028f\u30b7\ufe0e",
+                "townhallLevel": 8,
+                "mapPosition": 19,
+                "opponentAttacks": 0
+            },
+            {
+                "tag": "#LC2C0C9U8",
+                "name": "\u2122[Jos\u00e9]\u2122 \u20a1",
+                "townhallLevel": 8,
+                "mapPosition": 15,
+                "opponentAttacks": 0
+            },
+            {
+                "tag": "#8GUYVGG9Y",
+                "name": "Alfredo",
+                "townhallLevel": 10,
+                "mapPosition": 8,
+                "opponentAttacks": 0
+            },
+            {
+                "tag": "#LVQ09VUL9",
+                "name": "Angelmex",
+                "townhallLevel": 11,
+                "mapPosition": 6,
+                "opponentAttacks": 0
+            },
+            {
+                "tag": "#Q20J2Y2U8",
+                "name": "Manu",
+                "townhallLevel": 9,
+                "mapPosition": 12,
+                "opponentAttacks": 0
+            },
+            {
+                "tag": "#Q90QCR80J",
+                "name": "Armando Aranjuo",
+                "townhallLevel": 8,
+                "mapPosition": 18,
+                "opponentAttacks": 0
+            },
+            {
+                "tag": "#LUVGR9U9R",
+                "name": "pepe",
+                "townhallLevel": 11,
+                "mapPosition": 4,
+                "opponentAttacks": 0
+            },
+            {
+                "tag": "#9GQRRRJ0V",
+                "name": "POLLIX",
+                "townhallLevel": 12,
+                "mapPosition": 2,
+                "opponentAttacks": 0
+            }
+        ]
+    },
+    "opponent": {
+        "tag": "#9GV8QPP8",
+        "name": "super clan",
+        "badgeUrls": {
+            "small": "https:\/\/api-assets.clashofclans.com\/badges\/70\/umKKcqefu4znXRNYf-WsRcn01MbXVfU27UPBYdoSpNc.png",
+            "large": "https:\/\/api-assets.clashofclans.com\/badges\/512\/umKKcqefu4znXRNYf-WsRcn01MbXVfU27UPBYdoSpNc.png",
+            "medium": "https:\/\/api-assets.clashofclans.com\/badges\/200\/umKKcqefu4znXRNYf-WsRcn01MbXVfU27UPBYdoSpNc.png"
+        },
+        "clanLevel": 7,
+        "attacks": 0,
+        "stars": 0,
+        "destructionPercentage": 0,
+        "members": [
+            {
+                "tag": "#L9UP0LVVR",
+                "name": "KING OF KINGS",
+                "townhallLevel": 12,
+                "mapPosition": 3,
+                "opponentAttacks": 0
+            },
+            {
+                "tag": "#YYGPUPJVL",
+                "name": "amir",
+                "townhallLevel": 10,
+                "mapPosition": 9,
+                "opponentAttacks": 0
+            },
+            {
+                "tag": "#Q8J08JU0P",
+                "name": "luciferr\u2665\ufe0f",
+                "townhallLevel": 7,
+                "mapPosition": 19,
+                "opponentAttacks": 0
+            },
+            {
+                "tag": "#PQ9J8R2U2",
+                "name": "KING RAGNAR",
+                "townhallLevel": 11,
+                "mapPosition": 5,
+                "opponentAttacks": 0
+            },
+            {
+                "tag": "#QPYQV90UR",
+                "name": "AMIR;P",
+                "townhallLevel": 4,
+                "mapPosition": 20,
+                "opponentAttacks": 0
+            },
+            {
+                "tag": "#Y082RGJV8",
+                "name": "navid.m",
+                "townhallLevel": 12,
+                "mapPosition": 1,
+                "opponentAttacks": 0
+            },
+            {
+                "tag": "#20JP2P8C0",
+                "name": "luciifer\u2665\ufe0f",
+                "townhallLevel": 11,
+                "mapPosition": 4,
+                "opponentAttacks": 0
+            },
+            {
+                "tag": "#22UP98RJ8",
+                "name": "KING OF WAR",
+                "townhallLevel": 10,
+                "mapPosition": 10,
+                "opponentAttacks": 0
+            },
+            {
+                "tag": "#LCU8VCCUJ",
+                "name": "aBolfazl2020",
+                "townhallLevel": 9,
+                "mapPosition": 12,
+                "opponentAttacks": 0
+            },
+            {
+                "tag": "#QLLPU828V",
+                "name": "\u0627\u0644\u06cc",
+                "townhallLevel": 10,
+                "mapPosition": 11,
+                "opponentAttacks": 0
+            },
+            {
+                "tag": "#YVG8J2Q9Y",
+                "name": "yousef",
+                "townhallLevel": 11,
+                "mapPosition": 6,
+                "opponentAttacks": 0
+            },
+            {
+                "tag": "#LU8LV8V9L",
+                "name": "franklin xl",
+                "townhallLevel": 9,
+                "mapPosition": 14,
+                "opponentAttacks": 0
+            },
+            {
+                "tag": "#9QVJJCQP",
+                "name": "samii_wnt",
+                "townhallLevel": 11,
+                "mapPosition": 7,
+                "opponentAttacks": 0
+            },
+            {
+                "tag": "#UVP82UGJ",
+                "name": "mehrshad",
+                "townhallLevel": 12,
+                "mapPosition": 2,
+                "opponentAttacks": 0
+            },
+            {
+                "tag": "#QQYV8GU2Q",
+                "name": "kalantar",
+                "townhallLevel": 8,
+                "mapPosition": 17,
+                "opponentAttacks": 0
+            },
+            {
+                "tag": "#QG9QQG09C",
+                "name": "samii",
+                "townhallLevel": 8,
+                "mapPosition": 15,
+                "opponentAttacks": 0
+            },
+            {
+                "tag": "#8J08R029C",
+                "name": "\u27a1\u27a1Mehrdad\u2198\u2197",
+                "townhallLevel": 8,
+                "mapPosition": 16,
+                "opponentAttacks": 0
+            },
+            {
+                "tag": "#880RVR8C9",
+                "name": "king of persia",
+                "townhallLevel": 11,
+                "mapPosition": 8,
+                "opponentAttacks": 0
+            },
+            {
+                "tag": "#PRPY9J8J0",
+                "name": "benyamin",
+                "townhallLevel": 9,
+                "mapPosition": 13,
+                "opponentAttacks": 0
+            },
+            {
+                "tag": "#QQQCLLPUU",
+                "name": "mohamad",
+                "townhallLevel": 7,
+                "mapPosition": 18,
+                "opponentAttacks": 0
+            }
+        ]
+    }
+}

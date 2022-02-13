@@ -379,6 +379,29 @@ function inArray($data, array $value, array $return){
 }
 
 /**
+ * incluye archivos php con sus datos correspondientes.
+ * 
+ * @access public
+ * @param $path recive las rutas que seran incluidas.
+ * @param $data recive los datos que serán incluidos en cada ruta especifica.
+ * @return void sin retorno.
+ * @author Rafael Minaya.
+ * @copyright R.M.B.
+ * @version 1.0
+ */
+function includes($path, $data=[]){
+    if(is_array($path)){
+        foreach($path as $key => $value){
+            if(isset($data[$key])) extract($data[$key]);
+            include $value;
+        }
+    }else{
+        extract($data);
+        include $path;
+    }
+}
+
+/**
  * Se encarga de inicializar la página
  * 
  * @return void sin retorno.

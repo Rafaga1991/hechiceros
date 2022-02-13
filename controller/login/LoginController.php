@@ -11,8 +11,9 @@ class LoginController extends Controller{
 			Session::set('clan_war_log', (new Client())->getClan()->getWarLog());
 			Session::set('clan_current_war', (new Client())->getClan()->getCurrentWar());
 			Session::set('clan_current_war_league', (new Client())->getClan()->getCurrentWarLeagueGroup());
-			if(Session::get('clan_current_war')['state'] == 'notInWar') Session::destroy('clan_current_war');
-			if(Session::get('clan_current_war_league')['state'] == 'notInWar') Session::destroy('clan_current_war_league');
+
+			if(isset(Session::get('clan_current_war')['state']) && Session::get('clan_current_war')['state'] == 'notInWar') Session::destroy('clan_current_war');
+			if(isset(Session::get('clan_current_war_league')['state']) && Session::get('clan_current_war_league')['state'] == 'notInWar') Session::destroy('clan_current_war_league');
 			Session::set('icon', $this->claninfo['badgeUrls']['small']);
 		}
 		Html::addVariable('description', $this->claninfo['description']);

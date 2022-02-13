@@ -13,10 +13,11 @@ class CurrentWarController extends Controller
     {
         Html::addVariable('body', view('home/currentwar/index'));
         $data = [];
-
-
         if ($currentwar = Session::get('clan_current_war')) {
             if (is_array($currentwar)) {
+                // $currentwar = json_decode(file_get_contents(getRoute('currentwar.json')), true);
+                if(($data = (new War())->find($currentwar['startTime'])) && $data->war != json_encode($currentwar)) $data->war = json_encode($currentwar);
+                elseif(!$data) (new War())->insert(['id' => $currentwar['startTime'], 'war' => json_encode($currentwar)]);
                 $data = [
                     'war' => view('home/currentwar/currentwar', ['currentWar' => $currentwar]),
                     'warname' => 'Guerra'
@@ -28,14 +29,11 @@ class CurrentWarController extends Controller
                     'war' => view('home/currentwar/currentwarleague', ['currentWar' => $currentwar]),
                     'warname' => 'Liga de Guerra de Clanes'
                 ];
-                // unset($currentwar['clans']);
-                // file_put_contents('currentWarLeague.json', json_encode($currentwar));
-                // vdump((new Client())->getClan('#2LYLQY2VQ')->getCurrentWarLeague('#2UCQUV0PR'));
             }
         } else {
             $data = [
                 'war' => '<div class="alert alert-info text-center">No hay guerras disponibles.</div>',
-                'warname' => '...'
+                'warname' => 'En espera'
             ];
         }
 

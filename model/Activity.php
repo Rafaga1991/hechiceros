@@ -1,5 +1,3 @@
 <?php 
 
-class Activity extends Model{
-    
-}
+class Activity extends Model { }

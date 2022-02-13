@@ -51,7 +51,16 @@ CREATE TABLE IF NOT EXISTS listwar(
     delete_at           INTEGER(15) DEFAULT 0
 );
 
+CREATE TABLE IF NOT EXISTS war(
+    id                  VARCHAR(20) PRIMARY KEY,
+    war                 TEXT NOT NULL,
+    `delete`            BOOLEAN DEFAULT FALSE,
+    insert_at           TIMESTAMP DEFAULT NOW(),
+    update_at           TIMESTAMP DEFAULT NOW(),
+    delete_at           INTEGER(15) DEFAULT NULL
+);
 
+drop table war;
 
 INSERT INTO `user` (`id`, `email`, `username`, `password`, `admin`) VALUES
 (1, 'lomasduro17@hotmail.com', 'Rafaga21', '4e46088ec803ef3a0ee9bf53f518cd42', 1),
