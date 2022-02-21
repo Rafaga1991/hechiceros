@@ -16,6 +16,7 @@ return [
         'lose' => 'derrota',
         'tie' => 'empate',
         'inwar' => 'en Guerra',
+        'warended' => 'finalizada',
         'preparation' => 'preparación'
     ],
     'en' => [

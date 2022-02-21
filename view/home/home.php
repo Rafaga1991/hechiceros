@@ -25,7 +25,7 @@
                         </div>
                         <p class="mt-3 mb-0 text-sm">
                             <span class="text-success mr-2"><?= $members[$i]['donationsReceived'] ?></span>
-                            <span class="text-muted">Recividas</span>
+                            <span class="text-muted">Recibidas</span>
                         </p>
                     </div>
                 </div>
@@ -125,9 +125,9 @@
 
         $.post('{!!url_get_perfomance!!}', (data) => {
             try {
+                // console.log(data);
                 data = JSON.parse(data);
-                console.log(data);
-                // initCharArea('myBarChart', data, 'bar');
+                initCharArea('myBarChart', data, 'bar');
             } catch (e) {}
         });
     }

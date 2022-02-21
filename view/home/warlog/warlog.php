@@ -29,19 +29,19 @@
                                                 <i class="fa-solid fa-chess-rook"></i> <?= $war['clan']['name'] ?? '' ?> <a href="#" class="badge bg-primary"><?= $war['clan']['tag'] ?></a>
                                             </span>
                                         </div>
-        
+
                                         <div class="text-white">
                                             <span title="Ataques Realizados." role="button">
                                                 <i class="fa-solid fa-dragon"></i> <?= $war['clan']['attacks'] ?? 0 ?> / <?= $war['attacksPerMember'] * $war['teamSize'] ?>
                                             </span>
                                         </div>
-        
+
                                         <div class="text-white">
                                             <span role="button" title="Experiencia obtenida.">
                                                 <i class="fa-solid fa-award"></i> <?= $war['clan']['expEarned'] ?>
                                             </span>
                                         </div>
-        
+
                                         <div class="text-white">
                                             <span role="button" title="Destrucción total.">
                                                 <i class="fa-solid fa-bomb"></i> <?= round($war['clan']['destructionPercentage'] ?? 0, 2) ?>%
@@ -49,9 +49,20 @@
                                         </div>
                                     </div>
                                     <div class="col text-end">
-                                        <span class="text-white">
-                                            [<?=$war['endTime']?>]
-                                        </span>
+                                        <div>
+                                            <span class="text-white">
+                                                [<?= $war['endTime'] ?>]
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <?php if ($id = (new War())->find($war['id'])->id) : ?>
+                                                <a href="<?= Route::get('warlog.last')."/$id" ?>">
+                                                    <span class="badge bg-primary">
+                                                        <i class="fa-solid fa-calendar-week"></i> Detalles
+                                                    </span>
+                                                </a>
+                                            <?php endif; ?>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

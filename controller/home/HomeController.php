@@ -20,71 +20,79 @@ class HomeController extends Controller
     public function index()
     {
         $claninfo = Session::get('clan_info');
-
-        usort($claninfo['memberList'], function (array $arr1, array $arr2) {
-            return ($arr1['donations'] - $arr1['donationsReceived']) < ($arr2['donations'] - $arr2['donationsReceived']);
-        });
-
-        $players = $this->player->get();
-
-        Html::addVariables([
-            'body' => view('home/home', ['members' => $claninfo['memberList'], 'players' => $players, 'max' => 1000*((int)date('d', time()))]),
-            'members' => count($claninfo['memberList']),
-            'url_get_donations' => HOST . '/chart-area-donations',
-            'url_get_perfomance' => HOST . '/chart-bar-perfomance'
-        ]);
-        foreach ($players as $player) {
-            $inClan = false;
-            foreach ($claninfo['memberList'] as $member) {
-                if ($member['tag'] == $player->id) {
-                    if (!$player->inClan) {
-                        $player->inClan = 1;
-                        $player->cant++;
+        
+        if(!isset($claninfo['reason'])){
+            usort($claninfo['memberList'], function (array $arr1, array $arr2) {
+                return ($arr1['donations'] - $arr1['donationsReceived']) < ($arr2['donations'] - $arr2['donationsReceived']);
+            });
+    
+            $players = $this->player->get();
+    
+            Html::addVariables([
+                'body' => view('home/home', ['members' => $claninfo['memberList'], 'players' => $players, 'max' => 1000*((int)date('d', time()))]),
+                'members' => count($claninfo['memberList']),
+                'url_get_donations' => HOST . '/chart-area-donations',
+                'url_get_perfomance' => HOST . '/chart-bar-perfomance'
+            ]);
+            foreach ($players as $player) {
+                $inClan = false;
+                foreach ($claninfo['memberList'] as $member) {
+                    if ($member['tag'] == $player->id) {
+                        if (!$player->inClan) {
+                            $player->inClan = 1;
+                            $player->cant++;
+                        }
+                        $inClan = true;
+                        break;
                     }
-                    $inClan = true;
-                    break;
                 }
+                if (!$inClan) $player->inClan = 0;
             }
-            if (!$inClan) $player->inClan = 0;
-        }
-
-        $donations = 0;
-        $donationsReceived = 0;
-        $idDonations = date('Y-m', time());
-        // cargando jugadores
-        foreach ($claninfo['memberList'] as $member) {
-            $image = $member['league']['iconUrls']['medium'] ?? $member['league']['iconUrls']['tiny'] ?? $member['league']['iconUrls']['small'] ?? '';
-            if (!$player = $this->player->find($member['tag'])) {
-                $this->player->insert([
-                    'id' => $member['tag'],
-                    'name' => $member['name'],
-                    'role' => $member['role'],
-                    'image' => $image,
-                    'donations' => $member['donations'],
-                    'donationsReceived' => $member['donationsReceived']
+    
+            $donations = 0;
+            $donationsReceived = 0;
+            $idDonations = date('Y-m', time());
+            // cargando jugadores
+            foreach ($claninfo['memberList'] as $member) {
+                $image = $member['league']['iconUrls']['medium'] ?? $member['league']['iconUrls']['tiny'] ?? $member['league']['iconUrls']['small'] ?? '';
+                if (!$player = $this->player->find($member['tag'])) {
+                    $this->player->insert([
+                        'id' => $member['tag'],
+                        'name' => $member['name'],
+                        'role' => $member['role'],
+                        'image' => $image,
+                        'donations' => $member['donations'],
+                        'donationsReceived' => $member['donationsReceived']
+                    ]);
+                } else { // actualizando informacion de jugador 
+                    if ($player->name != $member['name']) $player->name = $member['name'];
+                    if ($player->role != $member['role']) $player->role = $member['role'];
+                    if ($player->donations != $member['donations']) $player->donations = $member['donations'];
+                    if ($player->donationsReceived != $member['donationsReceived']) $player->donationsReceived = $member['donationsReceived'];
+                    if ($player->image != $image) $player->image = $image;
+                }
+                $donations += $member['donations'];
+                $donationsReceived += $member['donationsReceived'];
+            }
+    
+            if ($donation = $this->donations->find($idDonations)) {
+                if ($donation->donations != $donations || $donationsReceived != $donation->donationsReceived) {
+                    if ($donation->donations != $donations) $donation->donations = $donations;
+                    if ($donation->donationsReceived != $donationsReceived) $donation->donationsReceived = $donationsReceived;
+                    $donation->update_at = time();
+                }
+            } else {
+                $this->donations->insert([
+                    'id' => $idDonations,
+                    'donations' => $donations,
+                    'date_at' => time()
                 ]);
-            } else { // actualizando informacion de jugador 
-                if ($player->name != $member['name']) $player->name = $member['name'];
-                if ($player->role != $member['role']) $player->role = $member['role'];
-                if ($player->donations != $member['donations']) $player->donations = $member['donations'];
-                if ($player->donationsReceived != $member['donationsReceived']) $player->donationsReceived = $member['donationsReceived'];
-                if ($player->image != $image) $player->image = $image;
             }
-            $donations += $member['donations'];
-            $donationsReceived += $member['donationsReceived'];
-        }
-
-        if ($donation = $this->donations->find($idDonations)) {
-            if ($donation->donations != $donations || $donationsReceived != $donation->donationsReceived) {
-                if ($donation->donations != $donations) $donation->donations = $donations;
-                if ($donation->donationsReceived != $donationsReceived) $donation->donationsReceived = $donationsReceived;
-                $donation->update_at = time();
-            }
-        } else {
-            $this->donations->insert([
-                'id' => $idDonations,
-                'donations' => $donations,
-                'date_at' => time()
+        }elseif($claninfo['reason'] == 'inMaintenance'){
+            Html::addVariables([
+                'body' => view('home/maintenance'),
+                'URL_RELOAD' => Route::get('home.reload'),
+                'MESSAGE_MAINTENANCE' => 'Hola ' . ucfirst(Session::getUser('username')) . ', actualmente los servidores de supercell se encuentran en mantenimiento.'
             ]);
         }
 
@@ -227,15 +235,41 @@ class HomeController extends Controller
 
     public function chartBarPerfomance()
     {
-        $currentWar = Session::get('clan_current_war_league');
-        $data = [
-            'label' => [generateID(), generateID(), generateID()],
-            'values' => [50, 85, 74],
-            'labelName' => 'Destrucción',
-            'max' => 100
+        $datasets = [
+            [
+                'label' => 'Desempeño',
+                'lineTension' => 0.3,
+                'backgroundColor' => "rgba(2,117,216,0.2)",
+                'borderColor' => "rgba(2,117,216,1)",
+                'pointRadius' => 5,
+                'pointBackgroundColor' => "rgba(2,117,216,1)",
+                'pointBorderColor' => "rgba(255,255,255,0.8)",
+                'pointHoverRadius' => 5,
+                'pointHoverBackgroundColor' => "rgba(2,117,216,1)",
+                'pointHitRadius' => 50,
+                'pointBorderWidth' => 2,
+                'data' => []
+            ]
         ];
-        vdump($currentWar);
 
+        $data = [
+            'label' => [],
+            'datasets' => $datasets,
+            'max' => 120,
+            'members' => 0
+        ];
+
+        (new CurrentWarController())->index();
+        $perfomance = Session::get('_PERFOMANCE_');
+        foreach($perfomance as $stars => $values){
+            foreach($values as $value){
+                if(++$data['members'] >= 5) break;
+                $data['datasets'][0]['data'][] = ($value['destruction']/$value['attacks']);
+                $data['label'][] = $value['name'];
+            }
+            if($data['members'] >= 5) break;
+        }
+        
         echo json_encode($data);
         return;
     }

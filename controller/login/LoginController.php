@@ -14,15 +14,14 @@ class LoginController extends Controller{
 
 			if(isset(Session::get('clan_current_war')['state']) && Session::get('clan_current_war')['state'] == 'notInWar') Session::destroy('clan_current_war');
 			if(isset(Session::get('clan_current_war_league')['state']) && Session::get('clan_current_war_league')['state'] == 'notInWar') Session::destroy('clan_current_war_league');
+			
 			Session::set('icon', $this->claninfo['badgeUrls']['small']);
 		}
 		Html::addVariable('description', $this->claninfo['description']);
 		$this->activity = new Activity();
 	}
 
-	public function index():string{
-		return Session::auth()? view('home/index') : view('login/index');
-	}
+	public function index():string{ return Session::auth()? view('home/index') : view('login/index'); }
 	
 	public function access(Request $request){
 		if($request->tokenIsValid()){

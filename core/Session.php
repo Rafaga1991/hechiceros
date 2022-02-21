@@ -120,7 +120,17 @@ class Session{
         }
     }
 
-    public static function updateUser($credentials=[]){
+    /**
+     * Actualiza la información del usuario actual.
+     * 
+     * @access public
+     * @param array $credentials recive las credenciales del usuario.
+     * @return void sin retorno.
+     * @author Rafael Minaya
+     * @copyright R.M.B.
+     * @version 1.0
+     */
+    public static function updateUser(array $credentials=[]):void{
         if(self::auth()){
             $id = 'user_' . self::get('id');
             $credential = self::get($id);
@@ -129,7 +139,16 @@ class Session{
         }
     }
 
-    public static function getRol(){
+    /**
+     * Busca el rol del usuario registrado.
+     * 
+     * @access public
+     * @return int retorna el id del rol.
+     * @author Rafael Minaya
+     * @copyright R.M.B.
+     * @version 1.0
+     */
+    public static function getRol():int{
         if(self::auth()) return self::get('user_' . self::get('id'))['rol'] ?? 0;
         return 0;
     }

@@ -47,6 +47,14 @@
                         </div>
                         Registro de Guerra
                     </a>
+                    <?php if (isAdmin()) : ?>
+                        <a class="nav-link" href="<?= Route::get('user.index') ?>">
+                            <div class="sb-nav-link-icon">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            Usuarios
+                        </a>
+                    <?php endif; ?>
                     <div class="sb-sidenav-menu-heading">Interface</div>
                     <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                         <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
@@ -76,7 +84,7 @@
         <footer class="py-4 bg-light mt-auto">
             <div class="container-fluid px-4">
                 <div class="d-flex align-items-center justify-content-between small">
-                    <div class="text-muted">Copyright &copy; Your Website 2021</div>
+                    <div class="text-muted">Copyright &copy; <?= PROYECT_NAME ?> 2022</div>
                     <div>
                         <a href="#">Privacy Policy</a>
                         &middot;

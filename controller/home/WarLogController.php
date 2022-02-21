@@ -17,8 +17,11 @@ class WarLogController extends Controller{
             $warlog = array_filter($this->clanWarLog['items'], function($item){
                 return $item['clan']['destructionPercentage'] <= 100;
             });
-            
+
+            // vdump($warlog);
             foreach($warlog as &$log){
+                $log['id'] = substr(md5($log['endTime']), 0, 20);
+                // vdump($log['id'], false);
                 $log['endTime'] = date('d M Y', strtotime(explode('.', $log['endTime'])[0]));
             }
 
@@ -28,10 +31,21 @@ class WarLogController extends Controller{
         }else{
             Html::addVariables([
                 'body' => view('home/maintenance'),
+                'URL_RELOAD' => Route::get('warlog.reload'),
                 'MESSAGE_MAINTENANCE' => "Hola " . ucfirst(Session::getUser('username')) . ', actualmente los servidores de supercell se encuentran en mantenimiento.'
             ]);
         }
         return $this->view;
+    }
+
+    public function lastWar(string $id){
+        if($war = (new War())->find($id)){
+            Html::addVariables([
+                'body' => view('home/warlog/lastwar'),
+                'war' => view('home/currentwar/currentwar', ['currentWar' => json_decode($war->war, true)])
+            ]);
+        }
+        return view('home/index');
     }
 
     public function reload(){ (new HomeController('warlog.index'))->reload(); }

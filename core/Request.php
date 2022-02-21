@@ -106,15 +106,10 @@ class Request{
         $this->variable[$name] = $value;
     }
 
-    public function __get($name)
-    {
-        return $this->variable[$name] ?? '';
-    }
+    public function __get($name) { return $this->variable[$name] ?? ''; }
 
     public function tokenIsValid():bool{
-        if(isset($this->variable['__token'])){
-            return $this->variable['__token'] == Session::get('__token');
-        }
+        if(isset($this->variable['__token'])) return $this->variable['__token'] == Session::get('__token');
         return false;
     }
 

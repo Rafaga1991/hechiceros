@@ -14,6 +14,7 @@ $route->set('/reload', [HomeController::class, 'reload'])->name('home.reload')->
 
 $route->set('/currentwar', [CurrentWarController::class, 'index'])->name('currentwar.index')->auth()->save();
 $route->set('/cw-reload', [CurrentWarController::class, 'reload'])->name('currentwar.reload')->auth()->save();
+$route->set('/currentwar/perfomance', [CurrentWarController::class, 'perfomance'])->name('currentwar.perfomance')->auth()->save();
 
 $route->set('/list-war', [ListController::class, 'listWar'])->name('list.war')->auth()->save();
 $route->set('/list-war/new', [ListController::class, 'newListWar'])->name('list.war.new')->auth()->save();
@@ -35,3 +36,6 @@ $route->set('/list-wait/destroy', [ListController::class, 'listWaitDestroy'])->n
 
 $route->set('/warlog', [WarLogController::class, 'index'])->name('warlog.index')->auth()->save();
 $route->set('/warlog/reload', [WarLogController::class, 'reload'])->name('warlog.reload')->auth()->save();
+$route->set('/warlog/last-war', [WarLogController::class, 'lastWar'])->name('warlog.last')->auth()->save();
+
+$route->set('/user', [UserController::class, 'index'])->name('user.index')->auth()->rol(Route::ROL_ADMIN)->save();
