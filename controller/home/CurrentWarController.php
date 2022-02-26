@@ -1,14 +1,19 @@
 <?php
 
+namespace controller\home;
+
+use core\{Controller,Html,Functions,Session,Route};
+use model\War;
+
 class CurrentWarController extends Controller
 {
     private $view = null;
 
-    public function __construct() { $this->view = view('home/index'); }
+    public function __construct() { $this->view =Functions::view('home/index'); }
 
     public function index()
     {
-        Html::addVariable('body', view('home/currentwar/index'));
+        Html::addVariable('body',Functions::view('home/currentwar/index'));
         $data = [];
         if ($currentwar = Session::get('clan_current_war')) {
             if (!isset($currentwar['reason'])) {
@@ -18,27 +23,27 @@ class CurrentWarController extends Controller
                 if(($data = (new War())->find($id)) && $data->war != json_encode($currentwar)) $data->war = json_encode($currentwar);
                 elseif(!$data) (new War())->insert(['id' => $id, 'war' => json_encode($currentwar)]);
                 $data = [
-                    'war' => view('home/currentwar/currentwar', ['currentWar' => $currentwar]),
+                    'war' =>Functions::view('home/currentwar/currentwar', ['currentWar' => $currentwar]),
                     'warname' => 'Guerra'
                 ];
             }elseif($currentwar['reason'] == 'inMaintenance'){
                 Html::addVariables([
-                    'body' => view('home/maintenance'),
+                    'body' =>Functions::view('home/maintenance'),
                     'URL_RELOAD' => Route::get('currentwar.reload'),
-                    'MESSAGE_MAINTENANCE' => 'Hola ' . ucfirst(Session::getUser('username')) . ', actualmente los servidores de supercell se encuentran en mantenimiento.'
+                    'MESSAGE_MAINTENANCE' => 'Hola ' . ucfirst((string)Session::getUser('username')) . ', actualmente los servidores de supercell se encuentran en mantenimiento.'
                 ]);
             }
         } elseif ($currentwar = Session::get('clan_current_war_league')) {
             if (!isset($currentwar['reason'])) {
                 $data = [
-                    'war' => view('home/currentwar/currentwarleague', ['currentWar' => $currentwar]),
+                    'war' =>Functions::view('home/currentwar/currentwarleague', ['currentWar' => $currentwar]),
                     'warname' => 'Liga de Guerra de Clanes'
                 ];
             }elseif($currentwar['reason'] == 'inMaintenance'){
                 Html::addVariables([
-                    'body' => view('home/maintenance'),
+                    'body' => Functions::view('home/maintenance'),
                     'URL_RELOAD' => Route::get('currentwar.reload'),
-                    'MESSAGE_MAINTENANCE' => 'Hola ' . ucfirst(Session::getUser('username')) . ', actualmente los servidores de supercell se encuentran en mantenimiento.'
+                    'MESSAGE_MAINTENANCE' => 'Hola ' . ucfirst((string)Session::getUser('username')) . ', actualmente los servidores de supercell se encuentran en mantenimiento.'
                 ]);
             }
         } else {
@@ -56,7 +61,7 @@ class CurrentWarController extends Controller
     public function perfomance($data){
         if(!is_array($data)) Route::reload('currentwar.index');
         Session::set('perfomance', $data);
-        return view('home/currentwar/perfomance', ['members' => $data, 'cant' => 1, 'players' => 0, 'stars' => 0]);
+        return Functions::view('home/currentwar/perfomance', ['members' => $data, 'cant' => 1, 'players' => 0, 'stars' => 0]);
     }
 
     public function reload():void { (new HomeController('currentwar.index'))->reload(); }

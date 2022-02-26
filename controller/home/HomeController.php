@@ -1,5 +1,11 @@
 <?php
 
+namespace controller\home;
+
+use core\{Controller,Functions,Session,Html,Route,Request};
+use model\{Activity,Player,Donations,User};
+use api\client\Client;
+
 class HomeController extends Controller
 {
     private $view = null;
@@ -10,7 +16,7 @@ class HomeController extends Controller
 
     public function __construct(string $redirect = 'home.index')
     {
-        $this->view = view('home/index');
+        $this->view = Functions::view('home/index');
         $this->activity = new Activity();
         $this->player = new Player();
         $this->donations = new Donations();
@@ -29,7 +35,7 @@ class HomeController extends Controller
             $players = $this->player->get();
     
             Html::addVariables([
-                'body' => view('home/home', ['members' => $claninfo['memberList'], 'players' => $players, 'max' => 1000*((int)date('d', time()))]),
+                'body' => Functions::view('home/home', ['members' => $claninfo['memberList'], 'players' => $players, 'max' => 1000*((int)date('d', time()))]),
                 'members' => count($claninfo['memberList']),
                 'url_get_donations' => HOST . '/chart-area-donations',
                 'url_get_perfomance' => HOST . '/chart-bar-perfomance'
@@ -85,14 +91,15 @@ class HomeController extends Controller
                 $this->donations->insert([
                     'id' => $idDonations,
                     'donations' => $donations,
+                    'donationsReceived' => $donationsReceived,
                     'date_at' => time()
                 ]);
             }
         }elseif($claninfo['reason'] == 'inMaintenance'){
             Html::addVariables([
-                'body' => view('home/maintenance'),
+                'body' => Functions::view('home/maintenance'),
                 'URL_RELOAD' => Route::get('home.reload'),
-                'MESSAGE_MAINTENANCE' => 'Hola ' . ucfirst(Session::getUser('username')) . ', actualmente los servidores de supercell se encuentran en mantenimiento.'
+                'MESSAGE_MAINTENANCE' => 'Hola ' . ucfirst((string)Session::getUser('username')) . ', actualmente los servidores de supercell se encuentran en mantenimiento.'
             ]);
         }
 
@@ -101,14 +108,14 @@ class HomeController extends Controller
 
     public function activity()
     {
-        if (!isAdmin()) Route::reload('home.index');
-        Html::addVariable('body', view('home/option/activity', ['activity' => $this->activity->get()]));
+        if (!Functions::isAdmin()) Route::reload('home.index');
+        Html::addVariable('body', Functions::view('home/option/activity', ['activity' => $this->activity->get()]));
         return $this->view;
     }
 
     public function setting()
     {
-        Html::addVariables(['body' => view('home/option/setting')]);
+        Html::addVariables(['body' => Functions::view('home/option/setting')]);
         return $this->view;
     }
 
@@ -152,8 +159,8 @@ class HomeController extends Controller
             }
 
             Html::addVariables([
-                'body' => view('home/option/setting'),
-                'error' => alert($validation['validation'] ? 'Actualizado con Exito!' : 'Error al Actualizar', $content, $validation['validation'] ? 'success' : 'danger')
+                'body' => Functions::view('home/option/setting'),
+                'error' => Functions::alert($validation['validation'] ? 'Actualizado con Exito!' : 'Error al Actualizar', $content, $validation['validation'] ? 'success' : 'danger')
             ]);
 
             return $this->view;

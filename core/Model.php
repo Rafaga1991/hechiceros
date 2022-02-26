@@ -1,5 +1,7 @@
 <?php
 
+namespace core;
+
 class Model extends Database{
     public $fk = [];
     public $table = '';
@@ -14,6 +16,8 @@ class Model extends Database{
     private $variable = [];
     private $isInner = false;
 
+    protected $columns = [];
+
     /**
      * Obtiene y carga toda la informacion del objeto hijo.
      * 
@@ -26,16 +30,18 @@ class Model extends Database{
     public function __construct() {
         $this->object = debug_backtrace()[0]['object'];
         $this->table = strtolower(get_class($this->object));
+        $this->table = array_slice($data = explode("\\", $this->table), count($data)-1, count($data))[0];
         $this->from = $this->table;
         
         $this->table = ($this->object->table != $this->table) ? $this->object->table : $this->table;
         $this->primaryKey = ($this->object->primaryKey != $this->primaryKey) ? $this->object->primaryKey : $this->primaryKey;
-
+        
         $description = parent::tableInfo($this->table);
 
         foreach($description as $columns){
             if($columns['Key'] == 'PRI') $this->primaryKey = $columns['Field'];
             $this->variable[$columns['Field']] = null;
+            $this->columns[] = $columns['Field'];
         }
     }
 
@@ -53,8 +59,8 @@ class Model extends Database{
     public function __set($name, $value) {
         $this->variable[$name] = $value;
         if(isset($this->variable[$this->primaryKey])){
-            if(!empty($this->variable[$this->primaryKey])){
-                parent::exec("UPDATE $this->table SET $name='$value' WHERE $this->primaryKey='{$this->variable[$this->primaryKey]}'");
+            if(!empty($this->variable[$this->primaryKey]) && in_array($name, $this->columns)){
+                parent::exec("UPDATE $this->table SET `$name`='$value' WHERE `$this->primaryKey`='{$this->variable[$this->primaryKey]}'");
             }
         }
     }
@@ -249,7 +255,7 @@ class Model extends Database{
             else $columns = join(',', $col);
         }
 
-        // vdump("SELECT $columns FROM $this->from $this->where");
+        // Functions::vdump("SELECT $columns FROM $this->from $this->where");
         $query = parent::query("SELECT $columns FROM $this->from $this->where");
 
         foreach($query as &$value){

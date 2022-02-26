@@ -1,3 +1,4 @@
+<?php namespace core;?>
 <div class="alert alert-success mt-5"><b>Lista de <?=$typeList?></b> con <?=count($players)?> Miembros.</div>
 <table class="table table-striped">
     <thead>
@@ -17,7 +18,7 @@
                         </div>
                         <div class="col">
                             <div>
-                                <b><?= $player->name ?></b> (<span class="text-danger"><?= traslate($player->role) ?></span>)
+                                <b><?= $player->name ?></b> (<span class="text-danger"><?= Functions::traslate($player->role) ?></span>)
                             </div>
                             <div><?= $player->id ?></div>
                         </div>

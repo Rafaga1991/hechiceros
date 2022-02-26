@@ -1,5 +1,7 @@
 <?php
 
+namespace core;
+
 class Request{
     private $data;
     private $variable = [];
@@ -36,9 +38,9 @@ class Request{
             if($isValid = isset($this->variable[$name])){
                 if(isset($validations['empty'])){// verificando si existe el indice
                     if(empty($this->variable[$name]) != $validations['empty']){// verificando si el campo no esta vacio
-                        if(!$validation['empty']) $inf['error'][] = "El campo <b>$name</b> no puede estar vacio.";
+                        if(!$validations['empty']) $inf['error'][] = "El campo <b>$name</b> no puede estar vacio.";
                         else $inf['error'][] = "El campo <b>$name</b> debe estar vacio.";
-                        $inf['validation'] = $isValid;
+                        $inf['validation'] = false;
                     }
                 }
 
@@ -106,10 +108,14 @@ class Request{
         $this->variable[$name] = $value;
     }
 
-    public function __get($name) { return $this->variable[$name] ?? ''; }
+    public function __get($name)
+    {
+        return $this->variable[$name] ?? '';
+    }
 
     public function tokenIsValid():bool{
         if(isset($this->variable['__token'])) return $this->variable['__token'] == Session::get('__token');
+        Session::destroy('__token');
         return false;
     }
 

@@ -1,23 +1,23 @@
 <?php
 
+namespace core;
+
 header('Access-Control-Allow-Origin: *');// permitiendo acceso de origen remoto.
 
-require __DIR__.'/functions.php';// Cargando las funciones globales.
+spl_autoload_register(function($class){ require_once str_replace("\\", '/', "$class.php"); });
 
-spl_autoload_register(function($class){ 
-    require_once getPath(getFiles(getRoute()), $class); 
-});
+Functions::init();
+Session::init();
 
 Session::set('__CURRENT_ROUTE__', '/');
 
-Session::init();
-
 $route = new Route();
 
-require_once getRoute('route.php');
+require_once Functions::getRoute('route.php');
 
 $route->init($view);
 
 Message::loadMessageError();
 
-Html::setBody($view, ['class' => 'sb-nav-fixed']);
+Html::setBody($view??'', ['class' => 'sb-nav-fixed']);
+

@@ -1,4 +1,7 @@
 <?php
+
+namespace core;
+
 usort($currentWar['clan']['members'], function ($arr1, $arr2) {
     return $arr1['mapPosition'] > $arr2['mapPosition'];
 });
@@ -85,7 +88,7 @@ $members = [];
     <div class="card-header">
         <div class="row">
             <?php if (isset($currentWar) && count($currentWar) > 0) : ?>
-                <div class="col">Guerra Actual (<span class="fw-bold text-<?= $currentWar['state'] == 'inWar' ? 'success' : ($currentWar['state'] == 'preparation' ? 'secondary' : 'danger') ?>"><?= traslate($currentWar['state']) ?></span>)</div>
+                <div class="col">Guerra Actual (<span class="fw-bold text-<?= $currentWar['state'] == 'inWar' ? 'success' : ($currentWar['state'] == 'preparation' ? 'secondary' : 'danger') ?>"><?= Functions::traslate($currentWar['state']) ?></span>)</div>
                 <div class="col">
                     <?php
                     $start = time() - strtotime(explode('.', $currentWar['preparationStartTime'])[0]);
@@ -116,7 +119,7 @@ $members = [];
                         <td class="bg-<?= strtotime(explode('.', $currentWar['endTime'])[0]) < time() ? 'primary' : 'dark' ?>"><?= date('d M Y h:i:s A', strtotime(explode('.', $currentWar['endTime'])[0])) ?></td>
                     </tr>
                 </thead>
-                <tbody style="background-image: url('<?= asset('image/war.png') ?>');background-position: center;background-repeat: no-repeat;background-size: cover;">
+                <tbody style="background-image: url('<?= Functions::asset('image/war.png') ?>');background-position: center;background-repeat: no-repeat;background-size: cover;">
                     <tr class="text-center fw-bold" style="background-color: rgba(255,255,255,0.35);">
                         <td class="py-3">
                             <div class="row">
@@ -194,7 +197,7 @@ $members = [];
                                                 </span>
                                             <?php endif; ?>
                                             <a href="#attack<?= $key ?>" data-bs-toggle="modal" role="button">
-                                                <img src="<?= asset("image/th/th{$member['townhallLevel']}.png") ?>" width="50" alt=""><br>
+                                                <img src="<?= Functions::asset("image/th/th{$member['townhallLevel']}.png") ?>" width="50" alt=""><br>
                                                 <?= $clan ?>
                                             </a>
                                         </div>
@@ -208,7 +211,7 @@ $members = [];
                                                 </span>
                                             <?php endif; ?>
                                             <a href="#attack<?= $key ?>" data-bs-toggle="modal" role="button">
-                                                <img src="<?= asset("image/th/th{$member['townhallLevel']}.png") ?>" width="50" alt=""><br>
+                                                <img src="<?= Functions::asset("image/th/th{$member['townhallLevel']}.png") ?>" width="50" alt=""><br>
                                                 <?= $clan ?>
                                             </a>
                                         </div>
@@ -235,7 +238,7 @@ $members = [];
                                                 </span>
                                             <?php endif; ?>
                                             <a href="#attack<?= $key . '_' . $key ?>" data-bs-toggle="modal" role="button">
-                                                <img src="<?= asset("image/th/th{$currentWar['opponent']['members'][$key]['townhallLevel']}.png") ?>" width="50" alt=""><br>
+                                                <img src="<?= Functions::asset("image/th/th{$currentWar['opponent']['members'][$key]['townhallLevel']}.png") ?>" width="50" alt=""><br>
                                                 <?= $clan ?>
                                             </a>
                                         </div>
@@ -247,7 +250,7 @@ $members = [];
                                                 </span>
                                             <?php endif; ?>
                                             <a href="#attack<?= $key . '_' . $key ?>" data-bs-toggle="modal" role="button">
-                                                <img src="<?= asset("image/th/th{$currentWar['opponent']['members'][$key]['townhallLevel']}.png") ?>" width="50" alt=""><br>
+                                                <img src="<?= Functions::asset("image/th/th{$currentWar['opponent']['members'][$key]['townhallLevel']}.png") ?>" width="50" alt=""><br>
                                                 <?= $clan ?>
                                             </a>
                                         </div>
@@ -271,10 +274,10 @@ $members = [];
                                         }
                                     }
                                 }
-                                includes(
+                                Functions::includes(
                                     [
-                                        getRoute('view/home/currentwar/currentwar-modal.php'),
-                                        getRoute('view/home/currentwar/currentwar-modal.php')
+                                        Functions::getRoute('view/home/currentwar/currentwar-modal.php'),
+                                        Functions::getRoute('view/home/currentwar/currentwar-modal.php')
                                     ],
                                     [[
                                         'member' => $member,

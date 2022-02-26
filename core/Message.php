@@ -1,5 +1,7 @@
 <?php
 
+namespace core;
+
 class Message{
     private static $message = [];
     private static $message_type = [
@@ -13,7 +15,6 @@ class Message{
             <li>$description</li>
         HTML;
         Session::set('__MESSAGES__', self::$message);
-        // vdump(debug_backtrace());
     }
 
     public static function loadMessageError(){
@@ -33,10 +34,10 @@ class Message{
             Session::set('__ERROR__', $errors);
             Session::destroy('__MESSAGES__');
             if(!Session::auth()){
-                reload('/' . PAGE_INIT);
-            }elseif($route = Route::get(Session::get('__CURRENT_ROUTE__'))){
-                if(!$route['auth']) reload('/' . PAGE_ACCESS_AUTH);
-                else reload(Session::get('__CURRENT_ROUTE__') ?? Session::get('__LAST_ROUTE__'));
+                Functions::reload('/' . PAGE_INIT);
+            }elseif($route = Route::get((string)Session::get('__CURRENT_ROUTE__'))){
+                if(!$route['auth']) Functions::reload('/' . PAGE_ACCESS_AUTH);
+                else Functions::reload((string)(Session::get('__CURRENT_ROUTE__') ?? Session::get('__LAST_ROUTE__')));
             }
         }else{
             Html::addVariable('MESSAGE', Session::get('__ERROR__'));
@@ -50,5 +51,6 @@ class Message{
 
     public static function clear(){
         self::$message = [];
+        Session::destroy('__MESSAGES__');
     }
 }

@@ -1,3 +1,4 @@
+<?php namespace core;?>
 <div class="container-fluid px-4">
     <h1 class="mt-4">Lista de {!!name_list!!}</h1>
     <ol class="breadcrumb mb-4">
@@ -19,7 +20,7 @@
                         <div class="row">
                             <div class="col-1"><img src="<?= $player->image ?>" width="30" alt=""></div>
                             <div class="col">
-                                <div class="fs-5"><b><?= $player->name ?></b> (<span class="text-success"><?= traslate($player->role) ?></span>)</div>
+                                <div class="fs-5"><b><?= $player->name ?></b> (<span class="text-success"><?= Functions::traslate($player->role) ?></span>)</div>
                                 <div><?= $player->id ?></div>
                                 <?php if ($player->inClan) : ?>
                                     <div class="badge bg-success">En el clan</div>

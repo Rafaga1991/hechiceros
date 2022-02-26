@@ -76,4 +76,5 @@ INSERT INTO `user` (`id`, `email`, `username`, `password`, `admin`) VALUES
 (11, 'eltetemonaguillo@gmail.com', 'JUAN', '4ec3748dfecf9732dac3eac7ac7bff03', 0),
 (12, 'benja16echeverria@gmail.com', 'Benja10692', 'cfd909a7e48a63555e2da485665282d1', 0),
 (13, 'jacruzbihan2006@gmail.com', 'Coto 2024 ', 'd795d4e5192dc695f1f31bb306fb3af1', 0),
-(14, 'll3202118@gmail.com', 'Angel GT', '310b51dbf89733607e6dc6f7ec196b61', 0);
+(14, 'll3202118@gmail.com', 'Angel GT', '310b51dbf89733607e6dc6f7ec196b61', 0),
+(15, 'santiago.orozcob53@gmail.com', 'PÃ±', 'd300cbca78f6e74241c80bf03f21b9c5', 0);

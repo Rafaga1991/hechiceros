@@ -1,10 +1,11 @@
+<?php namespace core;?>
 <div class="modal fade" id="attack<?= $key ?>" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered modal-fullscreen">
         <div class="modal-content">
             <div class="modal-header">
                 <div class="modal-title">
                     <span><?= $member['mapPosition'] ?></span>.
-                    <img src="<?= asset('image/th/th' . $member['townhallLevel'] . '.png') ?>" width="40" alt="">
+                    <img src="<?= Functions::asset('image/th/th' . $member['townhallLevel'] . '.png') ?>" width="40" alt="">
                     <span class="fw-bold"><?= $member['name'] ?></span> (<span class="text-danger fw-bold">TH<?= $member['townhallLevel'] ?></span>)
                 </div>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -24,7 +25,7 @@
                             <tr class="border border-primary">
                                 <td class="w-50">
                                     <span><?= $attack[0]['position'] ?>. </span>
-                                    <img src="<?= asset('image/th/th' . $attack[0]['level'] . '.png') ?>" width="40" alt="">
+                                    <img src="<?= Functions::asset('image/th/th' . $attack[0]['level'] . '.png') ?>" width="40" alt="">
                                     <span><?= $attack[0]['name'] ?> (<span class="text-danger">TH<?= $attack[0]['level'] ?></span>)</span>
                                 </td>
                                 <td class="w-25">
@@ -52,7 +53,7 @@
                             <tr class="border border-danger">
                                 <td class="w-50">
                                     <span><?= $attack['position'] ?>. </span>
-                                    <img src="<?= asset('image/th/th' . $attack['level'] . '.png') ?>" width="40" alt="">
+                                    <img src="<?= Functions::asset('image/th/th' . $attack['level'] . '.png') ?>" width="40" alt="">
                                     <span><?= $attack['name'] ?> (<span class="text-danger">TH<?= $attack['level'] ?></span>)</span>
                                 </td>
                                 <td class="w-25">

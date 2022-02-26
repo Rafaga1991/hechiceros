@@ -1,5 +1,10 @@
 <?php
 
+namespace core;
+
+use controller\home\{HomeController,CurrentWarController,ListController,WarLogController};
+use controller\login\{LoginController,UserController};
+
 $route->set('/', [LoginController::class, 'index'])->name('login.index')->save();
 $route->set('/access', [LoginController::class, 'access'])->name('login.access')->save();
 $route->set('/logout', [LoginController::class, 'logout'])->name('login.logout')->auth()->save();

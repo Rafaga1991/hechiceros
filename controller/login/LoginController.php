@@ -1,4 +1,11 @@
 <?php
+
+namespace controller\login;
+
+use core\{Controller,Html,Functions,Session,Route,Request};
+use model\{Activity,User};
+use api\client\Client;
+
 class LoginController extends Controller{
 	private $claninfo = [];
 	private $activity = null;
@@ -21,7 +28,7 @@ class LoginController extends Controller{
 		$this->activity = new Activity();
 	}
 
-	public function index():string{ return Session::auth()? view('home/index') : view('login/index'); }
+	public function index():string{ return Session::auth()? Functions::view('home/index') : Functions::view('login/index'); }
 	
 	public function access(Request $request){
 		if($request->tokenIsValid()){
@@ -35,9 +42,9 @@ class LoginController extends Controller{
 				]);
 				Route::reload('home.index');
 			}
-			return view('login/index', ['message' => 'Usuario y/o clave incorrectos.']);
+			return Functions::view('login/index', ['message' => 'Usuario y/o clave incorrectos.']);
 		}else{
-			return view('login/index', ['message' => 'Token no valido, no se permite el reenvio de formulario.']);
+			return Functions::view('login/index', ['message' => 'Token no valido, no se permite el reenvio de formulario.']);
 		}
 	}
 

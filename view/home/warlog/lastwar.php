@@ -1,3 +1,4 @@
+<?php namespace core;?>
 <div class="container-fluid p-4">
     <h1 class="mt-4">Detalle De Guerra</h1>
     <ol class="breadcrumb mb-4">

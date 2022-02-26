@@ -1,3 +1,7 @@
+<?php
+
+namespace core;
+?>
 <div class="container-fluid px-4">
     <h1 class="mt-4">Registro de Guerra <a href="<?= Route::get('warlog.reload') ?>" title="Recargar Información"><span class="fs-6"><i class="fas fa-retweet"></i></span></a></h1>
     <ol class="breadcrumb mb-4">
@@ -15,7 +19,7 @@
         </thead>
         <tbody>
             <?php foreach ($warlog as $war) : ?>
-                <tr class="bg-<?= inArray($war['result'], ['win', 'lose', 'tie'], ['success', 'danger', 'secondary']) ?>">
+                <tr class="bg-<?= Functions::inArray($war['result'], ['win', 'lose', 'tie'], ['success', 'danger', 'secondary']) ?>">
                     <td>
                         <div class="row">
                             <div class="col-2">
@@ -55,8 +59,8 @@
                                             </span>
                                         </div>
                                         <div>
-                                            <?php if ($id = (new War())->find($war['id'])->id) : ?>
-                                                <a href="<?= Route::get('warlog.last')."/$id" ?>">
+                                            <?php if ($war['details']) : ?>
+                                                <a href="<?= Route::get('warlog.last') . "/{$war['details']}" ?>">
                                                     <span class="badge bg-primary">
                                                         <i class="fa-solid fa-calendar-week"></i> Detalles
                                                     </span>
@@ -76,7 +80,7 @@
                         </div>
 
                         <div class="text-center py-3">
-                            <span class="badge bg-white text-<?= inArray($war['result'], ['win', 'lose', 'tie'], ['success', 'danger', 'dark']) ?>"><?= traslate($war['result']) ?></span>
+                            <span class="badge bg-white text-<?= Functions::inArray($war['result'], ['win', 'lose', 'tie'], ['success', 'danger', 'dark']) ?>"><?= Functions::traslate($war['result']) ?></span>
                         </div>
 
                         <div class="text-center">

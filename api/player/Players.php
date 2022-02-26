@@ -1,6 +1,8 @@
 <?php
 
+namespace api\player;
 
+use api\data\Data;
 
 class Players extends Data{
 
@@ -12,12 +14,6 @@ class Players extends Data{
 
     }
 
-
-
-    public function getPlayerInfo(){
-
-        return parent::getData("players/" . urlencode($this->tagPlayer));
-
-    }
+    public function getPlayerInfo(){ return parent::getData("players/" . urlencode($this->tagPlayer)); }
 
 }

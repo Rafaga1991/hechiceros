@@ -1,5 +1,7 @@
 <?php
 
+namespace core;
+
 class File{
     /** @var TYPE_SIZE_DEFAULT tamaño del archivo por defecto. */
     public const TYPE_SIZE_DEFAULT = 1;
@@ -78,7 +80,7 @@ class File{
      * @version 1.0
      */
     public function moveFileToAsset(string $filename=null, string $dir=null):void{
-        $this->__move(getRoute(ASSET_DIR_NAME), $filename, $dir);
+        $this->__move(Functions::getRoute(ASSET_DIR_NAME), $filename, $dir);
     }
 
     /**
@@ -93,6 +95,6 @@ class File{
      * @version 1.0
      */
     public function moveFileTo(string $dirname, string $filename=null):void{
-        $this->__move(getRoute(), $filename, $dirname);
+        $this->__move(Functions::getRoute(), $filename, $dirname);
     }
 }

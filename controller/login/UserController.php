@@ -1,23 +1,28 @@
 <?php
 
+namespace controller\login;
+
+use core\{Controller,Html,Route,Functions};
+use model\User;
+
 class UserController extends Controller{
     private $view = 'home/index';
 
     public function __construct()
     {
-        $this->view = view($this->view);
+        $this->view = Functions::view($this->view);
     }
 
     public function index(){
-        if(!isAdmin()) return Route::reload('home.index');
+        if(!Functions::isAdmin()) return Route::reload('home.index');
         Html::addVariables([
-            'body' => view('home/user/index', ['users' => (new User())->get()])
+            'body' => Functions::view('home/user/index', ['users' => (new User())->get()])
         ]);
 
         return $this->view;
     }
 
     public function update($data){
-        vdump($data);
+        Functions::vdump($data);
     }
 }

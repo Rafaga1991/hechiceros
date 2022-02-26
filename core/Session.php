@@ -1,5 +1,7 @@
 <?php
 
+namespace core;
+
 /**
  * Crea, consulta, destruye y verifica las sesiones.
  * 
@@ -120,17 +122,7 @@ class Session{
         }
     }
 
-    /**
-     * Actualiza la información del usuario actual.
-     * 
-     * @access public
-     * @param array $credentials recive las credenciales del usuario.
-     * @return void sin retorno.
-     * @author Rafael Minaya
-     * @copyright R.M.B.
-     * @version 1.0
-     */
-    public static function updateUser(array $credentials=[]):void{
+    public static function updateUser($credentials=[]){
         if(self::auth()){
             $id = 'user_' . self::get('id');
             $credential = self::get($id);
@@ -139,16 +131,7 @@ class Session{
         }
     }
 
-    /**
-     * Busca el rol del usuario registrado.
-     * 
-     * @access public
-     * @return int retorna el id del rol.
-     * @author Rafael Minaya
-     * @copyright R.M.B.
-     * @version 1.0
-     */
-    public static function getRol():int{
+    public static function getRol(){
         if(self::auth()) return self::get('user_' . self::get('id'))['rol'] ?? 0;
         return 0;
     }

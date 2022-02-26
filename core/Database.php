@@ -1,5 +1,7 @@
 <?php
 
+namespace core;
+
 class Database{
     protected $lastID = '';
 
@@ -29,7 +31,7 @@ class Database{
     protected function query(string $sql):array{
         $data = [];
         $link = $this->getConnect();
-        $query = mysqli_query($this->getConnect(), $sql);
+        $query = mysqli_query($link, $sql);
         while($row = $query->fetch_array()){
             foreach($row as $key => $col){
                 if(is_numeric($key)) unset($row[$key]);

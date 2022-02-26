@@ -1,3 +1,4 @@
+<?php namespace core;?>
 <div class="container-fluid px-4">
     <h1 class="mt-4">Nueva Lista de Guerra</h1>
     <ol class="breadcrumb mb-4">
@@ -24,12 +25,12 @@
                                     <img src="<?= $player->image ?>" width="25">
                                 </div>
                                 <div class="col">
-                                    <?= $player->name ?> (<span class="text-success"><?= traslate($player->role) ?></span>)<br>
+                                    <?= $player->name ?> (<span class="text-success"><?= Functions::traslate($player->role) ?></span>)<br>
                                     <?= $player->id ?>
                                 </div>
                             </div>
                         </td>
-                        <td><?= traslate($player->status) ?></td>
+                        <td><?= Functions::traslate($player->status) ?></td>
                         <td class="text-center">
                             <input type="checkbox" value="<?= $player->id ?>" onclick="onClickSelect(this)">
                         </td>
@@ -61,12 +62,12 @@
                                     <img src="<?= $player->image ?>" width="25">
                                 </div>
                                 <div class="col">
-                                    <?= $player->name ?> (<span class="text-success"><?= traslate($player->role) ?></span>)<br>
+                                    <?= $player->name ?> (<span class="text-success"><?= Functions::traslate($player->role) ?></span>)<br>
                                     <?= $player->id ?>
                                 </div>
                             </div>
                         </td>
-                        <td><?= traslate($player->status) ?></td>
+                        <td><?= Functions::traslate($player->status) ?></td>
                         <td class="text-center">
                             <input type="checkbox" value="<?= $player->id ?>" onclick="onClickSelect(this)">
                         </td>
