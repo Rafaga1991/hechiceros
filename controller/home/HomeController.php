@@ -32,7 +32,7 @@ class HomeController extends Controller
                 return ($arr1['donations'] - $arr1['donationsReceived']) < ($arr2['donations'] - $arr2['donationsReceived']);
             });
     
-            $players = $this->player->get();
+            $players = $this->player->where(['inClan' => 1])->get();
     
             Html::addVariables([
                 'body' => Functions::view('home/home', ['members' => $claninfo['memberList'], 'players' => $players, 'max' => 1000*((int)date('d', time()))]),
@@ -70,7 +70,7 @@ class HomeController extends Controller
                         'donations' => $member['donations'],
                         'donationsReceived' => $member['donationsReceived']
                     ]);
-                } else { // actualizando informacion de jugador 
+                } else { // actualizando información de jugador
                     if ($player->name != $member['name']) $player->name = $member['name'];
                     if ($player->role != $member['role']) $player->role = $member['role'];
                     if ($player->donations != $member['donations']) $player->donations = $member['donations'];

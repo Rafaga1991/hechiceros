@@ -11,3 +11,42 @@ Stack trace:
 #5 /home/vol15_6/epizy.com/epiz_30680408/htdocs/index.php(5): require_once('/home/vol15_6/e...')
 #6 {main}
   thrown in /home/vol15_6/epizy.com/epiz_30680408/htdocs/core/Database.php on line 35
+[05-Mar-2022 08:36:08 America/Santo_Domingo] PHP Warning:  mysqli_connect(): (HY000/2002): Se produjo un error durante el intento de conexi�n ya que la parte conectada no respondi� adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexi�n establecida ya que el host conectado no ha podido responder.
+ in C:\xampp\htdocs\hechiceros\core\Database.php on line 18
+[05-Mar-2022 08:36:08 America/Santo_Domingo] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in C:\xampp\htdocs\hechiceros\core\Database.php on line 34
+[05-Mar-2022 08:36:08 America/Santo_Domingo] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in C:\xampp\htdocs\hechiceros\core\Database.php:35
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\Database.php(73): core\Database->query('DESCRIBE activi...')
+#1 C:\xampp\htdocs\hechiceros\core\Model.php(39): core\Database->tableInfo('activity')
+#2 C:\xampp\htdocs\hechiceros\controller\login\LoginController.php(28): core\Model->__construct()
+#3 C:\xampp\htdocs\hechiceros\core\Route.php(172): controller\login\LoginController->__construct()
+#4 C:\xampp\htdocs\hechiceros\core\.autoload.php(18): core\Route->init(NULL)
+#5 C:\xampp\htdocs\hechiceros\index.php(5): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+  thrown in C:\xampp\htdocs\hechiceros\core\Database.php on line 35
+[05-Mar-2022 08:36:10 America/Santo_Domingo] PHP Warning:  mysqli_connect(): (HY000/2002): Se produjo un error durante el intento de conexi�n ya que la parte conectada no respondi� adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexi�n establecida ya que el host conectado no ha podido responder.
+ in C:\xampp\htdocs\hechiceros\core\Database.php on line 18
+[05-Mar-2022 08:36:10 America/Santo_Domingo] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in C:\xampp\htdocs\hechiceros\core\Database.php on line 34
+[05-Mar-2022 08:36:10 America/Santo_Domingo] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in C:\xampp\htdocs\hechiceros\core\Database.php:35
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\Database.php(73): core\Database->query('DESCRIBE activi...')
+#1 C:\xampp\htdocs\hechiceros\core\Model.php(39): core\Database->tableInfo('activity')
+#2 C:\xampp\htdocs\hechiceros\controller\login\LoginController.php(28): core\Model->__construct()
+#3 C:\xampp\htdocs\hechiceros\core\Route.php(172): controller\login\LoginController->__construct()
+#4 C:\xampp\htdocs\hechiceros\core\.autoload.php(18): core\Route->init(NULL)
+#5 C:\xampp\htdocs\hechiceros\index.php(5): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+  thrown in C:\xampp\htdocs\hechiceros\core\Database.php on line 35
+[05-Mar-2022 08:47:17 America/Santo_Domingo] PHP Warning:  mysqli_connect(): (HY000/2002): Se produjo un error durante el intento de conexi�n ya que la parte conectada no respondi� adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexi�n establecida ya que el host conectado no ha podido responder.
+ in C:\xampp\htdocs\hechiceros\core\Database.php on line 18
+[05-Mar-2022 08:47:17 America/Santo_Domingo] PHP Warning:  mysqli_query() expects parameter 1 to be mysqli, bool given in C:\xampp\htdocs\hechiceros\core\Database.php on line 34
+[05-Mar-2022 08:47:17 America/Santo_Domingo] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on null in C:\xampp\htdocs\hechiceros\core\Database.php:35
+Stack trace:
+#0 C:\xampp\htdocs\hechiceros\core\Database.php(73): core\Database->query('DESCRIBE activi...')
+#1 C:\xampp\htdocs\hechiceros\core\Model.php(39): core\Database->tableInfo('activity')
+#2 C:\xampp\htdocs\hechiceros\controller\login\LoginController.php(28): core\Model->__construct()
+#3 C:\xampp\htdocs\hechiceros\core\Route.php(172): controller\login\LoginController->__construct()
+#4 C:\xampp\htdocs\hechiceros\core\.autoload.php(18): core\Route->init(NULL)
+#5 C:\xampp\htdocs\hechiceros\index.php(5): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+  thrown in C:\xampp\htdocs\hechiceros\core\Database.php on line 35

@@ -172,7 +172,7 @@ class ListController extends Controller
             'body' => Functions::view(
                 'home/list/lists',
                 [
-                    'players' => (new Player())->where(['status' => 'break'])->get(),
+                    'players' => (new Player())->where(['status' => 'break', 'inClan' => 1])->get(),
                     'namePathNew' => 'list.break.new',
                     'namePathDestroy' => 'list.break.destroy'
                 ]
@@ -187,7 +187,7 @@ class ListController extends Controller
         Html::addScript(['src' => Functions::asset('js/listwar.js')]);
         Html::addVariables([
             'body' => Functions::view('home/list/list-new', [
-                'players' => (new Player())->where(['status' => ['active', 'wait', 'war']])->get(),
+                'players' => (new Player())->where(['status' => ['active', 'wait', 'war']])->where(['inClan' => 1])->get(),
                 'namePath' => 'list.break',
                 'namePathChange' => 'list.break.change'
             ]),
@@ -242,7 +242,7 @@ class ListController extends Controller
             'body' => Functions::view(
                 'home/list/lists',
                 [
-                    'players' => (new Player())->where(['status' => 'wait'])->get(),
+                    'players' => (new Player())->where(['status' => 'wait', 'inClan' => 1])->get(),
                     'namePathNew' => 'list.wait.new',
                     'namePathDestroy' => 'list.wait.destroy'
                 ]
@@ -257,7 +257,7 @@ class ListController extends Controller
         Html::addScript(['src' => Functions::asset('js/listwar.js')]);
         Html::addVariables([
             'body' => Functions::view('home/list/list-new', [
-                'players' => (new Player())->where(['status' => ['active', 'break', 'war']])->get(),
+                'players' => (new Player())->where(['status' => ['active', 'break', 'war']])->where(['inClan' => 1])->get(),
                 'namePath' => 'list.wait',
                 'namePathChange' => 'list.wait.change'
             ]),
