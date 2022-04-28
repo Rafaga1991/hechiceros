@@ -54,11 +54,11 @@ class ListController extends Controller
                     'typeList' => 'Guerra'
                 ]),
                 'members_wait' => Functions::view('home/list/list-table', [
-                    'players' => (new Player())->where(['status' => 'wait'])->get(),
+                    'players' => (new Player())->where(['status' => 'wait', 'inClan' => 1])->get(),
                     'typeList' => 'Espera'
                 ]),
                 'members_break' => Functions::view('home/list/list-table', [
-                    'players' => (new Player())->where(['status' => 'break'])->get(),
+                    'players' => (new Player())->where(['status' => 'break', 'inClan' => 1])->get(),
                     'typeList' => 'Descanso'
                 ]),
                 '_HOST_' => HOST,
@@ -187,7 +187,7 @@ class ListController extends Controller
         Html::addScript(['src' => Functions::asset('js/listwar.js')]);
         Html::addVariables([
             'body' => Functions::view('home/list/list-new', [
-                'players' => (new Player())->where(['status' => ['active', 'wait', 'war']])->where(['inClan' => 1])->get(),
+                'players' => (new Player())->where(['inClan' => 1,'status' => ['active', 'wait', 'war']])->get(),
                 'namePath' => 'list.break',
                 'namePathChange' => 'list.break.change'
             ]),
@@ -257,7 +257,7 @@ class ListController extends Controller
         Html::addScript(['src' => Functions::asset('js/listwar.js')]);
         Html::addVariables([
             'body' => Functions::view('home/list/list-new', [
-                'players' => (new Player())->where(['status' => ['active', 'break', 'war']])->where(['inClan' => 1])->get(),
+                'players' => (new Player())->where(['inClan' => 1,'status' => ['active', 'break', 'war']])->get(),
                 'namePath' => 'list.wait',
                 'namePathChange' => 'list.wait.change'
             ]),

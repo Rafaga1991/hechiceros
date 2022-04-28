@@ -25,5 +25,6 @@ Html::addScript(['src' => 'https://cdn.datatables.net/1.11.4/js/jquery.dataTable
 Html::addScript(['src' => Functions::asset('js/script.js')]);
 Html::addScript(['src' => Functions::asset('js/demo/chart-area-demo.js')]);
 Html::addScript(['src' => 'https://cdn.jsdelivr.net/npm/simple-datatables@latest', 'crossorigin' => 'anonymous']);
+Html::addScript(['src' => 'https://cdn.jsdelivr.net/npm/sweetalert2@11']);
 
 Html::OutPut();

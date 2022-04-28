@@ -32,10 +32,9 @@ class Request{
     }
 
     public function validate(array $validation):array{
-        $isValid = true;
         $inf = ['validation' => true, 'error' => []];
         foreach($validation as $name => $validations){
-            if($isValid = isset($this->variable[$name])){
+            if(isset($this->variable[$name])){
                 if(isset($validations['empty'])){// verificando si existe el indice
                     if(empty($this->variable[$name]) != $validations['empty']){// verificando si el campo no esta vacio
                         if(!$validations['empty']) $inf['error'][] = "El campo <b>$name</b> no puede estar vacio.";
@@ -66,6 +65,13 @@ class Request{
                         }
                     }else{
                         $inf['error'][] = "El campo <b>{$validations['equal']}</b> no existe.";
+                        $inf['validation'] = false;
+                    }
+                }
+
+                if(isset($validations['email']) && $validations['email']){
+                    if(!preg_match('/[a-zA-Z-0-9]+\@[a-zA-Z-0-9]+\.[a-zA-Z-0-9]+/', $this->variable[$name])){
+                        $inf['error'][] = "Correo <b>{$this->variable[$name]}</b> no valido.";
                         $inf['validation'] = false;
                     }
                 }
@@ -139,5 +145,19 @@ class Request{
         }else{
             unset($this->data[$name]);
         }
+    }
+
+    public static function response($data=null, string $message='', string $type = 'success'){
+        return [
+            'data' => $data,
+            'message' => $message,
+            'type' => $type,
+            'request_state' => true
+        ];
+    }
+
+    public static function isRequest($request){
+        if(is_array($request)) return (isset($request['request_state'])?$request['request_state']:false);
+        return false;
     }
 }

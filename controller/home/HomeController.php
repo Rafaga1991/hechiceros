@@ -31,15 +31,9 @@ class HomeController extends Controller
             usort($claninfo['memberList'], function (array $arr1, array $arr2) {
                 return ($arr1['donations'] - $arr1['donationsReceived']) < ($arr2['donations'] - $arr2['donationsReceived']);
             });
-    
+            
             $players = $this->player->where(['inClan' => 1])->get();
-    
-            Html::addVariables([
-                'body' => Functions::view('home/home', ['members' => $claninfo['memberList'], 'players' => $players, 'max' => 1000*((int)date('d', time()))]),
-                'members' => count($claninfo['memberList']),
-                'url_get_donations' => HOST . '/chart-area-donations',
-                'url_get_perfomance' => HOST . '/chart-bar-perfomance'
-            ]);
+
             foreach ($players as $player) {
                 $inClan = false;
                 foreach ($claninfo['memberList'] as $member) {
@@ -61,8 +55,8 @@ class HomeController extends Controller
             // cargando jugadores
             foreach ($claninfo['memberList'] as $member) {
                 $image = $member['league']['iconUrls']['medium'] ?? $member['league']['iconUrls']['tiny'] ?? $member['league']['iconUrls']['small'] ?? '';
-                if (!$player = $this->player->find($member['tag'])) {
-                    $this->player->insert([
+                if (!$player = (new Player)->find($member['tag'])) {
+                    (new Player)->insert([
                         'id' => $member['tag'],
                         'name' => $member['name'],
                         'role' => $member['role'],
@@ -76,6 +70,7 @@ class HomeController extends Controller
                     if ($player->donations != $member['donations']) $player->donations = $member['donations'];
                     if ($player->donationsReceived != $member['donationsReceived']) $player->donationsReceived = $member['donationsReceived'];
                     if ($player->image != $image) $player->image = $image;
+                    if ($player->inClan != 1) $player->inClan = 1;
                 }
                 $donations += $member['donations'];
                 $donationsReceived += $member['donationsReceived'];
@@ -95,6 +90,14 @@ class HomeController extends Controller
                     'date_at' => time()
                 ]);
             }
+
+            Html::addVariables([
+                'body' => Functions::view('home/home', ['members' => $claninfo['memberList'], 'players' => $this->player->where(['inClan' => 1])->get(), 'max' => 1000*((int)date('d', time()))]),
+                'members' => count($claninfo['memberList']),
+                'url_get_donations' => HOST . '/chart-area-donations',
+                'url_get_perfomance' => HOST . '/chart-bar-perfomance'
+            ]);
+
         }elseif($claninfo['reason'] == 'inMaintenance'){
             Html::addVariables([
                 'body' => Functions::view('home/maintenance'),

@@ -202,18 +202,18 @@ class Model extends Database{
      */
     private function _where(array $arr, string $separator = ',') : string{
         $parameters = '';
-        $isArray = false;
         foreach($arr as $key => $value){
+            if(substr_count($key, '`') == 0) $key = "`$key`";
+            else $key = str_replace("`", "'", $key);
             if(is_array($value)){
-                $isArray = true;
-                $parameters .= "`$key` IN ('" . join("','", $value) . "')";
-            }else{
-                $parameters .= "`$key`='$value' $separator ";
-            }
+                foreach($value as &$val){
+                    if(substr_count($val, '`') == 0) $val = (!is_numeric($val))?"'$val'":$val;
+                }
+                $parameters .= "$key IN (" . join(",", $value) . ") $separator ";
+            }else $parameters .= "$key='$value' $separator ";
         }
         $this->from = $this->table;
-        if($isArray) return $parameters;
-        return trim(substr(trim($parameters), 0, strlen(trim($parameters))-(strtolower($separator)=='and'? 3 : 1)));
+        return (trim(join($separator, array_filter(explode($separator,trim($parameters)), function($value){ return $value != ''; }))));
     }
 
     public function find($id){
@@ -255,7 +255,6 @@ class Model extends Database{
             else $columns = join(',', $col);
         }
 
-        // Functions::vdump("SELECT $columns FROM $this->from $this->where");
         $query = parent::query("SELECT $columns FROM $this->from $this->where");
 
         foreach($query as &$value){
@@ -278,6 +277,7 @@ class Model extends Database{
             $this->where = "WHERE $this->primaryKey='$id'";
             parent::exec("UPDATE $this->table SET $columns $this->where");
         }elseif(!empty($this->where)) parent::exec("UPDATE $this->table SET $columns $this->where");
+        else parent::exec("UPDATE $this->table SET $columns");
         $this->from = $this->table;
         return $this;
     }

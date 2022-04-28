@@ -3,7 +3,7 @@
 namespace controller\login;
 
 use core\{Controller,Html,Functions,Session,Route,Request};
-use model\{Activity,User};
+use model\{Activity, Player, User};
 use api\client\Client;
 
 class LoginController extends Controller{
@@ -33,7 +33,7 @@ class LoginController extends Controller{
 	public function access(Request $request){
 		if($request->tokenIsValid()){
 			$user = new User();
-			if($user = $user->where(['username' => strtolower($request->username), 'password' => md5($request->password), 'delete' => 0])->get(['id', 'username', 'email', 'admin'])){
+			if($user = $user->where(['`' . strtolower($request->username) . '`' => ['`email`', '`username`'], 'password' => md5($request->password), 'delete' => 0])->get(['id', 'username', 'email', 'admin'])){
 				$user = $user[0];
 				Session::setUser($user, 'admin');
 				$this->activity->insert([
@@ -46,6 +46,10 @@ class LoginController extends Controller{
 		}else{
 			return Functions::view('login/index', ['message' => 'Token no valido, no se permite el reenvio de formulario.']);
 		}
+	}
+
+	public function register(){
+		return Functions::view('login/register', ['name' => 'Rafael']);
 	}
 
 	public function logout(){

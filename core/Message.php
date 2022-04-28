@@ -17,6 +17,10 @@ class Message{
         Session::set('__MESSAGES__', self::$message);
     }
 
+    public static function multiAdd(array $messages, string $type = 'warning'){
+        foreach($messages as $message){ self::add($message, $type); }
+    }
+
     public static function loadMessageError(){
         if($message = Session::get('__MESSAGES__')){
             $errors = '';

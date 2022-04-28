@@ -6,11 +6,15 @@
     </ol>
     {!!MESSAGE!!}
     <table id="datatablesSimple">
-        <caption><a href="<?=Route::get($namePathNew)?>" class="btn btn-outline-primary">Agregar</a></caption>
+        <?php if(Functions::isAdmin()):?>
+            <caption><a href="<?=Route::get($namePathNew)?>" class="btn btn-outline-primary">Agregar</a></caption>
+        <?php endif;?>
         <thead>
             <tr>
                 <th>Jugador</th>
-                <th>Acci&oacute;n</th>
+                <?php if(Functions::isAdmin()):?>
+                    <th>Acci&oacute;n</th>
+                <?php endif;?>
             </tr>
         </thead>
         <tbody>
@@ -30,12 +34,14 @@
                             </div>
                         </div>
                     </td>
-                    <td>
-                        <form action="<?= Route::get($namePathDestroy) ?>" method="post">
-                            <input type="hidden" name="id" value="<?=$player->id?>">
-                            <button type="submit" class="btn btn-outline-danger">Borrar</button>
-                        </form>
-                    </td>
+                    <?php if(Functions::isAdmin()):?>
+                        <td>
+                            <form action="<?= Route::get($namePathDestroy) ?>" method="post">
+                                <input type="hidden" name="id" value="<?=$player->id?>">
+                                <button type="submit" class="btn btn-outline-danger">Borrar</button>
+                            </form>
+                        </td>
+                    <?php endif;?>
                 </tr>
             <?php endforeach; ?>
         </tbody>

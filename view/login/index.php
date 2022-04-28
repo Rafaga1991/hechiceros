@@ -24,7 +24,7 @@
         </div>
         <div class="card-footer p-3">
             <div class="d-flex justify-content-center">
-                <div class="text-primary">Si es un usuario registrado, inicie sesión aquí.</div>
+                <div class="text-primary"><a href="<?=Route::get('register.index')?>">¿Crear cuenta?</a></div>
             </div>
         </div>
     </div>

@@ -202,13 +202,9 @@ class Route
             // Message::add("La url \"<b>$url</b>\" no existe!");
         }
         
-        if (is_array($view)) $view = json_encode($view);
-        elseif(is_object($view)) $view = serialize($view);
-        
-        if ($data['api']) {
-            if (!Message::exist()) echo $view; // mostrando resultados de la consulta
-            else echo json_encode(['message' => 'Se requieren parámetros.', 'type' => 'error']);
-            exit; // finalizando programa
+        if(Request::isRequest($view)){
+            echo json_encode(Functions::getValue($view, ['data', 'message', 'type']));
+            exit;
         }
         
         if ($data['error']) { // verificando si existen errores en la redireccion

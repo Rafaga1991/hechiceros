@@ -424,6 +424,15 @@ trait Functions{
             include $path;
         }
     }
+
+    public static function getValue(array $arr, array $keys): array{
+        $data = [];
+        foreach($keys as $key){
+            if(count($rename = explode(':', $key)) > 1 && isset($arr[$rename[0]])) $data[$rename[1]] = $arr[$rename[0]];
+            elseif(isset($arr[$key])) $data[$key] = $arr[$key];
+        }
+        return $data;
+    }
     
     /**
      * Se encarga de inicializar la página
