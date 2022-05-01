@@ -36,13 +36,14 @@ class HomeController extends Controller
 
             foreach ($players as $player) {
                 $inClan = false;
-                foreach ($claninfo['memberList'] as $member) {
+                foreach ($claninfo['memberList'] as &$member) {
                     if ($member['tag'] == $player->id) {
                         if (!$player->inClan) {
                             $player->inClan = 1;
                             $player->cant++;
                         }
                         $inClan = true;
+                        $member['name'] = htmlentities($member['name']);
                         break;
                     }
                 }
