@@ -78,9 +78,9 @@ class HomeController extends Controller
             }
     
             if ($donation = $this->donations->find($idDonations)) {
-                if ($donation->donations != $donations || $donationsReceived != $donation->donationsReceived) {
-                    if ($donation->donations != $donations) $donation->donations = $donations;
-                    if ($donation->donationsReceived != $donationsReceived) $donation->donationsReceived = $donationsReceived;
+                if ($donation->donations < $donations || $donationsReceived > $donation->donationsReceived) {
+                    if ($donation->donations < $donations) $donation->donations = $donations;
+                    if ($donation->donationsReceived < $donationsReceived) $donation->donationsReceived = $donationsReceived;
                     $donation->update_at = time();
                 }
             } else {
