@@ -83,7 +83,7 @@ class ListController extends Controller
         Html::addVariables([
             'body' => Functions::view('home/list/war-new', ['players' => $players]),
             'url_form' => Route::get('list.war.create'),
-            'cant_members_wait' => (new Player())->where(['status' => 'wait'])->count()
+            'cant_members_wait' => (new Player())->where(['status' => 'wait', 'inClan' => 1])->count()
         ]);
         
         return $this->view;

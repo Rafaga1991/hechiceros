@@ -277,7 +277,6 @@ class Model extends Database{
             $this->where = "WHERE $this->primaryKey='$id'";
             parent::exec("UPDATE $this->table SET $columns $this->where");
         }elseif(!empty($this->where)) parent::exec("UPDATE $this->table SET $columns $this->where");
-        else parent::exec("UPDATE $this->table SET $columns");
         $this->from = $this->table;
         return $this;
     }

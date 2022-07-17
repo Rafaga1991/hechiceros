@@ -34,6 +34,16 @@
         <?php endfor; ?>
     </div>
 
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-table me-1"></i>
+            Participaciones en Guerra
+        </div>
+        <div class="card-body">
+            <h3>En Mantenimiento</h3>
+        </div>
+    </div>
+
     <div class="row">
         <div class="col-xl-6">
             <div class="card mb-4">

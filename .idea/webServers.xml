@@ -3,7 +3,14 @@
   <component name="WebServers">
     <option name="servers">
       <webServer id="4b907860-456a-44c6-a88d-50fcba98da9e" name="InfinityFree" url="http://ftpupload.net">
-        <fileTransfer rootFolder="/htdocs" host="ftpupload.net" port="21">
+        <fileTransfer rootFolder="/clanhechiceros.com/htdocs" host="ftpupload.net" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+      <webServer id="2f165c88-70c9-42a9-b1e3-d4f6643ea8cc" name="myproyect" url="http://myproyect.ddns.net">
+        <fileTransfer accessType="FTPS" host="myproyect.ddns.net" port="2134">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>
