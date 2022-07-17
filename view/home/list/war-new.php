@@ -41,7 +41,7 @@
     </table>
     <hr class="dropdown-divider">
     <h5 class="text-muted">Jugadores disponibles (<?= count($players) ?>)</h5>
-    <table class="table table-striped" id="datatablesSimple">
+    <table class="table table-striped datatablesSimple">
         <caption>
             <div><label>Seleccionados: <span id="player">0</span></label></div>
         </caption>

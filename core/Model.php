@@ -69,7 +69,7 @@ class Model extends Database{
      * Agrega los datos extraidos de la base de datos al modelo.
      * 
      * @access public
-     * @param array $data recive un arreglo de datos.
+     * @param array $data recibe un arreglo de datos.
      * @return void sin retorno.
      * @author Rafael Minaya
      * @copyright R.M.B.
@@ -86,7 +86,7 @@ class Model extends Database{
      * 
      * @access public
      * @param string $column recive el nombre de la columna.
-     * @return int retorna el valor maximo encontrado.
+     * @return int retorna el valor máximo encontrado.
      * @author Rafael Minaya
      * @copyright R.M.B.
      * @version 1.0
@@ -97,11 +97,11 @@ class Model extends Database{
     }
 
     /**
-     * Retorna el valor minimo de los registros en db.
+     * Retorna el valor mínimo de los registros en db.
      * 
      * @access public
-     * @param string $column recive el nombre de la columna.
-     * @return int retorna el valor minimo encontrado.
+     * @param string $column recibe el nombre de la columna.
+     * @return int retorna el valor mínimo encontrado.
      * @author Rafael Minaya
      * @copyright R.M.B.
      * @version 1.0
@@ -150,6 +150,25 @@ class Model extends Database{
     public function count():int{
         if($data = parent::query("SELECT count(*) 'count' FROM $this->table $this->where")) return $data[0]["count"];
         return 0;
+    }
+
+    /**
+     * Retorna la cantidad total de registros agrupados.
+     *
+     * @access public
+     * @return array retorna un arreglo de agrupaciones.
+     * @author Rafael Minaya
+     * @copyright R.M.B.
+     * @version 1.0
+     */
+    public function groupBy(string $column, bool $notnull=false):array{
+        if(empty($this->where)){
+            if($notnull) $this->where = "WHERE $column IS NOT NULL";
+        }else{
+            $this->where .= " AND $column IS NOT NULL";
+        }
+        if($data = parent::query("SELECT count(*) 'count', $column FROM $this->table $this->where GROUP BY $column")) return $data;
+        return [];
     }
 
     /**
@@ -254,8 +273,7 @@ class Model extends Database{
             if(empty($col)) $columns = '*';
             else $columns = join(',', $col);
         }
-
-        $query = parent::query("SELECT $columns FROM $this->from $this->where");
+        $query = parent::query("SELECT $columns FROM `$this->from` $this->where");
 
         foreach($query as &$value){
             $object = clone $this->object;
@@ -270,6 +288,7 @@ class Model extends Database{
 
     public function update(array $values) : Model{
         $columns = $this->_where($values);
+
         if(array_key_exists($this->primaryKey, $values)){
             $id = $values[$this->primaryKey];
             unset($values[$this->primaryKey]);

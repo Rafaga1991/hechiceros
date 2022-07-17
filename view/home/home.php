@@ -44,6 +44,31 @@
         </div>
     </div>
 
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-table me-1"></i>
+            Listas de Guerras Creadas
+        </div>
+        <div class="card-body">
+            <table class="datatablesSimple">
+                <thead>
+                <tr>
+                    <th>Usuario</th>
+                    <th>Cantidad</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php foreach ($listCreates as $listCreate) : ?>
+                    <tr>
+                        <td><?=$listCreate['username']?></td>
+                        <td><?=$listCreate['cant']?></td>
+                    </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
     <div class="row">
         <div class="col-xl-6">
             <div class="card mb-4">
@@ -71,7 +96,7 @@
             Miembros en el Clan ({!!members!!})
         </div>
         <div class="card-body">
-            <table id="datatablesSimple">
+            <table class="datatablesSimple">
                 <thead>
                     <tr>
                         <th>Jugador</th>

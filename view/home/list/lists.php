@@ -5,7 +5,7 @@
         <li class="breadcrumb-item active">Jugadores en {!!name_list!!} <span class="badge bg-primary"><?=count($players)?></span></li>
     </ol>
     {!!MESSAGE!!}
-    <table id="datatablesSimple">
+    <table class="datatablesSimple">
         <?php if(Functions::isAdmin()):?>
             <caption><a href="<?=Route::get($namePathNew)?>" class="btn btn-outline-primary">Agregar</a></caption>
         <?php endif;?>

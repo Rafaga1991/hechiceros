@@ -98,6 +98,7 @@ class ListController extends Controller
                 foreach($request->player as $tag) (new Player())->find($tag)->status = 'war';
 
                 (new ListWar())->insert([
+                    'user_id' => Session::getUser('id'),
                     'list' => json_encode($request->player),
                     'description' => $request->description,
                     'members' => count($request->player)

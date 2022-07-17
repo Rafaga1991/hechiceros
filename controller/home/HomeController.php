@@ -3,7 +3,7 @@
 namespace controller\home;
 
 use core\{Controller,Functions,Session,Html,Route,Request};
-use model\{Activity,Player,Donations,User};
+use model\{Activity, ListWar, Player, Donations, User};
 use api\client\Client;
 
 class HomeController extends Controller
@@ -92,13 +92,34 @@ class HomeController extends Controller
                 ]);
             }
 
+            // cantidad de listas de guerras creadas por usuarios
+            $listCreates = [];
+            $listWarGroup = (new ListWar())->groupBy('user_id', true);
+            $user = new User();
+            foreach ($listWarGroup as $list){
+                if($user = $user->find($list['user_id'])){
+                    if(!$user->delete && $user->admin){
+                        $listCreates[] = [
+                            'username' => $user->username,
+                            'cant' => $list['count']
+                        ];
+                    }
+                }
+            }
             Html::addVariables([
-                'body' => Functions::view('home/home', ['members' => $claninfo['memberList'], 'players' => $this->player->where(['inClan' => 1])->get(), 'max' => 1000*((int)date('d', time()))]),
+                'body' => Functions::view(
+                    'home/home',
+                    [
+                        'listCreates' => $listCreates,
+                        'members' => $claninfo['memberList'],
+                        'players' => $this->player->where(['inClan' => 1])->get(),
+                        'max' => 1000*((int)date('d', time()))
+                    ]
+                ),
                 'members' => count($claninfo['memberList']),
                 'url_get_donations' => HOST . '/chart-area-donations',
                 'url_get_perfomance' => HOST . '/chart-bar-perfomance'
             ]);
-
         }elseif($claninfo['reason'] == 'inMaintenance'){
             Html::addVariables([
                 'body' => Functions::view('home/maintenance'),
@@ -144,11 +165,10 @@ class HomeController extends Controller
             ]);
 
             if ($validation['validation']) {
-                $user = (new User())->find(Session::getUser('id'))->update([
-                    'username' => $request->username,
-                    'password' => md5($request->password)
-                ])->get(['id', 'username', 'email', 'admin']);
-
+                $user = (new User())->find(Session::getUser('id'));
+                $user->username = $request->username;
+                $user->password = md5($request->password);
+                $user->update_at = time();
                 $this->activity->insert([
                     'title' => 'Actualización de perfil',
                     'description' => Session::getUser('username') . ' actualizó el usuario y/o contraseña.'
@@ -157,7 +177,7 @@ class HomeController extends Controller
                 $content = '<ul>';
                 $content .= "<li>Usuario <b>" . Session::getUser('username') . "</b> actualizado a <b>$request->username</b>.</li><li>Contraseña actualizada con exito!</li>";
 
-                Session::updateUser($user[0]);
+                Session::updateUser($user);
             } else {
                 $content = '<li>' . implode('<li>', $validation['error']);
             }

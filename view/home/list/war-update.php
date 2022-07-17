@@ -8,7 +8,7 @@
     {!!MESSAGE!!}
     
     <h5 class="text-muted">Jugadores disponibles (<?= count($players) ?>)</h5>
-    <table class="table table-striped" id="datatablesSimple">
+    <table class="table table-striped datatablesSimple">
         <caption>
             <div><label>Seleccionados: <span id="player"><?=count($list)?></span></label></div>
         </caption>

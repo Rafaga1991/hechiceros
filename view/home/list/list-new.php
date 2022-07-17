@@ -6,7 +6,7 @@
         <li class="breadcrumb-item active">Nuevo Jugador en {!!name_type_list!!}</li>
     </ol>
     {!!MESSAGE!!}
-    <table id="datatablesSimple">
+    <table class="datatablesSimple">
         <caption>
             <div><label>Seleccionados: <span id="player">0</span></label></div>
             <form action="<?= Route::get($namePathChange) ?>" id="form" method="post">

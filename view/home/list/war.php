@@ -6,7 +6,7 @@
     </ol>
     {!!MESSAGE!!}
 
-    <table id="datatablesSimple">
+    <table class="datatablesSimple">
         <?php if(Functions::isAdmin()):?>
             <caption><a href="<?= Route::get('list.war.new') ?>" class="btn btn-outline-primary">Crear Lista de Guerra</a></caption>
         <?php endif;?>

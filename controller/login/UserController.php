@@ -27,10 +27,10 @@ class UserController extends Controller{
     public function update(Request $request){
         if($request->tokenIsValid()){
             $data = Functions::getValue($request->getData(), ['adm:admin', 'ban:delete', 'user_id:id', 'reset:password']);
-            if(isset($data['password'])) $data['password'] = md5($this->default_pass); 
+            if(isset($data['password'])) $data['password'] = md5($this->default_pass);
             if($user = (new User())->find($data['id'])){
                 if(!$user->admin){
-                    $user->update($data);
+                    $user->update(array_merge($data, ['update_at' => time()]));
                     return Request::response(null, "Usuario [$user->username] actualizado con exito!");
                 }else{
                     return Request::response(null, 'No puedes actualizar un usuario administrador.', 'error');
