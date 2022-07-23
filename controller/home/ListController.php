@@ -133,7 +133,16 @@ class ListController extends Controller
         if ($list = (new ListWar())->where(['delete' => 0])->find($id)) {
             $players = (new Player())->where(['inClan' => 1, 'status' => ['active', 'wait']])->get();
             Html::addScript(['src' => Functions::asset('js/listwar.js')]);
-            Html::addVariable('body', Functions::view('home/list/war-update', ['listwar' => $list, 'list' => json_decode($list->list, false), 'players' => $players]));
+            Html::addVariable(
+                'body',
+                Functions::view(
+                    'home/list/war-update',
+                    [
+                        'listwar' => $list,
+                        'list' => json_decode($list->list, true),
+                        'players' => $players]
+                )
+            );
             Html::addVariable('url_form', Route::get('list.war.change'));
             return $this->view;
         }
@@ -144,13 +153,16 @@ class ListController extends Controller
     public function listWarChange(Request $request)
     {
         if ($request->tokenIsValid()) {
-            $validation = $request->validate(['player' => ['empty' => false], 'listId' => ['empty' => false]]);
+            $validation = $request->validate([
+                'players' => ['empty' => false],
+                'listId' => ['empty' => false]
+            ]);
             if ($validation['validation']) {
                 (new ListWar())->where(['id' => $request->listId])->update([
-                    'list' => json_encode($request->player),
+                    'list' => json_encode($request->players),
                     'description' => $request->description,
                     'update_at' => time(),
-                    'members' => count($request->player)
+                    'members' => count($request->players)
                 ]);
 
                 Message::add('Lista de Guerra Actualizada con Exito!', 'success');

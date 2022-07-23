@@ -444,7 +444,7 @@ trait Functions{
      */
     public static function init()
     {
-//        date_default_timezone_set('America/Santo_Domingo');
+        date_default_timezone_set('America/Santo_Domingo');
         self::createFileOrDir(include 'file-dir.php'); // creando archivos y carpetas necesarios
         /* SERVER */
         foreach ($_SERVER as $index => $value) define($index, $value);
