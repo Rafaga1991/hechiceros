@@ -131,7 +131,7 @@ class ListController extends Controller
     public function listWarUpdate($id)
     {
         if ($list = (new ListWar())->where(['delete' => 0])->find($id)) {
-            $players = (new Player())->where(['inClan' => 1, 'status' => ['active', 'wait']])->get();
+            $players = (new Player())->where(['inClan' => 1, 'status' => ['active', 'wait', 'war']])->get();
             Html::addScript(['src' => Functions::asset('js/listwar.js')]);
             Html::addVariable(
                 'body',
@@ -150,19 +150,42 @@ class ListController extends Controller
         Route::reload('list.war');
     }
 
+    private function getPlayers($list1, $list2){
+        return array_filter($list1, function($value) use($list2){
+            return !in_array($value, $list2);
+        });
+    }
+
     public function listWarChange(Request $request)
     {
         if ($request->tokenIsValid()) {
             $validation = $request->validate([
-                'players' => ['empty' => false],
+                'player' => ['empty' => false],
                 'listId' => ['empty' => false]
             ]);
             if ($validation['validation']) {
+                $data = (new ListWar())->find($request->listId);
+                $last_list = json_decode($data->list, true);
+                $new_list = $request->player;
+
+                $list = [
+                    'active' => $this->getPlayers($last_list, $new_list),
+                    'war' => $this->getPlayers($new_list, $last_list)
+                ];
+
+                foreach($list as $status => $players){ // actualizando estado de jugadores
+                    foreach($players as $player_id){
+                        if($player = (new Player)->find($player_id)){
+                            if($player->status != $status) $player->status = $status;
+                        }
+                    }
+                }
+
                 (new ListWar())->where(['id' => $request->listId])->update([
-                    'list' => json_encode($request->players),
+                    'list' => json_encode($request->player),
                     'description' => $request->description,
                     'update_at' => time(),
-                    'members' => count($request->players)
+                    'members' => count($request->player)
                 ]);
 
                 Message::add('Lista de Guerra Actualizada con Exito!', 'success');
