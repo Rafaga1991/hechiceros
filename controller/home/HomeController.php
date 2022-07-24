@@ -53,6 +53,7 @@ class HomeController extends Controller
             $donations = 0;
             $donationsReceived = 0;
             $idDonations = date('Y-m', time());
+            $lists_war = (new ListWar)->get(['list']);
             // cargando jugadores
             foreach ($claninfo['memberList'] as $member) {
                 $image = $member['league']['iconUrls']['medium'] ?? $member['league']['iconUrls']['tiny'] ?? $member['league']['iconUrls']['small'] ?? '';
@@ -75,6 +76,21 @@ class HomeController extends Controller
                 }
                 $donations += $member['donations'];
                 $donationsReceived += $member['donationsReceived'];
+
+                // participaciones en guerra
+                $participations = 0;
+                foreach ($lists_war as $list_war){
+                    $list = json_decode($list_war->list, true);
+                    if(count($list) >= 10){
+                        if(in_array($member['tag'], $list)){
+                            $participations++;
+                        }
+                    }
+                }
+                if($participations > $player->war_count){
+                    $player->war_count = $participations;
+                }
+                // fin
             }
     
             if ($donation = $this->donations->find($idDonations)) {
@@ -106,6 +122,8 @@ class HomeController extends Controller
                     }
                 }
             }
+            // fin
+
             Html::addVariables([
                 'body' => Functions::view(
                     'home/home',
@@ -117,8 +135,9 @@ class HomeController extends Controller
                     ]
                 ),
                 'members' => count($claninfo['memberList']),
-                'url_get_donations' => HOST . '/chart-area-donations',
-                'url_get_perfomance' => HOST . '/chart-bar-perfomance'
+                'url_get_donations' => Route::get('get.char.area.donations'),
+                'url_get_performance' => Route::get('get.char.bar.performance'),
+                'url_get_participation' => Route::get('get.war.participation')
             ]);
         }elseif($claninfo['reason'] == 'inMaintenance'){
             Html::addVariables([
@@ -264,7 +283,7 @@ class HomeController extends Controller
         return;
     }
 
-    public function chartBarPerfomance()
+    public function chartBarPerformance()
     {
         $datasets = [
             [
@@ -302,6 +321,55 @@ class HomeController extends Controller
         }
         
         echo json_encode($data);
-        return;
+    }
+
+    public function chartBarAreaParticipation(){
+        $datasets = [
+            [
+                'label' => 'Participación',
+                'lineTension' => 0.3,
+                'backgroundColor' => "rgba(2,117,216,0.2)",
+                'borderColor' => "rgba(2,117,216,1)",
+                'pointRadius' => 5,
+                'pointBackgroundColor' => "rgba(2,117,216,1)",
+                'pointBorderColor' => "rgba(255,255,255,0.8)",
+                'pointHoverRadius' => 5,
+                'pointHoverBackgroundColor' => "rgba(2,117,216,1)",
+                'pointHitRadius' => 50,
+                'pointBorderWidth' => 2,
+                'data' => []
+            ]
+        ];
+
+        $data = [
+            'label' => [],
+            'datasets' => $datasets,
+            'max' => 0
+        ];
+
+        $memberList = Session::get('clan_info')['memberList'];
+        $_PLAYER = [];
+        foreach ($memberList as $member){
+            if($player = (new Player)->find($member['tag'])){
+                $_PLAYER[] = [
+                    'name' => $member['name'],
+                    'cant' => $player->war_count
+                ];
+            }
+        }
+
+        usort($_PLAYER, function($arr1, $arr2){
+            return ((int)$arr1['cant'] < (int)$arr2['cant']);
+        });
+
+        $_PLAYER = array_splice($_PLAYER, 0, 10);
+
+        foreach ($_PLAYER as $key => $player){
+            if($key == 0) $data['max'] = (int)$player['cant'] + 5;
+            $data['label'][] = $player['name'];
+            $data['datasets'][0]['data'][] = $player['cant'];
+        }
+
+        echo json_encode($data);
     }
 }

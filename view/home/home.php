@@ -37,10 +37,10 @@
     <div class="card mb-4">
         <div class="card-header">
             <i class="fas fa-table me-1"></i>
-            Participaciones en Guerra
+            <b>TOP 10: Participaciones en Guerra</b>
         </div>
         <div class="card-body">
-            <h3>En Mantenimiento</h3>
+            <canvas id="myCharAreaParticipation" width="100%" height="40"></canvas>
         </div>
     </div>
 
@@ -122,6 +122,7 @@
                                                 </a>
                                             <?php endif; ?>
                                             <span class="badge bg-warning text-dark fw-bold" role="button" title="Cantidad de veces que se ha unido al clan."><?= $player->cant ?></span>
+                                            <span class="badge bg-danger text-white fw-bold" role="button" title="Participaciones en guerras."><?= $player->war_count ?></span>
                                         </div>
                                     </div>
                                 </div>
@@ -159,12 +160,21 @@
             } catch (e) {}
         });
 
-        $.post('{!!url_get_perfomance!!}', (data) => {
+        $.post('{!!url_get_performance!!}', (data) => {
             try {
                 // console.log(data);
                 data = JSON.parse(data);
                 initCharArea('myBarChart', data, 'bar');
             } catch (e) {}
         });
+
+        $.post('{!!url_get_participation!!}', (data) => {
+            try {
+                data = JSON.parse(data);
+                // console.log(data);
+                initCharArea('myCharAreaParticipation', data);
+            } catch (e) {}
+        });
+
     }
 </script>
