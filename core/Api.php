@@ -196,10 +196,10 @@ class Api
     }
 
     /**
-     * Agrega ips a un token en especifico.
+     * Agrega ips a un token en específico.
      * 
      * @access public
-     * @param array $ip recive las ip que seran agregadas.
+     * @param array $ip Recibe las ip que reran agregadas.
      * @return void sin retorno.
      * @author Rafael Minaya
      * @copyright R.M.B.
@@ -221,10 +221,10 @@ class Api
     }
 
     /**
-     * Retorna las ip de un token en especifico.
+     * Retorna las ip de un token en específico.
      * 
      * @access public
-     * @return array retorna el contenido del token en forma de arreglo.
+     * @return array Retorna el contenido del token en forma de arreglo.
      * @author Rafael Minaya
      * @copyright R.M.B.
      * @version 1.0
@@ -245,7 +245,7 @@ class Api
      * Elimina una o varias ip de un token especifico.
      * 
      * @access public
-     * @param array $ip recive las ip que seran eliminadas.
+     * @param array $ip recibe las ip que seran eliminadas.
      * @param array &$_IP_DELETE recive una variable de referencia que almacena las ip eliminadas.
      * @return bool retorna un buleano verificando la eliminación de las ip.
      * @author Rafael Minaya

@@ -17,7 +17,6 @@ class Route
     private $auth = false;
     private $rol = self::ROL_USER;
 
-
     private static $redirects = null;
 
     public function __destruct() { Session::set('route', self::$redirects ?? Session::get('route')); }
@@ -88,6 +87,10 @@ class Route
         return '#';
     }
 
+    public function getController(){
+        return Session::get('_ROUTES_');
+    }
+
     private function objectExist(string $class, string $function): bool
     {
         if ($exist = class_exists($class)) {
@@ -143,8 +146,8 @@ class Route
             $route = $data['route']['route'];
             if ($this->objectExist($route['controller'], $route['function'])) {
                 Session::set('_view_', $route['name']);
+                Session::set('__CURRENT_ROUTE__', $route);
                 ${$route['controller']} = new $route['controller']();
-
                 if ($request->isData() && $data['existparam']) {
                     eval('$view = $' . $route['controller'] . '->' . $route['function'] . '($request,' . $data['route']['data'] . ',' . $data['params'] . ');');
                 }elseif ($request->isData()){
@@ -168,6 +171,7 @@ class Route
                 if ($this->objectExist($route['controller'], $route['function'])) {
                     if($route['rol'] == Session::getRol() || Session::getRol() == self::ROL_ADMIN){
                         Session::set('_view_', $route['name']);
+                        Session::set('__CURRENT_ROUTE__', $route);
                         $variable = 'v' . Functions::generateID();
                         ${$variable} = new $route['controller']();
                         $reflection = new ReflectionMethod($route['controller'], $route['function']);
@@ -224,6 +228,12 @@ class Route
     }
 
     public function getRoutes() { return $this->routes; }
+
+    public static function isCurrentView($name){
+        $route = Session::get('__CURRENT_ROUTE__');
+        if(is_array($name)) return in_array($route['name'], $name);
+        return $route['name'] == $name;
+    }
 
     private function isRoute($id) { return Session::get('route')[$id] ?? null; }
 

@@ -7,7 +7,14 @@
     {!!MESSAGE!!}
     <table class="datatablesSimple">
         <?php if(Functions::isAdmin()):?>
-            <caption><a href="<?=Route::get($namePathNew)?>" class="btn btn-outline-primary">Agregar</a></caption>
+            <caption>
+                <div class="btn-group">
+                    <a href="<?=Route::get($namePathNew)?>" class="btn btn-outline-primary me-1">Agregar</a>
+                    <form action="<?= Route::get($namePathDestroy) ?>" method="post" id="form" hidden>
+                        <button type="submit" class="btn btn-outline-danger">Borrar (<span class="fw-bold" id="cant_selected"></span>)</button>
+                    </form>
+                </div>
+            </caption>
         <?php endif;?>
         <thead>
             <tr>
@@ -22,7 +29,10 @@
                 <tr>
                     <td>
                         <div class="row">
-                            <div class="col-1"><img src="<?= $player->image ?>" width="30" alt=""></div>
+                            <div class="col-1">
+                                <input type="checkbox" onclick="onClickInput(this)" value="<?=$player->id?>" />
+                                <img src="<?= $player->image ?>" width="30" alt="">
+                            </div>
                             <div class="col">
                                 <div class="fs-5"><b><?= $player->name ?></b> (<span class="text-success"><?= Functions::traslate($player->role) ?></span>)</div>
                                 <div><?= $player->id ?></div>
@@ -47,3 +57,24 @@
         </tbody>
     </table>
 </div>
+
+<script>
+    let selected = 0;
+    function onClickInput(element){
+        var input = document.createElement('input');
+        input.type = 'hidden';
+        input.value = element.value;
+        input.name = 'id[]';
+
+        if(element.checked){
+            selected++;
+            form.appendChild(input);
+        }else{
+            selected--;
+            form.querySelector(`input[value="${element.value}"]`).remove();
+        }
+
+        form.hidden = !(selected > 0);
+        cant_selected.innerText = selected;
+    }
+</script>
