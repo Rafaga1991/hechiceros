@@ -49,10 +49,6 @@ class LoginController extends Controller{
 		}
 	}
 
-	public function register(){
-		return view('login/register', ['name' => 'Rafael']);
-	}
-
 	public function logout(){
 		$this->activity->insert([
 			'title' => 'Cierre de sesión',
