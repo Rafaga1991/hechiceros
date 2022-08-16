@@ -1,4 +1,7 @@
-<?php namespace core;?>
+<?php 
+    namespace core;
+    use function core\{isAdmin,traslate};
+?>
 <div class="container-fluid px-4">
     <h1 class="mt-4">Lista de {!!name_list!!}</h1>
     <ol class="breadcrumb mb-4">
@@ -6,7 +9,7 @@
     </ol>
     {!!MESSAGE!!}
     <table class="datatablesSimple">
-        <?php if(Functions::isAdmin()):?>
+        <?php if(isAdmin()):?>
             <caption>
                 <div class="btn-group">
                     <a href="<?=Route::get($namePathNew)?>" class="btn btn-outline-primary me-1">Agregar</a>
@@ -19,7 +22,7 @@
         <thead>
             <tr>
                 <th>Jugador</th>
-                <?php if(Functions::isAdmin()):?>
+                <?php if(isAdmin()):?>
                     <th>Acci&oacute;n</th>
                 <?php endif;?>
             </tr>
@@ -34,7 +37,7 @@
                                 <img src="<?= $player->image ?>" width="30" alt="">
                             </div>
                             <div class="col">
-                                <div class="fs-5"><b><?= $player->name ?></b> (<span class="text-success"><?= Functions::traslate($player->role) ?></span>)</div>
+                                <div class="fs-5"><b><?= $player->name ?></b> (<span class="text-success"><?= traslate($player->role) ?></span>)</div>
                                 <div><?= $player->id ?></div>
                                 <?php if ($player->inClan) : ?>
                                     <div class="badge bg-success">En el clan</div>
@@ -44,7 +47,7 @@
                             </div>
                         </div>
                     </td>
-                    <?php if(Functions::isAdmin()):?>
+                    <?php if(isAdmin()):?>
                         <td>
                             <form action="<?= Route::get($namePathDestroy) ?>" method="post">
                                 <input type="hidden" name="id" value="<?=$player->id?>">

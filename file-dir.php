@@ -24,6 +24,5 @@ return [
             'LoginController.php'
         ]
     ],
-    'route.php',
-    'rol.php'
+    'route.php'
 ];

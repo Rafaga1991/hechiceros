@@ -1,10 +1,14 @@
-<?php namespace core;?>
+<?php 
+    namespace core;
+    use function core\{traslate};
+?>
 <div class="alert alert-success mt-5"><b>Lista de <?=$typeList?></b> con <?=count($players)?> Miembros.</div>
 <table class="table table-striped">
     <thead>
         <tr>
             <th>#</th>
             <th>Jugador</th>
+            <th>Guerras</th>
         </tr>
     </thead>
     <tbody>
@@ -18,12 +22,13 @@
                         </div>
                         <div class="col">
                             <div>
-                                <b><?= $player->name ?></b> (<span class="text-danger"><?= Functions::traslate($player->role) ?></span>)
+                                <b><?= $player->name ?></b> (<span class="text-danger"><?= traslate($player->role) ?></span>)
                             </div>
                             <div><?= $player->id ?></div>
                         </div>
                     </div>
                 </td>
+                <td><span class="badge bg-<?=(($player->war_count>=1)?(($player->war_count>=3)?'success':'primary'):'danger')?> text-white fw-bold"><?=$player->war_count?></span></td>
             </tr>
         <?php endforeach; ?>
     </tbody>

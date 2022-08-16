@@ -4,7 +4,7 @@ namespace controller\home;
 
 use core\{Controller,Session,Functions,Html,Route};
 use model\War;
-
+use function core\{view};
 class WarLogController extends Controller{
     private $view = 'home/index';
     private $clanInfo;
@@ -12,7 +12,7 @@ class WarLogController extends Controller{
 
     public function __construct()
     {
-        $this->view = Functions::view($this->view);
+        $this->view = view($this->view);
         $this->clanInfo = Session::get('clan_info');
         $this->clanWarLog = Session::get('clan_war_log');
     }
@@ -30,11 +30,11 @@ class WarLogController extends Controller{
             }
 
             Html::addVariables([
-                'body' => Functions::view('home/warlog/warlog', ['warlog' => $warlog])
+                'body' => view('home/warlog/warlog', ['warlog' => $warlog])
             ]);
         }else{
             Html::addVariables([
-                'body' => Functions::view('home/maintenance'),
+                'body' => view('home/maintenance'),
                 'URL_RELOAD' => Route::get('warlog.reload'),
                 'MESSAGE_MAINTENANCE' => "Hola " . ucfirst((string)Session::getUser('username')) . ', actualmente los servidores de supercell se encuentran en mantenimiento.'
             ]);
@@ -45,11 +45,11 @@ class WarLogController extends Controller{
     public function lastWar(string $id){
         if($war = (new War())->find($id)){
             Html::addVariables([
-                'body' => Functions::view('home/warlog/lastwar'),
-                'war' => Functions::view('home/currentwar/currentwar', ['currentWar' => json_decode($war->war, true)])
+                'body' => view('home/warlog/lastwar'),
+                'war' => view('home/currentwar/currentwar', ['currentWar' => json_decode($war->war, true)])
             ]);
         }
-        return Functions::view('home/index');
+        return view('home/index');
     }
 
     public function reload(){ (new HomeController('warlog.index'))->reload(); }

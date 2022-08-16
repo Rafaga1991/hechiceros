@@ -1,6 +1,6 @@
-<?php
-
-namespace core;
+<?php 
+    namespace core;
+    use function core\{inArray,traslate};
 ?>
 <div class="container-fluid px-4">
     <h1 class="mt-4">Registro de Guerra <a href="<?= Route::get('warlog.reload') ?>" title="Recargar Información"><span class="fs-6"><i class="fas fa-retweet"></i></span></a></h1>
@@ -19,7 +19,7 @@ namespace core;
         </thead>
         <tbody>
             <?php foreach ($warlog as $war) : ?>
-                <tr class="bg-<?= Functions::inArray($war['result'], ['win', 'lose', 'tie'], ['success', 'danger', 'secondary']) ?>">
+                <tr class="bg-<?= inArray($war['result'], ['win', 'lose', 'tie'], ['success', 'danger', 'secondary']) ?>">
                     <td>
                         <div class="row">
                             <div class="col-2">
@@ -80,7 +80,7 @@ namespace core;
                         </div>
 
                         <div class="text-center py-3">
-                            <span class="badge bg-white text-<?= Functions::inArray($war['result'], ['win', 'lose', 'tie'], ['success', 'danger', 'dark']) ?>"><?= Functions::traslate($war['result']) ?></span>
+                            <span class="badge bg-white text-<?= inArray($war['result'], ['win', 'lose', 'tie'], ['success', 'danger', 'dark']) ?>"><?= traslate($war['result']) ?></span>
                         </div>
 
                         <div class="text-center">

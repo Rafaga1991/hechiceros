@@ -3,7 +3,7 @@
 namespace core;
 
 use ReflectionMethod;
-
+use function core\{generateID, getValue};
 class Route
 {
     public const ROL_USER = 0;
@@ -172,7 +172,7 @@ class Route
                     if($route['rol'] == Session::getRol() || Session::getRol() == self::ROL_ADMIN){
                         Session::set('_view_', $route['name']);
                         Session::set('__CURRENT_ROUTE__', $route);
-                        $variable = 'v' . Functions::generateID();
+                        $variable = 'v' . generateID();
                         ${$variable} = new $route['controller']();
                         $reflection = new ReflectionMethod($route['controller'], $route['function']);
                         
@@ -207,7 +207,7 @@ class Route
         }
         
         if(Request::isRequest($view)){
-            echo json_encode(Functions::getValue($view, ['data', 'message', 'type']));
+            echo json_encode(getValue($view, ['data', 'message', 'type']));
             exit;
         }
         
@@ -216,7 +216,7 @@ class Route
             Message::add($data['error']['message'], 'danger'); // agregando nuevo error
         }
         
-        // if(!$view) Functions::reload(Session::get('__LAST_ROUTE__')??'');
+        // if(!$view) reload(Session::get('__LAST_ROUTE__')??'');
     }
 
     private function getRoute($path)
@@ -252,7 +252,7 @@ class Route
     {
         $routes = Session::get('_ROUTES_');
         if ($route = ($routes[$name] ?? null)) {
-            self::$redirects[$id = Functions::generateID()] = serialize(['route' => $route, 'data' => $data]);
+            self::$redirects[$id = generateID()] = serialize(['route' => $route, 'data' => $data]);
             return "{$route['path']}/$id";
         }
         return '#';

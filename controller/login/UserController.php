@@ -4,6 +4,7 @@ namespace controller\login;
 
 use core\{Api, Controller,Html,Route,Functions, Request};
 use model\User;
+use function core\{view,isAdmin,getValue};
 
 class UserController extends Controller{
     private $view = 'home/index';
@@ -11,13 +12,13 @@ class UserController extends Controller{
 
     public function __construct()
     {
-        $this->view = Functions::view($this->view);
+        $this->view = view($this->view);
     }
 
     public function index(){
-        if(!Functions::isAdmin()) return Route::reload('home.index');
+        if(!isAdmin()) return Route::reload('home.index');
         Html::addVariables([
-            'body' => Functions::view('home/user/index', ['users' => (new User())->get()]),
+            'body' => view('home/user/index', ['users' => (new User())->get()]),
             'URL_UPDATE' => Route::get('user.update'),
             'PASSWORD' => $this->default_pass
         ]);
@@ -26,7 +27,7 @@ class UserController extends Controller{
 
     public function update(Request $request){
         if($request->tokenIsValid()){
-            $data = Functions::getValue($request->getData(), ['adm:admin', 'ban:delete', 'user_id:id', 'reset:password']);
+            $data = getValue($request->getData(), ['adm:admin', 'ban:delete', 'user_id:id', 'reset:password']);
             if(isset($data['password'])) $data['password'] = md5($this->default_pass);
             if($user = (new User())->find($data['id'])){
                 if(!$user->admin){

@@ -2,6 +2,8 @@
 
 namespace core;
 
+use function core\{replace};
+
 class Html
 {
     private static $styles = [];
@@ -123,6 +125,6 @@ class Html
 
 
         $html = self::__variable($html);
-        echo Functions::replace($html, '{!!', '!!}');
+        echo replace($html, '{!!', '!!}');
     }
 }

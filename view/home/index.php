@@ -1,4 +1,7 @@
-<?php namespace core;?>
+<?php 
+    namespace core;
+    use function core\{isAdmin};
+?>
 <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
     <!-- Navbar Brand-->
     <a class="navbar-brand ps-3" href="<?= Route::get('home.index') ?>"><img src="<?= Session::get('icon') ?>" width="35"><?= PROYECT_NAME ?></a>
@@ -17,7 +20,7 @@
             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <li><a class="dropdown-item" href="<?= Route::get('home.setting') ?>">Opciones</a></li>
-                <?php if (Functions::isAdmin()) : ?>
+                <?php if (isAdmin()) : ?>
                     <li><a class="dropdown-item" href="<?= Route::get('home.activity') ?>">Actividades</a></li>
                 <?php endif; ?>
                 <li>
@@ -48,7 +51,7 @@
                         </div>
                         Registro de Guerra
                     </a>
-                    <?php if (Functions::isAdmin()) : ?>
+                    <?php if (isAdmin()) : ?>
                         <a class="nav-link <?=Route::isCurrentView('user.index')?'bg-white text-black':''?>" href="<?= Route::get('user.index') ?>">
                             <div class="sb-nav-link-icon">
                                 <i class="fas fa-user <?=Route::isCurrentView('user.index')?'text-black':''?>"></i>

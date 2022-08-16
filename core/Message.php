@@ -2,6 +2,8 @@
 
 namespace core;
 
+use function core\{reload};
+
 class Message{
     private static $message = [];
     private static $message_type = [
@@ -38,10 +40,10 @@ class Message{
             Session::set('__ERROR__', $errors);
             Session::destroy('__MESSAGES__');
             if(!Session::auth()){
-                Functions::reload('/' . PAGE_INIT);
+                reload('/' . PAGE_INIT);
             }elseif($route = Route::get((string)Session::get('__CURRENT_ROUTE__'))){
-                if(!$route['auth']) Functions::reload('/' . PAGE_ACCESS_AUTH);
-                else Functions::reload((string)(Session::get('__CURRENT_ROUTE__') ?? Session::get('__LAST_ROUTE__')));
+                if(!$route['auth']) reload('/' . PAGE_ACCESS_AUTH);
+                else reload((string)(Session::get('__CURRENT_ROUTE__') ?? Session::get('__LAST_ROUTE__')));
             }
         }else{
             Html::addVariable('MESSAGE', Session::get('__ERROR__'));

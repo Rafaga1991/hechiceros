@@ -1,4 +1,7 @@
-<?php namespace core;?>
+<?php 
+    namespace core;
+    use function core\{traslate};
+?>
 <div class="container-fuid px-4">
     <h1 class="mt-4">Lista de Guerra <span class="badge bg-danger">( <?=$listwar->date?> )</span></h1>
     <ol class="breadcrumb mb-4">
@@ -28,12 +31,12 @@
                                 <img src="<?= $player->image ?>" width="25">
                             </div>
                             <div class="col">
-                                <?= $player->name ?> (<span class="text-success"><?= Functions::traslate($player->role) ?></span>)<br>
+                                <?= $player->name ?> (<span class="text-success"><?= traslate($player->role) ?></span>)<br>
                                 <?= $player->id ?>
                             </div>
                         </div>
                     </td>
-                    <td><?= Functions::traslate($player->status) ?></td>
+                    <td><?= traslate($player->status) ?></td>
                     <td class="text-center">
                         <input type="checkbox" value="<?= $player->id ?>" <?=in_array($player->id, $list)?'checked':''?> onclick="onClickSelect(this)">
                     </td>

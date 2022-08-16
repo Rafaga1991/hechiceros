@@ -6,6 +6,8 @@ use core\{Controller,Functions,Session,Html,Route,Request};
 use model\{Activity, ListWar, Player, Donations, User};
 use api\client\Client;
 
+use function core\{view,alert, dd, isAdmin};
+
 class HomeController extends Controller
 {
     private $view = null;
@@ -16,7 +18,7 @@ class HomeController extends Controller
 
     public function __construct(string $redirect = 'home.index')
     {
-        $this->view = Functions::view('home/index');
+        $this->view = view('home/index');
         $this->activity = new Activity();
         $this->player = new Player();
         $this->donations = new Donations();
@@ -36,14 +38,14 @@ class HomeController extends Controller
 
             foreach ($players as $player) {
                 $inClan = false;
-                foreach ($claninfo['memberList'] as &$member) {
+                foreach ($claninfo['memberList'] as $key => $member) {
                     if ($member['tag'] == $player->id) {
                         if (!$player->inClan) {
                             $player->inClan = 1;
                             $player->cant++;
                         }
                         $inClan = true;
-                        $member['name'] = htmlentities($member['name']);
+                        $claninfo['memberList'][$key]['name'] = htmlentities($member['name']);
                         break;
                     }
                 }
@@ -53,7 +55,7 @@ class HomeController extends Controller
             $donations = 0;
             $donationsReceived = 0;
             $idDonations = date('Y-m', time());
-            $lists_war = (new ListWar)->get(['list']);
+            $lists_war = (new ListWar)->get(['list', 'date', 'delete_at']);
             // cargando jugadores
             foreach ($claninfo['memberList'] as $member) {
                 $image = $member['league']['iconUrls']['medium'] ?? $member['league']['iconUrls']['tiny'] ?? $member['league']['iconUrls']['small'] ?? '';
@@ -76,18 +78,19 @@ class HomeController extends Controller
                 }
                 $donations += $member['donations'];
                 $donationsReceived += $member['donationsReceived'];
-
+                
                 // participaciones en guerra
                 $participations = 0;
                 foreach ($lists_war as $list_war){
                     $list = json_decode($list_war->list, true);
-                    if(count($list) >= 10){
+                    $period = date('Y-m', strtotime($list_war->date));
+                    if($period == $idDonations && $list_war->delete_at > 0 && count($list) >= 10){
                         if(in_array($member['tag'], $list)){
                             $participations++;
                         }
                     }
                 }
-                if($participations > $player->war_count){
+                if($participations != $player->war_count){
                     $player->war_count = $participations;
                 }
                 // fin
@@ -125,7 +128,7 @@ class HomeController extends Controller
             // fin
 
             Html::addVariables([
-                'body' => Functions::view(
+                'body' => view(
                     'home/home',
                     [
                         'listCreates' => $listCreates,
@@ -141,7 +144,7 @@ class HomeController extends Controller
             ]);
         }elseif($claninfo['reason'] == 'inMaintenance'){
             Html::addVariables([
-                'body' => Functions::view('home/maintenance'),
+                'body' => view('home/maintenance'),
                 'URL_RELOAD' => Route::get('home.reload'),
                 'MESSAGE_MAINTENANCE' => 'Hola ' . ucfirst((string)Session::getUser('username')) . ', actualmente los servidores de supercell se encuentran en mantenimiento.'
             ]);
@@ -152,14 +155,14 @@ class HomeController extends Controller
 
     public function activity()
     {
-        if (!Functions::isAdmin()) Route::reload('home.index');
-        Html::addVariable('body', Functions::view('home/option/activity', ['activity' => $this->activity->get()]));
+        if (!isAdmin()) Route::reload('home.index');
+        Html::addVariable('body', view('home/option/activity', ['activity' => $this->activity->get()]));
         return $this->view;
     }
 
     public function setting()
     {
-        Html::addVariables(['body' => Functions::view('home/option/setting')]);
+        Html::addVariables(['body' => view('home/option/setting')]);
         return $this->view;
     }
 
@@ -202,8 +205,8 @@ class HomeController extends Controller
             }
 
             Html::addVariables([
-                'body' => Functions::view('home/option/setting'),
-                'error' => Functions::alert($validation['validation'] ? 'Actualizado con Exito!' : 'Error al Actualizar', $content, $validation['validation'] ? 'success' : 'danger')
+                'body' => view('home/option/setting'),
+                'error' => alert($validation['validation'] ? 'Actualizado con Exito!' : 'Error al Actualizar', $content, $validation['validation'] ? 'success' : 'danger')
             ]);
 
             return $this->view;
@@ -353,19 +356,18 @@ class HomeController extends Controller
             if($player = (new Player)->find($member['tag'])){
                 $_PLAYER[] = [
                     'name' => $member['name'],
-                    'cant' => $player->war_count
+                    'cant' => (int)$player->war_count
                 ];
             }
         }
-
         usort($_PLAYER, function($arr1, $arr2){
             return ((int)$arr1['cant'] < (int)$arr2['cant']);
         });
 
         $_PLAYER = array_splice($_PLAYER, 0, 10);
-
+        shuffle($_PLAYER);
         foreach ($_PLAYER as $key => $player){
-            if($key == 0) $data['max'] = (int)$player['cant'] + 5;
+            if($player['cant'] > $data['max']) $data['max'] = $player['cant'] + 5;
             $data['label'][] = $player['name'];
             $data['datasets'][0]['data'][] = $player['cant'];
         }

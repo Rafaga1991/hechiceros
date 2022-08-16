@@ -1,4 +1,7 @@
-<?php namespace core;?>
+<?php 
+    namespace core;
+    use function core\{traslate};
+?>
 <div class="container-fluid px-4">
     {!!MESSAGE!!}
     <h1 class="mt-4">Inicio <a href="<?= Route::get('home.reload') ?>" title="Recargar Información"><span class="fs-6"><i class="fas fa-retweet"></i></span></a></h1>
@@ -112,13 +115,13 @@
                                         <img src="<?= $player->image ?>" width="40" alt="">
                                     </div>
                                     <div class="col">
-                                        <div class="fs-5"><b><?= $player->name ?></b> (<span class="text-success"><?= Functions::traslate($player->role) ?></span>)</div>
+                                        <div class="fs-5"><b><?= $player->name ?></b> (<span class="text-success"><?= traslate($player->role) ?></span>)</div>
                                         <div><?= $player->id ?></div>
                                         <div>
                                             <span class="badge bg-<?= $player->inClan ? 'success' : 'danger' ?>"><?= $player->inClan ? 'En el Clan' : 'Fuera del Clan' ?></span>
                                             <?php if ($player->status != 'active') : ?>
-                                                <a href="<?= Route::get("list.$player->status") ?>" title="Ir a lista de <?= Functions::traslate($player->status) ?>">
-                                                    <span class="badge bg-<?= $player->status == 'break' ? 'secondary' : 'primary' ?>">Lista de <?= Functions::traslate($player->status) ?></span>
+                                                <a href="<?= Route::get("list.$player->status") ?>" title="Ir a lista de <?= traslate($player->status) ?>">
+                                                    <span class="badge bg-<?= $player->status == 'break' ? 'secondary' : 'primary' ?>">Lista de <?= traslate($player->status) ?></span>
                                                 </a>
                                             <?php endif; ?>
                                             <span class="badge bg-warning text-dark fw-bold" role="button" title="Cantidad de veces que se ha unido al clan."><?= $player->cant ?></span>

@@ -2,6 +2,7 @@
 
 namespace core;
 
+use function core\{getRoute,generateID};
 class Api
 {
     private static $file_api = '';
@@ -106,7 +107,7 @@ class Api
     private static function __createIP(array $ip):array{
         foreach($ip as &$value){
             $value = [
-                'id' => Functions::generateID(),
+                'id' => generateID(),
                 'name' => $value,
                 'delete' => false,
                 'delete_at' => null
@@ -128,7 +129,7 @@ class Api
     public static function generateToken(array $ips=[]): string
     {
         $__token = rand(0, 9) . md5(microtime()) . chr(rand(97, 122));
-        self::$file_api = Functions::getRoute("api/$__token.json");
+        self::$file_api = getRoute("api/$__token.json");
 
         self::saveData([
             'ip' => self::__createIP($ips),
@@ -176,7 +177,7 @@ class Api
      */
     public static function exist(string $token): bool
     {
-        self::$file_api = Functions::getRoute("api/$token.json");
+        self::$file_api = getRoute("api/$token.json");
         if(self::$file_exist = file_exists(self::$file_api)){
             $data = self::getData();
             $change = true;

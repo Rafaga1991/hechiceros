@@ -2,9 +2,7 @@
 
 namespace core;
 
-trait Functions{
-    
-    /**
+/**
      * Busca todos los archivos en una ruta especificada
      * 
      * @access public
@@ -15,7 +13,7 @@ trait Functions{
      * @copyright R.M.B
      * @version 1.0
      */
-    public static function getFiles(string $path, bool $lineal = false, array $exception = []): array
+    function getFiles(string $path, bool $lineal = false, array $exception = []): array
     {
         $files = [];
         $dir = opendir($path);
@@ -41,7 +39,7 @@ trait Functions{
                                 'type' => 'dir'
                             ];
                         } else {
-                            $files[strtoupper($file)] = self::getFiles($tmp_file);
+                            $files[strtoupper($file)] = getFiles($tmp_file);
                         }
                     }
                 }
@@ -62,12 +60,12 @@ trait Functions{
      * @copyright R.M.B
      * @version 1.0
      */
-    public static function getPath(array $files, string $search): string
+    function getPath(array $files, string $search): string
     {
         $data = '';
         foreach ($files as $name => $value) {
             if (is_array($value)) {
-                if ($value = self::getPath($value, $search)) {
+                if ($value = getPath($value, $search)) {
                     $data = $value;
                     break;
                 }
@@ -92,7 +90,7 @@ trait Functions{
      * @copyright R.M.B
      * @version 1.0
      */
-    public static function getRoute(string $path = ''): string
+    function getRoute(string $path = ''): string
     {
         $root = explode(((php_uname('s') == 'Windows NT') ? '\\' : '/'), __DIR__);
         array_pop($root);
@@ -110,9 +108,9 @@ trait Functions{
      * @copyright R.M.B
      * @version 1.0
      */
-    public static function view(string $view, array $data = []): string
+    function view(string $view, array $data = []): string
     {
-        $file = self::getRoute("view/$view.php");
+        $file = getRoute("view/$view.php");
         if (file_exists($file)) {
             ob_start();
             extract($data, EXTR_PREFIX_SAME, 'dta');
@@ -136,7 +134,7 @@ trait Functions{
      * @copyright R.M.B.
      * @version 1.0
      */
-    public static function vdump($value, $die = true): void
+    function dd($value, $die = true): void
     {
         echo '<pre>';
         var_dump($value);
@@ -153,7 +151,7 @@ trait Functions{
      * @copyright R.M.B.
      * @version 1.0
      */
-    public static function generateID(): string
+    function generateID(): string
     {
         $id = '';
         for ($i = 0; $i < 10; $i++) {
@@ -174,7 +172,7 @@ trait Functions{
      * @copyright R.M.B.
      * @version 1.0
      */
-    public static function redirect(array $action, $data = null): string
+    function redirect(array $action, $data = null): string
     {
         if (class_exists($action[0])) {
             if (method_exists($action[0], $action[1])) {
@@ -208,7 +206,7 @@ trait Functions{
      * @copyright R.M.B.
      * @version 1.0
      */
-    public static function path_back(string $path): string
+    function path_back(string $path): string
     {
         $data = explode('/', $path);
         if (count($data) > 1) array_pop($data);
@@ -225,7 +223,7 @@ trait Functions{
      * @copyright R.M.B.
      * @version 1.0
      */
-    public static function asset(string $path): string
+    function asset(string $path): string
     {
         return HOST . '/' . ASSET_DIR_NAME . '/' . $path;
     }
@@ -233,7 +231,7 @@ trait Functions{
     /**
      * Crea archivos o directorios.
      * 
-     * @access public 
+     * @access 
      * @param array $paths recive las rutas de los archivos o directorios a crear.
      * @param string recive la ruta a crear recursivamente.
      * @return void sin retorno.
@@ -241,7 +239,7 @@ trait Functions{
      * @copyright R.M.B.
      * @version 1.0
      */
-    public static function createFileOrDir(array $paths, string $route = ''): void
+    function createFileOrDir(array $paths, string $route = ''): void
     {
         foreach ($paths as $name => $path) {
             if (!empty($path)) {
@@ -266,10 +264,10 @@ trait Functions{
                                 $_PATH['dirname'] = str_replace('/', "\\", $_PATH['dirname']);
     
                                 $content = "<?php\n\nnamespace {$_PATH['dirname']};\n\nuse core\\{Functions,Html,Request,Controller};\n\nclass {$path_info['filename']} extends Controller{\n";
-                                $content .= "\tpublic public static function index():string{\n\t\treturn Functions::view('');\n\t}\n\n";
-                                $content .= "\tpublic public static function show(\$id):string{\n\t\treturn Functions::view('');\n\t}\n\n";
-                                $content .= "\tpublic public static function update(Request \$request):string{\n\t\treturn Functions::view('');\n\t}\n\n";
-                                $content .= "\tpublic public static function destroy(Request \$request):string{\n\t\treturn Functions::view('');\n\t}";
+                                $content .= "\tfunction index():string{\n\t\treturn view('');\n\t}\n\n";
+                                $content .= "\tfunction show(\$id):string{\n\t\treturn view('');\n\t}\n\n";
+                                $content .= "\tfunction update(Request \$request):string{\n\t\treturn view('');\n\t}\n\n";
+                                $content .= "\tfunction destroy(Request \$request):string{\n\t\treturn view('');\n\t}";
                                 $content .= "\n}";
                             } else {
                                 $content = "<?php namespace core;?>\n<h1>Hola Mundo</h1>";
@@ -278,17 +276,17 @@ trait Functions{
                         file_put_contents($path, $content);
                     }
                 } else {
-                    if (!is_dir(self::getRoute($route . $name))) {
+                    if (!is_dir(getRoute($route . $name))) {
                         if (strtolower(php_uname('s')) == 'linux') {
-                            system("mkdir " . self::getRoute($route . $name));
+                            system("mkdir " . getRoute($route . $name));
                         } else {
-                            mkdir(self::getRoute($route . $name));
+                            mkdir(getRoute($route . $name));
                         }
                     }
                     foreach ($path as &$dirname) {
                         if (!is_array($dirname)) $dirname = "$route$name/$dirname";
                     }
-                    self::createFileOrDir($path, "$route$name/");
+                    createFileOrDir($path, "$route$name/");
                     $path = $route . $name;
                 }
     
@@ -306,7 +304,7 @@ trait Functions{
      * @copyright R.M.B.
      * @version 1.0
      */
-    public static function isAdmin(): bool { return Session::getRol() == Route::ROL_ADMIN; }
+    function isAdmin(): bool { return Session::getRol() == Route::ROL_ADMIN; }
     
     /**
      * elimina una palabra u oracion en un cadena de texto.
@@ -320,7 +318,7 @@ trait Functions{
      * @copyright R.M.B.
      * @version 1.0
      */
-    public static function replace(string $text, string $char_start, string $char_end): string
+    function replace(string $text, string $char_start, string $char_end): string
     {
         $char_end = '\\' . join('\\', str_split($char_end));
         $char_start = '\\' . join('\\', str_split($char_start));
@@ -339,7 +337,7 @@ trait Functions{
      * @copyright R.M.B.
      * @version 1.0
      */
-    public static function alert(string $title, string $message, string $type): string
+    function alert(string $title, string $message, string $type): string
     {
         return <<<HTML
                 <div class="alert alert-$type" role="alert">
@@ -360,7 +358,7 @@ trait Functions{
      * @copyright R.M.B.
      * @version 1.0
      */
-    public static function traslate(string $value, string $lang = 'es'): string
+    function traslate(string $value, string $lang = 'es'): string
     {
         $word = include 'languaje.php';
         return ucfirst($word[$lang][strtolower($value)] ?? $value);
@@ -376,7 +374,7 @@ trait Functions{
      * @copyright R.M.B.
      * @version 1.2
      */
-    public static function reload(string $path): void
+    function reload(string $path): void
     {
         $path = HOST . (($path == '/') ? '' : $path);
         header("location: $path");
@@ -394,7 +392,7 @@ trait Functions{
      * @copyright R.M.B.
      * @version 1.0
      */
-    public static function inArray($data, array $value, array $return)
+    function inArray($data, array $value, array $return)
     {
         foreach ($value as $key => $val) {
             if ($data == $val) return $return[$key] ?? null;
@@ -412,7 +410,7 @@ trait Functions{
      * @copyright R.M.B.
      * @version 1.0
      */
-    public static function includes($path, $data = [])
+    function includes($path, $data = [])
     {
         if (is_array($path)) {
             foreach ($path as $key => $value) {
@@ -425,7 +423,7 @@ trait Functions{
         }
     }
 
-    public static function getValue(array $arr, array $keys): array{
+    function getValue(array $arr, array $keys): array{
         $data = [];
         foreach($keys as $key){
             if(count($rename = explode(':', $key)) > 1 && isset($arr[$rename[0]])) $data[$rename[1]] = $arr[$rename[0]];
@@ -442,15 +440,14 @@ trait Functions{
      * @copyright R.M.B.
      * @version 1.5
      */
-    public static function init()
+    function init()
     {
         date_default_timezone_set('America/Santo_Domingo');
-        self::createFileOrDir(include 'file-dir.php'); // creando archivos y carpetas necesarios
+        createFileOrDir(include 'file-dir.php'); // creando archivos y carpetas necesarios
         /* SERVER */
         foreach ($_SERVER as $index => $value) define($index, $value);
         define('HOST', REQUEST_SCHEME . '://' . str_replace('/', '', HTTP_HOST));
         /* Cargando constantes globales */
-        $variable = parse_ini_file(self::getRoute('config.cfg'));
+        $variable = parse_ini_file(getRoute('config.cfg'));
         foreach ($variable as $index => $value) define($index, $value);
     }
-}

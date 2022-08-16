@@ -1,7 +1,7 @@
 <div class="container-fluid px-4 pt-4">
     <div class="row">
         <div class="col"><a href="{!!_HOST_!!}">{!!_HOST_!!}</a></div>
-        <div class="col text-center"><img src="{!!_ICON_URL!!}"><br>{!!__PROYECT_NAME__!!}</div>
+        <div class="col text-center"><img src="{!!_ICON_URL!!}"><br><b>{!!__PROYECT_NAME__!!}</b></div>
         <div class="col text-end">{!!_DATE_!!}</div>
     </div>
 

@@ -2,8 +2,9 @@
 
 namespace controller\home;
 
-use core\{Controller,Html,Functions,Session,Route,Request, Message};
+use core\{Controller,Html,Session,Route,Request, Message};
 use model\{Activity,Player,ListWar};
+use function core\{view,asset,dd};
 
 class ListController extends Controller
 {
@@ -11,7 +12,7 @@ class ListController extends Controller
 
     public function __construct()
     {
-        $this->view = Functions::view('home/index');
+        $this->view = view('home/index');
     }
 
     public function index() { }
@@ -35,7 +36,7 @@ class ListController extends Controller
             );
         }
 
-        Html::addVariable('body', Functions::view('home/list/war', ['listwar' => $listWar]));
+        Html::addVariable('body', view('home/list/war', ['listwar' => $listWar]));
         return $this->view;
     }
 
@@ -47,17 +48,18 @@ class ListController extends Controller
                 $player = (new Player())->find($player);
                 // if($player->status == 'active') $player->status = 'war';
             }
-
+            
+            // dd($players);
             Html::addVariables([
-                'members_war' => Functions::view('home/list/list-table', [
+                'members_war' => view('home/list/list-table', [
                     'players' => $players,
                     'typeList' => 'Guerra'
                 ]),
-                'members_wait' => Functions::view('home/list/list-table', [
+                'members_wait' => view('home/list/list-table', [
                     'players' => (new Player())->where(['status' => 'wait', 'inClan' => 1])->get(),
                     'typeList' => 'Espera'
                 ]),
-                'members_break' => Functions::view('home/list/list-table', [
+                'members_break' => view('home/list/list-table', [
                     'players' => (new Player())->where(['status' => 'break', 'inClan' => 1])->get(),
                     'typeList' => 'Descanso'
                 ]),
@@ -67,7 +69,7 @@ class ListController extends Controller
                 '_ICON_URL' => Session::get('clan_info')['badgeUrls']['small']
             ]);
 
-            return Functions::view('home/list/war-pdf', [
+            return view('home/list/war-pdf', [
                 'description' => $listwar->description,
             ]);
         }else{
@@ -79,9 +81,9 @@ class ListController extends Controller
     public function newListWar()
     {
         $players = (new Player())->where(['inClan' => 1, 'status' => ['active', 'wait', 'war']])->get();
-        Html::addScript(['src' => Functions::asset('js/listwar.js')]);
+        Html::addScript(['src' => asset('js/listwar.js')]);
         Html::addVariables([
-            'body' => Functions::view('home/list/war-new', ['players' => $players]),
+            'body' => view('home/list/war-new', ['players' => $players]),
             'url_form' => Route::get('list.war.create'),
             'cant_members_wait' => (new Player())->where(['status' => 'wait', 'inClan' => 1])->count()
         ]);
@@ -132,10 +134,10 @@ class ListController extends Controller
     {
         if ($list = (new ListWar())->where(['delete' => 0])->find($id)) {
             $players = (new Player())->where(['inClan' => 1, 'status' => ['active', 'wait', 'war']])->get();
-            Html::addScript(['src' => Functions::asset('js/listwar.js')]);
+            Html::addScript(['src' => asset('js/listwar.js')]);
             Html::addVariable(
                 'body',
-                Functions::view(
+                view(
                     'home/list/war-update',
                     [
                         'listwar' => $list,
@@ -205,7 +207,7 @@ class ListController extends Controller
     public function listBreak()
     {
         Html::addVariables([
-            'body' => Functions::view(
+            'body' => view(
                 'home/list/lists',
                 [
                     'players' => (new Player())->where(['status' => 'break', 'inClan' => 1])->get(),
@@ -220,9 +222,9 @@ class ListController extends Controller
 
     public function listBreakNew()
     {
-        Html::addScript(['src' => Functions::asset('js/listwar.js')]);
+        Html::addScript(['src' => asset('js/listwar.js')]);
         Html::addVariables([
-            'body' => Functions::view('home/list/list-new', [
+            'body' => view('home/list/list-new', [
                 'players' => (new Player())->where(['inClan' => 1,'status' => ['active', 'wait', 'war']])->get(),
                 'namePath' => 'list.break',
                 'namePathChange' => 'list.break.change'
@@ -275,7 +277,7 @@ class ListController extends Controller
     public function listWait()
     {
         Html::addVariables([
-            'body' => Functions::view(
+            'body' => view(
                 'home/list/lists',
                 [
                     'players' => (new Player())->where(['status' => 'wait', 'inClan' => 1])->get(),
@@ -290,9 +292,9 @@ class ListController extends Controller
 
     public function listWaitNew()
     {
-        Html::addScript(['src' => Functions::asset('js/listwar.js')]);
+        Html::addScript(['src' => asset('js/listwar.js')]);
         Html::addVariables([
-            'body' => Functions::view('home/list/list-new', [
+            'body' => view('home/list/list-new', [
                 'players' => (new Player())->where(['inClan' => 1,'status' => ['active', 'break', 'war']])->get(),
                 'namePath' => 'list.wait',
                 'namePathChange' => 'list.wait.change'
