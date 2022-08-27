@@ -2,7 +2,7 @@
 
 namespace controller\home;
 
-use core\{Controller,Html,Functions,Session,Route};
+use core\{Controller,Html,Session,Route};
 use model\War;
 
 use function core\view;

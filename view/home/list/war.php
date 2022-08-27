@@ -8,10 +8,34 @@
         <li class="breadcrumb-item active">Listas de Guerras Creadas <span class="badge bg-success"><?=count($listwar)?></span></li>
     </ol>
     {!!MESSAGE!!}
+    <div class="modal fade" id="generate" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title">
+                        Generar Lista de Guerra
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="players">Cantidad de Jugadores:</label>
+                        <div class="input-group">
+                            <input type="number" id="players" placeholder="ingresa la cantidad de jugadores" class="form-control">
+                            <button class="btn btn-primary" onclick="generate()">Generar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <table class="datatablesSimple">
         <?php if(isAdmin()):?>
-            <caption><a href="<?= Route::get('list.war.new') ?>" class="btn btn-outline-primary">Crear Lista de Guerra</a></caption>
+            <caption>
+                <a href="<?= Route::get('list.war.new') ?>" class="btn btn-outline-primary">Crear</a>
+                <a href="#generate" data-bs-toggle="modal" role="button" class="btn btn-outline-success">Generar</a>
+            </caption>
         <?php endif;?>
         <thead>
             <tr>
@@ -43,5 +67,13 @@
 <script>
     function downloadPDF(elementName){
         document.getElementById(elementName).contentWindow.print();
+    }
+
+    function generate(){
+        if(players.value <= 50){
+            location.href = `{!!URL_GENERATE_LIST!!}/${players.value}`;
+        }else{
+            players.value = '50';
+        }
     }
 </script>

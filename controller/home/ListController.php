@@ -4,6 +4,7 @@ namespace controller\home;
 
 use core\{Controller,Html,Session,Route,Request, Message};
 use model\{Activity,Player,ListWar};
+use controller\home\CurrentWarController;
 use function core\{view,asset,dd};
 
 class ListController extends Controller
@@ -19,7 +20,7 @@ class ListController extends Controller
 
     public function listWar()
     {
-        $lists = (new ListWar())->where(['delete' => 0])->get();
+        $lists = (new ListWar())->where(['status' => ['created','generated']])->get();
         $listWar = [];
 
         foreach ($lists as $list) {
@@ -37,12 +38,13 @@ class ListController extends Controller
         }
 
         Html::addVariable('body', view('home/list/war', ['listwar' => $listWar]));
+        Html::addVariable('URL_GENERATE_LIST', Route::get('list.war.generate'));
         return $this->view;
     }
 
     public function listWarShow($id)
     {
-        if($listwar = (new ListWar())->where(['delete' => 0])->find($id)){
+        if($listwar = (new ListWar())->where(['status' => ['created','generated']])->find($id)){
             $players = json_decode($listwar->list, false);
             foreach($players as &$player){
                 $player = (new Player())->find($player);
@@ -121,7 +123,10 @@ class ListController extends Controller
 
     public function listWarDestroy($id)
     {
-        (new ListWar())->where(['id' => $id])->update(['delete' => 1, 'delete_at' => time()]);
+        // if($listWar = (new ListWar())->where(['id' => $id])->get()){
+        //     $listWar = json_decode($listWar[0]->list);
+        // }
+        (new ListWar())->where(['id' => $id])->update(['status' => 'delete', 'delete_at' => time()]);
         Message::add('Lista de guerra eliminada con exito!', 'success');
         (new Activity())->insert([
             'title' => 'Lista de guerra eliminada.',
@@ -132,7 +137,7 @@ class ListController extends Controller
 
     public function listWarUpdate($id)
     {
-        if ($list = (new ListWar())->where(['delete' => 0])->find($id)) {
+        if ($list = (new ListWar())->where(['status' => ['created','generated']])->find($id)) {
             $players = (new Player())->where(['inClan' => 1, 'status' => ['active', 'wait', 'war']])->get();
             Html::addScript(['src' => asset('js/listwar.js')]);
             Html::addVariable(
@@ -342,5 +347,95 @@ class ListController extends Controller
         }
 
         return $this->listWait();
+    }
+
+    public function listWarGenerate($players=0){
+        (new CurrentWarController())->index();// cargando desempeño
+        $Players = (new Player)->where(['inClan' => 1, 'status' => 'active'])->get(['id','war_count']);
+        $listWait = (new Player)->where(['inClan' => 1, 'status' => 'wait'])->get();
+        $data = $listWar = [];
+        $lists = (new ListWar)->get(['date']);
+        $exists = false;
+        $date = '';
+        foreach($lists as $list){
+            if($exists = !(time() > strtotime(($date = $list->date) . ' +1 day'))) break;
+        }
+        
+        if($exists){
+            $date = time() - strtotime($date);
+            $format = 'i \m s \s';
+            if($date > 3600) $format = "h \h $format";
+            $date = date($format, mktime(0,0, $date));
+            Message::add('No puedes generar lista de guerra.');
+            Message::add('Debes esperar 24 horas para volver a generarla.');
+            Message::add("Tiempo trascurrido: $date desde la última lista creada.");
+            Route::reload('list.war');
+            exit;
+        }
+
+        foreach($Players as $key => $player){
+            $data[] = [
+                'player_id' => $player->id,
+                'war_count' => $player->war_count
+            ];
+        }
+
+        if(count($listWait) >= $players){
+            for($i=$players; $i>0; $i--){
+                $listWar[] = $listWait[$i-1]->id;
+            }
+        }else{
+            for($i=count($listWait); $i>0; $i--){
+                $listWar[$listWait[$i-1]->id] = '';
+            }
+            
+            usort($data, function($arr, $next_arr){
+                return $arr['war_count'] > $next_arr['war_count'] ? 1 : -1;
+            });
+
+            foreach($data as $key => $value){
+                unset($data[$key]);
+                $data[$value['player_id']] = '';
+            }
+
+            $listWar = array_merge($listWar, $data);
+            
+            if($perfomance = Session::get('_PERFOMANCE_')){
+                $perfomanceList= [];
+                foreach($perfomance as $_players){
+                    foreach($_players as $player){
+                        $perfomanceList[$player['tag']] = '';
+                    }
+                }
+                $listWar = array_merge($listWar, $perfomanceList);
+            }
+            $listWar = array_keys(array_slice($listWar, 0, $players));
+        }
+
+        if(count($listWar) < $players){
+            Message::add('No se puede generar la lista de guerra.');
+            Message::add("Cantidad de jugadores no disponibles.");
+            Message::add("Solo hay disponible <b>" . count($listWar) . "/$players</b> jugadores.");
+            Message::add("<b>RECOMENDACION:</b> agrega más jugadores a la lista de espera o sacalos de la lista de descanso.");
+        }else{
+            (new Player())->where(['status' => 'war'])->update(['status' => 'active']);
+            foreach($listWar as $tag) (new Player())->find($tag)->status = 'war';
+
+            (new ListWar())->insert([
+                'user_id' => Session::getUser('id'),
+                'list' => json_encode($listWar),
+                'description' => 'Lista de guerra generada por ' . Session::getUser('username') . '.',
+                'members' => $players,
+                'status' => 'generated'
+            ]);
+
+            Message::add('Lista de Guerra Creada con Exito!', 'success');
+
+            (new Activity())->insert([
+                'title' => 'Lista de guerra generada.',
+                'description' => Session::getUser('username') . ' generó una lista de guerra.'
+            ]);
+        }        
+        Route::reload('list.war');
     }
 }
