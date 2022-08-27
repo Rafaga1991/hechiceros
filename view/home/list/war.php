@@ -33,8 +33,10 @@
     <table class="datatablesSimple">
         <?php if(isAdmin()):?>
             <caption>
-                <a href="<?= Route::get('list.war.new') ?>" class="btn btn-outline-primary">Crear</a>
-                <a href="#generate" data-bs-toggle="modal" role="button" class="btn btn-outline-success">Generar</a>
+                <div class="btn-group">
+                    <a href="<?= Route::get('list.war.new') ?>" class="btn btn-outline-primary">Crear</a>
+                    <a href="#generate" data-bs-toggle="modal" role="button" class="btn btn-outline-success">Generar</a>
+                </div>
             </caption>
         <?php endif;?>
         <thead>
