@@ -2,10 +2,12 @@
 
 namespace controller\home;
 
-use core\{Controller,Html,Session,Route,Request, Message};
+use api\player\Players;
+use core\{Controller,Html,Session,Route,Request, Message, function view, function asset, function createImage, function html2pdf, function strRepeat, function traslate};
 use model\{Activity,Player,ListWar};
 use controller\home\CurrentWarController;
-use function core\{view,asset,dd};
+
+use function core\dd;
 
 class ListController extends Controller
 {
@@ -40,6 +42,132 @@ class ListController extends Controller
         Html::addVariable('body', view('home/list/war', ['listwar' => $listWar]));
         Html::addVariable('URL_GENERATE_LIST', Route::get('list.war.generate'));
         return $this->view;
+    }
+
+    private function generateListDesing($players, $title, $attributes=[]){
+        if(!$players) return '';
+        $result = strRepeat(
+            view('styles/row-table-pdf'),
+            function($class) use($players){
+                if(!$class->__STOP__ = !isset($players[$class->__ID__])){
+                    $player = $players[$class->__ID__];
+                    if(is_string($class->num)) $class->num = 0;
+                    $class->img = createImage($player->image);
+                    $class->name = $player->name;
+                    $class->tag = $player->id;
+                    $class->war = $player->war_count;
+                    $class->rol = traslate($player->role);
+                    $class->num++;
+                    $class->color = ($player->war_count >= 1) ? (($player->war_count >= 3) ? 'green' : 'blue') : 'red';
+                }
+                return $class;
+            },
+            true
+        );
+
+        return view(
+            'styles/list-table-pdf',
+            array_merge([
+                'header' => ['Jugador', 'Guerras'],
+                'body' => $result,
+                'listname' => strtoupper($title) . ' (<span>' . count($result) . '</span>)'
+            ], $attributes)
+        );
+    }
+
+    public function downloadListWar($id){
+        if(($filename = (string)Session::get($list_id = md5($id))) && file_exists($filename)){
+            $data = base64_decode(file_get_contents($filename));
+            Session::destroy($list_id);
+            @unlink($filename);
+            exit($data);
+        }else{
+            @$filename = tempnam('/tmp', $list_id);
+            Session::set($list_id, $filename);
+        }
+        if($listwar = (new ListWar())->where(['status' => ['created','generated']])->find($id)){
+            $players = json_decode($listwar->list, false);
+            foreach($players as &$player){
+                $player = (new Player())->find($player);
+            }
+            $list_war = $this->generateListDesing($players, 'Lista de Guerra', ['description' => $listwar->description]);
+
+            $list_wait = $this->generateListDesing(
+                (new Player())->where(['status' => 'wait', 'inClan' => 1])->get(),
+                'Lista de Espera'
+            );
+            
+            $list_break = $this->generateListDesing(
+                (new Player())->where(['status' => 'break', 'inClan' => 1])->get(),
+                'Lista de Descanso'
+            );
+
+            $clanInfo = Session::get('clan_info');
+
+            $players = (new Player)->where(['inClan' => 1])->get();
+            $king_war = null;
+            $_players = [];
+            foreach($players as $player){
+                if(!$king_war) $king_war = $player;
+                elseif($player->war_count > $king_war->war_count) $king_war = $player;
+
+                $_players[$player->war_count][] = $player;
+            }
+            unset($_players['']);
+
+            if(count($_players) > 1){
+                $keys = array_keys($_players);
+                $key = $keys[count($keys)-1];
+                shuffle($_players[$key]);
+                $king_war = $_players[$key][0];
+            }
+
+            if($king_war){
+                $king_war = json_decode(json_encode((new Players($king_war->id))->getPlayerInfo()));
+                $king_war->image = createImage($king_war->league->iconUrls->small);
+                $king_war->role = traslate($king_war->role);
+                $king_war->townHallLevel = createImage(asset("image/th/th$king_war->townHallLevel.png"));
+            }
+
+            $header = view(
+                'styles/header-pdf',
+                [
+                    'date' => date('d M Y'),
+                    'time' => date('h:i A'),
+                    'logo' => createImage($clanInfo['badgeUrls']['small']),
+                    'name' => $clanInfo['name'],
+                    'list_war' => Route::get('list.war'),
+                    'host' => HOST,
+                    'listname' => 'Listas de Guerras',
+                    'king' => $king_war
+                ]
+            );
+
+            $footer = view(
+                'styles/footer-pdf',
+                [
+                    'year' => date('Y'),
+                    'proyect_name' => PROYECT_NAME
+                ]
+            );
+
+            $pdf = html2pdf(
+                join(
+                    '', 
+                    [
+                        $header, // cabeza de página
+                        $list_war, // lista de guerra
+                        $list_wait, // lista de espera
+                        $list_break, // lista de descanso
+                        $footer, // pie de página
+                    ]
+                )
+            );
+            file_put_contents($filename, base64_encode($pdf));
+        } else {
+            Message::add("La lista de guerra con id #$id no existe.");
+            Route::reload('list.war');
+        }
     }
 
     public function listWarShow($id)

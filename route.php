@@ -34,6 +34,7 @@ $route->set('/list-war/destroy', [ListController::class, 'listWarDestroy'])->nam
 $route->set('/list-war/update', [ListController::class, 'listWarUpdate'])->name('list.war.update')->auth()->rol(Route::ROL_ADMIN)->save();
 $route->set('/list-war/change', [ListController::class, 'listWarChange'])->name('list.war.change')->auth()->rol(Route::ROL_ADMIN)->save();
 $route->set('/list-war/generate', [ListController::class, 'listWarGenerate'])->name('list.war.generate')->auth()->rol(Route::ROL_ADMIN)->save();
+$route->set('/list-war/download', [ListController::class, 'downloadListWar'])->name('list.war.download')->auth()->rol(Route::ROL_ADMIN)->save();
 
 $route->set('/list-break', [ListController::class, 'listBreak'])->name('list.break')->auth()->save();
 $route->set('/list-break/new', [ListController::class, 'listBreakNew'])->name('list.break.new')->auth()->rol(Route::ROL_ADMIN)->save();

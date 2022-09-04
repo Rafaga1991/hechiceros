@@ -2,6 +2,8 @@
 
 namespace core;
 
+error_reporting(E_NOTICE|E_ERROR|E_ALL|E_WARNING);
+
 require_once './core/.autoload.php';
 
 Html::addMeta(['charset' => 'UTF-8']);
@@ -13,6 +15,7 @@ Html::setIcon(Session::get('icon')??'');
 
 Html::addStyle(['href' => 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css', 'integrity' => 'sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3', 'crossorigin' => 'anonymous']);
 Html::addStyle(['href' => asset('css/style.css')]);
+Html::addStyle(['href' => asset('css/other.css')]);
 Html::addStyle(['href' => 'https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css']);
 Html::addStyle(['href' => 'https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css']);
 Html::addStyle(['href' => 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css', 'integrity' => 'sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==', 'crossorigin' => 'anonymous', 'referrerpolicy' => 'no-referrer']);

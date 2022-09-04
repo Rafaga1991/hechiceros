@@ -10,8 +10,8 @@
     <!-- Navbar Search-->
     <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0" hidden>
         <div class="input-group">
-            <input class="form-control" type="text" placeholder="..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
-            <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+            <!--<input class="form-control" type="text" placeholder="..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+            <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>-->
         </div>
     </form>
     <!-- Navbar-->
@@ -37,66 +37,68 @@
             <div class="sb-sidenav-menu">
                 <div class="nav">
                     <div class="sb-sidenav-menu-heading">Core</div>
-                    <a class="nav-link <?=Route::isCurrentView('home.index')?'bg-white text-black':''?>" href="<?= Route::get('home.index') ?>">
-                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt <?=Route::isCurrentView('home.index')?'text-black':''?>"></i></div>
+                    <a class="nav-link <?=Route::isCurrentView('home.index', 'bg-white text-black', '')?>" href="<?= Route::get('home.index') ?>">
+                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt <?=Route::isCurrentView('home.index', 'text-black', '')?>"></i></div>
                         Inicio
                     </a>
-                    <a class="nav-link <?=Route::isCurrentView('currentwar.index')?'bg-white text-black':''?>" href="<?= Route::get('currentwar.index') ?>">
-                        <div class="sb-nav-link-icon"><i class="fas fa-dragon <?=Route::isCurrentView('currentwar.index')?'text-black':''?>"></i></div>
+                    <a class="nav-link <?=Route::isCurrentView('currentwar.index', 'bg-white text-black', '')?>" href="<?= Route::get('currentwar.index') ?>">
+                        <div class="sb-nav-link-icon"><i class="fas fa-dragon <?=Route::isCurrentView('currentwar.index', 'text-black', '')?>"></i></div>
                         Guerra Actual
                     </a>
-                    <a class="nav-link <?=Route::isCurrentView('warlog.index')?'bg-white text-black':''?>" href="<?= Route::get('warlog.index') ?>">
+                    <a class="nav-link <?=Route::isCurrentView('warlog.index', 'bg-white text-black', '')?>" href="<?= Route::get('warlog.index') ?>">
                         <div class="sb-nav-link-icon">
-                            <i class="fas fa-book-open <?=Route::isCurrentView('warlog.index')?'text-black':''?>"></i>
+                            <i class="fas fa-book-open <?=Route::isCurrentView('warlog.index', 'text-black', '')?>"></i>
                         </div>
                         Registro de Guerra
                     </a>
                     <?php if (isAdmin()) : ?>
-                        <a class="nav-link <?=Route::isCurrentView('user.index')?'bg-white text-black':''?>" href="<?= Route::get('user.index') ?>">
+                        <a class="nav-link <?=Route::isCurrentView('user.index', 'bg-white text-black', '')?>" href="<?= Route::get('user.index') ?>">
                             <div class="sb-nav-link-icon">
-                                <i class="fas fa-user <?=Route::isCurrentView('user.index')?'text-black':''?>"></i>
+                                <i class="fas fa-user <?=Route::isCurrentView('user.index', 'text-black', '')?>"></i>
                             </div>
                             Usuarios
                         </a>
                     <?php endif; ?>
                     <div class="sb-sidenav-menu-heading">Interface</div>
-                    <a class="nav-link <?=Route::isCurrentView(['list.war', 'list.break', 'list.wait'])?'text-white':'collapsed'?>" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="<?=Route::isCurrentView(['list.war', 'list.break', 'list.wait'])?'true':'false'?>" aria-controls="collapseLayouts">
+                    <a class="nav-link <?=Route::isCurrentView(['list.war', 'list.break', 'list.wait'], 'text-white', '')?>" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="<?=Route::isCurrentView(['list.war', 'list.break', 'list.wait'])?'true':'false'?>" aria-controls="collapseLayouts">
                         <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                         Listas
                         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                     </a>
-                    <div class="collapse <?=Route::isCurrentView(['list.war', 'list.break', 'list.wait'])?'show':''?>" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                    <div class="collapse <?=Route::isCurrentView(['list.war', 'list.break', 'list.wait'], 'show', '')?>" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link <?=Route::isCurrentView('list.war')?'bg-white text-black':''?>" href="<?= Route::get('list.war') ?>">Lista de Guerra</a>
-                            <a class="nav-link <?=Route::isCurrentView('list.break')?'bg-white text-black':''?>" href="<?= Route::get('list.break') ?>">Lista de Descanso</a>
-                            <a class="nav-link <?=Route::isCurrentView('list.wait')?'bg-white text-black':''?>" href="<?= Route::get('list.wait') ?>">Lista de Espera</a>
+                            <a class="nav-link <?=Route::isCurrentView('list.war', 'bg-white text-black', '')?>" href="<?= Route::get('list.war') ?>">Lista de Guerra</a>
+                            <a class="nav-link <?=Route::isCurrentView('list.break', 'bg-white text-black', '')?>" href="<?= Route::get('list.break') ?>">Lista de Descanso</a>
+                            <a class="nav-link <?=Route::isCurrentView('list.wait', 'bg-white text-black', '')?>" href="<?= Route::get('list.wait') ?>">Lista de Espera</a>
                         </nav>
                     </div>
                 </div>
             </div>
             <div class="sb-sidenav-footer">
                 <div class="small">Logueado como:</div>
-                <span class="text-white text-uppercase">
-                    <?= Session::getUser('username') ?>
+                <span style="font-size: 10px;">
+                    <span class="text-white text-uppercase">
+                        <?= Session::getUser('username') ?>
+                    </span>
+                    <span>(<?= ucfirst(Route::ROL[Session::getRol()]) ?>)</span>
                 </span>
-                <span>(<?= ucfirst(Route::ROL[Session::getRol()]) ?>)</span>
             </div>
         </nav>
     </div>
     <div id="layoutSidenav_content">
-
         <main>{!!body!!}</main>
         <footer class="py-4 bg-light mt-auto">
             <div class="container-fluid px-4">
                 <div class="d-flex align-items-center justify-content-between small">
                     <div class="text-muted">Copyright &copy; <?= PROYECT_NAME ?> 2022</div>
-                    <div>
+                    <!--<div>
                         <a href="#">Privacy Policy</a>
                         &middot;
                         <a href="#">Terms &amp; Conditions</a>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </footer>
     </div>
 </div>
+<div id="loader" hidden></div>

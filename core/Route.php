@@ -229,10 +229,10 @@ class Route
 
     public function getRoutes() { return $this->routes; }
 
-    public static function isCurrentView($name){
+    public static function isCurrentView($name, $out_true = true, $out_false = false){
         $route = Session::get('__CURRENT_ROUTE__');
-        if(is_array($name)) return in_array($route['name'], $name);
-        return $route['name'] == $name;
+        if(is_array($name)) return in_array($route['name'], $name) ? $out_true : $out_false;
+        return ($route['name'] == $name) ? $out_true : $out_false;
     }
 
     private function isRoute($id) { return Session::get('route')[$id] ?? null; }
