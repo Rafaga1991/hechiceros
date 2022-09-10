@@ -90,7 +90,7 @@ class HomeController extends Controller
                         }
                     }
                 }
-                if($participations != $player->war_count){
+                if($player && $participations != $player->war_count){
                     $player->war_count = $participations;
                 }
                 // fin
@@ -313,17 +313,18 @@ class HomeController extends Controller
         ];
 
         (new CurrentWarController())->index();
-        $perfomance = Session::get('_PERFOMANCE_');
-        foreach($perfomance as $stars => $values){
-            foreach($values as $value){
-                if(++$data['members'] >= 5) break;
-                $data['datasets'][0]['data'][] = ($value['destruction']/$value['attacks']);
-                $data['label'][] = $value['name'];
+        if($perfomance = Session::get('_PERFOMANCE_')){
+            foreach($perfomance as $stars => $values){
+                foreach($values as $value){
+                    if(++$data['members'] >= 5) break;
+                    $data['datasets'][0]['data'][] = ($value['destruction']/$value['attacks']);
+                    $data['label'][] = $value['name'];
+                }
+                if($data['members'] >= 5) break;
             }
-            if($data['members'] >= 5) break;
         }
         
-        echo json_encode($data);
+        exit(json_encode($data));
     }
 
     public function chartBarAreaParticipation(){

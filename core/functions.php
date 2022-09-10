@@ -2,9 +2,6 @@
 
 namespace core;
 
-include './vendor/autoload.php';
-use Dompdf\Dompdf;
-use Dompdf\Options;
 use stdClass;
 
 /**
@@ -52,23 +49,6 @@ function getFiles(string $path, bool $lineal = false, array $exception = []): ar
     }
 
     return $files;
-}
-
-function html2pdf(string $html):string{
-    // Instanciamos un objeto de la clase DOMPDF.
-    $option = new Options();
-    $option->setIsRemoteEnabled(true);
-
-    $pdf = new DOMPDF($option);
-
-    // htmlspecialchars()
-    $pdf->loadHtml($html, 'UTF-8');
-    $pdf->setPaper('letter');
-    
-    // Renderizamos el documento PDF.
-    $pdf->render();
-    
-    return $pdf->output();
 }
 
 function createImage($path, $type='image'):string{

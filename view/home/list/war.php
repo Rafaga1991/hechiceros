@@ -65,25 +65,33 @@
     </table>
 </div>
 
+
 <script>
+    var HTML_C = {};
+
+    function toPDF(html){
+        loader.innerText = 'Descargando...';
+        html2pdf(html, {
+            margin:       1,
+            filename:     'Lista de Guerra.pdf',
+            image:        { type: 'png', quality: 0.98 }
+        });
+        let id = setInterval(() => {
+            loader.hidden = true;
+            clearInterval(id);
+        }, 5000);
+    }
+
     function downloadPDF(e){
-        if(!(element = document.getElementById(`document_${e.dataset.id}`))){
-            loader.hidden = false;
+        var url = `<?=Route::get('list.war.download')?>/${e.dataset.id}`;
+        loader.hidden = false;
+        if(!HTML_C[e.dataset.id]){
             loader.innerText = 'Generando PDF';
-            var element = document.createElement('a');
-            element.id = `document_${e.dataset.id}`;
-            element.hidden = true;
-            var url = `<?=Route::get('list.war.download')?>/${e.dataset.id}`;
-            $.get(url, () => {
-                element.setAttribute('href', url);
-                element.setAttribute('download', 'Lista de Guerra.pdf');
-                document.body.appendChild(element);
-                loader.hidden = true;
-                element.click();
-                element.remove();
+            $.get(url, (html) => {
+                toPDF(HTML_C[e.dataset.id] = html);
             });
         }else{
-            element.click();
+            toPDF(HTML_C[e.dataset.id]);
         }
     }
 

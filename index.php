@@ -29,5 +29,6 @@ Html::addScript(['src' => asset('js/script.js')]);
 Html::addScript(['src' => asset('js/demo/chart-area-demo.js')]);
 Html::addScript(['src' => 'https://cdn.jsdelivr.net/npm/simple-datatables@latest', 'crossorigin' => 'anonymous']);
 Html::addScript(['src' => 'https://cdn.jsdelivr.net/npm/sweetalert2@11']);
+Html::addScript(['src' => 'https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js', 'integrity' => 'sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==', 'crossorigin' => 'anonymous', 'referrerpolicy' => 'no-referre']);
 
 Html::OutPut();

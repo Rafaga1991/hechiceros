@@ -3,11 +3,9 @@
 namespace controller\home;
 
 use api\player\Players;
-use core\{Controller,Html,Session,Route,Request, Message, function view, function asset, function createImage, function html2pdf, function strRepeat, function traslate};
+use core\{Controller,Html,Session,Route,Request, Message, function view, function asset, function createImage, function strRepeat, function traslate};
 use model\{Activity,Player,ListWar};
 use controller\home\CurrentWarController;
-
-use function core\dd;
 
 class ListController extends Controller
 {
@@ -47,7 +45,7 @@ class ListController extends Controller
     private function generateListDesing($players, $title, $attributes=[]){
         if(!$players) return '';
         $result = strRepeat(
-            view('styles/row-table-pdf'),
+            view('styles/listwar/row-table-pdf'),
             function($class) use($players){
                 if(!$class->__STOP__ = !isset($players[$class->__ID__])){
                     $player = $players[$class->__ID__];
@@ -58,7 +56,7 @@ class ListController extends Controller
                     $class->war = $player->war_count;
                     $class->rol = traslate($player->role);
                     $class->num++;
-                    $class->color = ($player->war_count >= 1) ? (($player->war_count >= 3) ? 'green' : 'blue') : 'red';
+                    $class->color = ($player->war_count >= 1) ? (($player->war_count >= 3) ? 'success' : 'primary') : 'danger';
                 }
                 return $class;
             },
@@ -66,25 +64,23 @@ class ListController extends Controller
         );
 
         return view(
-            'styles/list-table-pdf',
+            'styles/listwar/list-table-pdf',
             array_merge([
                 'header' => ['Jugador', 'Guerras'],
                 'body' => $result,
-                'listname' => strtoupper($title) . ' (<span>' . count($result) . '</span>)'
+                'listname' => strtoupper($title),
+                'members' => count($result),
             ], $attributes)
         );
     }
 
     public function downloadListWar($id){
-        if(($filename = (string)Session::get($list_id = md5($id))) && file_exists($filename)){
-            $data = base64_decode(file_get_contents($filename));
-            Session::destroy($list_id);
-            @unlink($filename);
-            exit($data);
-        }else{
-            @$filename = tempnam('/tmp', $list_id);
-            Session::set($list_id, $filename);
+        if($_listwar_session = (Session::get('listwar') ?? [])){
+            if($_view = ($_listwar_session[$id] ?? false)){
+                exit($_view);
+            }
         }
+
         if($listwar = (new ListWar())->where(['status' => ['created','generated']])->find($id)){
             $players = json_decode($listwar->list, false);
             foreach($players as &$player){
@@ -130,40 +126,85 @@ class ListController extends Controller
             }
 
             $header = view(
-                'styles/header-pdf',
+                'styles/listwar/header-pdf',
                 [
-                    'date' => date('d M Y'),
-                    'time' => date('h:i A'),
+                    'date' => date('d M Y', strtotime($listwar->date)),
+                    'time' => date('h:i A', strtotime($listwar->date)),
                     'logo' => createImage($clanInfo['badgeUrls']['small']),
                     'name' => $clanInfo['name'],
                     'list_war' => Route::get('list.war'),
                     'host' => HOST,
                     'listname' => 'Listas de Guerras',
-                    'king' => $king_war
+                    'king' => $king_war,
+                    'classofclans' => createImage(asset('image/classOfClans.png'))
                 ]
             );
 
             $footer = view(
-                'styles/footer-pdf',
+                'styles/listwar/footer-pdf',
                 [
                     'year' => date('Y'),
                     'proyect_name' => PROYECT_NAME
                 ]
             );
 
-            $pdf = html2pdf(
-                join(
-                    '', 
-                    [
-                        $header, // cabeza de página
-                        $list_war, // lista de guerra
-                        $list_wait, // lista de espera
-                        $list_break, // lista de descanso
-                        $footer, // pie de página
-                    ]
-                )
+            if($perfomance = Session::get('_PERFOMANCE_')){
+                $top3 = [];
+                $isBreak = false;
+                foreach($perfomance as $players){
+                    foreach($players as $player){
+                        $_player = (new Players($player['tag']))->getPlayerInfo();
+                        $_playerDB = (new Player)->find($player['tag']);
+
+                        $player['image'] = createImage($_playerDB->image);
+                        $player['imageTH'] = createImage(asset("image/th/th{$_player['townHallLevel']}.png"));
+                        $player['league'] = $_player['league']['name'];
+                        $player['status'] = 'En ' . traslate($_playerDB->status);
+                        $player['duration'] = date('i:s', mktime(0,0,$player['duration']));
+                        $player['percent'] = $player['destruction'] / $player['attacks'];
+
+                        $top3[] = $player;
+                        if($isBreak = count($top3) >= 3){
+                            break;
+                        }
+                    }
+                    if($isBreak){
+                        break;
+                    }
+                }
+                $top3 = view('styles/listwar/top3-pdf', ['top' => $top3, 'count' => count($top3)]);
+            }else{
+                $top3 = '';
+            }
+
+            $view = join(
+                '',
+                [
+                    $header, // cabeza de página
+                    $top3, // mayor desempeño en guerra
+                    $list_war, // lista de guerra
+                    $list_wait, // lista de espera
+                    $list_break, // lista de descanso
+                    $footer // pie de página
+                ]
             );
-            file_put_contents($filename, base64_encode($pdf));
+
+            $view = <<<HTML
+                <style>
+                    body{
+                        margin: 0%;
+                        padding: 0%;
+                        width: 100%;
+                        height: 100%;
+                    }
+                </style>
+                <div style="width:99.25%;">$view</div>
+            HTML;
+            
+            
+            $_listwar_session[$id] = $view;
+            Session::set('listwar', $_listwar_session);
+            exit($view);
         } else {
             Message::add("La lista de guerra con id #$id no existe.");
             Route::reload('list.war');
