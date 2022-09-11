@@ -8,14 +8,16 @@ class Route
 {
     public const ROL_USER = 0;
     public const ROL_ADMIN = 1;
-    public const ROL = ['Usuario','Administrador'];
+    public const ROL_PLAYER = 2;
+    public const ROL = ['Usuario','Administrador','Jugador'];
 
     private $routes = [];
     private $path = '';
     private $controller = [];
     private $name = null;
     private $auth = false;
-    private $rol = self::ROL_USER;
+    private $rol = [];
+    private $rol_default = [self::ROL_USER, self::ROL_PLAYER];
 
     private static $redirects = null;
 
@@ -35,9 +37,9 @@ class Route
         return $this;
     }
 
-    public function rol($rol = self::ROL_USER)
+    public function rol(...$rol)
     {
-        $this->rol = $rol;
+        $this->rol = array_merge($rol, [Route::ROL_ADMIN]);
         return $this;
     }
 
@@ -49,6 +51,7 @@ class Route
 
     public function save()
     {
+        $rol = empty($this->rol) ? $this->rol_default : $this->rol;
         $this->name = $this->name ?? 0;
         $this->routes[$this->name] = [
             'path' => $this->path,
@@ -57,11 +60,11 @@ class Route
             'controller' => $this->controller[0],
             'function' => $this->controller[1],
             'name' => $this->name,
-            'rol' => $this->rol
+            'rol' => array_merge($rol, [Route::ROL_ADMIN])
         ];
         $this->name = count($this->routes);
         $this->auth = false;
-        $this->rol = self::ROL_USER;
+        $this->rol = [];
         Session::set('_ROUTES_', $this->routes);
         return $this;
     }
@@ -169,7 +172,8 @@ class Route
         } elseif ($route = ($this->getRoute($url) ?? $this->getRoute('/' . join('/', $tpm_url)))) {
             if ($route['auth'] == Session::auth()) {
                 if ($this->objectExist($route['controller'], $route['function'])) {
-                    if($route['rol'] == Session::getRol() || Session::getRol() == self::ROL_ADMIN){
+                    // dd([Session::getRol(), $route]);
+                    if(in_array(Session::getRol(), $route['rol'])){
                         Session::set('_view_', $route['name']);
                         Session::set('__CURRENT_ROUTE__', $route);
                         $variable = 'v' . generateID();

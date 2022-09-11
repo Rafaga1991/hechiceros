@@ -34,9 +34,9 @@ class LoginController extends Controller{
 	public function access(Request $request){
 		if($request->tokenIsValid()){
 			$user = new User();
-			if($user = $user->where(['`' . strtolower($request->username) . '`' => ['`email`', '`username`'], 'password' => md5($request->password), 'delete' => 0])->get(['id', 'username', 'email', 'admin'])){
+			if($user = $user->where(['`' . strtolower($request->username) . '`' => ['`email`', '`username`'], 'password' => md5($request->password), 'delete' => 0])->get(['id', 'username', 'email', 'rol'])){
 				$user = $user[0];
-				Session::setUser($user, 'admin');
+				Session::setUser($user);
 				$this->activity->insert([
 					'title' => 'Nuevo inicio se sesión',
 					'description' => "El usuario {$user->username} inicio sesión."

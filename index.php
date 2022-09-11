@@ -25,7 +25,7 @@ Html::addScript(['src' => 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/
 Html::addScript(['src' => 'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js', 'crossorigin' => 'anonymous']);
 Html::addScript(['src' => asset('js/datatables-simple-demo.js')]);
 Html::addScript(['src' => 'https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js']);
-Html::addScript(['src' => asset('js/script.js')]);
+Html::addScript(['src' => asset('js/script.js'), 'id' => 'main', 'data-auth' => (Session::auth()?1:0)]);
 Html::addScript(['src' => asset('js/demo/chart-area-demo.js')]);
 Html::addScript(['src' => 'https://cdn.jsdelivr.net/npm/simple-datatables@latest', 'crossorigin' => 'anonymous']);
 Html::addScript(['src' => 'https://cdn.jsdelivr.net/npm/sweetalert2@11']);

@@ -1,6 +1,6 @@
 <?php 
     namespace core;
-    use function core\{isAdmin};
+    use function core\{isRol};
 ?>
 <div class="container-fluid px-4">
     <h1 class="mt-4">Lista de Guerra</h1>
@@ -31,7 +31,7 @@
     </div>
 
     <table class="datatablesSimple">
-        <?php if(isAdmin()):?>
+        <?php if(isRol(Route::ROL_PLAYER)):?>
             <caption>
                 <div class="btn-group">
                     <a href="<?= Route::get('list.war.new') ?>" class="btn btn-outline-primary">Crear</a>
@@ -51,7 +51,7 @@
                 <tr>
                     <td>
                         <span class="badge bg-danger" title="ver lista de guerra">#<?=$key+1?>.</span> <a href="<?= Route::get('list.war.show') ?>/<?=$list['id']?>" class="badge bg-primary" target="_blank"><?= $list['date'] ?></a>
-                        <?php if(isAdmin()):?>
+                        <?php if(isRol(Route::ROL_PLAYER)):?>
                             <a href="<?=Route::get('list.war.destroy')?>/<?=$list['id']?>" class="fs-5 text-danger" title="Borrar Lista de Guerra"><i class="far fa-trash-alt px-1"></i></a>
                             <a href="<?=Route::get('list.war.update')?>/<?=$list['id']?>" class="fs-5 text-primary" title="Actualizar Lista de Guerra"><i class="far fa-edit px-1"></i></a>
                         <?php endif;?>

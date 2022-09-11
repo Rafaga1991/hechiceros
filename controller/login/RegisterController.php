@@ -8,6 +8,7 @@ use core\Message;
 use core\Request;
 use core\Route;
 use Error;
+use model\Activity;
 use model\User;
 
 use function core\alert;
@@ -46,6 +47,12 @@ class RegisterController extends Controller {
                         'username' => $request->username,
                         'password' => md5($request->password),
                     ]);
+
+                    (new Activity)->insert([
+                        'title' => '[Registro] Nuevo usuario',
+                        'description' => "El usuario $request->username se creo con exito."
+                    ]);
+
                     Message::add("Usuario <b>$request->username</b> creado con exito!", 'success');
                     Route::reload('register.index');
                 }

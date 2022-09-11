@@ -78,3 +78,6 @@ INSERT INTO `user` (`id`, `email`, `username`, `password`, `admin`) VALUES
 (13, 'jacruzbihan2006@gmail.com', 'Coto 2024 ', 'd795d4e5192dc695f1f31bb306fb3af1', 0),
 (14, 'll3202118@gmail.com', 'Angel GT', '310b51dbf89733607e6dc6f7ec196b61', 0),
 (15, 'santiago.orozcob53@gmail.com', 'PÃ±', 'd300cbca78f6e74241c80bf03f21b9c5', 0);
+
+ALTER TABLE `user` CHANGE `admin` `rol` TINYINT(1) NOT NULL DEFAULT '0';
+ALTER TABLE `user` ADD close_session BOOLEAN DEFAULT FALSE

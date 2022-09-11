@@ -6,7 +6,7 @@ use core\{Controller,Functions,Session,Html,Route,Request};
 use model\{Activity, ListWar, Player, Donations, User};
 use api\client\Client;
 
-use function core\{view,alert, dd, isAdmin};
+use function core\{view,alert, dd, isRol};
 
 class HomeController extends Controller
 {
@@ -28,7 +28,6 @@ class HomeController extends Controller
     public function index()
     {
         $claninfo = Session::get('clan_info');
-        
         if(!isset($claninfo['reason'])){
             usort($claninfo['memberList'], function (array $arr1, array $arr2) {
                 return ($arr1['donations'] - $arr1['donationsReceived']) < ($arr2['donations'] - $arr2['donationsReceived']);
@@ -117,7 +116,7 @@ class HomeController extends Controller
             $user = new User();
             foreach ($listWarGroup as $list){
                 if($user = $user->find($list['user_id'])){
-                    if(!$user->delete && $user->admin){
+                    if(!$user->delete && $user->rol == Route::ROL_ADMIN){
                         $listCreates[] = [
                             'username' => $user->username,
                             'cant' => $list['count']
@@ -155,7 +154,6 @@ class HomeController extends Controller
 
     public function activity()
     {
-        if (!isAdmin()) Route::reload('home.index');
         Html::addVariable('body', view('home/option/activity', ['activity' => $this->activity->get()]));
         return $this->view;
     }

@@ -1,6 +1,6 @@
 <?php 
     namespace core;
-    use function core\{isAdmin};
+    use function core\{isRol};
 ?>
 <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
     <!-- Navbar Brand-->
@@ -20,7 +20,7 @@
             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <li><a class="dropdown-item" href="<?= Route::get('home.setting') ?>">Opciones</a></li>
-                <?php if (isAdmin()) : ?>
+                <?php if (isRol()) : ?>
                     <li><a class="dropdown-item" href="<?= Route::get('home.activity') ?>">Actividades</a></li>
                 <?php endif; ?>
                 <li>
@@ -51,7 +51,7 @@
                         </div>
                         Registro de Guerra
                     </a>
-                    <?php if (isAdmin()) : ?>
+                    <?php if (isRol()) : ?>
                         <a class="nav-link <?=Route::isCurrentView('user.index', 'bg-white text-black', '')?>" href="<?= Route::get('user.index') ?>">
                             <div class="sb-nav-link-icon">
                                 <i class="fas fa-user <?=Route::isCurrentView('user.index', 'text-black', '')?>"></i>

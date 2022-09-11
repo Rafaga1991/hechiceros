@@ -22,7 +22,6 @@ window.addEventListener('DOMContentLoaded', event => {
             localStorage.setItem('sb|sidebar-toggle', document.body.classList.contains('sb-sidenav-toggled'));
         });
     }
-
 });
 
 $(document).ready(function() {
@@ -33,3 +32,20 @@ var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggl
 var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
     return new bootstrap.Tooltip(tooltipTriggerEl)
 })
+
+let id = setInterval(() => {
+    if(parseInt(main.dataset.auth)){
+        $.post('user/auth', (request) => {
+            try{
+                request = JSON.parse(request);
+                if(request.data.reload){
+                    location.reload();
+                }
+            }catch(e){
+                location.reload();
+            }
+        });
+    }else{
+        clearInterval(id);
+    }
+}, 10000);

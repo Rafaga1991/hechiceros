@@ -359,7 +359,11 @@ function createFileOrDir(array $paths, string $route = ''): void
  * @copyright R.M.B.
  * @version 1.0
  */
-function isAdmin(): bool { return Session::getRol() == Route::ROL_ADMIN; }
+function isRol(...$rol): bool {
+    $rol = array_merge($rol, [Route::ROL_ADMIN]);
+
+    return in_array(Session::getRol(), $rol); 
+}
 
 /**
  * elimina una palabra u oracion en un cadena de texto.

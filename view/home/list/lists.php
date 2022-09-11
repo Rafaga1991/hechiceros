@@ -1,6 +1,6 @@
 <?php 
     namespace core;
-    use function core\{isAdmin,traslate};
+    use function core\{isRol,traslate};
 ?>
 <div class="container-fluid px-4">
     <h1 class="mt-4">Lista de {!!name_list!!}</h1>
@@ -9,7 +9,7 @@
     </ol>
     {!!MESSAGE!!}
     <table class="datatablesSimple">
-        <?php if(isAdmin()):?>
+        <?php if(isRol(Route::ROL_PLAYER)):?>
             <caption>
                 <div class="btn-group">
                     <a href="<?=Route::get($namePathNew)?>" class="btn btn-outline-primary me-1">Agregar</a>
@@ -22,7 +22,7 @@
         <thead>
             <tr>
                 <th>Jugador</th>
-                <?php if(isAdmin()):?>
+                <?php if(isRol(Route::ROL_PLAYER)):?>
                     <th>Acci&oacute;n</th>
                 <?php endif;?>
             </tr>
@@ -47,7 +47,7 @@
                             </div>
                         </div>
                     </td>
-                    <?php if(isAdmin()):?>
+                    <?php if(isRol(Route::ROL_PLAYER)):?>
                         <td>
                             <form action="<?= Route::get($namePathDestroy) ?>" method="post">
                                 <input type="hidden" name="id" value="<?=$player->id?>">

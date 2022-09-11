@@ -23,7 +23,7 @@ class Session{
      * @copyright R.M.B.
      * @version 1.0
      */
-    public static function init(){
+    public static function init($function=null){
         date_default_timezone_set('America/Santo_Domingo');
         session_start();
 
@@ -33,6 +33,8 @@ class Session{
                 else $_SESSION[$name]['expire'] = time()+self::$limit_expire;
             }
         }
+
+        if(is_callable($function) && $function(new static)) self::destroy();
     }
 
     /**
