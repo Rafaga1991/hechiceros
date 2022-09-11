@@ -41,9 +41,7 @@ let id = setInterval(() => {
                 if(request.data.reload){
                     location.reload();
                 }
-            }catch(e){
-                location.reload();
-            }
+            }catch(e){ }
         });
     }else{
         clearInterval(id);
