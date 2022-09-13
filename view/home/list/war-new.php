@@ -1,7 +1,4 @@
-<?php 
-    namespace core;
-    use function core\{traslate};
-?>
+<?php namespace core; ?>
 <div class="container-fluid px-4">
     <h1 class="mt-4">Nueva Lista de Guerra</h1>
     <ol class="breadcrumb mb-4">
@@ -10,7 +7,7 @@
     </ol>
     {!!MESSAGE!!}
     <h5 class="text-muted">Jugadores En Espera ({!!cant_members_wait!!})</h5>
-    <table class="table table-striped" id="dataTableMembersWait">
+    <table class="table table-striped datatablesSimple">
         <thead>
             <tr>
                 <th>Jugador</th>
@@ -87,7 +84,3 @@
         <button type="submit" class="btn btn-outline-primary">Crear Lista</button>
     </form>
 </div>
-
-<script>
-    new simpleDatatables.DataTable(dataTableMembersWait);
-</script>

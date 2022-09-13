@@ -28,6 +28,7 @@ class HomeController extends Controller
     public function index()
     {
         $claninfo = Session::get('clan_info');
+        
         if(!isset($claninfo['reason'])){
             usort($claninfo['memberList'], function (array $arr1, array $arr2) {
                 return ($arr1['donations'] - $arr1['donationsReceived']) < ($arr2['donations'] - $arr2['donationsReceived']);
@@ -116,7 +117,7 @@ class HomeController extends Controller
             $user = new User();
             foreach ($listWarGroup as $list){
                 if($user = $user->find($list['user_id'])){
-                    if(!$user->delete && $user->rol == Route::ROL_ADMIN){
+                    if(!$user->delete && in_array($user->rol, [Route::ROL_PLAYER])){
                         $listCreates[] = [
                             'username' => $user->username,
                             'cant' => $list['count']
@@ -154,6 +155,7 @@ class HomeController extends Controller
 
     public function activity()
     {
+        if (!isRol()) Route::reload('home.index');
         Html::addVariable('body', view('home/option/activity', ['activity' => $this->activity->get()]));
         return $this->view;
     }

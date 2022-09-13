@@ -69,12 +69,13 @@
 <script>
     var HTML_C = {};
 
-    function toPDF(html){
+    function toPDF(html, filename='Lista de Guerra'){
         loader.innerText = 'Descargando...';
         html2pdf(html, {
             margin:       1,
-            filename:     'Lista de Guerra.pdf',
-            image:        { type: 'png', quality: 0.98 }
+            filename:     `${filename}.pdf`,
+            image:        { type: 'png', quality: 0.98 },
+            pagebreak: { avoid: 'tr' }
         });
         let id = setInterval(() => {
             loader.hidden = true;
