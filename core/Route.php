@@ -9,7 +9,7 @@ class Route
     public const ROL_USER = 0;
     public const ROL_ADMIN = 1;
     public const ROL_PLAYER = 2;
-    public const ROL = ['Usuario','Administrador','Jugador'];
+    public const ROL = ['Miembro','Admin','Colíder'];
 
     private $routes = [];
     private $path = '';

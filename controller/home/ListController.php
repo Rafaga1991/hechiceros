@@ -7,6 +7,8 @@ use core\{Controller,Html,Session,Route,Request, Message, function view, functio
 use model\{Activity,Player,ListWar};
 use controller\home\CurrentWarController;
 
+use function core\isRol;
+
 class ListController extends Controller
 {
     private $view = null;
@@ -20,7 +22,9 @@ class ListController extends Controller
 
     public function listWar()
     {
-        $lists = (new ListWar())->where(['status' => ['created','generated']])->get();
+        $status = ['created','generated'];
+        if(isRol()) $status[] = 'delete';
+        $lists = (new ListWar())->where(['status' => $status])->get();
         $listWar = [];
 
         foreach ($lists as $list) {
@@ -32,7 +36,8 @@ class ListController extends Controller
                     'date' => $list->date,
                     'id' => $list->id,
                     'description' => $list->description,
-                    'members' => $list->members
+                    'members' => $list->members,
+                    'status' => $list->status
                 ]
             );
         }
@@ -75,27 +80,76 @@ class ListController extends Controller
     }
 
     public function downloadListWar($id){
+        $status = ['created','generated'];
+        if(isRol()) $status[] = 'delete';
+
         if($_listwar_session = (Session::get('listwar') ?? [])){
             if($_view = ($_listwar_session[$id] ?? false)){
                 exit($_view);
             }
         }
 
-        if($listwar = (new ListWar())->where(['status' => ['created','generated']])->find($id)){
+        if($listwar = (new ListWar())->where(['status' => $status])->find($id)){
             $players = json_decode($listwar->list, false);
             foreach($players as &$player){
                 $player = (new Player())->find($player);
             }
-            $list_war = $this->generateListDesing($players, 'Lista de Guerra', ['description' => $listwar->description]);
+            
+            $top3 = (function(){
+                $top3 = '';
+                if($perfomance = Session::get('_PERFOMANCE_')){
+                    $top3 = [];
+                    $isBreak = false;
+                    foreach($perfomance as $players){
+                        foreach($players as $player){
+                            $_player = (new Players($player['tag']))->getPlayerInfo();
+                            $_playerDB = (new Player)->find($player['tag']);
+    
+                            $player['image'] = createImage($_playerDB->image);
+                            $player['imageTH'] = createImage(asset("image/th/th{$_player['townHallLevel']}.png"));
+                            $player['league'] = $_player['league']['name'];
+                            $player['status'] = 'En ' . traslate($_playerDB->status);
+                            $player['duration'] = date('i:s', mktime(0,0,$player['duration']));
+                            $player['percent'] = $player['destruction'] / $player['attacks'];
+    
+                            $top3[] = $player;
+                            if($isBreak = count($top3) >= 3){
+                                break;
+                            }
+                        }
+                        if($isBreak){
+                            break;
+                        }
+                    }
+                    $top3 = view('styles/listwar/top3-pdf', ['top' => $top3, 'count' => count($top3)]);
+                }
+
+                return $top3;
+            })();
+
+            $list_war = $this->generateListDesing(
+                $players, 
+                'Lista de Guerra', 
+                [
+                    'description' => $listwar->description,
+                    'isTop3' => !empty($top3)
+                ]
+            );
 
             $list_wait = $this->generateListDesing(
                 (new Player())->where(['status' => 'wait', 'inClan' => 1])->get(),
-                'Lista de Espera'
+                'Lista de Espera',
+                [
+                    'isTop3' => true
+                ]
             );
             
             $list_break = $this->generateListDesing(
                 (new Player())->where(['status' => 'break', 'inClan' => 1])->get(),
-                'Lista de Descanso'
+                'Lista de Descanso',
+                [
+                    'isTop3' => true
+                ]
             );
 
             $clanInfo = Session::get('clan_info');
@@ -148,35 +202,6 @@ class ListController extends Controller
                 ]
             );
 
-            if($perfomance = Session::get('_PERFOMANCE_')){
-                $top3 = [];
-                $isBreak = false;
-                foreach($perfomance as $players){
-                    foreach($players as $player){
-                        $_player = (new Players($player['tag']))->getPlayerInfo();
-                        $_playerDB = (new Player)->find($player['tag']);
-
-                        $player['image'] = createImage($_playerDB->image);
-                        $player['imageTH'] = createImage(asset("image/th/th{$_player['townHallLevel']}.png"));
-                        $player['league'] = $_player['league']['name'];
-                        $player['status'] = 'En ' . traslate($_playerDB->status);
-                        $player['duration'] = date('i:s', mktime(0,0,$player['duration']));
-                        $player['percent'] = $player['destruction'] / $player['attacks'];
-
-                        $top3[] = $player;
-                        if($isBreak = count($top3) >= 3){
-                            break;
-                        }
-                    }
-                    if($isBreak){
-                        break;
-                    }
-                }
-                $top3 = view('styles/listwar/top3-pdf', ['top' => $top3, 'count' => count($top3)]);
-            }else{
-                $top3 = '';
-            }
-
             $view = join(
                 '',
                 [
@@ -190,14 +215,6 @@ class ListController extends Controller
             );
 
             $view = <<<HTML
-                <style>
-                    body{
-                        margin: 0%;
-                        padding: 0%;
-                        width: 100%;
-                        height: 100%;
-                    }
-                </style>
                 <div style="width:99.25%;">$view</div>
             HTML;
             
@@ -213,7 +230,9 @@ class ListController extends Controller
 
     public function listWarShow($id)
     {
-        if($listwar = (new ListWar())->where(['status' => ['created','generated']])->find($id)){
+        $status = ['created','generated'];
+        if(isRol()) $status[] = 'delete';
+        if($listwar = (new ListWar())->where(['status' => $status])->find($id)){
             $players = json_decode($listwar->list, false);
             foreach($players as &$player){
                 $player = (new Player())->find($player);
@@ -306,18 +325,18 @@ class ListController extends Controller
 
     public function listWarUpdate($id)
     {
-        if ($list = (new ListWar())->where(['status' => ['created','generated']])->find($id)) {
+        $status = ['created','generated'];
+        if(isRol()) $status[] = 'delete';
+        if ($list = (new ListWar())->where(['status' => $status])->find($id)) {
             $players = (new Player())->where(['inClan' => 1, 'status' => ['active', 'wait', 'war']])->get();
             Html::addScript(['src' => asset('js/listwar.js')]);
             Html::addVariable(
                 'body',
-                view(
-                    'home/list/war-update',
-                    [
-                        'listwar' => $list,
-                        'list' => json_decode($list->list, true),
-                        'players' => $players]
-                )
+                view('home/list/war-update',[
+                    'listwar' => $list,
+                    'list' => json_decode($list->list, true),
+                    'players' => $players
+                ])
             );
             Html::addVariable('url_form', Route::get('list.war.change'));
             return $this->view;
@@ -380,11 +399,13 @@ class ListController extends Controller
 
     public function listBreak()
     {
+        $conditions = ['status' => 'break', 'inClan' => 1];
+        if(isRol()) unset($conditions['inClan']);
         Html::addVariables([
             'body' => view(
                 'home/list/lists',
                 [
-                    'players' => (new Player())->where(['status' => 'break', 'inClan' => 1])->get(),
+                    'players' => (new Player())->where($conditions)->get(),
                     'namePathNew' => 'list.break.new',
                     'namePathDestroy' => 'list.break.destroy'
                 ]
@@ -421,7 +442,7 @@ class ListController extends Controller
                 Message::add('Miembros agregados con exito!', 'success');
                 (new Activity())->insert([
                     'title' => 'Nuevo miembro',
-                    'description' => Session::getUser('username') . ' agrego un nuevo miembro a las lista de descanso.'
+                    'description' => Session::getUser('username') . ' agrego ' . count($request->player) . ' miembros a las lista de descanso.'
                 ]);
             } else {
                 Message::add($validation['error']);
@@ -450,17 +471,20 @@ class ListController extends Controller
 
     public function listWait()
     {
+        $conditions = ['status' => 'wait', 'inClan' => 1];
+        if(isRol()) unset($conditions['inClan']);
         Html::addVariables([
             'body' => view(
                 'home/list/lists',
                 [
-                    'players' => (new Player())->where(['status' => 'wait', 'inClan' => 1])->get(),
+                    'players' => (new Player())->where($conditions)->get(),
                     'namePathNew' => 'list.wait.new',
                     'namePathDestroy' => 'list.wait.destroy'
                 ]
             ),
             'name_list' => 'Espera'
         ]);
+
         return $this->view;
     }
 
@@ -491,7 +515,7 @@ class ListController extends Controller
                 Message::add('Miembros agregados con exito!', 'success');
                 (new Activity())->insert([
                     'title' => 'Nuevo miembro',
-                    'description' => Session::getUser('username') . ' agrego nuevos miembros a las lista de espera.'
+                    'description' => Session::getUser('username') . ' agrego ' . count($request->player) . ' miembros a las lista de espera.'
                 ]);
             } else {
                 Message::add($validation['error']);

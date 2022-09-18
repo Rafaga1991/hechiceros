@@ -1,7 +1,6 @@
-<?php 
-    namespace core;
-    use function core\{traslate};
-?>
+<?php
+
+namespace core; ?>
 <div class="container-fluid px-4">
     <h1 class="mt-4">Lista de {!!name_type_list!!}</h1>
     <ol class="breadcrumb mb-4">
@@ -35,9 +34,9 @@
                                     <span class="badge bg-<?= $player->inClan ? 'success' : 'danger' ?>">
                                         <?= $player->inClan ? 'En el clan' : 'Fuera del clan' ?>
                                     </span>
-                                    <?php if($player->status != 'active'):?>
-                                        <span class="badge bg-primary">Lista de <?=traslate($player->status)?></span>
-                                    <?php endif?>
+                                    <?php if ($player->status != 'active') : ?>
+                                        <span class="badge bg-primary">Lista de <?= traslate($player->status) ?></span>
+                                    <?php endif ?>
                                 </div>
                             </div>
                         </div>

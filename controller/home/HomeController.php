@@ -2,9 +2,11 @@
 
 namespace controller\home;
 
+use api\clan\Clan;
 use core\{Controller,Functions,Session,Html,Route,Request};
 use model\{Activity, ListWar, Player, Donations, User};
 use api\client\Client;
+use api\player\Players;
 
 use function core\{view,alert, dd, isRol};
 
@@ -28,7 +30,7 @@ class HomeController extends Controller
     public function index()
     {
         $claninfo = Session::get('clan_info');
-        
+
         if(!isset($claninfo['reason'])){
             usort($claninfo['memberList'], function (array $arr1, array $arr2) {
                 return ($arr1['donations'] - $arr1['donationsReceived']) < ($arr2['donations'] - $arr2['donationsReceived']);
@@ -49,9 +51,12 @@ class HomeController extends Controller
                         break;
                     }
                 }
-                if (!$inClan) $player->inClan = 0;
+
+                if (!$inClan) {
+                    $player->inClan = 0;
+                }
             }
-    
+
             $donations = 0;
             $donationsReceived = 0;
             $idDonations = date('Y-m', time());
@@ -127,20 +132,25 @@ class HomeController extends Controller
             }
             // fin
 
+            $condition = ['inClan' => 1];
+            if(isRol()) $condition['inClan'] = [0,1];
+            $players = $this->player->where($condition)->get();
             Html::addVariables([
                 'body' => view(
                     'home/home',
                     [
                         'listCreates' => $listCreates,
                         'members' => $claninfo['memberList'],
-                        'players' => $this->player->where(['inClan' => 1])->get(),
+                        'players' => $players,
                         'max' => 1000*((int)date('d', time()))
                     ]
                 ),
-                'members' => count($claninfo['memberList']),
+                'members' => count($players),
+                'members_in_clan' => count($claninfo['memberList']),
                 'url_get_donations' => Route::get('get.char.area.donations'),
                 'url_get_performance' => Route::get('get.char.bar.performance'),
-                'url_get_participation' => Route::get('get.war.participation')
+                'url_get_participation' => Route::get('get.war.participation'),
+                'url_player_status_update' => Route::get('player.update.status')
             ]);
         }elseif($claninfo['reason'] == 'inMaintenance'){
             Html::addVariables([
@@ -151,6 +161,34 @@ class HomeController extends Controller
         }
 
         return $this->view;
+    }
+
+    public function updatePlayerStatus(){
+        $count = 0;
+        if(time() > (Session::get('__UPDATE_STATUS_PLAYER__') ?? 0)){
+            $players = $this->player->where(['inClan' => 1])->get();
+            foreach($players as $player){
+                $player_info = (new Players($player->id))->getPlayerInfo();
+                if(in_array($player->status, ['active', 'wait'])){
+                    if(in_array($player_info['warPreference'], ['out'])){
+                        $player->status = 'break';
+                        $count++;
+                    }
+                }elseif(in_array($player->status, ['break'])){
+                    if(in_array($player_info['warPreference'], ['in'])){
+                        $player->status = 'active';
+                        $count++;
+                    }
+                }
+            }
+            Session::set('__UPDATE_STATUS_PLAYER__', strtotime('+30 minute'));
+        }
+
+        return Request::response([
+            'status' => (($count > 0) ? 'update' : 'normal'), 
+            'update' => $count, 
+            'next_update' => Session::get('__UPDATE_STATUS_PLAYER__')
+        ]);
     }
 
     public function activity()
@@ -282,8 +320,7 @@ class HomeController extends Controller
 
         $data['max'] += 1000;
 
-        echo json_encode($data);
-        return;
+        return Request::response($data);
     }
 
     public function chartBarPerformance()
@@ -324,7 +361,7 @@ class HomeController extends Controller
             }
         }
         
-        exit(json_encode($data));
+        return Request::response($data);
     }
 
     public function chartBarAreaParticipation(){
@@ -373,6 +410,6 @@ class HomeController extends Controller
             $data['datasets'][0]['data'][] = $player['cant'];
         }
 
-        echo json_encode($data);
+        return Request::response($data);
     }
 }

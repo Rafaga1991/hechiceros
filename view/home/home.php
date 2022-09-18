@@ -96,7 +96,11 @@
     <div class="card mb-4">
         <div class="card-header">
             <i class="fas fa-table me-1"></i>
-            Miembros en el Clan ({!!members!!})
+            Miembros en el Clan ({!!members_in_clan!!})
+            <?php if(isRol()):?>
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Jugadores totales: <span class="badge bg-success">{!!members!!}</span>
+            <?php endif;?>
         </div>
         <div class="card-body">
             <table class="datatablesSimple">
@@ -154,30 +158,60 @@
     </div>
 </div>
 
+<div class="badge position-fixed text-white bg-dark opacity-75 fixed-bottom" id="verification">
+    <img src="<?=asset('image/gif/loading.gif')?>" width="30">
+    <span>Verificando Jugadores.</span>
+</div>
+
 <script>
+    function toJSON(str){
+        try {
+            return JSON.parse(str);
+        } catch (e) {
+            return null;
+        }
+    }
+
     window.onload = () => {
-        $.post('{!!url_get_donations!!}', (data) => {
-            try {
-                data = JSON.parse(data);
-                initCharArea('myAreaChart', data);
-            } catch (e) {}
+        $.post('{!!url_get_donations!!}', (request) => {
+            if(request = toJSON(request)) initCharArea('myAreaChart', request.data);
         });
 
-        $.post('{!!url_get_performance!!}', (data) => {
-            try {
-                // console.log(data);
-                data = JSON.parse(data);
-                initCharArea('myBarChart', data, 'bar');
-            } catch (e) {}
+        $.post('{!!url_get_performance!!}', (request) => {
+            if(request = toJSON(request)) initCharArea('myBarChart', request.data, 'bar');
         });
 
-        $.post('{!!url_get_participation!!}', (data) => {
-            try {
-                data = JSON.parse(data);
-                // console.log(data);
-                initCharArea('myCharAreaParticipation', data);
-            } catch (e) {}
+        $.post('{!!url_get_participation!!}', (request) => {
+            if(request = toJSON(request)) initCharArea('myCharAreaParticipation', request.data);
         });
 
+        $.post('{!!url_player_status_update!!}', (request) => {
+            if(request = toJSON(request)){
+                var message = 'No se encontraron cambios.';
+                var bgcolor = 'bg-primary';
+                var className = '';
+
+                if(request.data.status == 'update'){
+                    bgcolor = 'bg-success';
+                    message = `Se actualizó el estado de ${request.data.update} %player%.`;
+                    message = message.replace('%player%', ((request.data.update > 1) ? 'jugadores' : 'jugador'));
+                }
+
+                verification.classList.forEach((item)=>{
+                    if(item === 'bg-dark'){
+                        className += `${bgcolor} `;
+                    }else{
+                        className += `${item} `;
+                    }
+                });
+
+                verification.innerHTML = message;
+                verification.className = className;
+                
+                setTimeout(()=>{
+                    verification.hidden = true;
+                }, 5000);
+            }
+        });
     }
 </script>

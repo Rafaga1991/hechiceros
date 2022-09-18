@@ -1,30 +1,37 @@
-<?php 
-    namespace core;
-    use function core\{isRol,traslate};
-?>
+<?php
+
+namespace core; ?>
 <div class="container-fluid px-4">
     <h1 class="mt-4">Lista de {!!name_list!!}</h1>
     <ol class="breadcrumb mb-4">
-        <li class="breadcrumb-item active">Jugadores en {!!name_list!!} <span class="badge bg-primary"><?=count($players)?></span></li>
+        <li class="breadcrumb-item active">Jugadores en {!!name_list!!} <span class="badge bg-primary"><?= count($players) ?></span></li>
     </ol>
     {!!MESSAGE!!}
     <table class="datatablesSimple">
-        <?php if(isRol(Route::ROL_PLAYER)):?>
+        <?php if (isRol(Route::ROL_PLAYER)) : ?>
             <caption>
                 <div class="btn-group">
-                    <a href="<?=Route::get($namePathNew)?>" class="btn btn-outline-primary me-1">Agregar</a>
+                    <a href="<?= Route::get($namePathNew) ?>" class="btn btn-outline-primary me-1">Agregar</a>
+                    <?php if (count($players) > 0) : ?>
+                        <form action="<?= Route::get($namePathDestroy) ?>" method="post" class="me-1">
+                            <?php foreach ($players as $player) : ?>
+                                <input type="hidden" name="id[]" value="<?= $player->id ?>">
+                            <?php endforeach; ?>
+                            <button type="submit" class="btn btn-outline-danger">Borrar Todo</button>
+                        </form>
+                    <?php endif; ?>
                     <form action="<?= Route::get($namePathDestroy) ?>" method="post" id="form" hidden>
                         <button type="submit" class="btn btn-outline-danger">Borrar (<span class="fw-bold" id="cant_selected"></span>)</button>
                     </form>
                 </div>
             </caption>
-        <?php endif;?>
+        <?php endif; ?>
         <thead>
             <tr>
                 <th>Jugador</th>
-                <?php if(isRol(Route::ROL_PLAYER)):?>
+                <?php if (isRol(Route::ROL_PLAYER)) : ?>
                     <th>Acci&oacute;n</th>
-                <?php endif;?>
+                <?php endif; ?>
             </tr>
         </thead>
         <tbody>
@@ -33,7 +40,7 @@
                     <td>
                         <div class="row">
                             <div class="col-1">
-                                <input type="checkbox" onclick="onClickInput(this)" value="<?=$player->id?>" />
+                                <input type="checkbox" onclick="onClickInput(this)" value="<?= $player->id ?>" />
                                 <img src="<?= $player->image ?>" width="30" alt="">
                             </div>
                             <div class="col">
@@ -47,14 +54,14 @@
                             </div>
                         </div>
                     </td>
-                    <?php if(isRol(Route::ROL_PLAYER)):?>
+                    <?php if (isRol(Route::ROL_PLAYER)) : ?>
                         <td>
                             <form action="<?= Route::get($namePathDestroy) ?>" method="post">
-                                <input type="hidden" name="id" value="<?=$player->id?>">
+                                <input type="hidden" name="id" value="<?= $player->id ?>">
                                 <button type="submit" class="btn btn-outline-danger">Borrar</button>
                             </form>
                         </td>
-                    <?php endif;?>
+                    <?php endif; ?>
                 </tr>
             <?php endforeach; ?>
         </tbody>
@@ -63,16 +70,17 @@
 
 <script>
     let selected = 0;
-    function onClickInput(element){
+
+    function onClickInput(element) {
         var input = document.createElement('input');
         input.type = 'hidden';
         input.value = element.value;
         input.name = 'id[]';
 
-        if(element.checked){
+        if (element.checked) {
             selected++;
             form.appendChild(input);
-        }else{
+        } else {
             selected--;
             form.querySelector(`input[value="${element.value}"]`).remove();
         }

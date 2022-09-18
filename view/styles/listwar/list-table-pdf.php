@@ -12,7 +12,6 @@
     }
 ?>
 
-<div style="page-break-after: always;"></div>
 <div class="text-dark"><hr></div>
 <span class="fw-bold" style="font-size: 20px;">
     <?=$listname ?? '---'?> (<span class="text-success"><?=$members?></span>)

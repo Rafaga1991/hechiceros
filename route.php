@@ -21,6 +21,7 @@ $route->set('/chart-area-donations', [HomeController::class, 'chartAreaDonations
 $route->set('/chart-bar-perfomance', [HomeController::class, 'chartBarPerformance'])->name('get.char.bar.performance')->auth()->save();
 $route->set('/chart-bar-participation', [HomeController::class, 'chartBarAreaParticipation'])->name('get.war.participation')->auth()->save();
 $route->set('/reload', [HomeController::class, 'reload'])->name('home.reload')->auth()->save();
+$route->set('/player-status/update', [HomeController::class, 'updatePlayerStatus'])->name('player.update.status')->auth()->save();
 
 $route->set('/currentwar', [CurrentWarController::class, 'index'])->name('currentwar.index')->auth()->save();
 $route->set('/cw-reload', [CurrentWarController::class, 'reload'])->name('currentwar.reload')->auth()->save();
