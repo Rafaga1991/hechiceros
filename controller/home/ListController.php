@@ -4,7 +4,7 @@ namespace controller\home;
 
 use api\player\Players;
 use core\{Controller,Html,Session,Route,Request, Message, function view, function asset, function createImage, function strRepeat, function traslate};
-use model\{Activity,Player,ListWar};
+use model\{Activity,Player,ListWar, User};
 use controller\home\CurrentWarController;
 
 use function core\isRol;
@@ -28,18 +28,14 @@ class ListController extends Controller
         $listWar = [];
 
         foreach ($lists as $list) {
-            $listWar[] = array_merge(
-                [
-                    'player' => json_decode($list->list)
-                ],
-                [
+            $listWar[] = [
                     'date' => $list->date,
                     'id' => $list->id,
                     'description' => $list->description,
                     'members' => $list->members,
-                    'status' => $list->status
-                ]
-            );
+                    'status' => $list->status,
+                    'username' => (new User)->find($list->user_id)->username ?? ''
+                ];
         }
 
         Html::addVariable('body', view('home/list/war', ['listwar' => $listWar]));

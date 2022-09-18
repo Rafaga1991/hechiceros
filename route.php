@@ -20,6 +20,7 @@ $route->set('/setting-update', [HomeController::class, 'update'])->name('home.se
 $route->set('/chart-area-donations', [HomeController::class, 'chartAreaDonations'])->name('get.char.area.donations')->auth()->save();
 $route->set('/chart-bar-perfomance', [HomeController::class, 'chartBarPerformance'])->name('get.char.bar.performance')->auth()->save();
 $route->set('/chart-bar-participation', [HomeController::class, 'chartBarAreaParticipation'])->name('get.war.participation')->auth()->save();
+$route->set('/chart-bar-players', [HomeController::class, 'chartBarJoinMonthPlayer'])->name('get.join.player')->auth()->save();
 $route->set('/reload', [HomeController::class, 'reload'])->name('home.reload')->auth()->save();
 $route->set('/player-status/update', [HomeController::class, 'updatePlayerStatus'])->name('player.update.status')->auth()->save();
 

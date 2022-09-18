@@ -3,7 +3,7 @@
 namespace controller\home;
 
 use api\clan\Clan;
-use core\{Controller,Functions,Session,Html,Route,Request};
+use core\{Controller, Database, Functions,Session,Html,Route,Request};
 use model\{Activity, ListWar, Player, Donations, User};
 use api\client\Client;
 use api\player\Players;
@@ -150,7 +150,8 @@ class HomeController extends Controller
                 'url_get_donations' => Route::get('get.char.area.donations'),
                 'url_get_performance' => Route::get('get.char.bar.performance'),
                 'url_get_participation' => Route::get('get.war.participation'),
-                'url_player_status_update' => Route::get('player.update.status')
+                'url_player_status_update' => Route::get('player.update.status'),
+                'url_player_join_month' => Route::get('get.join.player')
             ]);
         }elseif($claninfo['reason'] == 'inMaintenance'){
             Html::addVariables([
@@ -172,11 +173,6 @@ class HomeController extends Controller
                 if(in_array($player->status, ['active', 'wait'])){
                     if(in_array($player_info['warPreference'], ['out'])){
                         $player->status = 'break';
-                        $count++;
-                    }
-                }elseif(in_array($player->status, ['break'])){
-                    if(in_array($player_info['warPreference'], ['in'])){
-                        $player->status = 'active';
                         $count++;
                     }
                 }
@@ -364,6 +360,64 @@ class HomeController extends Controller
         return Request::response($data);
     }
 
+    private function getMonth(int $month){
+        if($month > 12) return '';
+        $month = str_pad($month, 2, '0', STR_PAD_LEFT);
+        $year = date('Y');
+        return date('M', strtotime("$year-$month-01"));
+    }
+
+    public function chartBarJoinMonthPlayer()
+    {
+        $datasets = [
+            [
+                'label' => 'Jugadores',
+                'lineTension' => 0.3,
+                'backgroundColor' => "rgba(2,117,216,0.2)",
+                'borderColor' => "rgba(2,117,216,1)",
+                'pointRadius' => 5,
+                'pointBackgroundColor' => "rgba(2,117,216,1)",
+                'pointBorderColor' => "rgba(255,255,255,0.8)",
+                'pointHoverRadius' => 5,
+                'pointHoverBackgroundColor' => "rgba(2,117,216,1)",
+                'pointHitRadius' => 50,
+                'pointBorderWidth' => 2,
+                'data' => []
+            ]
+        ];
+
+        $data = [
+            'label' => [],
+            'datasets' => $datasets,
+            'max' => 0
+        ];
+
+        $months = range(1, 12);
+        $players = (new Player)->where(['inClan' => 0])->get();
+        $data_player = [];
+        foreach($players as $player){
+            $year = date('Y', strtotime($player->date));
+            if($year == date('Y')){
+                $data_player[date('m', strtotime($player->date))][] = 0;
+            }
+        }
+
+        foreach($months as $month){
+            $max = 0;
+            if(isset($data_player[$val = str_pad($month, 2, '0', STR_PAD_LEFT)])){
+                $data['datasets'][0]['data'][] = $max = count($data_player[$val]);
+            }else{
+                $data['datasets'][0]['data'][] = 0;
+            }
+            if($max > $data['max']) $data['max'] = $max;
+            $data['label'][] = $this->getMonth($month);
+        }
+
+        $data['max'] = ($data['max'] * 2) - ($data['max'] / 2);
+        
+        return Request::response($data);
+    }
+
     public function chartBarAreaParticipation(){
         $datasets = [
             [
@@ -385,7 +439,7 @@ class HomeController extends Controller
         $data = [
             'label' => [],
             'datasets' => $datasets,
-            'max' => 0
+            'max' => 10
         ];
 
         $memberList = Session::get('clan_info')['memberList'];

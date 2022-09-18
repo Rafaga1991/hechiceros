@@ -37,13 +37,28 @@
         <?php endfor; ?>
     </div>
 
-    <div class="card mb-4">
-        <div class="card-header">
-            <i class="fas fa-table me-1"></i>
-            <b>TOP 10: Participaciones en Guerra</b>
+    <div class="row">
+        <div class="col-xl-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-chart-area me-1"></i>
+                    TOP 10: Participaciones en Guerra
+                </div>
+                <div class="card-body">
+                    <canvas id="myCharAreaParticipation" width="100%" height="40"></canvas>
+                </div>
+            </div>
         </div>
-        <div class="card-body">
-            <canvas id="myCharAreaParticipation" width="100%" height="40"></canvas>
+        <div class="col-xl-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-chart-bar me-1"></i>
+                    Entrada De Jugadores Mensuales
+                </div>
+                <div class="card-body">
+                    <canvas id="myBarChartPlayers" width="100%" height="40"></canvas>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -179,6 +194,10 @@
 
         $.post('{!!url_get_performance!!}', (request) => {
             if(request = toJSON(request)) initCharArea('myBarChart', request.data, 'bar');
+        });
+        
+        $.post('{!!url_player_join_month!!}', (request) => {
+            if(request = toJSON(request)) initCharArea('myBarChartPlayers', request.data, 'bar');
         });
 
         $.post('{!!url_get_participation!!}', (request) => {

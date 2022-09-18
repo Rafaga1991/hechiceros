@@ -32,7 +32,7 @@ use function core\{isRol};
         </div>
     </div>
 
-    <table class="datatablesSimple">
+    <table class="datatablesSimple table-striped">
         <?php if (isRol(Route::ROL_PLAYER)) : ?>
             <caption>
                 <div class="btn-group">
@@ -43,25 +43,36 @@ use function core\{isRol};
         <?php endif; ?>
         <thead>
             <tr>
-                <th>Lista</th>
-                <th>Miembros</th>
+                <th>#</th>
+                <th>Documento</th>
+                <th>Jugadores</th>
+                <th>Acci&oacute;n</th>
+                <th>Creada Por...</th>
                 <th>Descripci&oacute;n</th>
             </tr>
         </thead>
         <tbody>
             <?php foreach ($listwar as $key => $list) : ?>
                 <tr>
+                    <td><span class="badge bg-<?= (in_array($list['status'], ['delete']) ? 'danger' : 'primary') ?>"><?= $key + 1 ?></span></td>
                     <td>
-                        <span class="badge bg-danger" title="ver lista de guerra">#<?= $key + 1 ?>.</span> <a href="<?= Route::get('list.war.show') ?>/<?= $list['id'] ?>" class="badge bg-primary" target="_blank"><?= $list['date'] ?></a>
-                        <?php if (isRol(Route::ROL_PLAYER)) : ?>
-                            <?php if (!in_array($list['status'], ['delete'])) : ?>
-                                <a href="<?= Route::get('list.war.destroy') ?>/<?= $list['id'] ?>" class="fs-5 text-danger" title="Borrar Lista de Guerra"><i class="far fa-trash-alt px-1"></i></a>
-                            <?php endif; ?>
-                            <a href="<?= Route::get('list.war.update') ?>/<?= $list['id'] ?>" class="fs-5 text-primary" title="Actualizar Lista de Guerra"><i class="far fa-edit px-1"></i></a>
-                        <?php endif; ?>
-                        <a href="#" onclick="downloadPDF(this)" data-id='<?= $list['id'] ?>' title="Descargar Lista de Guerra"><i class="fas fa-download fs-5 px-1"></i></a>
+                        <a href="<?= Route::get('list.war.show') ?>/<?= $list['id'] ?>" class="badge bg-primary" target="_blank"><?= $list['date'] ?></a>
                     </td>
                     <td class="text-center"><span class="badge bg-primary"><?= $list['members'] ?></span></td>
+                    <td>
+                        <span class="btn-group">
+                            <?php if (isRol(Route::ROL_PLAYER)) : ?>
+                                <?php if (!in_array($list['status'], ['delete'])) : ?>
+                                    <a href="<?= Route::get('list.war.destroy') ?>/<?= $list['id'] ?>" class="fs-5 btn btn-outline-danger" title="Borrar Lista de Guerra"><i class="far fa-trash-alt px-1"></i></a>
+                                <?php endif; ?>
+                                <a href="<?= Route::get('list.war.update') ?>/<?= $list['id'] ?>" class="fs-5 btn btn-outline-primary" title="Actualizar Lista de Guerra"><i class="far fa-edit px-1"></i></a>
+                            <?php endif; ?>
+                            <a href="#" onclick="downloadPDF(this)" data-id='<?= $list['id'] ?>' class="btn btn-outline-success" title="Descargar Lista de Guerra"><i class="fas fa-download fs-5 px-1"></i></a>
+                        </span>
+                    </td>
+                    <td>
+                        <span class="w-100 badge bg-success py-2"><?=$list['username']?></span>
+                    </td>
                     <td><?= $list['description'] ?></td>
                 </tr>
             <?php endforeach; ?>
