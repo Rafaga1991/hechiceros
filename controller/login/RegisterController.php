@@ -7,17 +7,15 @@ use core\Html;
 use core\Message;
 use core\Request;
 use core\Route;
-use Error;
+use core\Session;
 use model\Activity;
 use model\User;
 
-use function core\alert;
-use function core\dd;
-use function core\reload;
 use function core\view;
 
 class RegisterController extends Controller {
     public function index(){
+        Html::addVariable('description', Session::get('clan_info')['description'] ?? '-------');
         return view('login/register');
     }
 
@@ -32,7 +30,11 @@ class RegisterController extends Controller {
                 'password' => [
                     'equal' => 'rpassword',
                     'length:min' => 6
-                ]
+                ],
+                'email' => [
+                    'empty' => false,
+                    'length:min' => 5
+                ],
             ]);
             if($validations['validation']){
                 if((new User)->where(['username' => $request->username])->get()){
@@ -46,6 +48,8 @@ class RegisterController extends Controller {
                     (new User)->insert([
                         'username' => $request->username,
                         'password' => md5($request->password),
+                        'clan_id' => $request->tag,
+                        'email' => $request->email
                     ]);
 
                     (new Activity)->insert([

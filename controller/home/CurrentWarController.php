@@ -5,6 +5,7 @@ namespace controller\home;
 use core\{Controller,Html,Session,Route};
 use model\War;
 
+use function core\dd;
 use function core\view;
 
 class CurrentWarController extends Controller
@@ -19,11 +20,12 @@ class CurrentWarController extends Controller
         $data = [];
         if ($currentwar = Session::get('clan_current_war')) {
             if (!isset($currentwar['reason'])) {
-                // $currentwar = json_decode(file_get_contents('currentwar.json'), true);
                 $id = substr(md5($currentwar['endTime']), 0, 20);
-                // vdump(['id' => $id, 'time' => $currentwar['endTime']]);
-                if(($data = (new War())->find($id)) && $data->war != json_encode($currentwar)) $data->war = json_encode($currentwar);
-                elseif(!$data) (new War())->insert(['id' => $id, 'war' => json_encode($currentwar)]);
+                if(($data = ((new War())->where(['id' => $id, 'clan_id' => Session::get('clan_info')['tag']])->get()[0] ?? null)) && $data->war != json_encode($currentwar)){
+                    $data->war = json_encode($currentwar);
+                } elseif(!$data){
+                    (new War())->insert(['id' => $id, 'war' => json_encode($currentwar), 'clan_id' => Session::get('clan_info')['tag']]);
+                } 
                 $data = [
                     'war' =>view('home/currentwar/currentwar', ['currentWar' => $currentwar]),
                     'warname' => 'Guerra'
@@ -62,8 +64,18 @@ class CurrentWarController extends Controller
 
     public function perfomance($data){
         if(!is_array($data)) Route::reload('currentwar.index');
+        $currentwar = Session::get('clan_current_war');
         Session::set('perfomance', $data);
-        return view('home/currentwar/perfomance', ['members' => $data, 'cant' => 1, 'players' => 0, 'stars' => 0]);
+        return view('home/currentwar/perfomance', [
+            'members' => $data, 
+            'cant' => 0, 
+            'players' => 0, 
+            'stars' => 0, 
+            'endWar' => time() > (strtotime(substr($currentwar['endTime'], 0, strpos($currentwar['endTime'], '.')))-3600),
+            'currentwar' => $currentwar,
+            'isVictory' => (($currentwar['clan']['stars'] > $currentwar['opponent']['stars']) || ($currentwar['clan']['destructionPercentage'] > $currentwar['opponent']['destructionPercentage'] && $currentwar['clan']['stars'] > $currentwar['opponent']['stars'])),
+            'isTie' => (($currentwar['clan']['stars'] == $currentwar['opponent']['stars']) && ($currentwar['clan']['destructionPercentage'] == $currentwar['opponent']['destructionPercentage']))
+        ]);
     }
 
     public function reload():void { (new HomeController('currentwar.index'))->reload(); }

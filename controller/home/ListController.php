@@ -7,15 +7,18 @@ use core\{Controller,Html,Session,Route,Request, Message, function view, functio
 use model\{Activity,Player,ListWar, User};
 use controller\home\CurrentWarController;
 
+use function core\dd;
 use function core\isRol;
 
 class ListController extends Controller
 {
     private $view = null;
+    private $clanInfo;
 
     public function __construct()
     {
         $this->view = view('home/index');
+        $this->clanInfo = Session::get('clan_info');
     }
 
     public function index() { }
@@ -24,18 +27,18 @@ class ListController extends Controller
     {
         $status = ['created','generated'];
         if(isRol()) $status[] = 'delete';
-        $lists = (new ListWar())->where(['status' => $status])->get();
+        $lists = (new ListWar())->where(['status' => $status, 'clan_id' => $this->clanInfo['tag']])->get();
         $listWar = [];
 
         foreach ($lists as $list) {
             $listWar[] = [
-                    'date' => $list->date,
-                    'id' => $list->id,
-                    'description' => $list->description,
-                    'members' => $list->members,
-                    'status' => $list->status,
-                    'username' => (new User)->find($list->user_id)->username ?? ''
-                ];
+                'date' => $list->date,
+                'id' => $list->id,
+                'description' => $list->description,
+                'members' => $list->members,
+                'status' => $list->status,
+                'username' => (new User)->find($list->user_id)->username ?? ''
+            ];
         }
 
         Html::addVariable('body', view('home/list/war', ['listwar' => $listWar]));
@@ -85,7 +88,7 @@ class ListController extends Controller
             }
         }
 
-        if($listwar = (new ListWar())->where(['status' => $status])->find($id)){
+        if($listwar = (new ListWar())->where(['status' => $status, 'clan_id' => $this->clanInfo['tag']])->find($id)){
             $players = json_decode($listwar->list, false);
             foreach($players as &$player){
                 $player = (new Player())->find($player);
@@ -119,7 +122,6 @@ class ListController extends Controller
                     }
                     $top3 = view('styles/listwar/top3-pdf', ['top' => $top3, 'count' => count($top3)]);
                 }
-
                 return $top3;
             })();
 
@@ -133,7 +135,7 @@ class ListController extends Controller
             );
 
             $list_wait = $this->generateListDesing(
-                (new Player())->where(['status' => 'wait', 'inClan' => 1])->get(),
+                (new Player())->where(['status' => 'wait', 'inClan' => 1, 'clan_id' => $this->clanInfo['tag']])->get(),
                 'Lista de Espera',
                 [
                     'isTop3' => true
@@ -141,7 +143,7 @@ class ListController extends Controller
             );
             
             $list_break = $this->generateListDesing(
-                (new Player())->where(['status' => 'break', 'inClan' => 1])->get(),
+                (new Player())->where(['status' => 'break', 'inClan' => 1, 'clan_id' => $this->clanInfo['tag']])->get(),
                 'Lista de Descanso',
                 [
                     'isTop3' => true
@@ -150,7 +152,7 @@ class ListController extends Controller
 
             $clanInfo = Session::get('clan_info');
 
-            $players = (new Player)->where(['inClan' => 1])->get();
+            $players = (new Player)->where(['inClan' => 1, 'clan_id' => $this->clanInfo['tag']])->get();
             $king_war = null;
             $_players = [];
             foreach($players as $player){
@@ -228,10 +230,10 @@ class ListController extends Controller
     {
         $status = ['created','generated'];
         if(isRol()) $status[] = 'delete';
-        if($listwar = (new ListWar())->where(['status' => $status])->find($id)){
+        if($listwar = (new ListWar())->where(['status' => $status, 'clan_id' => $this->clanInfo['tag']])->find($id)){
             $players = json_decode($listwar->list, false);
             foreach($players as &$player){
-                $player = (new Player())->find($player);
+                $player = (new Player())->where(['clan_id' => $this->clanInfo['tag']])->find($player);
                 // if($player->status == 'active') $player->status = 'war';
             }
             
@@ -242,17 +244,17 @@ class ListController extends Controller
                     'typeList' => 'Guerra'
                 ]),
                 'members_wait' => view('home/list/list-table', [
-                    'players' => (new Player())->where(['status' => 'wait', 'inClan' => 1])->get(),
+                    'players' => (new Player())->where(['status' => 'wait', 'inClan' => 1, 'clan_id' => $this->clanInfo['tag']])->get(),
                     'typeList' => 'Espera'
                 ]),
                 'members_break' => view('home/list/list-table', [
-                    'players' => (new Player())->where(['status' => 'break', 'inClan' => 1])->get(),
+                    'players' => (new Player())->where(['status' => 'break', 'inClan' => 1, 'clan_id' => $this->clanInfo['tag']])->get(),
                     'typeList' => 'Descanso'
                 ]),
                 '_HOST_' => HOST,
                 '_DATE_' => date('d M Y', strtotime($listwar->date)),
-                '__PROYECT_NAME__' => PROYECT_NAME,
-                '_ICON_URL' => Session::get('clan_info')['badgeUrls']['small']
+                '__PROYECT_NAME__' => $this->clanInfo['name'],
+                '_ICON_URL' => $this->clanInfo['badgeUrls']['small']
             ]);
 
             return view('home/list/war-pdf', [
@@ -266,12 +268,12 @@ class ListController extends Controller
 
     public function newListWar()
     {
-        $players = (new Player())->where(['inClan' => 1, 'status' => ['active', 'wait', 'war']])->get();
+        $players = (new Player())->where(['inClan' => 1, 'status' => ['active', 'wait', 'war'], 'clan_id' => $this->clanInfo['tag']])->get();
         Html::addScript(['src' => asset('js/listwar.js')]);
         Html::addVariables([
             'body' => view('home/list/war-new', ['players' => $players]),
             'url_form' => Route::get('list.war.create'),
-            'cant_members_wait' => (new Player())->where(['status' => 'wait', 'inClan' => 1])->count()
+            'cant_members_wait' => (new Player())->where(['status' => 'wait', 'inClan' => 1,  'clan_id' => $this->clanInfo['tag']])->count()
         ]);
         
         return $this->view;
@@ -282,14 +284,15 @@ class ListController extends Controller
         if ($request->tokenIsValid()) {
             $validation = $request->validate(['player' => ['empty' => false]]);
             if ($validation['validation']) {
-                (new Player())->where(['status' => 'war'])->update(['status' => 'active']);
-                foreach($request->player as $tag) (new Player())->find($tag)->status = 'war';
+                (new Player())->where(['status' => 'war', 'clan_id' => $this->clanInfo['tag']])->update(['status' => 'active']);
+                foreach($request->player as $tag) (new Player())->where(['clan_id' => $this->clanInfo['tag']])->find($tag)->status = 'war';
 
                 (new ListWar())->insert([
                     'user_id' => Session::getUser('id'),
                     'list' => json_encode($request->player),
                     'description' => $request->description,
-                    'members' => count($request->player)
+                    'members' => count($request->player),
+                    'clan_id' => $this->clanInfo['tag']
                 ]);
 
                 Message::add('Lista de Guerra Creada con Exito!', 'success');
@@ -310,7 +313,7 @@ class ListController extends Controller
         // if($listWar = (new ListWar())->where(['id' => $id])->get()){
         //     $listWar = json_decode($listWar[0]->list);
         // }
-        (new ListWar())->where(['id' => $id])->update(['status' => 'delete', 'delete_at' => time()]);
+        (new ListWar())->where(['id' => $id, 'clan_id' => $this->clanInfo['tag']])->update(['status' => 'delete', 'delete_at' => time()]);
         Message::add('Lista de guerra eliminada con exito!', 'success');
         (new Activity())->insert([
             'title' => 'Lista de guerra eliminada.',
@@ -323,8 +326,8 @@ class ListController extends Controller
     {
         $status = ['created','generated'];
         if(isRol()) $status[] = 'delete';
-        if ($list = (new ListWar())->where(['status' => $status])->find($id)) {
-            $players = (new Player())->where(['inClan' => 1, 'status' => ['active', 'wait', 'war']])->get();
+        if ($list = (new ListWar())->where(['status' => $status, 'clan_id' => $this->clanInfo['tag']])->find($id)) {
+            $players = (new Player())->where(['inClan' => 1, 'status' => ['active', 'wait', 'war'], 'clan_id' => $this->clanInfo['tag']])->get();
             Html::addScript(['src' => asset('js/listwar.js')]);
             Html::addVariable(
                 'body',
@@ -355,7 +358,7 @@ class ListController extends Controller
                 'listId' => ['empty' => false]
             ]);
             if ($validation['validation']) {
-                $data = (new ListWar())->find($request->listId);
+                $data = (new ListWar())->where(['clan_id' => $this->clanInfo['tag']])->find($request->listId);
                 $last_list = json_decode($data->list, true);
                 $new_list = $request->player;
 
@@ -366,7 +369,7 @@ class ListController extends Controller
 
                 foreach($list as $status => $players){ // actualizando estado de jugadores
                     foreach($players as $player_id){
-                        if($player = (new Player)->find($player_id)){
+                        if($player = (new Player)->where(['clan_id' => $this->clanInfo['tag']])->find($player_id)){
                             if($player->status != $status) $player->status = $status;
                         }
                     }
@@ -395,7 +398,7 @@ class ListController extends Controller
 
     public function listBreak()
     {
-        $conditions = ['status' => 'break', 'inClan' => 1];
+        $conditions = ['status' => 'break', 'inClan' => 1, 'clan_id' => $this->clanInfo['tag']];
         if(isRol()) unset($conditions['inClan']);
         Html::addVariables([
             'body' => view(
@@ -416,7 +419,7 @@ class ListController extends Controller
         Html::addScript(['src' => asset('js/listwar.js')]);
         Html::addVariables([
             'body' => view('home/list/list-new', [
-                'players' => (new Player())->where(['inClan' => 1,'status' => ['active', 'wait', 'war']])->get(),
+                'players' => (new Player())->where(['inClan' => 1, 'status' => ['active', 'wait', 'war'], 'clan_id' => $this->clanInfo['tag']])->get(),
                 'namePath' => 'list.break',
                 'namePathChange' => 'list.break.change'
             ]),
@@ -434,25 +437,25 @@ class ListController extends Controller
                 ]
             ]);
             if ($validation['validation']) {
-                foreach ($request->player as $id) (new Player())->where(['id' => $id])->update(['status' => 'break']);
+                foreach ($request->player as $id) (new Player())->where(['id' => $id, 'clan_id' => $this->clanInfo['tag']])->update(['status' => 'break']);
                 Message::add('Miembros agregados con exito!', 'success');
                 (new Activity())->insert([
                     'title' => 'Nuevo miembro',
                     'description' => Session::getUser('username') . ' agrego ' . count($request->player) . ' miembros a las lista de descanso.'
                 ]);
             } else {
-                Message::add($validation['error']);
+                Message::multiAdd($validation['error']);
             }
         }
         Route::reload('list.break');
-        return;
     }
 
     public function listBreakDestroy(Request $request)
     {
         if ($request->tokenIsValid()) {
             (new Player())->where([
-                'id' => $request->id
+                'id' => $request->id,
+                'clan_id' => $this->clanInfo['tag']
             ])->update(['status' => 'active']);
             Message::add('Lista de Descanso Actualizada con Exito!', 'success');
             (new Activity())->insert([
@@ -467,7 +470,7 @@ class ListController extends Controller
 
     public function listWait()
     {
-        $conditions = ['status' => 'wait', 'inClan' => 1];
+        $conditions = ['status' => 'wait', 'inClan' => 1, 'clan_id' => $this->clanInfo['tag']];
         if(isRol()) unset($conditions['inClan']);
         Html::addVariables([
             'body' => view(
@@ -489,7 +492,7 @@ class ListController extends Controller
         Html::addScript(['src' => asset('js/listwar.js')]);
         Html::addVariables([
             'body' => view('home/list/list-new', [
-                'players' => (new Player())->where(['inClan' => 1,'status' => ['active', 'break', 'war']])->get(),
+                'players' => (new Player())->where(['inClan' => 1,'status' => ['active', 'break', 'war'], 'clan_id' => $this->clanInfo['tag']])->get(),
                 'namePath' => 'list.wait',
                 'namePathChange' => 'list.wait.change'
             ]),
@@ -507,7 +510,7 @@ class ListController extends Controller
                 ]
             ]);
             if ($validation['validation']) {
-                foreach ($request->player as $id) (new Player())->where(['id' => $id])->update(['status' => 'wait']);
+                foreach ($request->player as $id) (new Player())->where(['id' => $id, 'clan_id' => $this->clanInfo['tag']])->update(['status' => 'wait']);
                 Message::add('Miembros agregados con exito!', 'success');
                 (new Activity())->insert([
                     'title' => 'Nuevo miembro',
@@ -525,7 +528,8 @@ class ListController extends Controller
     {
         if ($request->tokenIsValid()) {
             (new Player())->where([
-                'id' => $request->id
+                'id' => $request->id,
+                'clan_id' => $this->clanInfo['tag']
             ])->update(['status' => 'active']);
             Message::add('Lista de Espera Actualizada con Exito!', 'success');
             (new Activity())->insert([
@@ -540,10 +544,10 @@ class ListController extends Controller
 
     public function listWarGenerate($players=0){
         (new CurrentWarController())->index();// cargando desempeño
-        $Players = (new Player)->where(['inClan' => 1, 'status' => 'active'])->get(['id','war_count']);
-        $listWait = (new Player)->where(['inClan' => 1, 'status' => 'wait'])->get();
+        $Players = (new Player)->where(['inClan' => 1, 'status' => 'active', 'clan_id' => $this->clanInfo['tag']])->get(['id','war_count']);
+        $listWait = (new Player)->where(['inClan' => 1, 'status' => 'wait', 'clan_id' => $this->clanInfo['tag']])->get();
         $data = $listWar = [];
-        $lists = (new ListWar)->get(['date']);
+        $lists = (new ListWar)->where(['clan_id' => $this->clanInfo['tag']])->get(['date']);
         $exists = false;
         $date = '';
         foreach($lists as $list){
@@ -607,15 +611,16 @@ class ListController extends Controller
             Message::add("Solo hay disponible <b>" . count($listWar) . "/$players</b> jugadores.");
             Message::add("<b>RECOMENDACION:</b> agrega más jugadores a la lista de espera o sacalos de la lista de descanso.");
         }else{
-            (new Player())->where(['status' => 'war'])->update(['status' => 'active']);
-            foreach($listWar as $tag) (new Player())->find($tag)->status = 'war';
+            (new Player())->where(['status' => 'war', 'clan_id' => $this->clanInfo['tag']])->update(['status' => 'active']);
+            foreach($listWar as $tag) (new Player())->where(['clan_id' => $this->clanInfo['tag']])->find($tag)->status = 'war';
 
             (new ListWar())->insert([
                 'user_id' => Session::getUser('id'),
                 'list' => json_encode($listWar),
                 'description' => 'Lista de guerra generada por ' . Session::getUser('username') . '.',
                 'members' => $players,
-                'status' => 'generated'
+                'status' => 'generated',
+                'clan_id' => $this->clanInfo['tag']
             ]);
 
             Message::add('Lista de Guerra Creada con Exito!', 'success');

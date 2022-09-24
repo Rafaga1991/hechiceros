@@ -17,6 +17,7 @@ class HomeController extends Controller
     private $player = null;
     private $donations = null;
     private $redirect;
+    private $claninfo;
 
     public function __construct(string $redirect = 'home.index')
     {
@@ -25,29 +26,28 @@ class HomeController extends Controller
         $this->player = new Player();
         $this->donations = new Donations();
         $this->redirect = $redirect;
+        $this->claninfo = Session::get('clan_info');
     }
 
     public function index()
     {
-        $claninfo = Session::get('clan_info');
 
-        if(!isset($claninfo['reason'])){
-            usort($claninfo['memberList'], function (array $arr1, array $arr2) {
+        if(!isset($this->claninfo['reason'])){
+            usort($this->claninfo['memberList'], function (array $arr1, array $arr2) {
                 return ($arr1['donations'] - $arr1['donationsReceived']) < ($arr2['donations'] - $arr2['donationsReceived']);
             });
             
-            $players = $this->player->where(['inClan' => 1])->get();
-
+            $players = $this->player->where(['inClan' => 1, 'clan_id' => $this->claninfo['tag']])->get();
             foreach ($players as $player) {
                 $inClan = false;
-                foreach ($claninfo['memberList'] as $key => $member) {
-                    if ($member['tag'] == $player->id) {
+                foreach ($this->claninfo['memberList'] as $key => $member) {
+                    if ($member['tag'] == $player->id && $this->claninfo['tag'] == $player->clan_id) {
                         if (!$player->inClan) {
                             $player->inClan = 1;
                             $player->cant++;
                         }
                         $inClan = true;
-                        $claninfo['memberList'][$key]['name'] = htmlentities($member['name']);
+                        $this->claninfo['memberList'][$key]['name'] = htmlentities($member['name']);
                         break;
                     }
                 }
@@ -56,23 +56,31 @@ class HomeController extends Controller
                     $player->inClan = 0;
                 }
             }
-
+            
             $donations = 0;
             $donationsReceived = 0;
             $idDonations = date('Y-m', time());
-            $lists_war = (new ListWar)->get(['list', 'date', 'delete_at']);
+            $lists_war = (new ListWar)->where(['clan_id' => $this->claninfo['tag']])->get(['list', 'date', 'delete_at']);
             // cargando jugadores
-            foreach ($claninfo['memberList'] as $member) {
+            foreach ($this->claninfo['memberList'] as $member) {
                 $image = $member['league']['iconUrls']['medium'] ?? $member['league']['iconUrls']['tiny'] ?? $member['league']['iconUrls']['small'] ?? '';
-                if (!$player = (new Player)->find($member['tag'])) {
+                
+                if (!($player = (new Player)->find($member['tag']))) {
                     (new Player)->insert([
                         'id' => $member['tag'],
                         'name' => $member['name'],
                         'role' => $member['role'],
                         'image' => $image,
                         'donations' => $member['donations'],
-                        'donationsReceived' => $member['donationsReceived']
+                        'donationsReceived' => $member['donationsReceived'],
+                        'clan_id' => $this->claninfo['tag']
                     ]);
+                }elseif($player->clan_id != $this->claninfo['tag']){
+                    (new Activity)->insert([
+                        'title' => 'Cambio de clan por jugador',
+                        'description' => "El jugador {$player->name}($player->id) se encuentra en el clan {$this->claninfo['name']}($this->claninfo['tag'])"
+                    ]);
+                    $player->clan_id = $this->claninfo['tag'];
                 } else { // actualizando información de jugador
                     if ($player->name != $member['name']) $player->name = $member['name'];
                     if ($player->role != $member['role']) $player->role = $member['role'];
@@ -101,7 +109,8 @@ class HomeController extends Controller
                 // fin
             }
     
-            if ($donation = $this->donations->find($idDonations)) {
+            if ($donation = $this->donations->where(['id' => $idDonations, 'clan_id' => $this->claninfo['tag']])->get()) {
+                $donation = $donation[0];
                 if ($donation->donations < $donations || $donationsReceived > $donation->donationsReceived) {
                     if ($donation->donations < $donations) $donation->donations = $donations;
                     if ($donation->donationsReceived < $donationsReceived) $donation->donationsReceived = $donationsReceived;
@@ -112,13 +121,14 @@ class HomeController extends Controller
                     'id' => $idDonations,
                     'donations' => $donations,
                     'donationsReceived' => $donationsReceived,
-                    'date_at' => time()
+                    'date_at' => time(),
+                    'clan_id' => $this->claninfo['tag']
                 ]);
             }
 
             // cantidad de listas de guerras creadas por usuarios
             $listCreates = [];
-            $listWarGroup = (new ListWar())->groupBy('user_id', true);
+            $listWarGroup = (new ListWar())->where(['clan_id' => $this->claninfo['tag']])->groupBy('user_id', true);
             $user = new User();
             foreach ($listWarGroup as $list){
                 if($user = $user->find($list['user_id'])){
@@ -140,20 +150,20 @@ class HomeController extends Controller
                     'home/home',
                     [
                         'listCreates' => $listCreates,
-                        'members' => $claninfo['memberList'],
+                        'members' => $this->claninfo['memberList'],
                         'players' => $players,
                         'max' => 1000*((int)date('d', time()))
                     ]
                 ),
                 'members' => count($players),
-                'members_in_clan' => count($claninfo['memberList']),
+                'members_in_clan' => count($this->claninfo['memberList']),
                 'url_get_donations' => Route::get('get.char.area.donations'),
                 'url_get_performance' => Route::get('get.char.bar.performance'),
                 'url_get_participation' => Route::get('get.war.participation'),
                 'url_player_status_update' => Route::get('player.update.status'),
                 'url_player_join_month' => Route::get('get.join.player')
             ]);
-        }elseif($claninfo['reason'] == 'inMaintenance'){
+        }elseif($this->claninfo['reason'] == 'inMaintenance'){
             Html::addVariables([
                 'body' => view('home/maintenance'),
                 'URL_RELOAD' => Route::get('home.reload'),
@@ -165,9 +175,10 @@ class HomeController extends Controller
     }
 
     public function updatePlayerStatus(){
+        $this->claninfo = Session::get('clan_info');
         $count = 0;
         if(time() > (Session::get('__UPDATE_STATUS_PLAYER__') ?? 0)){
-            $players = $this->player->where(['inClan' => 1])->get();
+            $players = $this->player->where(['inClan' => 1, 'clan_id' => $this->claninfo['tag']])->get();
             foreach($players as $player){
                 $player_info = (new Players($player->id))->getPlayerInfo();
                 if(in_array($player->status, ['active', 'wait'])){
@@ -250,10 +261,11 @@ class HomeController extends Controller
 
     public function reload()
     {
-        Session::set('clan_info', (new Client())->getClan()->getClanInfo());
-        Session::set('clan_war_log', (new Client())->getClan()->getWarLog());
-        Session::set('clan_current_war', (new Client())->getClan()->getCurrentWar());
-        Session::set('clan_current_war_league', (new Client())->getClan()->getCurrentWarLeagueGroup());
+        $this->claninfo = Session::get('clan_info');
+        Session::set('clan_info', (new Client())->getClan($this->claninfo['tag'])->getClanInfo());
+        Session::set('clan_war_log', (new Client())->getClan($this->claninfo['tag'])->getWarLog());
+        Session::set('clan_current_war', (new Client())->getClan($this->claninfo['tag'])->getCurrentWar());
+        Session::set('clan_current_war_league', (new Client())->getClan($this->claninfo['tag'])->getCurrentWarLeagueGroup());
         if (Session::get('clan_current_war')['state'] == 'notInWar') Session::destroy('clan_current_war');
         if (Session::get('clan_current_war_league')['state'] == 'notInWar') Session::destroy('clan_current_war_league');
         Route::reload($this->redirect);
@@ -303,7 +315,8 @@ class HomeController extends Controller
         for ($i = 1; $i <= 12; $i++) {
             $date = strtotime("$year-$i-1");
             $data['label'][] = date('M', $date);
-            if ($donations = $this->donations->find(date('Y-m', $date))){
+            if ($donations = $this->donations->where(['id' => date('Y-m', $date), 'clan_id' => $this->claninfo['tag']])->get()){
+                $donations = $donations[0];
                 $data['datasets'][0]['data'][] = (int)$donations->donations;
                 $data['datasets'][1]['data'][] = (int)$donations->donationsReceived;
                 if($donations->donations > $data['max']) $data['max'] = $donations->donations;
@@ -389,11 +402,11 @@ class HomeController extends Controller
         $data = [
             'label' => [],
             'datasets' => $datasets,
-            'max' => 0
+            'max' => 20
         ];
 
         $months = range(1, 12);
-        $players = (new Player)->where(['inClan' => 0])->get();
+        $players = (new Player)->where(['clan_id' => $this->claninfo['tag']])->get();
         $data_player = [];
         foreach($players as $player){
             $year = date('Y', strtotime($player->date));
@@ -442,7 +455,7 @@ class HomeController extends Controller
             'max' => 10
         ];
 
-        $memberList = Session::get('clan_info')['memberList'];
+        $memberList = $this->claninfo['memberList'];
         $_PLAYER = [];
         foreach ($memberList as $member){
             if($player = (new Player)->find($member['tag'])){

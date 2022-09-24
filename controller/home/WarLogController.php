@@ -2,17 +2,17 @@
 
 namespace controller\home;
 
-use core\{Controller,Session,Functions,Html,Route};
+use core\{Controller,Session,Html,Route};
 use model\War;
-use function core\{view};
+use function core\{dd, view};
 class WarLogController extends Controller{
-    private $view = 'home/index';
+    private $view;
     private $clanInfo;
     private $clanWarLog;
 
     public function __construct()
     {
-        $this->view = view($this->view);
+        $this->view = view('home/index');
         $this->clanInfo = Session::get('clan_info');
         $this->clanWarLog = Session::get('clan_war_log');
     }
@@ -25,7 +25,7 @@ class WarLogController extends Controller{
 
             foreach($warlog as &$log){
                 $log['id'] = substr(md5($log['endTime']), 0, 20);
-                if($log['details'] = (new War())->find($log['id'])) $log['details'] = $log['details']->id;
+                if($log['details'] = (new War())->where(['id' => $log['id'], 'clan_id' => $this->clanInfo['tag']])->get()) $log['details'] = $log['details'][0]->id;
                 $log['endTime'] = date('d M Y', strtotime(explode('.', $log['endTime'])[0]));
             }
 
@@ -43,13 +43,14 @@ class WarLogController extends Controller{
     }
 
     public function lastWar(string $id){
-        if($war = (new War())->find($id)){
+        if($war = (new War())->where(['id' => $id, 'clan_id' => $this->clanInfo['tag']])->get()){
+            $war = $war[0];
             Html::addVariables([
                 'body' => view('home/warlog/lastwar'),
                 'war' => view('home/currentwar/currentwar', ['currentWar' => json_decode($war->war, true)])
             ]);
         }
-        return view('home/index');
+        return $this->view;
     }
 
     public function reload(){ (new HomeController('warlog.index'))->reload(); }

@@ -17,6 +17,12 @@
                 <div class="input-group form-group mt-3">
                     <input type="password" class="form-control text-center p-3" placeholder="Repetir Contraseña" name="rpassword" required>
                 </div>
+                <div class="input-group form-group mt-3">
+                    <input type="email" class="form-control text-center p-3" placeholder="Correo Electronico" name="email" required>
+                </div>
+                <div class="input-group form-group mt-3">
+                    <input type="text" class="form-control text-center p-3" placeholder="Etiqueta del Clan: <?=Session::get('clan_info')['tag'] ?? ''?>" name="tag" required>
+                </div>
                 <div class="text-center">
                     <input type="submit" value="Crear Usuario" class="btn btn-primary mt-3 w-100 p-2">
                 </div>
